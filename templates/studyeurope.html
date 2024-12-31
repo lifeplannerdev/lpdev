@@ -1,0 +1,2193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study in Canada | Lifeplanner Universal</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: myfont;
+            src: url(/static/Cabin-Medium.ttf);
+        }
+
+        body {
+            font-family: myfont;
+            background: #f4f7fc;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #5f9cad, #8080bc);
+            color: white;
+            
+            padding: 2.5rem 1rem;
+            text-align: center;
+        }
+
+        header h2 {
+            font-size: 3.5rem;
+            margin: 0;
+            font-weight: 700;
+            text-transform: uppercase;
+
+        }
+
+
+        .nav-tab {
+            
+            border-radius: 20px;
+            margin-top: 20px;
+            background: linear-gradient(135deg, #5f9cad, #8080bc);
+            display:flex;
+           
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <style>
+         .navbar {
+    background: transparent;
+    
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    transition: background 0.3s ease; /* Smooth transition for background color */
+}
+
+
+        .navbar .nav-link {
+            color: #ffffff;
+            font-weight: 500;
+            margin:10px;
+            
+        }
+
+        .navbar .nav-link:hover {
+            color: #ff4757;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+            
+            
+        
+    
+        }
+
+        .navbar-brand {
+            font-weight: 500;
+            color: #ffffff;
+            
+        }
+        
+
+.icon-menu {
+  --gap: 5px;
+  --height-bar: 2.5px;
+  --pos-y-bar-one: 0;
+  --pos-y-bar-three: 0;
+  --scale-bar: 1;
+  --rotate-bar-one: 0;
+  --rotate-bar-three: 0;
+  width: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  cursor: pointer;
+  position: relative;
+  margin-top:5px;
+  margin-right: 10px;
+  display:none;
+}
+@media (max-width: 767px) {
+            .icon-menu {
+                display: flex; 
+            }
+        }
+       
+.bar {
+  position: relative;
+  height:3.2px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+
+@keyframes slideFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .icon-menu{
+        display: block;
+        
+    }
+    .bar {
+  position: relative;
+  height: 5px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
+  margin:2px;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+    }
+    </style>
+       <nav class="navbar navbar-expand-lg navbar-dark">
+        <img src="/static/LPsymbol.png" style="height:40px;width:90px;">
+        <input hidden class="check-icon" id="check-icon" name="check-icon" type="checkbox">
+        <label class="icon-menu" for="check-icon" data-toggle="collapse" data-target="#navbarNav">
+            <div class="bar bar--1"></div>
+            <div class="bar bar--2"></div>
+            <div class="bar bar--3"></div>
+        </label>
+    
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:home' %}">Home</a></li>
+                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:service' %}">Services</a></li>
+                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:canada' %}">Immigration</a></li>
+                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:blog' %}">Blog</a></li>
+                <!-- University Dropdown -->
+                <li class="nav-item ml-4 dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        University
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background: rgba(0, 0, 0, 0.566);">
+                        <a class="dropdown-item text-white" href="{% url 'lpapp:studycanada' %}">English-Speaking Countries</a>
+                        <a class="dropdown-item text-white mt-3" href="{% url 'lpapp:studyeurope' %}">European Countries</a>
+                        
+                        
+                    </div>
+                </li>
+                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:contact' %}">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+        <script>
+            // Navbar background color change on scroll or menu toggle
+      function updateNavbarBackground() {
+          const navbar = document.querySelector(".navbar");
+          const menuCheckbox = document.querySelector("#check-icon");
+      
+          if (menuCheckbox.checked || window.scrollY > 50) {
+              navbar.style.background = "rgba(0, 0, 0, 0.8)";
+          } else {
+              navbar.style.background = "transparent";
+          }
+      }
+      
+      // Attach scroll event listener
+      window.addEventListener("scroll", updateNavbarBackground);
+      
+      // Attach toggle menu listener
+      document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
+      
+          </script>
+          <style>
+            header h2{
+                animation: slideFadeIn 1.5s ease-in-out;
+            }
+            h3{
+                font-weight: bold;
+                color:#5f9cad;
+            }
+          </style>
+    <header>
+        <h2 style="margin-top: 50px;" id="header-title">EUROPEAN COUNTRIES</h2>
+
+        
+        
+    </header>
+    <style>
+      /* Dropdown container styling */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+  
+      /* Dropdown button styling */
+      .dropdown-btn {
+        background: linear-gradient(135deg, #5f9cad, #8080bc);
+        color: white;
+        padding: 10px 20px;
+        font-size: 20px;
+        border: none;
+        font-weight: bold;
+        border-bottom-right-radius: 15px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: -1px;
+      }
+  
+      .dropdown-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      /* Dropdown menu styling */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background: linear-gradient(135deg, #5f9cad, #8080bc);
+        min-width: 160px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        margin-top: 5px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+      }
+  
+      .dropdown-content.show {
+        display: block;
+        transform: translateX(0);
+        opacity: 1;
+      }
+  
+      /* Dropdown menu links */
+      .dropdown-content a {
+        color: #ffffff;
+        padding: 10px 20px;
+        text-decoration: none;
+        display: block;
+        font-weight: bold;
+        border-bottom: 1px solid #e6e6e6;
+      }
+  
+      .dropdown-content a:last-child {
+        border-bottom: none;
+      }
+  
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+        color: #007bff;
+      }
+    </style>
+  
+    <div class="dropdown">
+      <button class="dropdown-btn" id="dropdownBtn" onclick="toggleDropdown()">Countries</button>
+      <div class="dropdown-content" id="dropdownContent">
+        <a href="#" onclick="switchCountry('germany')">Germany</a>
+        <a href="#" onclick="switchCountry('poland')">Poland</a>
+        <a href="#" onclick="switchCountry('bulgaria')">Bulgaria</a>
+        <a href="#" onclick="switchCountry('spain')">Spain</a>
+        <a href="#" onclick="switchCountry('italy')">Italy</a>
+        <a href="#" onclick="switchCountry('hungary')">Hungary</a>
+        <a href="#" onclick="switchCountry('sweden')">Sweden</a>
+        <a href="#" onclick="switchCountry('france')">France</a>
+        <a href="#" onclick="switchCountry('moldova')">Moldova</a>
+      </div>
+    </div>
+  
+    <script>
+      // Function to switch country and update dropdown text
+      function switchCountry(countryName) {
+        const dropdownBtn = document.getElementById("dropdownBtn");
+        dropdownBtn.textContent = countryName; // Update button text
+        console.log(`Switched to: ${countryName}`); // Log the change for debugging
+        toggleDropdown(); // Close the dropdown after selection
+      }
+  
+      // Function to toggle the visibility of the dropdown menu
+      function toggleDropdown() {
+        const dropdownContent = document.getElementById("dropdownContent");
+        if (dropdownContent.classList.contains("show")) {
+          dropdownContent.classList.remove("show");
+          setTimeout(() => (dropdownContent.style.display = "none"), 300); // Allow animation to finish before hiding
+        } else {
+          dropdownContent.style.display = "block";
+          setTimeout(() => dropdownContent.classList.add("show"), 10); // Add a slight delay to allow transition to apply
+        }
+      }
+  
+      // Close the dropdown if clicked outside
+      window.onclick = function(event) {
+        const dropdownContent = document.getElementById("dropdownContent");
+        const dropdownBtn = document.getElementById("dropdownBtn");
+        if (!dropdownBtn.contains(event.target) && !dropdownContent.contains(event.target)) {
+          dropdownContent.classList.remove("show");
+          setTimeout(() => (dropdownContent.style.display = "none"), 300);
+        }
+      };
+    </script>
+    
+      
+    
+    <div id="germany" class="country-content bg-white mt-4 p-4 rounded shadow fade-in">
+        <h3 class="border-bottom pb-2">Studying in Germany: A Complete Guide for International Students</h3>
+        <br>
+        <p>Germany has emerged as one of the most popular destinations for international students seeking high-quality education and promising career opportunities. Known for its world-class universities, affordable education, and welcoming environment, Germany is a dream destination for those wanting to study abroad. In this blog, we will explore why Germany is a preferred choice, the benefits of studying there, popular courses, part-time job opportunities, work options after graduation, and immigration rules applicable to students.</p>
+        <br><br>
+        <div style="display:flex;justify-content: center;align-items: center;">
+            <img src="https://images.pexels.com/photos/2570062/pexels-photo-2570062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:100%;height:100%;border-radius: 10px;margin-bottom: 50px;">
+        </div>
+        <br><br>
+        <h3>Why Choose Germany for Higher Education?</h3>
+        <br>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>World-Class Education:</strong> German universities consistently rank among the best globally, offering cutting-edge research facilities and highly qualified faculty.</li>
+            <li class="list-group-item"><strong>Low or No Tuition Fees:</strong> Public universities in Germany offer education with minimal or even zero tuition fees, making it affordable for international students.</li>
+            <li class="list-group-item"><strong>Globally Recognised Degrees:</strong> Degrees from German universities are highly respected worldwide, ensuring better career prospects.</li>
+            <li class="list-group-item"><strong>Wide Range of Courses:</strong> From engineering and medicine to business and arts, Germany offers a diverse range of programmes.</li>
+            <li class="list-group-item"><strong>Work Opportunities:</strong> Students can work part-time during their studies and explore full-time employment options after graduation.</li>
+            <li class="list-group-item"><strong>Cultural Exposure:</strong> Germany provides a rich cultural experience, with its historic cities, festivals, and modern lifestyle.</li>
+        </ul>
+        <br><br>
+        <h3>Benefits of Studying in Germany</h3>
+        <br>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Affordable Living:</strong> Compared to other European countries, the cost of living in Germany is quite reasonable. Students can live comfortably on a budget of €800-€1,000 per month.</li>
+            <li class="list-group-item"><strong>Scholarships:</strong> Various scholarships, such as DAAD (Deutscher Akademischer Austauschdienst), help international students fund their studies.</li>
+            <li class="list-group-item"><strong>Safe and Welcoming Environment:</strong> Germany is known for its safety, quality of life, and inclusive society.</li>
+            <li class="list-group-item"><strong>Work While Studying:</strong> International students can work up to 20 hours per week or 120 full days in a year, allowing them to support themselves while gaining valuable experience.</li>
+        </ul>
+        <br><br>
+        <h3>Popular Courses in Germany</h3>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Top Courses</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Engineering</td>
+                    <td>Mechanical Engineering, Automotive Engineering, Electrical Engineering, Civil Engineering</td>
+                </tr>
+                <tr>
+                    <td>Business and Management</td>
+                    <td>MBA, International Business, Finance, Marketing</td>
+                </tr>
+                <tr>
+                    <td>Medicine and Life Sciences</td>
+                    <td>Human Medicine, Biotechnology, Pharmacy</td>
+                </tr>
+                <tr>
+                    <td>IT and Computer Science</td>
+                    <td>Data Science, Artificial Intelligence, Software Development</td>
+                </tr>
+                <tr>
+                    <td>Arts and Humanities</td>
+                    <td>Media Studies, Literature, Design, Architecture</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h3>Top Universities in Germany</h3>
+        <br>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Technical University of Munich (TUM):</strong> Known for engineering and technology.</li>
+            <li class="list-group-item"><strong>Ludwig Maximilian University of Munich (LMU):</strong> Specialises in humanities, medicine, and social sciences.</li>
+            <li class="list-group-item"><strong>Heidelberg University:</strong> Germany's oldest university, excelling in medicine and research.</li>
+            <li class="list-group-item"><strong>RWTH Aachen University:</strong> Renowned for mechanical and electrical engineering.</li>
+            <li class="list-group-item"><strong>University of Stuttgart:</strong> Famous for automotive engineering and architecture.</li>
+            <li class="list-group-item"><strong>Humboldt University of Berlin:</strong> A leader in arts, humanities, and natural sciences.</li>
+        </ul>
+        <br><br>
+        <h3>Part-Time Jobs for Students</h3>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Work Hours:</strong> International students can work up to 20 hours per week during the semester.</li>
+            <li class="list-group-item"><strong>Hourly Wage:</strong> The average wage is between €12-€15 per hour, depending on the job type.</li>
+            <li class="list-group-item"><strong>Job Options:</strong> Students can work as research assistants, tutors, waiters, delivery drivers, or in retail positions.</li>
+            <li class="list-group-item"><strong>Language Requirement:</strong> Knowing basic German can help students find better job opportunities, though many roles are available in English.</li>
+        </ul>
+        <br><br>
+        <h3>Work Opportunities After Graduation</h3>
+        <br>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Post-Study Work Visa:</strong> After completing their studies, students can apply for an 18-month residence permit to search for a job related to their degree.</li>
+            <li class="list-group-item"><strong>High Demand for Skilled Professionals:</strong> Fields like engineering, IT, healthcare, and finance have a growing demand for international talent.</li>
+            <li class="list-group-item"><strong>Blue Card:</strong> Once employed, graduates can apply for an EU Blue Card, which allows them to live and work in Germany and other EU countries.</li>
+        </ul>
+        <br><br>
+        <h3>Immigration Rules for Students</h3>
+        <br>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Student Visa:</strong> Students need a long-term national visa (type D visa) to study in Germany.</li>
+            <li class="list-group-item"><strong>Blocked Account:</strong> Students must open a blocked account with approximately €11,208 as proof of financial support for the first year.</li>
+            <li class="list-group-item"><strong>Health Insurance:</strong> All students must have valid health insurance to enrol in a university.</li>
+            <li class="list-group-item"><strong>Residence Permit:</strong> Students must register their address and apply for a residence permit within 90 days of arriving in Germany.</li>
+        </ul>
+        <br>
+        <p>Germany offers an unbeatable combination of high-quality education, affordable living, and promising career opportunities, making it an ideal destination for international students. With globally recognised degrees, part-time job options, and post-study work opportunities, students can gain both academic excellence and professional growth. Whether you are pursuing engineering, business, or arts, Germany has a place for you.</p>
+        <p>If you dream of studying abroad, Germany might just be the perfect choice for your future. Start planning today, and explore the countless opportunities waiting for you!</p>
+    </div>
+    <div id="bulgaria" class="country-content container bg-white mt-4 p-4 rounded shadow fade-in" style="display: none;">
+        <h3 class="border-bottom pb-2">A Complete Guide to Studying in Bulgaria</h3>
+        <br>
+        <p>Bulgaria, located in Southeast Europe, is increasingly becoming a popular destination for international students. The country's rich cultural heritage, affordable education, and welcoming environment make it an ideal choice for those seeking a well-rounded study experience.</p>
+        <br><br>
+        <div style="display:flex;justify-content: center;align-items: center;">
+            <img src="https://i.pinimg.com/736x/4b/fc/fa/4bfcfa242f07e99ce0fb62fbb6f029f6.jpg" style="width:100%;height:100%;border-radius: 10px;margin-bottom: 50px;">
+        </div>
+        <br><br>
+        <h3>Why Study in Bulgaria?</h3>
+        <br>
+        <ul>
+            <li><strong>Affordable Education:</strong> Tuition fees and living costs are significantly lower compared to other European countries.</li>
+            <li><strong>Globally Recognised Degrees:</strong> Bulgarian universities are accredited and offer programmes that are recognised worldwide.</li>
+            <li><strong>Cultural Diversity:</strong> Students can experience a mix of Eastern and Western European cultures.</li>
+            <li><strong>Safe Environment:</strong> Bulgaria is known for its peaceful and student-friendly environment.</li>
+        </ul>
+        <br><br>
+        <h3>Top Universities in Bulgaria</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>University</th>
+                    <th>Popular Programmes</th>
+                    <th>Location</th>
+                    <th>Language of Instruction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sofia University "St. Kliment Ohridski"</td>
+                    <td>Medicine, Law, IT</td>
+                    <td>Sofia</td>
+                    <td>Bulgarian, English</td>
+                </tr>
+                <tr>
+                    <td>Medical University of Plovdiv</td>
+                    <td>Medicine, Dentistry, Pharmacy</td>
+                    <td>Plovdiv</td>
+                    <td>English</td>
+                </tr>
+                <tr>
+                    <td>University of National and World Economy</td>
+                    <td>Business, Economics, Political Science</td>
+                    <td>Sofia</td>
+                    <td>Bulgarian, English</td>
+                </tr>
+                <tr>
+                    <td>Technical University of Sofia</td>
+                    <td>Engineering, Computer Science</td>
+                    <td>Sofia</td>
+                    <td>Bulgarian, English</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h3>Popular Courses for International Students</h3>
+        <br>
+        <ul>
+            <li>Medicine and Dentistry</li>
+            <li>Business Administration</li>
+            <li>Computer Science and IT</li>
+            <li>Engineering</li>
+            <li>Tourism and Hospitality Management</li>
+        </ul>
+        <br><br>
+        <h3>Cost of Studying and Living in Bulgaria</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Expense</th>
+                    <th>Average Cost (per month in EUR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tuition Fees</td>
+                    <td>3,000 – 8,000 per year</td>
+                </tr>
+                <tr>
+                    <td>Accommodation</td>
+                    <td>150 – 300</td>
+                </tr>
+                <tr>
+                    <td>Food</td>
+                    <td>120 – 200</td>
+                </tr>
+                <tr>
+                    <td>Transportation</td>
+                    <td>20 – 50</td>
+                </tr>
+                <tr>
+                    <td>Miscellaneous</td>
+                    <td>50 – 100</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h3>Admission Process</h3>
+        <br>
+        <ol>
+            <li><strong>Choose a Programme:</strong> Research universities and courses that match your interests.</li>
+            <li><strong>Check Entry Requirements:</strong> Most universities require a high school diploma, proof of English proficiency, and other specific criteria.</li>
+            <li><strong>Apply Online:</strong> Submit your application on the university's portal or through authorised agencies.</li>
+            <li><strong>Get Your Visa:</strong> Non-EU students need a student visa. Ensure you have your acceptance letter and sufficient funds to support your stay.</li>
+        </ol>
+        <br><br>
+        <h3>Work Opportunities</h3>
+        <br>
+        <p><strong>During Studies:</strong></p>
+        <br>
+        <ul>
+            <li>International students can work part-time for up to 20 hours per week.</li>
+            <li>Popular jobs include tutoring, hospitality, and freelance opportunities.</li>
+        </ul>
+        <br><br>
+        <p><strong>After Graduation:</strong></p>
+        <br>
+        <ul>
+            <li>Bulgaria allows international students to stay for a year post-graduation to look for work.</li>
+            <li>Key industries hiring graduates include IT, healthcare, and tourism.</li>
+        </ul>
+        <br><br>
+        <h3>Tips for International Students</h3>
+        <br>
+        <ul>
+            <li><strong>Learn Basic Bulgarian:</strong> While many programmes are in English, knowing the local language helps in daily life.</li>
+            <li><strong>Explore the Country:</strong> Bulgaria offers stunning mountains, beaches, and historical sites.</li>
+            <li><strong>Network:</strong> Join student organisations and connect with locals for a better experience.</li>
+        </ul>
+        <br><br>
+        <h3>Conclusion</h3>
+        <br>
+        <p>Studying in Bulgaria offers a unique combination of quality education, cultural exploration, and affordability. Whether you are interested in medicine, engineering, or business, Bulgaria provides ample opportunities to excel academically and professionally.</p>
+    </div>
+    
+    <div id="poland" class="country-content container bg-white mt-4 p-4 rounded shadow fade-in" style="display: none;">
+        <h3 class="border-bottom pb-2">A Complete Guide to Studying in Poland</h3>
+        <br>
+        <p>Poland has become a popular choice for international students, offering affordable tuition fees, a rich cultural heritage, and strong academic programmes. With high-quality education and growing career opportunities, Poland is an excellent destination for students seeking both academic and personal growth.</p>
+        <br><br>
+        <div style="display:flex;justify-content: center;align-items: center;">
+            <img src="https://images.pexels.com/photos/4050261/pexels-photo-4050261.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:100%;height:100%;border-radius: 10px;margin-bottom: 50px;">
+        </div>
+        <br><br>
+        <h3>Why Study in Poland?</h3>
+        <br>
+        <ul>
+            <li><strong>Affordable Education:</strong> Compared to Western Europe, Poland offers lower tuition fees and living costs while maintaining high academic standards.</li>
+            <li><strong>Globally Recognised Degrees:</strong> Polish universities are internationally accredited, ensuring that degrees are widely accepted and respected.</li>
+            <li><strong>Cultural and Historical Heritage:</strong> Poland offers a fascinating mix of modern education and a rich cultural history, with opportunities to explore its diverse cities and landmarks.</li>
+            <li><strong>Work Opportunities:</strong> International students can work part-time during their studies and enjoy post-graduation work options, especially in growing sectors like IT and healthcare.</li>
+        </ul>
+        <br><br>
+        <h3>Top Universities in Poland</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>University</th>
+                    <th>QS World Ranking 2024</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>University of Warsaw</td>
+                    <td>262</td>
+                    <td>Warsaw</td>
+                </tr>
+                <tr>
+                    <td>Jagiellonian University</td>
+                    <td>304</td>
+                    <td>Kraków</td>
+                </tr>
+                <tr>
+                    <td>Warsaw University of Technology</td>
+                    <td>571-580</td>
+                    <td>Warsaw</td>
+                </tr>
+                <tr>
+                    <td>Wrocław University of Science and Technology</td>
+                    <td>851-900</td>
+                    <td>Wrocław</td>
+                </tr>
+                <tr>
+                    <td>Poznań University of Economics</td>
+                    <td>801-1000</td>
+                    <td>Poznań</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h3>Popular Courses for International Students</h3>
+        <br>
+        <ul>
+            <li>Engineering (Mechanical, Civil, IT, Electrical)</li>
+            <li>Business and Economics</li>
+            <li>Medicine and Healthcare</li>
+            <li>Computer Science</li>
+            <li>Tourism and Hospitality</li>
+        </ul>
+        <br><br>
+        <h3>Cost of Studying and Living in Poland</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Expense</th>
+                    <th>Average Cost (per month in EUR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tuition Fees</td>
+                    <td>2,000 – 6,000 per year</td>
+                </tr>
+                <tr>
+                    <td>Accommodation</td>
+                    <td>150 – 350</td>
+                </tr>
+                <tr>
+                    <td>Food</td>
+                    <td>100 – 150</td>
+                </tr>
+                <tr>
+                    <td>Transportation</td>
+                    <td>20 – 30</td>
+                </tr>
+                <tr>
+                    <td>Miscellaneous</td>
+                    <td>50 – 100</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h3>Admission Process</h3>
+        <br>
+        <ol>
+            <li><strong>Choose a Programme:</strong> Research universities and programmes that align with your interests and career goals.</li>
+            <li><strong>Check Entry Requirements:</strong> Each programme has specific entry requirements, such as a high school diploma (undergraduate) or a bachelor's degree (postgraduate), and proof of English proficiency (IELTS/TOEFL).</li>
+            <li><strong>Apply Online:</strong> Submit your application directly through the university’s portal or an official agency.</li>
+            <li><strong>Get Your Visa:</strong> Non-EU students must apply for a student visa, providing proof of acceptance, financial support, and health insurance.</li>
+        </ol>
+        <br><br>
+        <h3>Work Opportunities</h3>
+        <br>
+        <p><strong>During Studies:</strong></p>
+        <br>
+        <ul>
+            <li>International students are allowed to work up to 20 hours per week during the semester and full-time during holidays.</li>
+            <li>Common student jobs include tutoring, hospitality, and freelance work.</li>
+        </ul>
+        <br><br>
+        <p><strong>After Graduation:</strong></p>
+        <br>
+        <ul>
+            <li>Poland offers a post-study work visa for international graduates, allowing them to search for employment for up to 12 months.</li>
+            <li>Top industries hiring graduates include IT, engineering, healthcare, and finance.</li>
+        </ul>
+    <br><br>
+        <h3>Tips for International Students</h3>
+        <br>
+        <ul>
+            <li><strong>Embrace Polish Culture:</strong> While many programmes are in English, learning some Polish will help you interact with locals and immerse yourself in the culture.</li>
+            <li><strong>Explore the Country:</strong> Poland is known for its beautiful landscapes, historic cities, and vibrant student life.</li>
+            <li><strong>Stay Connected:</strong> Join student organizations and events to make the most of your time in Poland.</li>
+        </ul>
+        <br><br>
+        <h3>Conclusion</h3>
+        <br>
+        <p>Poland offers an affordable and high-quality education, making it a great choice for international students. Whether you're pursuing a degree in engineering, business, or healthcare, Poland's universities provide excellent opportunities to grow academically and professionally in a vibrant cultural setting.</p>
+    </div>
+    
+    <div id="spain" class="country-content container bg-white mt-4 p-4 rounded shadow fade-in" style="display: none;">
+        <h3 class="border-bottom pb-2">Studying in Spain</h3>
+        <br>
+        <p>Spain is a top destination for international students, offering excellent education, vibrant culture, and promising work opportunities. Here's everything you need to know before embarking on this exciting journey.</p>
+        <br><br>
+        <div style="display:flex;justify-content: center;align-items: center;">
+            <img src="https://images.pexels.com/photos/19673981/pexels-photo-19673981/free-photo-of-antique-university-in-cordoba.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:100%;height:100%;border-radius: 10px;margin-bottom: 50px;">
+        </div>
+        <br><br>
+        <h3>The Spanish Higher Education System</h3>
+        <br>
+        <p>Spain boasts 76 universities, including public and private institutions, offering a broad range of programs. Degrees are aligned with the European Higher Education Area (EHEA), ensuring international recognition.</p>
+        <br><br>
+        <h4>Degree Types:</h4>
+        <br>
+        <ul>
+            <li><strong>Grado (Bachelor's):</strong> 240 ECTS (4 years).</li>
+            <li><strong>Máster (Master's):</strong> 60-120 ECTS (1-2 years).</li>
+            <li><strong>Doctorado (PhD):</strong> Research-intensive, typically 3-5 years.</li>
+        </ul>
+        <br><br>
+        <h3>Admission Requirements</h3>
+        <br>
+        <h4>General Eligibility:</h4>
+        <br>
+        <ul>
+            <li>Completion of secondary education equivalent to the Spanish Bachillerato.</li>
+            <li>Recognised qualifications for postgraduate programs.</li>
+        </ul>
+        <br>
+        <h4>Language Proficiency:</h4>
+        <br>
+        <ul>
+            <li>For Spanish-taught programs: DELE (Diploma de Español como Lengua Extranjera) or SIELE.</li>
+            <li>For English-taught programs: TOEFL or IELTS scores.</li>
+        </ul>
+        <br>
+        <h4>Additional Requirements:</h4>
+        <br>
+        <ul>
+            <li>Some universities require specific entrance exams (e.g., selectividad or EBAU for undergraduate admissions).</li>
+        </ul>
+        <br><br>
+        <h3>Popular Fields of Study</h3>
+        <br>
+        <ul>
+            <li>Business and Management (e.g., ESADE, IE Business School)</li>
+            <li>Engineering and Technology</li>
+            <li>Architecture and Design</li>
+            <li>Medicine and Health Sciences</li>
+            <li>Arts and Humanities</li>
+        </ul>
+        <br><br>
+        <h3>Tuition Fees</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>University Type</th>
+                    <th>Undergraduate</th>
+                    <th>Postgraduate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Public Universities</td>
+                    <td>€1,000 - €3,500/year</td>
+                    <td>€1,500 - €3,500/year</td>
+                </tr>
+                <tr>
+                    <td>Private Universities</td>
+                    <td>€5,000 - €18,000/year</td>
+                    <td>€6,000 - €20,000/year</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h3>Average Monthly Expenses</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Expense</th>
+                    <th>Cost (€)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Accommodation</td>
+                    <td>400-700</td>
+                </tr>
+                <tr>
+                    <td>Food and Groceries</td>
+                    <td>150-250</td>
+                </tr>
+                <tr>
+                    <td>Transportation</td>
+                    <td>40-60 (student discounts available)</td>
+                </tr>
+                <tr>
+                    <td>Miscellaneous</td>
+                    <td>100-200</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>Living costs vary by city:</strong></p>
+        <ul>
+            <li><strong>Affordable Cities:</strong> Granada, Valencia.</li>
+            <li><strong>Expensive Cities:</strong> Madrid, Barcelona.</li>
+        </ul>
+        <br><br>
+        <h3>Top Scholarships and Financial Aid</h3>
+        <br>
+        <ul>
+            <li>Erasmus Mundus Joint Master Degree Scholarships</li>
+            <li>Spanish Government Scholarships</li>
+            <li>La Caixa Foundation Scholarships</li>
+            <li>University-specific grants (e.g., Universitat de Barcelona, IE Foundation)</li>
+        </ul>
+        <br>
+        <p>Eligibility criteria and application deadlines vary, so check specific programs early.</p>
+        <br><br>
+        <h3>Working During Studies</h3>
+        <br>
+        <h4>Legal Work Hours:</h4>
+        <br>
+        <ul>
+            <li>20 hours per week during term time.</li>
+            <li>Full-time during holidays.</li>
+        </ul>
+        <br><br>
+        <h4>Work Permits:</h4>
+        <br>
+        <ul>
+            <li>Employer must sponsor the work permit.</li>
+            <li>Part-time jobs are commonly available in hospitality, retail, and tutoring.</li>
+        </ul>
+        <br><br>
+        <h3>Post-Study Work Opportunities</h3>
+        <br>
+        <h4>Job Search Visa:</h4>
+        <br>
+        <ul>
+            <li>After graduation, you can apply for a 12-month residence permit to search for jobs.</li>
+            <li>Extendable if employed in a field related to your degree.</li>
+        </ul>
+        <br><br>
+        <h4>Employment Sectors:</h4>
+        <br>
+        <ul>
+            <li>Engineering and IT</li>
+            <li>Healthcare</li>
+            <li>Tourism and Hospitality</li>
+            <li>Renewable Energy</li>
+        </ul>
+        <p><strong>Average Starting Salary:</strong> €20,000 - €30,000/year depending on the field.</p>
+        <br><br>
+        <h3>Accommodation Options</h3>
+        <br>
+        <ul>
+            <li><strong>University Residences:</strong> Easy access, social environment.</li>
+            <li><strong>Shared Flats:</strong> Affordable and common among students.</li>
+            <li><strong>Homestays:</strong> Cultural immersion and language practice.</li>
+        </ul>
+        <br>
+        <p><strong>Tip:</strong> Use platforms like Idealista and Badi for rentals.</p>
+        <br><br>
+        <h3>Visa Process</h3>
+        <br>
+        <h4>Required Documents:</h4>
+        <br>
+        <ul>
+            <li>Acceptance letter from a Spanish university.</li>
+            <li>Proof of financial means (€600/month).</li>
+            <li>Health insurance.</li>
+            <li>Valid passport.</li>
+            <li>Visa application form.</li>
+        </ul>
+        <br><br>
+        <h4>Visa Types:</h4>
+        <br>
+        <ul>
+            <li><strong>Student Visa:</strong> Valid for courses longer than 90 days.</li>
+            <li><strong>Residence Permit:</strong> Mandatory after 90 days in Spain.</li>
+        </ul>
+        <br><br>
+        <h3>Cultural and Social Aspects</h3>
+        <br>
+        <ul>
+            <li><strong>Language:</strong> While many courses are in English, learning Spanish is essential for integration and work opportunities.</li>
+            <li><strong>Lifestyle:</strong> Spain’s rich traditions include siestas, tapas culture, and vibrant festivals like La Tomatina and Feria de Abril.</li>
+            <li><strong>Transportation:</strong> Affordable public transport: Metro, buses, and high-speed trains (AVE).</li>
+        </ul>
+        <br><br>
+        <h3>Conclusion</h3>
+        <br>
+        <p>Spain offers a fulfilling academic and cultural experience. By understanding the admission process, financial planning, and work opportunities, you can make the most of your study journey in this beautiful country. Prepare well, embrace the culture, and let Spain become your gateway to global opportunities. Life Planner is here to guide you every step of the way, ensuring a seamless and rewarding transition to studying in Spain.</p>
+    </div>
+    
+    <div id="italy" class="country-content container bg-white mt-4 p-4 rounded shadow fade-in" style="display: none;">
+        <h3 class="border-bottom pb-2">Studies in Italy</h3>
+        <br>
+        <p>Italy, with its rich history, world-renowned academic institutions, and vibrant culture, is an ideal destination for international students. From historical landmarks to modern universities, Italy offers an enriching academic and cultural experience. Whether you’re pursuing a degree in art, engineering, or design, studying in Italy can be a life-changing experience.</p>
+        <br><br>
+        <h3>Why Study in Italy?</h3>
+        <br>
+        <ul>
+            <li><strong>World-Class Education:</strong> Italy is home to some of the oldest and most prestigious universities in the world, such as the University of Bologna, founded in 1088.</li>
+            <li><strong>High-Quality Degrees:</strong> Italian universities are recognised for their high academic standards, particularly in fields like engineering, architecture, fashion, and art.</li>
+            <li><strong>Cultural Heritage:</strong> Italy offers students a unique opportunity to immerse themselves in rich culture, art, history, and cuisine.</li>
+            <li><strong>Student Life:</strong> Enjoy a lively student culture with events, festivals, and a close-knit community of international students.</li>
+        </ul>
+        <br><br>
+        <div style="display:flex;justify-content: center;align-items: center;">
+            <img src="https://images.pexels.com/photos/5067083/pexels-photo-5067083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:100%;height:100%;border-radius: 10px;margin-bottom: 50px;">
+        </div>
+        <br><br>
+        <h3>Top Universities in Italy</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>University Name</th>
+                    <th>Location</th>
+                    <th>Key Focus Areas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>University of Bologna</td>
+                    <td>Bologna</td>
+                    <td>Arts, Humanities, Engineering, Law</td>
+                </tr>
+                <tr>
+                    <td>Sapienza University of Rome</td>
+                    <td>Rome</td>
+                    <td>Engineering, Medicine, Humanities</td>
+                </tr>
+                <tr>
+                    <td>University of Padua</td>
+                    <td>Padua</td>
+                    <td>Science, Technology, Philosophy</td>
+                </tr>
+                <tr>
+                    <td>Polytechnic University of Milan</td>
+                    <td>Milan</td>
+                    <td>Engineering, Architecture, Design</td>
+                </tr>
+                <tr>
+                    <td>University of Milan</td>
+                    <td>Milan</td>
+                    <td>Sciences, Medicine, Social Sciences</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h3>How to Apply to Italian Universities?</h3>
+        <br>
+        <ul>
+            <li><strong>Choose Your Course:</strong> Research universities and programs that align with your interests. Many English-taught courses are available, especially at the postgraduate level.</li>
+            <li><strong>Check the Entry Requirements:</strong>
+                <ul>
+                    <li><strong>Bachelor’s:</strong> Generally requires a high school diploma and proof of proficiency in English or Italian.</li>
+                    <li><strong>Master’s:</strong> Requires a relevant bachelor’s degree, along with language proficiency certificates.</li>
+                </ul>
+            </li>
+            <li><strong>Prepare Documents:</strong> Passport, academic transcripts, language proficiency certificates (IELTS, TOEFL for English programs), and motivation letter.</li>
+            <li><strong>Apply Online:</strong> Most universities have an online application system. Application deadlines are typically between March and June for the autumn intake.</li>
+            <li><strong>Pay the Application Fee:</strong> Fees range from €30 to €100 depending on the university.</li>
+        </ul>
+        <br><br>
+        <h3>Visa Requirements for Italy</h3>
+        <br>
+        <h4>1. Apply for a Student Visa</h4>
+        <br>
+        <ul>
+            <li><strong>When to Apply:</strong> At least 3 months before your intended travel date.</li>
+            <li><strong>Documents Required:</strong>
+                <ul>
+                    <li>Valid passport</li>
+                    <li>Proof of enrolment in an Italian university</li>
+                    <li>Proof of financial support (€6,000–€7,000 for the year)</li>
+                    <li>Health insurance</li>
+                    <li>Accommodation proof</li>
+                    <li>Return ticket or proof of exit after your studies</li>
+                </ul>
+            </li>
+        </ul>
+        <h4>2. Permit to Stay (Permesso di Soggiorno)</h4>
+        <br>
+        <ul>
+            <li>Apply within 8 days of arrival at the local post office.</li>
+            <li>Provide proof of accommodation, university enrollment, and required documents.</li>
+        </ul>
+        <br><br>
+        <h3>Cost of Living in Italy</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Expense</th>
+                    <th>Average Cost (€)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Accommodation (per month)</td>
+                    <td>€300 - €700</td>
+                </tr>
+                <tr>
+                    <td>Food (per month)</td>
+                    <td>€150 - €200</td>
+                </tr>
+                <tr>
+                    <td>Transportation (monthly pass)</td>
+                    <td>€25 - €45</td>
+                </tr>
+                <tr>
+                    <td>Health Insurance (annual)</td>
+                    <td>€150 - €300</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h3>Work Opportunities During Studies</h3>
+        <br>
+        <ul>
+            <li><strong>Work Hours:</strong> Up to 20 hours per week during term time, and full-time during vacations.</li>
+            <li><strong>Common Jobs:</strong> Cafes, restaurants, retail, tutoring, and internships related to your course.</li>
+            <li><strong>Earnings:</strong> Typically €5–€10 per hour.</li>
+        </ul>
+        <br><br>
+        <h3>Post-Graduation Work Opportunities</h3>
+        <br>
+        <ul>
+            <li><strong>Stay Permit Extension:</strong> Apply for an additional 12 months to search for a job related to your field of study.</li>
+            <li><strong>Industries with High Demand:</strong> Engineering, IT, finance, and design sectors.</li>
+            <li><strong>EU Citizens:</strong> Can work freely in Italy without a work permit.</li>
+        </ul>
+        <br><br>
+        <h3>Cultural Tips for International Students</h3>
+        <br>
+        <ul>
+            <li><strong>Learn Italian:</strong> Knowing basic Italian can make your experience smoother and more immersive.</li>
+            <li><strong>Respect Local Traditions:</strong> Italians value punctuality, etiquette, and dressing well.</li>
+            <li><strong>Socialising:</strong> Embrace opportunities to join family dinners or local outings for a genuine cultural experience.</li>
+        </ul>
+        <br><br>
+        <h3>Conclusion</h3>
+        <br>
+        <p>Studying in Italy is not just about earning a degree but also about immersing yourself in a rich culture, making lifelong memories, and unlocking new personal and professional opportunities. With the right preparation and guidance, your time in Italy can be an unforgettable and transformative journey.</p>
+    </div>
+    <div id="hungary" class="country-content container bg-white mt-4 p-4 rounded shadow fade-in" style="display: none;">
+        <h3 class="border-bottom pb-2">Studies in Hungary</h3>
+        <br>
+        <p>Hungary is quickly becoming a top destination for international students. With its high-quality education, affordable living costs, and rich culture, it offers a unique and fulfilling student experience. If you’re thinking about studying in Hungary, here’s everything you need to know:</p>
+        <br><br>
+        <h3>Why Choose Hungary?</h3>
+        <br>
+        <ul>
+            <li><strong>Quality Education:</strong> Hungary is home to several world-renowned universities that offer degrees in English, making it accessible to international students.</li>
+            <li><strong>Affordable Living Costs:</strong> Compared to other European countries, Hungary provides a more affordable option for students, including cheaper rent and food.</li>
+            <li><strong>Cultural Experience:</strong> Hungary has a rich history, diverse culture, and lively student life, giving you plenty of opportunities to explore.</li>
+        </ul>
+        <br><br>
+        <h3>Top Universities in Hungary</h3>
+        <br>
+        <div class="table-responsive">
+            <table class="table table-bordered" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th>University</th>
+                        <th>Location</th>
+                        <th>Established</th>
+                        <th>Popular Programs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Eötvös Loránd University (ELTE)</td>
+                        <td>Budapest</td>
+                        <td>1635</td>
+                        <td>Humanities, Science, Law</td>
+                    </tr>
+                    <tr>
+                        <td>University of Szeged</td>
+                        <td>Szeged</td>
+                        <td>1872</td>
+                        <td>Medicine, Natural Sciences, Arts</td>
+                    </tr>
+                    <tr>
+                        <td>Budapest University of Technology</td>
+                        <td>Budapest</td>
+                        <td>1782</td>
+                        <td>Engineering, Economics, Science</td>
+                    </tr>
+                    <tr>
+                        <td>Semmelweis University</td>
+                        <td>Budapest</td>
+                        <td>1769</td>
+                        <td>Medicine, Dentistry, Health Sciences</td>
+                    </tr>
+                    <tr>
+                        <td>University of Pécs</td>
+                        <td>Pécs</td>
+                        <td>1367</td>
+                        <td>Medicine, Business, Social Sciences</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <br><br>
+        <div style="display:flex;justify-content: center;align-items: center;">
+            <img src="https://images.pexels.com/photos/14031189/pexels-photo-14031189.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:100%;height:100%;border-radius: 10px;margin-bottom: 50px;">
+        </div>
+        <br><br>
+        <h3>Cost of Living in Hungary</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Expense</th>
+                    <th>Estimated Cost (EUR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Accommodation</td>
+                    <td>200–400</td>
+                </tr>
+                <tr>
+                    <td>Utilities</td>
+                    <td>50–100</td>
+                </tr>
+                <tr>
+                    <td>Food</td>
+                    <td>150–250</td>
+                </tr>
+                <tr>
+                    <td>Public Transport</td>
+                    <td>10–30</td>
+                </tr>
+                <tr>
+                    <td>Miscellaneous</td>
+                    <td>100–200</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h3>Work Opportunities During Your Studies</h3>
+        <br>
+        <ul>
+            <li><strong>On-Campus Jobs:</strong> Some universities offer part-time positions like research assistantships or administrative roles. These jobs usually pay between 4–6 EUR per hour.</li>
+            <li><strong>Off-Campus Jobs:</strong> International students can work up to 24 hours a week during the semester and full-time during holidays. Some common part-time jobs are in cafes, bars, or retail.</li>
+        </ul>
+        <br><br>
+        <h3>Post-Graduation Work Opportunities</h3>
+        <br>
+        <ul>
+            <li><strong>Job Search Visa:</strong> After completing your degree, you can apply for a 9-month visa to stay in Hungary and look for a job. This gives you time to find employment without the pressure of a visa expiry.</li>
+            <li><strong>Job Market:</strong> Hungary has a growing job market, particularly in fields like IT, healthcare, engineering, and business services. The government encourages the hiring of skilled graduates.</li>
+        </ul>
+        <br><br>
+        <h3>Language of Instruction</h3>
+        <br>
+        <ul>
+            <li><strong>English-Taught Programs:</strong> Most universities offer programs in English, especially for postgraduate courses. However, some undergraduate programs might still require knowledge of Hungarian.</li>
+            <li><strong>Learning Hungarian:</strong> While not mandatory, learning basic Hungarian can make daily life easier and improve your chances of finding a job after graduation.</li>
+        </ul>
+        <br><br>
+        <h3>Application Process & Deadlines</h3>
+        <br>
+        <ul>
+            <li><strong>Application Requirements:</strong> To apply, you will typically need:
+                <ul>
+                    <li>Academic transcripts and certificates</li>
+                    <li>Proof of English language proficiency (IELTS or TOEFL)</li>
+                    <li>Passport copy</li>
+                    <li>Motivation letter and CV (depending on the program)</li>
+                </ul>
+            </li>
+            <li><strong>Deadlines:</strong> Deadlines usually fall between February and April for the autumn intake (September start), so make sure to check individual university deadlines well in advance.</li>
+        </ul>
+        <br><br>
+        <h3>Scholarships and Financial Aid</h3>
+        <br>
+        <ul>
+            <li><strong>Stipendium Hungaricum:</strong> This is a government scholarship for students from countries outside the EU, covering tuition fees, living costs, and insurance.</li>
+            <li><strong>University-Specific Scholarships:</strong> Some universities provide their own scholarships, so it’s a good idea to check directly with your chosen institution.</li>
+        </ul>
+        <br><br>
+        <h3>Accommodation Options</h3>
+        <br>
+        <ul>
+            <li><strong>University Dormitories:</strong> The most affordable option, ranging from 100–200 EUR per month, but these are limited and may require an application in advance.</li>
+            <li><strong>Private Accommodation:</strong> Renting a shared flat or studio can cost between 200–400 EUR per month, depending on the location (Budapest being the most expensive).</li>
+        </ul>
+        <br><br>
+        <h3>Health Insurance</h3>
+        <br>
+        <ul>
+            <li><strong>Mandatory Health Insurance:</strong> All students are required to have health insurance. International students can either use Hungarian national health insurance or opt for private insurance.</li>
+            <li><strong>Student Insurance:</strong> Many universities offer student health insurance plans, which are often cheaper than private options.</li>
+        </ul>
+        <br><br>
+        <h3>Cultural Insights and Student Life</h3>
+        <br>
+        <ul>
+            <li><strong>Public Transport:</strong> Hungary has an efficient and affordable public transport system. Student passes for buses, trams, and metros are available at discounted rates.</li>
+            <li><strong>Student Discounts:</strong> With a student ID, you can get discounts at museums, cinemas, restaurants, and on public transport.</li>
+            <li><strong>Social Life:</strong> Hungary offers a vibrant student life with cultural events, music festivals, and plenty of places to explore, especially in Budapest.</li>
+        </ul>
+        <br>
+        <h3>Visa and Residence Permit</h3>
+        <br>
+        <ul>
+            <li><strong>Visa Requirements:</strong> Non-EU students must apply for a student visa before arrival. This visa allows you to stay for the duration of your studies.</li>
+            <li><strong>Residence Permit:</strong> Once in Hungary, you’ll need to apply for a residence permit for the purpose of studying. The process is straightforward and universities usually assist with this.</li>
+        </ul>
+        <br><br>
+        <h3>Conclusion</h3>
+        <br>
+        <p>Studying in Hungary is an exciting opportunity. With its affordable living costs, high-quality education, and job prospects, it offers everything a student needs for a fulfilling academic journey. By planning ahead and understanding the application process, work options, and cultural aspects, you’ll be ready to make the most of your time in Hungary. LifePlanner will guide you every step of the way, ensuring you have all the support you need to navigate this exciting journey.</p>
+    </div>
+    <div id="sweden" class="country-content container bg-white mt-4 p-4 rounded shadow fade-in" style="display: none;">
+        <h3 class="border-bottom pb-2">Studies in Sweden</h3>
+        <br>
+        <p>Sweden is a top choice for international students seeking world-class education, innovative teaching, and career opportunities. This guide covers everything you need to know about studying and working in Sweden, from application processes to post-study opportunities.</p>
+        <br><br>
+        <h3>Why Choose Sweden?</h3>
+        <br>
+        <ul>
+            <li><strong>Global Reputation:</strong> Sweden’s universities are renowned for their research-driven and student-centric approaches.</li>
+            <li><strong>English-Taught Programs:</strong> Over 1,000 degree programs are offered in English.</li>
+            <li><strong>Focus on Sustainability:</strong> Education in Sweden integrates sustainability and innovation into many disciplines.</li>
+            <li><strong>Post-Study Work Options:</strong> Sweden allows graduates to extend their stay for job hunting or entrepreneurship.</li>
+        </ul>
+        <br><br>
+        <div style="display:flex;justify-content: center;align-items: center;">
+            <img src="https://images.pexels.com/photos/20139116/pexels-photo-20139116/free-photo-of-jonkoping-university.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:100%;height:100%;border-radius: 10px;margin-bottom: 50px;">
+        </div>
+        <br><br>
+        <h3>How to Apply to Swedish Universities</h3>
+        <br><br>
+        <h4>Admission Requirements</h4>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Degree Level</th>
+                    <th>Requirements</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bachelor's</td>
+                    <td>High school diploma, English proficiency (IELTS 6.5/TOEFL 90 or equivalent)</td>
+                </tr>
+                <tr>
+                    <td>Master's</td>
+                    <td>Relevant bachelor's degree, English proficiency, statement of purpose, letters of recommendation</td>
+                </tr>
+                <tr>
+                    <td>Doctorate</td>
+                    <td>Research proposal, relevant master's degree, supervisor approval</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h4>Application Process</h4>
+        <br>
+        <ul>
+            <li><strong>Centralised System:</strong> Applications are submitted via University Admissions.</li>
+            <li><strong>Key Deadlines:</strong> Autumn Semester: Mid-January, Spring Semester: Mid-August</li>
+        </ul>
+        <br><br>
+        <h4>Language Proficiency</h4>
+        <br>
+        <ul>
+            <li><strong>English Programs:</strong> Proof of proficiency through IELTS, TOEFL, or equivalent.</li>
+            <li><strong>Swedish Programs:</strong> Passing the TISUS (Test in Swedish for University Studies) is mandatory.</li>
+        </ul>
+        <br><br>
+        <h3>Tuition Fees and Scholarships</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>EU/EEA Students</td>
+                    <td>No tuition fees</td>
+                </tr>
+                <tr>
+                    <td>Non-EU/EEA Students</td>
+                    <td>Tuition fees range from SEK 80,000 to 200,000 annually, depending on the course</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h4>Scholarship Opportunities</h4>
+        <br>
+        <ul>
+            <li><strong>Swedish Institute Scholarships:</strong> For global professionals covering tuition, living costs, and travel grants.</li>
+            <li><strong>University Scholarships:</strong> Offered by institutions like Lund University and Uppsala University, often merit-based.</li>
+        </ul>
+        <br><br>
+        <h3>Living Costs in Sweden</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Expense</th>
+                    <th>Monthly Cost (SEK)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Accommodation</td>
+                    <td>4,000–7,500</td>
+                </tr>
+                <tr>
+                    <td>Food</td>
+                    <td>2,500–3,500</td>
+                </tr>
+                <tr>
+                    <td>Transportation</td>
+                    <td>500–800</td>
+                </tr>
+                <tr>
+                    <td>Miscellaneous</td>
+                    <td>1,500–2,500</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h3>Accommodation Options</h3>
+        <br>
+        <ul>
+            <li><strong>University Housing:</strong> Often the easiest option for international students.</li>
+            <li><strong>Private Rentals:</strong> Shared apartments or private rooms through websites like Blocket.se and Bostad Direkt.</li>
+            <li><strong>Student Hostels:</strong> Affordable but limited in availability.</li>
+        </ul>
+        <br><br>
+        <h3>Working While Studying</h3>
+        <br>
+        <h4>Work Permit</h4>
+        <br>
+        <p>Students with a residence permit for studies can work without restrictions during their stay.</p>
+        <br><br>
+        <h4>Typical Jobs for Students</h4>
+        <br>
+        <ul>
+            <li>Retail, cafes, and hospitality roles.</li>
+            <li>Part-time jobs within universities or research labs.</li>
+        </ul>
+        <br><br>
+        <h4>Earning Potential</h4>
+        <br>
+        <p>Hourly wages range from SEK 120 to 140.</p>
+        <br><br>
+        <h3>Post-Study Work and Career Opportunities</h3>
+        <br><br>
+        <h4>Residence Permit Extension</h4>
+        <br>
+        <p>Graduates can extend their residence permit by 12 months to search for a job or start a business.</p>
+        <br><br>
+        <h4>Job Market Trends</h4>
+        <br>
+        <ul>
+            <li><strong>IT and Technology:</strong> Software development and AI.</li>
+            <li><strong>Engineering:</strong> Mechanical, civil, and renewable energy sectors.</li>
+            <li><strong>Healthcare:</strong> Nursing and medical technology.</li>
+            <li><strong>Sustainability:</strong> Green energy and environmental sciences.</li>
+        </ul>
+        <br><br>
+        <h3>Student Benefits</h3>
+        <br>
+        <ul>
+            <li><strong>Health Insurance:</strong> Students with a residence permit exceeding one year receive free healthcare.</li>
+            <li><strong>Discounts:</strong> Reduced rates on public transport and cultural events.</li>
+            <li><strong>Career Services:</strong> Universities provide career counselling, CV reviews, and job placement support.</li>
+        </ul>
+        <br><br>
+        <h3>Quick Tips for Prospective Students</h3>
+        <br>
+        <ul>
+            <li>Learn Swedish: Although most Swedes speak English, knowing Swedish can significantly enhance your career opportunities.</li>
+            <li>Prepare Financially: Plan for tuition and living costs well in advance.</li>
+            <li>Apply Early: Housing and scholarships often operate on a first-come, first-served basis.</li>
+        </ul>
+        <br><br>
+        <h3>Conclusion</h3>
+        <br>
+        <p>Sweden offers an unparalleled blend of quality education, cultural immersion, and career potential. Whether you aspire to innovate in technology, contribute to sustainability, or explore new academic horizons, Sweden has the resources and support to help you succeed.</p>
+    </div>
+    <div id="france" class="country-content container bg-white mt-4 p-4 rounded shadow fade-in" style="display: none;">
+        <h3 class="border-bottom pb-2">Studies in France</h3>
+        <br>
+        <p>France is a top destination for higher education, offering exceptional academic programmes, a vibrant culture, and opportunities for international students to thrive academically and professionally. This guide provides essential details about studying and working in France.</p>
+        <br><br>
+        <h3>Why Study in France?</h3>
+        <ul>
+            <li><strong>Renowned Institutions:</strong> France boasts globally recognised universities and "Grandes Écoles" for disciplines like business, engineering, and arts.</li>
+            <li><strong>Affordable Education:</strong> Public universities charge modest tuition fees compared to other European and global institutions.</li>
+            <li><strong>Multilingual Programmes:</strong> Many institutions offer courses in English, attracting a diverse student base.</li>
+            <li><strong>Rich Cultural Experience:</strong> Living in France offers exposure to art, history, fashion, and cuisine.</li>
+        </ul>
+        <br><br>
+        <h3>Education System Overview</h3>
+        <br>
+        <div class="table-responsive">
+            <table class="table table-bordered" style="width:100%;">
+            <thead>
+                <tr>
+                    <th>Institution Type</th>
+                    <th>Description</th>
+                    <th>Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Public Universities</td>
+                    <td>Wide range of undergraduate to doctoral programmes</td>
+                    <td>Sorbonne University, Aix-Marseille University</td>
+                </tr>
+                <tr>
+                    <td>Grandes Écoles</td>
+                    <td>Highly selective; focus on business, engineering, etc.</td>
+                    <td>École Polytechnique, HEC Paris</td>
+                </tr>
+                <tr>
+                    <td>Specialised Institutions</td>
+                    <td>Offer programmes in art, fashion, architecture, etc.</td>
+                    <td>Paris College of Art, ENSAD</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <br><br>
+        <div style="display:flex;justify-content: center;align-items: center;">
+            <img src="https://images.pexels.com/photos/28553202/pexels-photo-28553202/free-photo-of-pont-des-arts-and-institut-de-france-in-paris.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:100%;height:100%;border-radius: 10px;margin-bottom: 50px;">
+        </div>
+        <br><br>
+        <h3>Key Degrees Offered</h3>
+        <br>
+        <ul>
+            <li><strong>Licence (Bachelor’s):</strong> 3 years</li>
+            <li><strong>Master’s:</strong> 2 years</li>
+            <li><strong>Doctorate (PhD):</strong> 3 years</li>
+        </ul>
+        <br><br>
+    
+        <h3>Application Process</h3>
+        <br>
+        <ul>
+            <li><strong>Select a Course:</strong> Research programmes via Campus France.</li>
+            <li><strong>Language Proficiency:</strong> French (DELF/DALF) or English (TOEFL/IELTS) proficiency may be required.</li>
+            <li><strong>Apply:</strong> Use the Parcoursup platform for undergraduate courses. Apply directly to the institution for postgraduate programmes.</li>
+            <li><strong>Visa Application:</strong> Apply for a long-stay student visa (VLS-TS) upon admission. Cost: €50 (approx.) and proof of financial support is required.</li>
+        </ul>
+        <br><br>
+        <h3>Tuition Fees and Scholarships</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Degree</th>
+                    <th>Tuition Fees (Per Year)</th>
+                    <th>Scholarship Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bachelor’s</td>
+                    <td>€2,770</td>
+                    <td>Eiffel Scholarship, Erasmus+</td>
+                </tr>
+                <tr>
+                    <td>Master’s</td>
+                    <td>€3,770</td>
+                    <td>Ampère Excellence Scholarship, Charpak Program</td>
+                </tr>
+                <tr>
+                    <td>Private Institutions</td>
+                    <td>€10,000–€30,000</td>
+                    <td>Institution-specific scholarships</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h3>Cost of Living</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Expense</th>
+                    <th>Average Monthly Cost (€)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Accommodation</td>
+                    <td>300–800</td>
+                </tr>
+                <tr>
+                    <td>Food</td>
+                    <td>200–300</td>
+                </tr>
+                <tr>
+                    <td>Transportation</td>
+                    <td>30–70</td>
+                </tr>
+                <tr>
+                    <td>Health Insurance</td>
+                    <td>25–40</td>
+                </tr>
+                <tr>
+                    <td>Miscellaneous</td>
+                    <td>100–200</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <p><strong>Note:</strong> Students benefit from discounts on public transport and cultural events.</p>
+        <br><br>
+        <h3>Part-Time Work Opportunities</h3>
+        <br>
+        <ul>
+            <li><strong>Work Hours:</strong> Up to 20 hours per week during the academic year; full-time during holidays.</li>
+            <li><strong>Common Jobs:</strong> Retail, hospitality, tutoring, on-campus roles.</li>
+            <li><strong>Minimum Wage:</strong> €11.07/hour (as of 2024).</li>
+            <li><strong>Work Permit:</strong> Non-EU students can work without a separate permit under their student visa.</li>
+        </ul>
+        <br><br>
+        <h3>Post-Graduation Work Options</h3>
+        <br>
+        <ul>
+            <li><strong>Job Opportunities:</strong> Key sectors include IT, engineering, healthcare, luxury goods, and finance. Employers value bilingual graduates with local and international exposure.</li>
+            <li><strong>Residence Permits:</strong> APS (Autorisation Provisoire de Séjour): 12–24 months for job searching or starting a business. Convert APS to a work visa upon securing employment.</li>
+            <li><strong>Average Starting Salary:</strong> €30,000–€40,000 per year, varying by industry and position.</li>
+        </ul>
+        <br><br>
+        <h3>Tips for Success</h3>
+        <br>
+        <ul>
+            <li><strong>Learn French:</strong> Strong language skills improve integration and employment prospects.</li>
+            <li><strong>Engage with Campus France:</strong> Use their resources for pre-departure guidance and alumni networks.</li>
+            <li><strong>Explore Career Fairs:</strong> Participate in university job fairs to connect with employers.</li>
+            <li><strong>Utilise Student Services:</strong> Universities offer career counselling, accommodation help, and more.</li>
+        </ul>
+        <br><br>
+        <h3>Conclusion</h3>
+        <br>
+        <p>France offers a holistic environment for education, cultural immersion, and career advancement. With proper planning and commitment, studying in France can be a life-changing experience for international students. Lifeplanner will assist you every step of the way, ensuring a smooth transition and a successful journey in pursuing your academic and career goals in France.</p>
+    </div>
+    <div id="moldova" class="country-content container bg-white mt-4 p-4 rounded shadow fade-in" style="display: none;">
+        <h3 class="border-bottom pb-2">Studying in Moldova</h3>
+        <p>Moldova, a small Eastern European country, offers a rich academic and cultural experience at an affordable cost. For students looking for quality education in a diverse environment, Moldova presents a variety of options. Here’s everything you need to know about studying and working in Moldova, with all the latest data and important details to guide your academic journey.</p>
+    <br><br>
+        <h3>Higher Education Institutions in Moldova</h3>
+        <p>Moldova is home to several reputable universities, both state and private. Below is a list of the most notable institutions:</p>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>University</th>
+                    <th>Location</th>
+                    <th>Specialty Areas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Moldova State University</td>
+                    <td>Chișinău, Moldova</td>
+                    <td>Arts, Social Sciences, Engineering, Natural Sciences</td>
+                </tr>
+                <tr>
+                    <td>Academy of Economic Studies of Moldova</td>
+                    <td>Chișinău, Moldova</td>
+                    <td>Economics, Business, Finance, Management</td>
+                </tr>
+                <tr>
+                    <td>Technical University of Moldova</td>
+                    <td>Chișinău, Moldova</td>
+                    <td>Engineering, Architecture, Technology, Computer Science</td>
+                </tr>
+                <tr>
+                    <td>Nicolae Testemițanu State University of Medicine and Pharmacy</td>
+                    <td>Chișinău, Moldova</td>
+                    <td>Medicine, Pharmacy, Dentistry</td>
+                </tr>
+                <tr>
+                    <td>Ion Creangă State Pedagogical University</td>
+                    <td>Chișinău, Moldova</td>
+                    <td>Education, Psychology, Linguistics, Pedagogy</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <p>These universities offer a broad range of undergraduate, postgraduate, and doctoral programs. Moldova is also a member of the European Higher Education Area, aligning its system with the Bologna Process.</p>
+        
+        <h3>Language of Instruction and Academic Structure</h3>
+        <br>
+        <ul>
+            <li><strong>Language of Instruction:</strong> The primary language of instruction is Romanian. However, many universities offer programs in Russian and, in some cases, English, particularly for postgraduate studies and specific programs.</li>
+            <li><strong>Academic Structure:</strong>
+                <ul>
+                    <li><strong>Bachelor’s Degree:</strong> 3-4 years</li>
+                    <li><strong>Master’s Degree:</strong> 1-2 years</li>
+                    <li><strong>Doctorate:</strong> 3-4 years</li>
+                </ul>
+            </li>
+        </ul>
+        <br><br>
+        <h3>Tuition Fees and Scholarships</h3>
+        <br>
+        <p>Moldova is known for its affordable education. Tuition fees are lower than many Western European countries, making it an attractive destination for international students.</p>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Program Type</th>
+                    <th>Average Annual Tuition Fees (EUR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bachelor’s Degree</td>
+                    <td>€500 - €1,000</td>
+                </tr>
+                <tr>
+                    <td>Master’s Degree</td>
+                    <td>€600 - €1,200</td>
+                </tr>
+                <tr>
+                    <td>Doctoral Studies</td>
+                    <td>€800 - €1,500</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h3>Scholarships and Financial Aid</h3>
+        <br>
+        <ul>
+            <li>Moldova offers various scholarships for international students, especially for those from countries in Eastern Europe.</li>
+            <li>There are also scholarships from the Romanian government for students from Moldova. These scholarships cover tuition fees, accommodation, and provide a monthly stipend.</li>
+            <li>Erasmus+ programs are available for students to study in European universities, facilitating mobility between Moldova and EU countries.</li>
+        </ul>
+        <br><br>
+        <h3>Cost of Living in Moldova</h3>
+        <br>
+        <p>The cost of living in Moldova is relatively low compared to Western Europe, making it a student-friendly destination.</p>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Expense</th>
+                    <th>Estimated Monthly Cost (EUR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Accommodation</td>
+                    <td>€100 - €300</td>
+                </tr>
+                <tr>
+                    <td>Food</td>
+                    <td>€150 - €250</td>
+                </tr>
+                <tr>
+                    <td>Transportation</td>
+                    <td>€10 - €20</td>
+                </tr>
+                <tr>
+                    <td>Leisure and Miscellaneous</td>
+                    <td>€50 - €100</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>€300 - €500</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <p>Students can choose between university dormitories and private accommodation, with dorms being the most affordable option.</p>
+        <br><br>
+        <h3>Work Opportunities During Studies</h3>
+        <br>
+        <ul>
+            <li><strong>Part-time Work:</strong> Students can work up to 20 hours per week during the semester and full-time during breaks.</li>
+            <li><strong>Employment Sectors:</strong> Most student jobs are available in retail, hospitality, tutoring, and language teaching. English-speaking students may find opportunities in customer service or teaching English.</li>
+            <li><strong>Important Note:</strong> Although Moldova has a relatively open policy for student employment, obtaining a work permit may be necessary for non-EU international students. Check with the university or local authorities for specific guidelines.</li>
+        </ul>
+        <br><br>
+        <h3>Post-Graduation Work Opportunities</h3>
+        <br>
+        <ul>
+            <li><strong>Work Visa:</strong> To stay and work in Moldova, students must apply for a work visa after graduation. This requires securing a job first.</li>
+            <li><strong>Job Opportunities:</strong> There is a demand for skilled professionals, particularly in technology, engineering, medicine, and business sectors. Knowledge of Romanian or Russian is a significant advantage when seeking employment.</li>
+        </ul>
+        <br><br>
+        <h3>Application Process for International Students</h3>
+        <br>
+        <ul>
+            <li><strong>Choose a University and Program:</strong> Research universities and their programs to find the best fit for your academic goals.</li>
+            <li><strong>Prepare Documents:</strong>
+                <ul>
+                    <li>Completed application form</li>
+                    <li>Academic transcripts (translated into Romanian, Russian, or English)</li>
+                    <li>Proof of language proficiency (Romanian, Russian, or English, depending on the program)</li>
+                    <li>Passport and visa documents</li>
+                </ul>
+            </li>
+            <li><strong>Submit Application:</strong> Applications are typically submitted online through the university’s official website or directly via the Ministry of Education.</li>
+            <li><strong>Receive Offer and Apply for a Student Visa:</strong> After acceptance, apply for a student visa at your local Moldovan embassy or consulate.</li>
+        </ul>
+        <br><br>
+        <h3>Accommodation Options</h3>
+        <br>
+        <ul>
+            <li><strong>University Dormitories:</strong> Most universities offer dormitories for international students, which are the most affordable accommodation option. The cost is usually between €100 and €200 per month.</li>
+            <li><strong>Private Accommodation:</strong> Students can rent apartments or share with others. Monthly rents for apartments range from €200 to €300 in the capital, Chișinău, and slightly less in smaller towns.</li>
+        </ul>
+        <br><br>
+        <h3>Health Insurance</h3>
+        <br>
+        <ul>
+            <li><strong>Mandatory Health Insurance:</strong> International students must have health insurance for the duration of their studies.</li>
+            <li><strong>University Health Insurance:</strong> Some universities offer health insurance, while others require students to buy private health insurance.</li>
+            <li><strong>Public Healthcare:</strong> Moldova's healthcare system is functional but may not meet the same standards as Western Europe, so having adequate health coverage is essential.</li>
+        </ul>
+        <br><br>
+        <h3>Cultural Experience in Moldova</h3>
+        <br>
+        <ul>
+            <li><strong>Festivals:</strong> Moldova celebrates various cultural festivals, such as the Moldova National Day, Wine Day (October), and the Mărțișor Festival (March).</li>
+            <li><strong>Cultural Events:</strong> Students can enjoy concerts, theatre performances, and art exhibitions.</li>
+            <li><strong>Travel Opportunities:</strong> Moldova is home to beautiful landscapes, including the Codrii Forest, and historical sites like Orheiul Vechi.</li>
+        </ul>
+        <br><br>
+        <h3>Conclusion</h3>
+        <br>
+        <p>Moldova is an affordable and culturally rich destination for international students seeking quality education in Europe. With a range of universities, low living costs, and opportunities for both study and work, Moldova offers a unique experience for students looking to broaden their horizons. Life Planner will help guide you through every step of your journey, ensuring a smooth and successful experience in Moldova.</p>
+    </div>
+    
+    
+<script>
+    function switchCountry(country, tabElement) {
+        // Hide all country content
+        const allContent = document.querySelectorAll('.country-content');
+        allContent.forEach(content => content.style.display = 'none');
+
+        // Show the selected country content
+        const selectedContent = document.getElementById(country);
+        if (selectedContent) {
+            selectedContent.style.display = 'block';
+        }
+
+       
+       
+    }
+</script>
+
+<style>
+  .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+  }
+
+  .floating-buttons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background-color: rgb(22, 100, 173);
+      color: white;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgb(22, 100, 173);
+      text-decoration: none;
+      font-size: 24px;
+      transition: background-color 0.3s ease;
+  }
+
+  .floating-buttons a.phone {
+      background-color: rgb(22, 100, 173);
+  }
+
+  .floating-buttons a.mail {
+      background-color: rgb(22, 100, 173);
+  }
+
+  .floating-buttons a:hover {
+      opacity: 0.9;
+      background-color: rgb(22, 100, 173);
+  }
+</style>
+
+<div class="floating-buttons">
+    <a href="https://wa.me/+918594060107" target="_blank" title="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="tel:+91 8594060107" class="phone" title="Call">
+        <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="mailto:info@lifeplanneruniversal.com" class="mail" title="Email">
+        <i class="fas fa-envelope"></i>
+    </a>
+</div>
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="footer-cta pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-md-4 mb-3">
+                    <div class="single-cta">
+                        
+                        <div class="cta-text">
+                            
+                            <h4>Find us</h4>
+                            <span>2nd Floor, Thevarolil Building, Lal Bahadur Shastri Rd, Baker Hill, Kottayam, Kerala 686001</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-4 col-md-4 mb-3">
+                    <div class="single-cta">
+                       
+                        <div class="cta-text">
+                            <h4>Call us</h4>
+                            <span>+91 9072222911 ,</span>
+                            <span>+91 9072222933</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4 mb-30">
+                    <div class="single-cta">
+                        
+                        <div class="cta-text">
+                            <h4>Mail us</h4>
+                            <span>info@lifeplanneruniversal.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 mb-50">
+                    <div class="footer-widget">
+                
+                        <div class="footer-text">
+                            <p>Life Planner Studies and Opportunities Pvt Ltd is a leading overseas education consultant, with headquarters in Kottayam and Corporate office in Cochin.</p>
+                        </div>
+                        <div class="footer-social-icon mb-4">
+                            <span>Follow us</span>
+                            <a href="https://www.instagram.com/lifeplannerstudies/?hl=en"><i class="fab fa-facebook-f bg-light text-dark"></i></a>
+                            <a href="#"><i class="fab fa-twitter bg-light text-dark"></i></a>
+                            <a href="#"><i class="fab fa-instagram bg-light text-dark"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-30" style="display:flex;justify-content: center;align-items: center;">
+                    <div class="footer-widget" >
+                        <div class="footer-widget-heading">
+                            <h4>Top Links</h4>
+                        </div>
+                        <ul>
+                            <li><a href="{% url 'lpapp:home' %}">Home</a></li>
+                            <li><a href="{% url 'lpapp:studycanada' %}">Countries</a></li>
+                            <li><a href="{% url 'lpapp:service' %}">services</a></li>
+                            <li><a href="{% url 'lpapp:blog' %}">Blog</a></li>
+                            <li><a href="{% url 'lpapp:contact' %}">Contact Us</a></li>
+                            <li><a href="{% url 'lpapp:about' %}">About us</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-50" style="display:flex;justify-content: center;align-items: center;">
+                    <img src="/static/LPRlogo.png" style="width:280px;">
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row"  style="display:flex;justify-content: center;align-items: center;">
+                    <div class="col-xl-6 col-lg-6 text-center ">
+                        <div class="copyright-text">
+                            <p>Copyright &copy; 2024, All Right Reserved <a href="">Lifeplanner Studies and Oppertunities</a></p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</footer>
+<style>
+    ul {
+    margin: 0px;
+    padding: 0px;
+    
+}
+.footer-section {
+background: linear-gradient(135deg, #5f9cad, #8080bc);
+  position: relative;
+  margin-top: 100px;
+}
+.footer-cta {
+  border-bottom: 1px solid #373636;
+}
+.single-cta i {
+  color: white;
+  font-size: 30px;
+  float: left;
+  margin-top: 8px;
+}
+.cta-text {
+  padding-left: 15px;
+  display: inline-block;
+}
+.cta-text h4 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.cta-text span {
+  color: #ffffff;
+  font-size: 15px;
+}
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-logo img {
+    max-width: 200px;
+}
+.footer-text p {
+  margin-bottom: 14px;
+  font-size: 14px;
+      color: white;
+  line-height: 28px;
+}
+.footer-social-icon span {
+  color: #ffffff;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+}
+.footer-social-icon a {
+  color: #fff;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+}
+.facebook-bg{
+  background: #3B5998;
+}
+.twitter-bg{
+  background: #55ACEE;
+}
+.google-bg{
+  background: #DD4B39;
+}
+.footer-widget-heading h4 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+.footer-widget-heading h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  height: 2px;
+  width: 50px;
+  background: #ff5e14;
+}
+.footer-widget ul li {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  margin-bottom: 12px;
+}
+.footer-widget ul li a:hover{
+  color: #ffffff;
+}
+.footer-widget ul li a {
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.subscribe-form {
+  position: relative;
+  overflow: hidden;
+}
+.subscribe-form input {
+  width: 100%;
+  padding: 14px 28px;
+  background: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+}
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: #ff5e14;
+    padding: 13px 20px;
+    border: 1px solid #ff5e14;
+    top: 0;
+}
+.subscribe-form button i {
+  color: #fff;
+  font-size: 22px;
+  transform: rotate(-6deg);
+}
+.copyright-area{
+    
+  padding: 25px 0;
+}
+.copyright-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #ffffff;
+}
+.copyright-text p a{
+  color: #ffffff;
+}
+.footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
+}
+.footer-menu li:hover a{
+  color: #ffffff;
+}
+.footer-menu li a {
+  font-size: 14px;
+  color: #878787;
+}
+</style>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+      
+        
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Include Swiper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

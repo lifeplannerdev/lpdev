@@ -1,0 +1,3050 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Planner</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Comfortaa:wght@300..700&family=Dosis:wght@200..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: myfont;
+            src: url(/static/Cabin-Medium.ttf);
+        }
+
+       body{
+        font-family: myfont;
+        background: #ffffff;
+       }
+        .navbar {
+    background: transparent;
+    
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    transition: background 0.3s ease; /* Smooth transition for background color */
+}
+
+
+        .navbar .nav-link {
+            color: #ffffff;
+            font-weight: 500;
+            margin:10px;
+            
+        }
+
+        .navbar .nav-link:hover {
+            color: #ff4757;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+            
+            
+        
+    
+        }
+
+        .navbar-brand {
+            font-weight: 500;
+            color: #ffffff;
+            
+        }
+        
+
+.icon-menu {
+  --gap: 5px;
+  --height-bar: 2.5px;
+  --pos-y-bar-one: 0;
+  --pos-y-bar-three: 0;
+  --scale-bar: 1;
+  --rotate-bar-one: 0;
+  --rotate-bar-three: 0;
+  width: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  cursor: pointer;
+  position: relative;
+  margin-top:5px;
+  margin-right: 10px;
+  display:none;
+}
+@media (max-width: 767px) {
+            .icon-menu {
+                display: flex; 
+            }
+        }
+       
+.bar {
+  position: relative;
+  height: 3.2px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .icon-menu{
+        display: block;
+        
+    }
+    .bar {
+  position: relative;
+  height: 5px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
+  margin:2px;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+    }
+
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <img src="/static/LPsymbol.png" style="height:40px;width:90px;">
+        <input hidden class="check-icon" id="check-icon" name="check-icon" type="checkbox" >
+        <label class="icon-menu" for="check-icon" data-toggle="collapse" data-target="#navbarNav">
+            <div class="bar bar--1"></div>
+            <div class="bar bar--2"></div>
+            <div class="bar bar--3"></div>
+        </label>
+
+        <div class="collapse navbar-collapse" id="navbarNav" >
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:service' %}">Services</a></li>
+                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:canada' %}">Immigration</a></li>
+<!-- University Dropdown -->
+<li class="nav-item ml-4 dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        University
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background:rgba(0, 0, 0, 0.566);">
+        <a class="dropdown-item text-white" href="{% url 'lpapp:studycanada' %}">English-Speaking Countries</a>
+        <a class="dropdown-item text-white mt-3" href="{% url 'lpapp:studyeurope' %}">European Countries</a>
+        
+        
+    </div>
+</li>                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:blog' %}">Blog</a></li>
+                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:contact' %}">Contact Us</a></li>
+                <li class="nav-item ml-4 locationLink"><a class="nav-link" href="#" >Location</a></li>
+
+            </ul>
+        </div>
+    </nav>
+    <script>
+        // Navbar background color change on scroll or menu toggle
+  function updateNavbarBackground() {
+      const navbar = document.querySelector(".navbar");
+      const menuCheckbox = document.querySelector("#check-icon");
+  
+      if (menuCheckbox.checked || window.scrollY > 50) {
+          navbar.style.background = "rgba(0, 0, 0, 0.8)";
+      } else {
+          navbar.style.background = "transparent";
+      }
+  }
+  
+  // Attach scroll event listener
+  window.addEventListener("scroll", updateNavbarBackground);
+  
+  // Attach toggle menu listener
+  document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
+  
+      </script>
+    <style>
+        /* Blur background when popup is active */
+        .blur {
+            filter: blur(5px);
+            transition: filter 0.3s ease;
+        }
+    
+        /* Popup container */
+        .popup {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+    
+        /* Show the popup with animation */
+        .popup.show {
+            opacity: 1;
+            visibility: visible;
+        }
+    
+        /* Popup content */
+        .popup-content {
+            position: absolute;
+            background: linear-gradient(135deg, #80bccd, #7474b1);
+            width: 350px;
+            max-width: 90%;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            animation: jelly 0.6s ease forwards;
+            opacity: 0;
+        }
+    
+        /* Show the popup content with animation */
+        .popup.show .popup-content {
+            opacity: 1;
+            animation: jelly 0.6s ease forwards;
+        }
+    
+        /* Jelly keyframe animation */
+        @keyframes jelly {
+            0% {
+                transform: translate(-50%, -50%) scale(0.6);
+            }
+            30% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+            70% {
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    
+        /* Close button */
+        .close-btn {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+    
+        .close-btn:hover {
+            color: #f44336;
+        }
+    
+        /* Location buttons */
+        .location-buttons button {
+            background-color: rgb(22, 100, 173);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 10px;
+            width: 150px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+    
+        .location-buttons button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    
+        .location-buttons button:active {
+            transform: scale(0.95);
+        }
+    
+        /* Prevent scrolling when popup is active */
+        body.no-scroll {
+            overflow: hidden;
+        }
+    </style>
+    
+    <!-- Popup Container -->
+    <div id="locationPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+    <h5 style="color:#003290;margin-bottom: 20px;">OUR LOCATIONS</h5>
+            <div class="location-buttons">
+              <a href="https://www.google.com/maps/dir//2nd+Floor,+Thevarolil+Building,+Lal+Bahadur+Shastri+Rd,+Baker+Hill,+Kottayam,+Kerala+686001/@9.5924512,76.4447446,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3b062b0a6569652b:0xa874c155759a8734!2m2!1d76.5271465!2d9.5924609?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D"><button>Kottayam</button></a>
+                <a href="https://www.google.com/maps/place/Life+Planner+Studies+%26+Opportunities+(P)+Ltd./@10.0385265,76.3155546,20.25z/data=!3m1!5s0x3b080db5144e157b:0x65f63ba6964c29fe!4m12!1m5!3m4!2zMTDCsDAyJzE4LjUiTiA3NsKwMTgnNTYuOSJF!8m2!3d10.0384667!4d76.3157994!3m5!1s0x3b080d7a4bc19b43:0x1d4126320c8d21bc!8m2!3d10.0387171!4d76.3158274!16s%2Fg%2F11fjy3mddq?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" style="text-decoration: none;color:white;"> <button>Kochi</button></a>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+   
+    
+
+    
+    <!-- Hero Section -->
+    <style>
+       
+        .button2 {
+          display: inline-block;
+          transition: all 0.2s ease-in;
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
+          color: #fcf9f9;
+          padding: 0.7em 1.7em;
+          cursor: pointer;
+          font-size: 16px;
+          border-radius: 30px;
+          background:rgb(0,0,0,0.5);
+          border: 0.5px solid rgb(22, 100, 173);
+          
+          
+          
+        }
+        
+        .button2:active {
+          color: #666;
+          box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+        }
+        
+        .button2:before {
+          content: "";
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%) scaleY(1) scaleX(1.25);
+          top: 100%;
+          width: 140%;
+          height: 180%;
+          background-color: rgba(0, 0, 0, 0.05);
+          border-radius: 50%;
+          display: block;
+          transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+          z-index: -1;
+        }
+        
+        .button2:after {
+          content: "";
+          position: absolute;
+          left: 55%;
+          transform: translateX(-50%) scaleY(1) scaleX(1.45);
+          top: 180%;
+          width: 160%;
+          height: 190%;
+          background:  linear-gradient(135deg, #464699, #39badd);
+          border-radius: 50%;
+          display: block;
+          transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+          z-index: -1;
+        }
+        
+        .button2:hover {
+          color: #ffffff;
+          border: 1px solid  linear-gradient(135deg, #464699, #39badd);
+          background:  linear-gradient(135deg, #464699, #39badd);
+        }
+        
+        .button2:hover:before {
+          top: -35%;
+          background-color: rgba(0, 0, 0, 0.3);
+          transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+        }
+        
+        .button2:hover:after {
+          top: -45%;
+          background-color: rgba(0, 0, 0, 0.3);
+          transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+        }
+         /* Hero Section */
+         .hero-section {
+                    background: url('/static/life6.jpeg') no-repeat center center / cover;
+                    height: 800px;
+                    
+                    
+                    
+                    
+                }
+                @media (min-width: 1200px) {
+            .hero-section {
+                height: 700px;
+            }
+        }
+        
+        /* For medium screens (e.g., tablets) */
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .hero-section {
+                height: 700px;
+                background-size: cover;
+            }
+        }
+        
+        /* For small screens (e.g., mobile devices) */
+        @media (max-width: 767px) {
+            .hero-section {
+                
+                height: 350px;
+                background-position: center top;
+            }
+        }
+        
+        /* For extra small screens (e.g., very narrow mobile devices) */
+        @media (max-width: 480px) {
+            .hero-section {
+                height: 300px;
+                background-position: center top;
+                background-size: cover;
+            }
+        }
+        
+                
+             </style>
+        
+            
+            <div class="container-fluid p-0">
+                <div class="hero-section d-flex align-items-end justify-content-center">
+                    
+                    <div class="overlay w-100 d-flex justify-content-center align-items-center" style="margin-top: -100px;">
+                        
+                        <button class="button2" id="learnMoreBtn">Free Webinar</button>
+                    </div>
+                </div>
+            </div>
+    <div class="modal1" id="popupModal" >
+        <div class="modal-content1" >
+            <span class="close-btn1" id="closeModal">&times;</span>
+            <img src="/static/webinar.jpg" alt="Ad Poster" class="modal-poster1">
+            <form id="enrollForm1" method="post">
+                {% csrf_token %}
+                
+                <!-- Custom input for Name -->
+                <input type="text" name="name" placeholder="Your Name" required style="border-radius: 30px;">
+                {% if enrollment_form.name.errors %}
+                    <div class="error" style="color: red;">{{ enrollment_form.name.errors.0 }}</div>
+                {% endif %}
+                
+                
+                <input type="text" name="mail" placeholder="Your Email" required style="border-radius: 30px;">
+{% if enrollment_form.mail.errors %}
+    <div class="error" style="color: red;">{{ enrollment_form.mail.errors.0 }}</div>
+{% endif %}
+
+
+                
+                <button type="submit" class="enroll-btn" disabled>Enroll Now</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        const enrollForm = document.getElementById('enrollForm1');
+        const enrollButton = enrollForm.querySelector('.enroll-btn');
+        const nameInput = enrollForm.querySelector('input[name="name"]');
+        const emailInput = enrollForm.querySelector('input[name="mail"]');
+        const modal = document.getElementById('popupModal');
+        const closeModalBtn = document.getElementById('closeModal');
+    
+        // Function to check if both fields are filled
+        function checkFormCompletion() {
+            if (nameInput.value.trim() && emailInput.value.trim()) {
+                enrollButton.disabled = false;  // Enable button when both fields are filled
+                enrollButton.style.backgroundColor = 'blue';  // Change color to blue
+            } else {
+                enrollButton.disabled = true;  // Disable button if fields are not filled
+                enrollButton.style.backgroundColor = 'grey';  // Change color to grey
+            }
+        }
+    
+        // Attach event listeners to inputs to check form completion on each input change
+        nameInput.addEventListener('input', checkFormCompletion);
+        emailInput.addEventListener('input', checkFormCompletion);
+    
+        // Initial check when the page loads
+        checkFormCompletion();
+    
+        // Submit form event
+        enrollForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            enrollButton.disabled = true; // Disable the button during processing
+            
+            const formData = new FormData(enrollForm);
+            fetch("{% url 'lpapp:home' %}", { // Update the URL to your enroll view
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        },
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Enrolled Successfully",
+                    });
+                    enrollForm.reset(); // Reset the form
+                    checkFormCompletion();  // Recheck form state
+                    modal.style.display = "none";  // Close the modal
+                } else {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        },
+                    });
+                    Toast.fire({
+                        icon: "error",
+                        title: "Enrollment Failed",
+                    });
+                }
+            })
+            .catch(error => {
+                console.error("Error during form submission:", error);
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    },
+                });
+                Toast.fire({
+                    icon: "error",
+                    title: "Something Went Wrong",
+                });
+            })
+            .finally(() => {
+                enrollButton.disabled = false; // Re-enable the button
+            });
+        });
+    
+        // Close modal when close button is clicked
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = "none";
+        });
+    
+        // Optional: Close modal when clicking outside of the modal
+        window.addEventListener('click', function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+    
+    
+      <style>
+        .button2 {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: linear-gradient(135deg, #9e9ed4, #80bccd);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  
+}
+
+.button2:hover {
+  background-color: #0056b3;
+}
+
+.modal1 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+  z-index:1000px;
+}
+
+.modal-content1 {
+  background-color: #fff;
+  margin: 10% auto; /* Center the modal */
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-poster1 {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.close-btn1 {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.enroll-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: linear-gradient(135deg, #464699, #39badd);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  width:90%;
+  cursor: pointer;
+}
+
+.enroll-btn:hover {
+  
+  background: linear-gradient(135deg, #9e9ed4, #80bccd);
+}
+
+input[type="text"], input[type="email"] {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+      </style>
+      <script>
+        document.getElementById("learnMoreBtn").addEventListener("click", function () {
+  document.getElementById("popupModal").style.display = "block";
+});
+
+document.getElementById("closeModal").addEventListener("click", function () {
+  document.getElementById("popupModal").style.display = "none";
+});
+
+window.addEventListener("click", function (event) {
+  const modal = document.getElementById("popupModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+      </script>
+    <div class="about-statistics-wrapper" style="margin-top: 80px;">
+
+        <!-- About Section -->
+        <div class="about-container">
+            <div class="image">
+                <img src="/static/lp6.png" alt="Life Planner" style="height:180px;">
+            </div>
+            <div class="content">
+                <p>
+                    Life Planner, from its modest start-up in 2012, has become a reputed and well-respected
+                    educational facilitator among the study abroad consultants in Kottayam, Kerala. Accredited by an
+                    ISO certification within this short span of trustworthy service, we offer detailed counselling for
+                    each student throughout admission and visa processing, catering to their individual talent, interest,
+                    and study skills.
+                </p>
+                <!-- <button onclick="window.location.href='#'">More..</button> -->
+                 
+                 <h6 style="color: #2874af;margin-bottom: 15px;font-weight: bold;"><a href="{% url 'lpapp:about' %}" style="text-decoration: none;">MORE <img src="/static/more.svg" style="height:17px;margin-bottom: 5px;margin-left:5px;"></a></h6>
+            
+                </div>
+        </div>
+    
+        <!-- Discover and Statistics Section -->
+        <div class="discover-statistics-container">
+            <!-- Discover Section -->
+            
+            <div class="text-center discover-button-container">
+                <button class="button2" data-bs-toggle="modal" data-bs-target="#appointmentModal" style="margin-top: 25px;">
+                    <i class="fa-solid fa-pen-to-square" style="margin-right: 10px;"></i>
+                    Book An Appointment
+                    
+                </button>
+            </div>
+            
+            <!-- Statistics Section -->
+            <div class="statistics-container">
+                <div class="stat-item">
+                    <p class="stat-number">30+</p>
+                    <p class="stat-label">Countries</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-number">300+</p>
+                    <p class="stat-label">students Placed</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-number">500+</p>
+                    <p class="stat-label">Programs</p>
+                </div>
+                
+            </div>
+            <a href="{% url 'lpapp:contact' %}" style="text-decoration: none;">
+                <div class="contact-button" style="display:flex;justify-content: center;align-items: center;">
+                    
+                    <button style="width:60%;height: 50px;border-radius: 30px;background: linear-gradient(135deg, #9e9ed4, #80bccd);color:white;border:none;margin:40px;">
+                        Contact Us
+                        <img src="/static/contactsvg.svg" style="height:25px;margin-bottom: 5px;margin-left: 10px;">
+                    </button>
+                
+                </div>
+            </a>
+       
+    
+            <!-- Buttons Section -->
+            <!-- <div class="button-container">
+                
+                <button class="action-button"><a href="{% url 'lpapp:blog' %}" style="text-decoration: none;color:rgb(22, 100, 173)";>BLOG</a>
+                </button>
+                <button class="action-button"><a href="{% url 'lpapp:canada' %}" style="text-decoration: none;color:rgb(22, 100, 173);">IMMIGRATION</a>
+                </button>
+                <button class="action-button"><a href="{% url 'lpapp:studycanada' %}" style="text-decoration: none;color:rgb(22, 100, 173)";">COUNTRIES</a>
+                </button>
+                <button class="action-button locationLink">LOCATION</button>
+            </div> -->
+        </div>
+    </div>
+    <script>
+        // Get all elements with the class 'locationLink'
+        const locationLinks = document.querySelectorAll(".locationLink");
+        const locationPopup = document.getElementById("locationPopup");
+        const closeBtn = document.querySelector(".close-btn");
+        const mainContent = document.getElementById("mainContent");
+    
+        // Add event listeners to all elements with class 'locationLink'
+        locationLinks.forEach(function(link) {
+            link.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                locationPopup.classList.add("show"); // Show popup
+                mainContent.classList.add("blur"); // Add blur effect
+                document.body.classList.add("no-scroll"); // Disable scrolling
+            });
+        });
+    
+        // Close popup when the close button is clicked
+        closeBtn.addEventListener("click", function () {
+            closePopup();
+        });
+    
+        // Close popup when clicking outside the popup content
+        window.addEventListener("click", function (event) {
+            if (event.target === locationPopup) {
+                closePopup();
+            }
+        });
+    
+        // Function to close the popup and reset effects
+        function closePopup() {
+            locationPopup.classList.remove("show"); // Hide popup
+            mainContent.classList.remove("blur"); // Remove blur effect
+            document.body.classList.remove("no-scroll"); // Enable scrolling
+        }
+    
+        // Function to handle location selection
+        function selectLocation(location) {
+            alert("You selected: " + location);
+            closePopup(); // Close popup after selection
+        }
+    </script>
+    <style>
+        /* Wrapper for About and Statistics Sections */
+        .about-statistics-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            margin: 50px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+    
+        /* About Section */
+        .about-container {
+            background: #f9f9f9;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            max-width: 48%;
+            max-height:50%;
+            text-align: center;
+            overflow: hidden;
+            flex: 1;
+        }
+    
+        .about-container .image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 41px;
+        }
+    
+        .about-container .content p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            margin-top: -50px;
+        }
+    
+        .about-container button {
+            background: linear-gradient(135deg, #5f9cad, #8080bc);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background-color 0.3s ease;
+        }
+    
+        .about-container button:hover {
+            background-color: #0a3a6b;
+        }
+    
+        /* Discover Section */
+        .discover-statistics-container {
+            max-width: 48%;
+            flex: 1;
+            background:white;
+            border-radius: 20px;
+            
+            padding: 5px;
+            margin-top: 3px;
+        }
+    
+        .discover-heading {
+            margin: 10px auto;
+            font-weight: bold;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #5f9cad, #8080bc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+    
+        .discover-button-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    
+        .discover-button-container .button2 {
+            background: linear-gradient(135deg, #5f9cad, #8080bc);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    
+        .discover-button-container .button2:hover {
+            background-color:  rgb(22, 100, 173);
+        }
+    
+        /* Statistics Section */
+        .statistics-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            
+            margin: 20px 0;
+            background-color: white;
+        }
+    
+        .stat-item {
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    
+        .stat-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+    
+        .stat-number {
+            font-size: 26px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #5f9cad, #8080bc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+            margin: 0;
+        }
+    
+        .stat-label {
+            font-size: 15px;
+            color: #555;
+            margin: 5px 0 0;
+            font-weight: bold;
+        }
+    
+        /* Buttons Section */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+    
+        .action-button {
+            background-color: white;
+            color:  rgb(22, 100, 173);
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border:solid 1px  rgb(22, 100, 173);
+            
+        }
+    
+        .action-button:hover {
+            background: linear-gradient(135deg, #5f9cad, #8080bc);
+            transform: scale(1.05);
+            color:#ddd;
+        }
+    
+        @media (max-width: 768px) {
+            .discover-statistics-container {
+                max-width: 100%;
+                margin-bottom: -50px;
+                
+            }
+            .about-statistics-wrapper {
+                flex-direction: column;
+                gap: 20px;
+            }
+    
+            .about-container {
+                max-width: 100%;
+            }
+    
+            .action-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            .contact-button{
+                margin-top: -40px;
+            }
+        }
+        @media (min-width: 768px) and (max-width: 1024px) {
+    /* Discover Statistics Container */
+    .statistics-container {
+        max-width: 90%; /* Adjust width for tablet screens */
+        padding: 20px;  /* Add padding for better spacing */
+        margin: 20px auto; /* Center align on the screen */
+        margin-left: 30px;
+        
+    }
+    .discover-container {
+        max-width: 90%; /* Adjust width for tablet screens */
+        padding: 20px;  /* Add padding for better spacing */
+        margin: 20px auto; /* Center align on the screen */
+        margin-top: -50px;
+    }
+    .contact-button{
+        margin-top: -50px;
+    }
+
+
+
+    /* Discover Heading */
+    .discover-heading {
+        font-size: 24px; /* Slightly smaller font size for tablets */
+        margin-bottom: 5px;
+        margin-top: -40px;
+    }
+
+    /* Statistics Section */
+    .statistics-container {
+        gap: 15px; /* Reduce gap between stats */
+    }
+
+    .stat-item {
+        width: 45%; /* Two items per row on tablets */
+        padding: 15px;
+    }
+
+    .stat-number {
+        font-size: 28px; /* Adjust font size for better visibility */
+    }
+
+    .stat-label {
+        font-size: 16px;
+    }
+
+    /* Button Section */
+    .button-container {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 15px;
+    }
+
+    .action-button {
+        width: 100%; /* Make buttons full width */
+        padding: 10px 15px;
+        max-width: 400px; /* Limit max width */
+        font-size: 14px;
+    }
+
+    /* Discover Button Container */
+    .discover-button-container .button2 {
+        font-size: 14px; /* Reduce button font size */
+        padding: 10px 15px;
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+    </style>
+<style>
+    .content-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 10px 0;
+
+}
+    .single-content{
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    border-radius:15px;
+    margin:10px;
+    margin-top: -30px;
+}
+
+.single-content::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+.single-content:hover::after {
+	position: absolute;
+    content: '';
+    transform: translateY(0);
+	background: linear-gradient(35deg, rgba(0, 0, 0, 0.8) 25%, rgba(0, 0, 0, 0));
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 1;
+}
+.single-content img{
+    object-fit: cover;
+    min-height: 100%;
+    height: auto;
+    transition: all 0.5s ease;
+    width: 100%;
+    height: auto;
+}
+.single-content:hover img{
+    transform: scale(1.3) translate(10%, 10%);
+}
+.single-content .info{
+    position: absolute;
+    z-index: 3;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateX(-105%);
+    transition: all 0.4s ease;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+    padding: 10px 12px;
+    border-left: 4px solid #fff;
+    color: #ffffff;
+}
+.single-content:hover .info{
+    opacity: 1;
+    transform: translateX(0);
+}
+.single-content .info h2 {
+    text-transform: uppercase;
+	letter-spacing: 3px;
+    font-weight: bold;
+	font-size: 23px;
+	margin-top:15px;
+}
+.single-content .info h2,
+.single-content .info p{
+    transition: all 0.7s ease;
+    transform: translateX(-100%);
+    overflow: hidden;
+}
+.single-content:hover .info h2,
+.single-content:hover .info p{
+    transform: translateX(0);
+}
+.single-content .info p{
+    font-size: 13px;
+    line-height: 17px;
+
+}
+.single-content .info2{
+    position: absolute;
+
+    z-index: 3;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateX(-105%);
+    transition: all 0.4s ease;
+    left: 5%;
+    right: 5%;
+    bottom: 4%;
+    padding: 10px 12px;
+    border-left: 4px solid #fff;
+    color: #ffffff;
+}
+.single-content:hover .info2{
+    opacity: 1;
+    transform: translateX(0);
+}
+.single-content .info2 h2 {
+    text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 23px;
+	margin-top:15px;
+
+}
+.single-content .info2 h2,
+.single-content .info2 p{
+    transition: all 0.7s ease;
+    transform: translateX(-100%);
+    overflow: hidden;
+}
+.single-content:hover .info2 h2,
+.single-content:hover .info2 p{
+    transform: translateX(0);
+}
+.single-content .info2 p{
+    font-size: 13px;
+    line-height: 17px;
+    margin-top:10px;
+}
+.container {
+  justify-content: flex-start;
+  position: relative;
+}
+
+.button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-radius: 5px;
+  margin-right:350px;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  transition: all .3s ease;
+}
+.button:hover {
+  letter-spacing: 3px;
+}
+
+.button:hover ~.second {
+  opacity: .66;
+  right: -20px;
+  transition-delay: 50ms;
+}
+
+.button:hover ~.third {
+  opacity: .33;
+  right: -40px;
+  transition-delay: 100ms;
+}
+
+.second,
+.third {
+  opacity: 0;
+}
+    
+    
+</style>
+
+<div class="container" style="margin-bottom: 150px;">
+    <div class="row">
+        <div class="content-area col-md-4 col-sm-6 mb-3 mt-3">
+           <div class="single-content">
+                <img src="https://i.pinimg.com/736x/87/c6/08/87c6085bc061284b6c1ee77b2191cdc2.jpg" alt="">
+                <div class="info">
+                    <h2>Countries</h2>
+                    <a href="{% url 'lpapp:studycanada' %}">
+                    <button class="button">VIEW</button>
+                </a> 
+                </div>
+            </div>
+        </div>
+        <div class="content-area col-md-4 col-sm-6 mb-3 mt-3">
+            <div class="single-content">
+                 <img src="https://img.freepik.com/free-photo/flag-canada_1401-84.jpg?t=st=1734074127~exp=1734077727~hmac=7e780082a8605a92ab4f3dcb1694f0846b89dde16e267a2227f48f513ee0ab88&w=900" alt="">
+                 <div class="info">
+                     <h2>Immigration</h2>
+                     
+                     <a href="{% url 'lpapp:canada' %}">
+                        <button class="button">VIEW</button>
+                    </a>             
+                     </div>
+             </div>
+         </div>
+         <div class="content-area col-md-4 col-sm-6 mb-3 mt-3">
+            <div class="single-content">
+                 <img src="https://i.pinimg.com/736x/8e/e0/60/8ee0600cce110a8b54126283322d952b.jpg" alt="">
+                 <div class="info">
+                 <h2>blogs</h2>
+                     
+                <a href="{% url 'lpapp:blog' %}">
+                  <button class="button">VIEW</button>
+                    </a> 
+                </div>
+             </div>
+         </div>
+         </div>
+    <!-- profile cards -->
+    <style>
+        .profile-cards-wrapper {
+            margin: 50px auto;
+            
+            text-align: center;
+        }
+    
+        .profile-heading {
+            font-size: 24px;
+            font-weight: bold;
+            color:  rgb(22, 100, 173);
+            margin-bottom: -5px;
+        }
+    
+        .profile-cards-container {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 20px;
+    overflow-x: auto; 
+    padding: 30px;
+    scroll-padding-left: 10px;
+    scrollbar-width: none;
+    scrollbar-color: rgb(22, 100, 173) #f9f9f9;
+}
+
+.profile-cards-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.profile-cards-container::-webkit-scrollbar-thumb {
+    background:  rgb(22, 100, 173);
+    border-radius: 10px;
+}
+
+.profile-card {
+    flex: 0 0 200px; /* Maintain consistent card width */
+    background: #f9f9f9;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .profile-cards-container {
+        justify-content: center; /* Center cards on larger screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-card {
+        flex: 0 0 70%; /* Wider cards for better visibility on mobile */
+    }
+}
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .profile-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            color:  rgb(22, 100, 173);
+        }
+    
+        .profile-specialization {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+    
+        .review-button {
+            background-color: white;
+            color:  rgb(22, 100, 173);
+            border: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            border-radius: 30px;
+            margin-bottom:20px;
+            cursor: pointer;
+            border:solid 1px  rgb(22, 100, 173);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+    
+        .review-button:hover {
+            background-color:  rgb(22, 100, 173);
+            transform: scale(1.05);
+            color:white;
+            
+        }
+    
+        @media (max-width: 768px) {
+            .profile-cards-wrapper {
+                margin-top: 30px;
+            }
+            .profile-card {
+                flex: 0 0 70%;
+                
+                
+            }
+        }
+    </style>
+    <style>
+        /* Services Section */
+        .services-section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+            margin-top: 30px;
+           
+           
+            
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Always 4 cards in a row */
+            gap: 20px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-icon {
+            font-size: 50px;
+            color: rgb(22, 100, 173);
+            margin-bottom: 10px;
+        }
+        
+        .service-title {
+            font-size: 18px; /* Adjusted font size */
+            font-weight: bold;
+            margin-bottom: 10px;
+
+            color: rgb(22, 100, 173);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .services-container {
+                grid-template-columns: repeat(4, 1fr); /* Still 4 columns */
+                display:none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .services-section {
+            
+            display: none;
+            justify-content: center;
+            margin-top:-50px;
+            
+        }
+            .services-container {
+                grid-template-columns: repeat(4, 1fr); /* Still 4 columns */
+                gap: 10px;
+            }
+        
+            .service-card {
+                padding: 10px; /* Reduced padding for small screens */
+            }
+        
+            .service-icon {
+                font-size: 30px; /* Adjusted icon size */
+            }
+        
+            .service-title {
+                font-size: 12px; /* Adjusted title size */
+                margin-top: -6;
+                margin-bottom: -2px;
+            }
+        }
+        
+        </style>
+     
+
+      
+          
+        
+        <section class="services-section">
+            <h3 class="text-center" style="color:rgb(22, 100, 173);font-weight: bold; margin-bottom: 30px;margin-top: 30px;">OUR SERVICES</h3>
+
+            <div class="services-container">
+                <!-- Service Card 1 -->
+                <a href="#seminars" class="service-card" style="text-decoration:none;">
+                    <div class="service-icon"><i class="fa-solid fa-chalkboard-teacher"></i></div>
+                    <h3 class="service-title">Seminars</h3>
+                </a>
+        
+                <!-- Service Card 2 -->
+                <a href="#counselling" class="service-card" style="text-decoration:none;">
+                    <div class="service-icon"><i class="fa-solid fa-people-arrows"></i></div>
+                    <h3 class="service-title">Counselling</h3>
+                </a>
+        
+                <!-- Service Card 3 -->
+                <a href="#profile" class="service-card" style="text-decoration:none;">
+                    <div class="service-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                    <h3 class="service-title">Profile</h3>
+                </a>
+        
+                <!-- Service Card 4 -->
+                <a href="#admission" class="service-card" style="text-decoration:none;">
+                    <div class="service-icon"><i class="fa-solid fa-file-signature"></i></div>
+                    <h3 class="service-title">Admission</h3>
+                </a>
+        
+                <!-- Service Card 5 -->
+                <a href="#financial-aid" class="service-card" style="text-decoration:none;">
+                    <div class="service-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <h3 class="service-title">Financial Aid</h3>
+                </a>
+        
+                <!-- Service Card 6 -->
+                <a href="#visa" class="service-card" style="text-decoration:none;">
+                    <div class="service-icon"><i class="fa-solid fa-passport"></i></div>
+                    <h3 class="service-title">Visa</h3>
+                </a>
+        
+                <!-- Service Card 7 -->
+                <a href="#departure" class="service-card" style="text-decoration:none;">
+                    <div class="service-icon"><i class="fa-solid fa-plane-departure"></i></div>
+                    <h3 class="service-title">Departure</h3>
+                </a>
+        
+                <!-- Service Card 8 -->
+                <a href="#landing" class="service-card" style="text-decoration:none;">
+                    <div class="service-icon"><i class="fa-solid fa-plane-arrival"></i></div>
+                    <h3 class="service-title">Landing</h3>
+                </a>
+            </div>
+            <div style="display:flex;justify-content: flex-end;align-items: center;margin-top: 30px;">
+                <a href="{% url 'lpapp:service' %}">
+                <button type="button" class="btn btn" style="border-radius: 30px;background: rgb(22, 100, 173);color: white;font-weight: 800px;height:40px;">View<i class="fa-solid fa-right-to-bracket" style="margin-left: 8px;"></i></button>
+            </a>  
+            </div>
+        </section>
+        
+        <div class="profile-cards-wrapper">
+            <h2 class="profile-heading">OUR TEAM</h2>
+            <div class="profile-cards-container">
+                {% for member in team_members %}
+                <div class="profile-card">
+                    <img src="{{ member.img.url }}" alt="Profile Picture" class="profile-pic">
+                    <h3 class="profile-name">{{ member.name }}</h3>
+                    <p class="profile-specialization">{{ member.post }}</p>
+                    <a href="{% url 'lpapp:profile' member.pk %}" class="review-button" style="margin-top: 10px;text-decoration:none;">
+                        <i class="fa-solid fa-circle-user" style="margin-right: 10px;"></i>Reviews
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    <!-- services -->
+
+    <style>
+        /* Parent container */
+        .two-column-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 20px;
+          padding: 20px;
+          
+          border-radius: 15px;
+          max-width: 1200px;
+          margin: auto;
+        }
+    
+        /* Timeline and Slideshow containers */
+        .timeline-section,
+        .slideshow-section {
+          flex: 1;
+          background:transparent;
+          border-radius: 15px;
+          display:none;
+          padding: 20px;
+          min-width: 400px;
+          margin-top: -60px;
+        }
+    
+        /* Timeline Styles */
+        .timeline-title {
+          font-size: 28px;
+          font-weight: bold;
+          color: rgb(22, 100, 173);
+          text-align: center;
+          margin-bottom: 20px;
+        }
+    
+        .timeline-container {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+    
+        .timeline-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 15px;
+        }
+    
+        .timeline-item:nth-child(odd) {
+          flex-direction: row-reverse;
+        }
+    
+        .timeline-icon {
+          background: linear-gradient(135deg, #2874af, rgb(22, 100, 173));
+          color: #fff;
+          font-size: 18px;
+          font-weight: bold;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        .timeline-content {
+          background: #ffffff;
+          border-radius: 10px;
+          padding: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          flex-grow: 1;
+        }
+    
+        .timeline-content h3 {
+          font-size: 16px;
+          font-weight: bold;
+          color: rgb(22, 100, 173);
+          margin-bottom: 5px;
+        }
+    
+        .timeline-content p {
+          font-size: 14px;
+          color: #555;
+        }
+        .slideshow-title {
+          font-size: 28px;
+          font-weight: bold;
+          color: rgb(22, 100, 173);
+          text-align: center;
+          margin-bottom: 20px;
+        }
+    
+    
+
+
+        @media (max-width: 1024px) {
+    .two-column-container {
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .timeline-section,
+    .slideshow-section {
+      flex: 1 1 calc(50% - 20px);
+    }
+
+    .timeline-title,
+    .slideshow-title {
+      font-size: 24px;
+    }
+
+    .timeline-content p {
+      font-size: 12px;
+    }
+
+    .timeline-icon {
+        width:50px;
+        height:50px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .two-column-container {
+      flex-direction: column;
+    }
+
+    .timeline-section,
+    .slideshow-section {
+      width: 100%;
+      min-width: unset;
+      display:block;
+    }
+
+    .timeline-content h3 {
+      font-size: 16px;
+    }
+
+    .timeline-content p {
+      font-size: 12px;
+    }
+
+    
+    
+  }
+
+  @media (max-width: 480px) {
+    .timeline-title,
+    .slideshow-title {
+      font-size: 20px;
+    }
+
+    .timeline-content h3 {
+      font-size: 16px;
+    }
+
+    .timeline-content p {
+      font-size: 7px;
+    }
+  }
+    
+    
+      </style>
+      <div class="two-column-container">
+        <!-- Timeline Section -->
+        <div class="timeline-section">
+          <h2 class="timeline-title">SERVICES</h2>
+          <div class="timeline-container">
+            <div class="timeline-item">
+              <div class="timeline-icon">1</div>
+              <div class="timeline-content">
+                <h3>Seminars & Webinars</h3>
+                
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon">2</div>
+              <div class="timeline-content">
+                <h3>Counselling Sessions</h3>
+                
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon">3</div>
+              <div class="timeline-content">
+                <h3>Assessment Of Profile</h3>
+                
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon">4</div>
+              <div class="timeline-content">
+                <h3>Admission & Enrollment</h3>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon">5</div>
+              <div class="timeline-content">
+                <h3>Financial Aid</h3>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon">6</div>
+              <div class="timeline-content">
+                <h3>Visa Processing</h3>
+              </div>
+              
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">7</div>
+                <div class="timeline-content">
+                  <h3>Pre-Departure Briefing</h3>
+                </div>
+                
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon">8</div>
+                <div class="timeline-content">
+                  <h3>Post-Landing Assistance</h3>
+                </div>
+                
+              </div>
+          </div>
+          <div style="display:flex;justify-content: flex-end;align-items: center;margin-top: 30px;">
+            <a href="{% url 'lpapp:service' %}">
+            <button type="button" class="btn btn" style="border-radius: 30px;background: rgb(22, 100, 173);color: white;font-weight: 800px;height:40px;">View<i class="fa-solid fa-right-to-bracket" style="margin-left: 8px;"></i></button>
+        </a>  
+        </div>
+          
+        </div>
+        
+    
+        </div>
+        
+        <style>
+        /* Section Container */
+        .slideshow-section {
+            background-color: transparent;
+            
+            text-align: center;
+            border-radius: 10px;
+            
+            
+        }
+        
+        /* Section Title */
+        .slideshow-title {
+          font-size: 28px;
+          font-weight: bold;
+          color: rgb(22, 100, 173);
+          text-align: center;
+          margin-bottom: 20px;
+          
+        }
+        
+        /* Event Container */
+        .event-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        /* Event Image */
+        .event-image img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Event Details */
+        .event-details {
+            max-width: 500px;
+            text-align: left;
+        }
+        
+        /* Event Title */
+        .event-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: rgb(22, 100, 173);
+            margin-bottom: 15px;
+        }
+        
+        /* Event Description */
+        .event-description {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        /* Enroll Button */
+        
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .event-container {
+                flex-direction: column;
+                align-items: center;
+                
+            }
+        
+            .event-image img {
+                width: 100%;
+                max-width: 500px;
+            }
+        
+            .event-details {
+                text-align: center;
+            }
+        }
+        </style>
+        
+        <h2 class="text-center mb-5 testimonial-title" >Happy Faces</h2>
+
+
+
+<div class="carousel" data-flickity='{ "autoPlay": true, "prevNextButtons": false, "wrapAround": true }' style="background:transparent;background-size:200px;">
+    <!-- Carousel Cell 1 -->
+    <div class="carousel-cell" style="background-image: url(static/dona.jpg); position: relative;">
+        <div class="carousel-info">
+            <h4>Dona Jain</h4>
+            <p>Germany</p>
+        </div>
+    </div>
+
+    <!-- Carousel Cell 2 -->
+    <div class="carousel-cell" style="background-image: url(static/aleena.jpg); position: relative;">
+        <div class="carousel-info">
+            <h4>Aleena K Sajeev</h4>
+            <p>Germany</p>
+        </div>
+    </div>
+
+    <!-- Carousel Cell 3 -->
+    <div class="carousel-cell" style="background-image: url(static/laya.jpg); position: relative;">
+        <div class="carousel-info">
+            <h4>Laya</h4>
+            <p>Germany</p>
+        </div>
+    </div>
+
+    <!-- Carousel Cell 4 -->
+    <div class="carousel-cell" style="background-image: url(static/gokul.jpg); position: relative;">
+        <div class="carousel-info">
+            <h4>Gokul Prasad</h4>
+            <p>Germany</p>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Carousel Styling */
+.carousel {
+    margin-top: 30px;
+    z-index: 10;
+}
+
+.carousel-cell {
+    width: 35%;
+    height: 400px;
+    margin-right: 10px;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Overlay for Text */
+.carousel-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    text-align: center;
+    border-radius: 0 0 15px 15px;
+}
+
+.carousel-info h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.carousel-info p {
+    margin: 5px 0 0;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .carousel {
+        margin-top: 20px;
+        margin-bottom: 70px;
+    }
+
+    .carousel-cell {
+        width: 60%;
+        height: 250px;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    .carousel-info h4 {
+        font-size: 1.2rem;
+    }
+
+    .carousel-info p {
+        font-size: 0.9rem;
+    }
+}
+</style>
+<style>
+    /* Testimonial Section */
+.testimonial-section {
+    background-color:transparent;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 30px;
+    
+}
+.testimonial-slider {
+    position: relative;
+    overflow: hidden;
+    width: 73vw;
+    height:100px;
+    
+    margin: 0 auto 20px;
+}
+.testimonial-swiper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    padding: 20px 0;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #555;
+    font-style: italic;
+    text-align: center;
+    min-height: 100px; /* Adjust height as needed */
+}
+
+.testimonial-slide {
+    display: none;
+    font-size: 18px;
+    color: #555;
+    font-style: italic;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.testimonial-slide.active {
+    display: block;
+}
+/* For swiping navigation buttons (optional) */
+.swipe-button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.swipe-button-prev {
+    margin-right: 60px;
+}
+
+.swipe-button-next {
+    margin-left:60px;
+}
+
+.testimonial-title {
+    font-size: 32px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #5f9cad, #8080bc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+
+.testimonial-content {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+    font-style: italic;
+    
+}
+
+.review-stars {
+    font-size: 24px;
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+.testimonial-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+   
+}
+
+.testimonial-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;  
+}
+
+.view-reviews-btn {
+    background: linear-gradient(135deg, #80bccd, #9e9ed4);
+    color: white;       
+}
+
+.view-reviews-btn:hover {
+    background-color: linear-gradient(135deg,#9e9ed4,#80bccd,);
+}
+
+.write-review-btn {
+    background:linear-gradient(135deg, #80bccd, #9e9ed4) ;
+
+    color: white;
+}
+
+.write-review-btn:hover {
+    background:linear-gradient(135deg,#9e9ed4,#80bccd,);
+}
+
+</style>
+<div class="container my-5">
+    <h2 class="text-center mb-5 testimonial-title" style="margin-top: 70px;">Testimonials</h2>
+    <div class="row" >
+        <!-- Video 1 -->
+        <div class="col-md-6 mb-4">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/rm-WOMJjgZU?si=dc_atwLhMiMgdGEA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 20px;"></iframe></div>
+            </p>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="col-md-6 mb-4">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Nogeb18jyNo?si=3L_s1o8kgEO_gs95" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 20px;"></iframe>          </div>  
+        </div>
+    </div>
+</div>
+<div class="testimonial-buttons">
+    <a href="https://www.youtube.com/@LifePlanner">
+    <button class=" yt-btn" style="margin-top: -30px;border-radius: 30px;background-color: rgb(235, 28, 28);color:white;"><i class="fa-brands fa-youtube" style="margin-right: 10px;"></i>Watch Youtube</button>
+</a>
+</div>
+<div class="testimonial-section">
+    <h2 class="testimonial-title">WORD OF MOUTH</h2>
+    <div class="swiper testimonial-swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide testimonial-content">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum nisi nec justo ullamcorper, et pharetra lacus tristique. Suspendisse potenti."
+                <br>
+                    &#9733; &#9733; &#9733; &#9733; &#9734;
+                
+            </div>
+            <div class="swiper-slide testimonial-content">"Vivamus eget tortor at quam blandit gravida. Nulla non dictum eros. Integer tincidunt quam vel ex bibendum, non fermentum nulla suscipit."
+                <br>
+                    &#9733; &#9733; &#9733; &#9733; &#9734;
+                
+            </div>
+            <div class="swiper-slide testimonial-content">"Fusce convallis lorem a leo elementum, non gravida nunc tempor. Proin vel purus id est tincidunt gravida."
+                <br>
+                    &#9733; &#9733; &#9733; &#9733; &#9734;
+                
+            </div>
+        </div>
+        <!-- Navigation buttons -->
+        <!-- <div class="swiper-button-next mr-5"></div>
+        <div class="swiper-button-prev ml-5"></div> -->
+    </div>
+    
+    
+    <div class="testimonial-buttons">
+        <a href="https://www.google.com/search?sca_esv=9e9c33286d1c223f&sxsrf=ADLYWII-vzZDd95yKup79NyCTqastVgFyw:1734325889801&q=life+planner+studies+%26+opportunities+(p)+ltd.+reviews&uds=ADvngMjmOpPa1aSltZY4f1gf34W865BNR-Lg8NFypJ5Z1bqxC3LYjNSy7eCdQGyKcDIDAg8cbgySrmbPZ_KXwZQAWyZVYN4miCZfo_COpONMDBVext1adS2t27_kMJu1qMk-cS-2rzck4S6YuPko49ajknRJGO5gUXNpgz7pwpAxZQ8Jnw9ma31EmKHnVmWJu5qJK1MUThUn7mRXGK8hITUlz0GjKGPHE53tgxAmKZt3c1T1cXtc_3amA8je6sTlSl3oM1hfjSng-4AvKxGjmjL4nVHOAghHT7SHHlBtPRPOoBTL0m5iChDuYAxxmcmx63tctnelQIVNL72m4KG2eARt910IV_eBEZCgupeHJIbYxKooUVsoxPiYXbv3wzMdLAKYpSsbePRoxVSB_Wxk3lpoojxeFPfU40_Qf_v1kbsJ0NbL0dtrh6NcWmH2EG4lZHh7SqlzN9h3AZnY95BRfmY50CGFe2Mw5sCkSe4iBInwP9YsJQaJd4izsD0c8Up3SWFVVykS4CFjxq5lw0xZWxKJdv-xmDX6eQ&si=ACC90nwjPmqJHrCEt6ewASzksVFQDX8zco_7MgBaIawvaF4-7omE7hEVjylolpVTfEaEKtmdKbPAdhHA5OmwdKg7gzm3AFt5nxhoC9KyibSydGDvvCsOTE0Af5IyoLhIuw2CKCV2jeXReFPBVaYWoz37DxrcmuSlWBs_qaKXyJ6nfuSUT0F8WGM%3D&sa=X&ved=2ahUKEwiDkdi0w6uKAxXkyzQHHQLQFi8Qk8gLegQIIxAB&ictx=1&stq=1&cs=0&lei=gbZfZ8PMMOSX0-kPgqDb-AI#ebo=1&sbfbu=1&pi=life%20planner%20studies%20%26%20opportunities%20(p)%20ltd.%20reviews">
+        <button class="view-reviews-btn"><i class="fa-brands fa-google" style="margin-right: 10px;"></i> Reviews</button>
+        </a>
+        
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const swiper = new Swiper('.testimonial-swiper', {
+            loop: true, // Enables continuous loop mode
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 3000, // Auto-swipes every 5 seconds
+                disableOnInteraction: false, // Keeps autoplay enabled after user interaction
+            },
+        });
+    });
+</script>
+
+   
+    
+    
+</div>
+<script>
+const swiper = document.querySelector(".testimonial-swiper");
+const testimonials = document.querySelectorAll(".testimonial-content");
+let currentIndex = 0;
+
+function showTestimonial(index) {
+    swiper.style.transform = `translateX(-${index * 100}%)`;
+    testimonials.forEach((testimonial, i) => {
+        testimonial.style.opacity = i === index ? "1" : "0.7";
+    });
+}
+
+// Swipe Navigation
+document.querySelector(".swipe-button.left").addEventListener("click", () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : testimonials.length - 1;
+    showTestimonial(currentIndex);
+});
+
+document.querySelector(".swipe-button.right").addEventListener("click", () => {
+    currentIndex = (currentIndex < testimonials.length - 1) ? currentIndex + 1 : 0;
+    showTestimonial(currentIndex);
+});
+
+// Initialize with first testimonial visible
+showTestimonial(currentIndex);
+
+
+</script>
+
+<style>
+    /* Slideshow Container */
+    .logo-slideshow {
+        width: 100%;
+        overflow: hidden;
+        background-color: transparent;
+        padding: 20px 0;
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-top: -150px;
+    }
+
+    /* Slideshow Track */
+    .logo-track {
+        display: flex;
+        gap: 40px; /* Space between logos */
+        animation: scroll 20s linear infinite;
+        padding: 20px ;
+        /* Adjust duration for speed */
+    }
+
+    /* Individual Logo */
+    .logo-slide {
+        min-width: 150px;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        background-color: transparent; 
+        padding: 10px;
+    }
+
+    /* Logo Image */
+    .logo-slide img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    /* Keyframes for infinite scroll */
+    @keyframes scroll {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
+    /* Pause on hover */
+    .logo-slideshow:hover .logo-track {
+        animation-play-state: paused;
+    }
+</style>
+<div class="text-center">
+    <h4 class="shimmer-text">PARTNERING UNIVERSITIES & COLLEGES</h4>
+</div>
+<style>
+    /* Shimmer Text Effect */
+.shimmer-text {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    color: #003290;
+    background: linear-gradient(90deg, #003290, #002ee8, #a980cd, #003290);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+/* Keyframes for Shimmer Effect */
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Media Queries */
+
+/* For screens smaller than 768px (mobile devices) */
+@media (max-width: 768px) {
+    .shimmer-text {
+        font-size: 22px; /* Smaller font size for mobile */
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
+
+/* For screens smaller than 480px (very small devices like phones in portrait mode) */
+@media (max-width: 480px) {
+    .shimmer-text {
+        font-size: 20px; /* Even smaller font size for very small screens */
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
+
+/* For larger screens above 1200px (large desktops) */
+@media (min-width: 1200px) {
+    .shimmer-text {
+        font-size: 32px; /* Increase font size for larger screens */
+        margin-top: 60px;
+        margin-bottom: 70px;
+    }
+}
+
+</style>
+
+
+<div class="logo-slideshow">
+    <div class="logo-track">
+        <!-- Add logo slides here -->
+        <div class="logo-slide">
+            <img src="/static/lodz.png" alt="Logo 1">
+        </div>
+        <div class="logo-slide">
+            <img src="/static/ncu.png" alt="Logo 2">
+        </div>
+        <div class="logo-slide">
+            <img src="/static/uitm.png" alt="Logo 3">
+        </div>
+        <div class="logo-slide">
+            <img src="/static/cc.png" alt="Logo 4">
+        </div>
+        <div class="logo-slide">
+            <img src="/static/vum.jpg" alt="Logo 5">
+        </div>
+        <div class="logo-slide">
+            <img src="/static/ei.jpg" alt="Logo 6">
+        </div>
+        <div class="logo-slide">
+            <img src="/static/uoe.png" alt="Logo 7">
+        </div>
+
+        <!-- Duplicate logos seamlessly -->
+        <div class="logo-slide">
+            <img src="/static/lodz.png" alt="Logo 1">
+        </div>
+        <div class="logo-slide">
+            <img src="/static/ncu.png" alt="Logo 2">
+        </div>
+        <div class="logo-slide">
+            <img src="/static/uitm.png" alt="Logo 3">
+        </div>
+        <div class="logo-slide">
+            <img src="/static/cc.png" alt="Logo 4">
+        </div>
+        <div class="logo-slide">
+            <img src="/static/vum.jpg" alt="Logo 5">
+        </div>
+        <div class="logo-slide">
+            <img src="/static/ei.jpg" alt="Logo 6">
+        </div>
+        <div class="logo-slide">
+            <img src="/static/uoe.png" alt="Logo 7">
+        </div>
+    </div>
+</div>
+
+        
+    
+<!-- Modal HTML -->
+
+              
+
+<!-- Modal HTML -->
+<div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 15px; box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);">
+            <!-- Modal Body -->
+            <div class="modal-body" style="padding: 25px 30px; background-color: #ffffff;border-radius: 20px;">
+                <!-- New Form -->
+                <form class="form" method="post" id="appointmentForm">
+                    {% csrf_token %}
+                    <p class="title">Book Now</p>
+                    <p class="message">Our Team Will contact You Soon.</p>
+                    <div class="flex">
+                        <label>
+                            <input required placeholder="" type="text" class="input" name="firstname">
+                            <span>Firstname</span>
+                        </label>
+                        <label>
+                            <input required placeholder="" type="text" class="input" name="lastname">
+                            <span>Lastname</span>
+                        </label>
+                    </div>
+                    <label>
+                        <input required placeholder="" type="email" class="input" name="email">
+                        <span>Email</span>
+                    </label>
+                    <label>
+                        <input required placeholder="" type="Phone.no" class="input" name="phone_number">
+                        <span>Phone.no</span>
+                    </label>
+                    <label>
+                        <input placeholder="" type="Message" class="input" name="message">
+                        <span>Message</span>
+                    </label>
+                    {{ form_as.p }}
+                    <button type="submit" class="submit" data-bs-dismiss="modal" style="background-color: grey;" disabled>Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById('appointmentForm');
+    const submitButton = form.querySelector('.submit');
+    const requiredFields = form.querySelectorAll('input[required]');
+
+    // Function to check if all required fields are filled
+    function checkFormCompletion() {
+        let allFilled = true;
+        requiredFields.forEach(function(field) {
+            if (!field.value.trim()) {
+                allFilled = false;
+            }
+        });
+
+        // Update the button's style and enabled state
+        if (allFilled) {
+            submitButton.style.backgroundColor = 'blue';  // Change to blue
+            submitButton.disabled = false;  // Enable the button
+        } else {
+            submitButton.style.backgroundColor = 'grey';  // Change to grey
+            submitButton.disabled = true;  // Disable the button
+        }
+    }
+
+    // Attach event listeners to all required input fields
+    requiredFields.forEach(function(field) {
+        field.addEventListener('input', checkFormCompletion);  // Check on each input change
+    });
+
+    // Initial check when the page loads
+    checkFormCompletion();
+
+    // Submit form event
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();  // Prevent default form submission
+
+        // If form is valid (submit button is enabled), submit via fetch
+        if (submitButton.disabled === false) {
+            var formData = new FormData(form);
+            fetch("{% url 'lpapp:contact' %}", {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const Toast = Swal.mixin({
+  toast: true,
+  position: "top",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "success",
+  title: "Submitted Successfully"
+});
+                    form.reset();  // Reset the form
+                    checkFormCompletion();  // Recheck form state
+                } else {
+                    const Toast = Swal.mixin({
+  toast: true,
+  position: "top",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "error",
+  title: "Submission Failed"
+});
+                }
+            })
+            .catch(error => {
+                console.error("Error during form submission:", error);
+                const Toast = Swal.mixin({
+  toast: true,
+  position: "top",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "error",
+  title: "Something Went Wrong"
+});
+            });
+        }
+    });
+</script>
+
+
+<style>
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.title {
+  font-size: 28px;
+  color: rgb(22, 100, 173);
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: rgb(22, 100, 173);
+}
+
+.title::before {
+  width: 18px;
+  height: 18px;
+  background-color: rgb(22, 100, 173);
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.message,
+.signin {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 14px;
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a {
+  color: rgb(22, 100, 173);
+}
+
+.signin a:hover {
+  text-decoration: underline rgb(22, 100, 173);
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: grey;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.form label .input:valid + span {
+  color: rgb(0, 23, 128);
+}
+
+.submit {
+  border: none;
+  outline: none;
+  background-color: rgb(22, 100, 173);
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: 0.3s ease;
+}
+
+.submit:hover {
+  background-color: rgb(56, 90, 194);
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+</style>
+
+
+<style>
+    .floating-buttons {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+    }
+
+    .floating-buttons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(22, 100, 173);
+        color: white;
+        border-radius: 50%;
+        box-shadow: 0 4px 6px rgb(22, 100, 173);
+        text-decoration: none;
+        font-size: 24px;
+        transition: background-color 0.3s ease;
+    }
+
+    .floating-buttons a.phone {
+        background-color: rgb(22, 100, 173);
+    }
+
+    .floating-buttons a.mail {
+        background-color: rgb(22, 100, 173);
+    }
+
+    .floating-buttons a:hover {
+        opacity: 0.9;
+        background-color: rgb(22, 100, 173);
+    }
+</style>
+
+<div class="floating-buttons">
+    <a href="https://wa.me/+918594060107" target="_blank" title="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="tel:+91 8594060107" class="phone" title="Call">
+        <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="mailto:info@lifeplanneruniversal.com" class="mail" title="Email">
+        <i class="fas fa-envelope"></i>
+    </a>
+</div>
+
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="footer-cta pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-md-4 mb-3">
+                    <div class="single-cta">
+                        
+                        <div class="cta-text">
+                            
+                            <h4>Find us</h4>
+                            <span>2nd Floor, Thevarolil Building, Lal Bahadur Shastri Rd, Baker Hill, Kottayam, Kerala 686001</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-4 col-md-4 mb-3">
+                    <div class="single-cta">
+                       
+                        <div class="cta-text">
+                            <h4>Call us</h4>
+                            <span>+91 9072222911 ,</span>
+                            <span>+91 9072222933</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4 mb-30">
+                    <div class="single-cta">
+                        
+                        <div class="cta-text">
+                            <h4>Mail us</h4>
+                            <span>info@lifeplanneruniversal.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 mb-50">
+                    <div class="footer-widget">
+                
+                        <div class="footer-text">
+                            <p>Life Planner Studies and Opportunities Pvt Ltd is a leading overseas education consultant, with headquarters in Kottayam and Corporate office in Cochin.</p>
+                        </div>
+                        <div class="footer-social-icon mb-4">
+                            <span>Follow us</span>
+                            <a href="https://www.instagram.com/lifeplannerstudies/?hl=en"><i class="fab fa-facebook-f bg-light text-dark"></i></a>
+                            <a href="#"><i class="fab fa-twitter bg-light text-dark"></i></a>
+                            <a href="#"><i class="fab fa-instagram bg-light text-dark"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-30" style="display:flex;justify-content: center;align-items: center;">
+                    <div class="footer-widget" >
+                        <div class="footer-widget-heading">
+                            <h4>Top Links</h4>
+                        </div>
+                        <ul>
+                            <li><a href="{% url 'lpapp:home' %}">Home</a></li>
+                            <li><a href="{% url 'lpapp:studycanada' %}">Countries</a></li>
+                            <li><a href="{% url 'lpapp:service' %}">services</a></li>
+                            <li><a href="{% url 'lpapp:blog' %}">Blog</a></li>
+                            <li><a href="{% url 'lpapp:contact' %}">Contact Us</a></li>
+                            <li><a href="{% url 'lpapp:about' %}">About us</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-50" style="display:flex;justify-content: center;align-items: center;">
+                    <img src="/static/LPRlogo.png" style="width:280px;">
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row"  style="display:flex;justify-content: center;align-items: center;">
+                    <div class="col-xl-6 col-lg-6 text-center ">
+                        <div class="copyright-text">
+                            <p>Copyright &copy; 2024, All Right Reserved <a href="https://codepen.io/anupkumar92/">Lifeplanner Studies and Oppertunities</a></p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</footer>
+<style>
+    ul {
+    margin: 0px;
+    padding: 0px;
+    
+}
+.footer-section {
+background: linear-gradient(135deg, #5f9cad, #8080bc);
+  position: relative;
+  margin-top: 60px;
+}
+.footer-cta {
+  border-bottom: 1px solid #373636;
+}
+.single-cta i {
+  color: white;
+  font-size: 30px;
+  float: left;
+  margin-top: 8px;
+}
+.cta-text {
+  padding-left: 15px;
+  display: inline-block;
+}
+.cta-text h4 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.cta-text span {
+  color: #ffffff;
+  font-size: 15px;
+}
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-logo img {
+    max-width: 200px;
+}
+.footer-text p {
+  margin-bottom: 14px;
+  font-size: 14px;
+      color: white;
+  line-height: 28px;
+}
+.footer-social-icon span {
+  color: #ffffff;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+}
+.footer-social-icon a {
+  color: #fff;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+}
+.facebook-bg{
+  background: #3B5998;
+}
+.twitter-bg{
+  background: #55ACEE;
+}
+.google-bg{
+  background: #DD4B39;
+}
+.footer-widget-heading h4 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+.footer-widget-heading h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  height: 2px;
+  width: 50px;
+  background: #ff5e14;
+}
+.footer-widget ul li {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  margin-bottom: 12px;
+}
+.footer-widget ul li a:hover{
+  color: #ffffff;
+}
+.footer-widget ul li a {
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.subscribe-form {
+  position: relative;
+  overflow: hidden;
+}
+.subscribe-form input {
+  width: 100%;
+  padding: 14px 28px;
+  background: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+}
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: #ff5e14;
+    padding: 13px 20px;
+    border: 1px solid #ff5e14;
+    top: 0;
+}
+.subscribe-form button i {
+  color: #fff;
+  font-size: 22px;
+  transform: rotate(-6deg);
+}
+.copyright-area{
+    
+  padding: 25px 0;
+}
+.copyright-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #ffffff;
+}
+.copyright-text p a{
+  color: #ffffff;
+}
+.footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
+}
+.footer-menu li:hover a{
+  color: #ffffff;
+}
+.footer-menu li a {
+  font-size: 14px;
+  color: #878787;
+}
+</style>
+  
+  <!-- Include Font Awesome for Social Media Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Include Swiper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+</body>
+
+</html>

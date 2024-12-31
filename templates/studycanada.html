@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study in Canada | Lifeplanner Universal</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: myfont;
+            src: url(/static/Cabin-Medium.ttf);
+        }
+
+        body {
+            font-family: myfont;
+            background: #f4f7fc;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #5f9cad, #8080bc);
+            color: white;
+            
+            padding: 2.5rem 1rem;
+            text-align: center;
+        }
+
+        header h2 {
+            font-size: 3.5rem;
+            margin: 0;
+            font-weight: 700;
+            text-transform: uppercase;
+
+        }
+
+
+        .nav-tab {
+            
+            border-radius: 20px;
+            margin-top: 20px;
+            background: linear-gradient(135deg, #5f9cad, #8080bc);
+            display:flex;
+           
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <style>
+         .navbar {
+    background: transparent;
+    
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    transition: background 0.3s ease; /* Smooth transition for background color */
+}
+
+
+        .navbar .nav-link {
+            color: #ffffff;
+            font-weight: 500;
+            margin:10px;
+            
+        }
+
+        .navbar .nav-link:hover {
+            color: #ff4757;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+            
+            
+        
+    
+        }
+
+        .navbar-brand {
+            font-weight: 500;
+            color: #ffffff;
+            
+        }
+        
+
+.icon-menu {
+  --gap: 5px;
+  --height-bar: 2.5px;
+  --pos-y-bar-one: 0;
+  --pos-y-bar-three: 0;
+  --scale-bar: 1;
+  --rotate-bar-one: 0;
+  --rotate-bar-three: 0;
+  width: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  cursor: pointer;
+  position: relative;
+  margin-top:5px;
+  margin-right: 10px;
+  display:none;
+}
+@media (max-width: 767px) {
+            .icon-menu {
+                display: flex; 
+            }
+        }
+       
+.bar {
+  position: relative;
+  height:3.2px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+
+@keyframes slideFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .icon-menu{
+        display: block;
+        
+    }
+    .bar {
+  position: relative;
+  height: 5px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
+  margin:2px;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+    }
+    </style>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <img src="/static/LPsymbol.png" style="height:40px;width:90px;">
+            <input hidden class="check-icon" id="check-icon" name="check-icon" type="checkbox" >
+            <label class="icon-menu" for="check-icon" data-toggle="collapse" data-target="#navbarNav">
+                <div class="bar bar--1"></div>
+                <div class="bar bar--2"></div>
+                <div class="bar bar--3"></div>
+            </label>
+    
+            <div class="collapse navbar-collapse" id="navbarNav" >
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:home' %}">Home</a></li>
+                        <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:service' %}">Services</a></li>
+                        <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:canada' %}">Immigration</a></li>
+                        <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:blog' %}">Blog</a></li>
+<!-- University Dropdown -->
+<li class="nav-item ml-4 dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      University
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background: rgba(0, 0, 0, 0.566);">
+      <a class="dropdown-item text-white" href="{% url 'lpapp:studycanada' %}">English-Speaking Countries</a>
+      <a class="dropdown-item text-white mt-3" href="{% url 'lpapp:studyeurope' %}">European Countries</a>
+      
+      
+  </div>
+</li>                        <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:contact' %}">Contact Us</a></li>
+                    <!-- <li class="nav-item ml-4 locationLink"><a class="nav-link" href="#" >Location</a></li> -->
+    
+                </ul>
+            </div>
+        </nav>
+        <script>
+            // Navbar background color change on scroll or menu toggle
+      function updateNavbarBackground() {
+          const navbar = document.querySelector(".navbar");
+          const menuCheckbox = document.querySelector("#check-icon");
+      
+          if (menuCheckbox.checked || window.scrollY > 50) {
+              navbar.style.background = "rgba(0, 0, 0, 0.8)";
+          } else {
+              navbar.style.background = "transparent";
+          }
+      }
+      
+      // Attach scroll event listener
+      window.addEventListener("scroll", updateNavbarBackground);
+      
+      // Attach toggle menu listener
+      document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
+      
+          </script>
+          <style>
+            header h2{
+                animation: slideFadeIn 1.5s ease-in-out;
+            }
+            h3{
+                font-weight: bold;
+                color:#5f9cad;
+            }
+          </style>
+    <header>
+        <h2 style="margin-top: 50px;" id="header-title">ENGLISH SPEAKING COUNTRIES</h2>
+
+        
+        
+    </header>
+    <style>
+      /* Dropdown container styling */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+  
+      /* Dropdown button styling */
+      .dropdown-btn {
+        background: linear-gradient(135deg, #5f9cad, #8080bc);
+        color: white;
+        padding: 10px 20px;
+        font-size: 20px;
+        border: none;
+        font-weight: bold;
+        border-bottom-right-radius: 15px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: -1px;
+      }
+  
+      .dropdown-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      /* Dropdown menu styling */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background: linear-gradient(135deg, #5f9cad, #8080bc);
+        min-width: 160px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        margin-top: 5px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+      }
+  
+      .dropdown-content.show {
+        display: block;
+        transform: translateX(0);
+        opacity: 1;
+      }
+  
+      /* Dropdown menu links */
+      .dropdown-content a {
+        color: #ffffff;
+        padding: 10px 20px;
+        text-decoration: none;
+        display: block;
+        font-weight: bold;
+        border-bottom: 1px solid #e6e6e6;
+      }
+  
+      .dropdown-content a:last-child {
+        border-bottom: none;
+      }
+  
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+        color: #007bff;
+      }
+    </style>
+  
+    <div class="dropdown">
+      <button class="dropdown-btn" id="dropdownBtn" onclick="toggleDropdown()">Countries</button>
+      <div class="dropdown-content" id="dropdownContent">
+        <a href="#" onclick="switchCountry('canada')">Canada</a>
+        <a href="#" onclick="switchCountry('uk')">UK</a>
+        <a href="#" onclick="switchCountry('australia')">Australia</a>
+        <a href="#" onclick="switchCountry('newzealand')">New Zealand</a>
+        <a href="#" onclick="switchCountry('usa')">USA</a>
+        <a href="#" onclick="switchCountry('ireland')">Ireland</a>
+      </div>
+    </div>
+  
+    <script>
+      // Function to switch country and update dropdown text
+      function switchCountry(countryName) {
+        const dropdownBtn = document.getElementById("dropdownBtn");
+        dropdownBtn.textContent = countryName; // Update button text
+        console.log(`Switched to: ${countryName}`); // Log the change for debugging
+        toggleDropdown(); // Close the dropdown after selection
+      }
+  
+      // Function to toggle the visibility of the dropdown menu
+      function toggleDropdown() {
+        const dropdownContent = document.getElementById("dropdownContent");
+        if (dropdownContent.classList.contains("show")) {
+          dropdownContent.classList.remove("show");
+          setTimeout(() => (dropdownContent.style.display = "none"), 300); // Allow animation to finish before hiding
+        } else {
+          dropdownContent.style.display = "block";
+          setTimeout(() => dropdownContent.classList.add("show"), 10); // Add a slight delay to allow transition to apply
+        }
+      }
+  
+      // Close the dropdown if clicked outside
+      window.onclick = function(event) {
+        const dropdownContent = document.getElementById("dropdownContent");
+        const dropdownBtn = document.getElementById("dropdownBtn");
+        if (!dropdownBtn.contains(event.target) && !dropdownContent.contains(event.target)) {
+          dropdownContent.classList.remove("show");
+          setTimeout(() => (dropdownContent.style.display = "none"), 300);
+        }
+      };
+    </script>
+    
+
+    
+    <div id="canada" class="country-content container bg-white mt-4 p-4 rounded shadow fade-in">
+        <h3 class="border-bottom pb-2">Study in Canada: Your Gateway to Quality Education and Bright Career Opportunities</h3>
+        <p>Canada has steadily become one of the top destinations for students seeking quality education, global exposure, and exceptional career opportunities. Known for its welcoming culture, advanced education system, and stunning landscapes, Canada offers a perfect mix of learning and living. Whether you are interested in undergraduate, postgraduate, or professional courses, Canada has something for everyone. Let us explore why Canada is the preferred choice for international students, what courses are popular, part-time work opportunities, and new immigration rules that positively shape the future for aspiring students.</p>
+        <br><br>
+        <div style="display:flex;justify-content: center;align-items: center;">
+            <img src="https://images.pexels.com/photos/234281/pexels-photo-234281.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:100%;height:100%;border-radius: 10px;margin-bottom: 50px;">
+        </div>
+        <h3>Why Choose Canada for Your Studies?</h3>
+        <p>Canada is globally recognised for its high academic standards and innovative research opportunities. Here are some reasons why students choose Canada for higher studies:</p>
+       
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Top-Quality Education:</strong> Canadian degrees are respected worldwide. Canadian universities focus on skill-based education, ensuring students are well-prepared for the workforce.</li>
+            <li class="list-group-item"><strong>Affordable Tuition Fees:</strong> Compared to countries like the USA and UK, studying in Canada is more budget-friendly, making it accessible to many students.</li>
+            <li class="list-group-item"><strong>Safe and Inclusive Environment:</strong> Canada is known for its multicultural and welcoming society. It consistently ranks as one of the safest countries in the world.</li>
+            <li class="list-group-item"><strong>Post-Graduate Work Opportunities:</strong> The Canadian government encourages international students to stay back and work after completing their studies.</li>
+        </ul>
+        <br><br>
+        
+        <h3>Popular Courses in Canada</h3>
+        <p>Canada offers a wide variety of programmes across multiple disciplines. Here are some of the most sought-after courses:</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Business Management:</strong> Courses like MBA, Business Analytics, and Marketing Management are popular among international students.</li>
+            <li class="list-group-item"><strong>Computer Science and IT:</strong> Canada is a hub for technology and innovation. Courses in Data Science, Artificial Intelligence, and Cybersecurity attract thousands of students annually.</li>
+            <li class="list-group-item"><strong>Engineering:</strong> With a focus on research and development, programmes in Mechanical, Civil, and Electrical Engineering are highly reputed.</li>
+            <li class="list-group-item"><strong>Healthcare and Nursing:</strong> Canada has a growing demand for healthcare professionals, making Nursing, Physiotherapy, and Biotechnology excellent career choices.</li>
+            <li class="list-group-item"><strong>Hospitality and Tourism:</strong> Courses in Hotel Management and Tourism prepare students for thriving careers in Canada’s booming hospitality industry.</li>
+            <li class="list-group-item"><strong>Environmental Sciences:</strong> With Canada’s commitment to sustainability, courses in Environmental Engineering and Climate Studies are on the rise.</li>
+        </ul>
+        <br><br>
+        <h3>Top Colleges and Universities</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>University/College</th>
+                    <th>Major Courses Offered</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>University of Toronto</td>
+                    <td>Business, Engineering, Life Sciences</td>
+                </tr>
+                <tr>
+                    <td>University of British Columbia</td>
+                    <td>Computer Science, Arts, Sustainability</td>
+                </tr>
+                <tr>
+                    <td>McGill University</td>
+                    <td>Healthcare, Law, Management</td>
+                </tr>
+                <tr>
+                    <td>University of Waterloo</td>
+                    <td>IT, Engineering, Data Analytics</td>
+                </tr>
+                <tr>
+                    <td>Centennial College</td>
+                    <td>Hospitality, Marketing, Health Studies</td>
+                </tr>
+                <tr>
+                    <td>Seneca College</td>
+                    <td>Aviation, Animation, IT</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h3>Part-Time Job Opportunities for Students</h3>
+        <p>One of the significant benefits of studying in Canada is the ability to work part-time while pursuing education. Here is what you need to know about part-time jobs:</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Working Hours:</strong> Students can work up to 20 hours per week during regular semesters and full-time during scheduled breaks (summer and winter holidays).</li>
+            <li class="list-group-item"><strong>Types of Jobs:</strong> Many students find jobs in cafes, retail stores, on-campus roles, or administrative positions. Skilled students may also work as research assistants or interns in their field.</li>
+            <li class="list-group-item"><strong>Minimum Wage:</strong> The average wage for part-time jobs ranges between CAD 14-20 per hour, depending on the province.</li>
+        </ul>
+        <br><br>
+        <h3>Work Opportunities After Graduation</h3>
+        <p>Canada’s Post-Graduation Work Permit (PGWP) allows students to stay and work in Canada after completing their studies:</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Graduates of recognised institutions can apply for a PGWP that is valid for up to 3 years, depending on the duration of the programme completed.</li>
+            <li class="list-group-item">Industries like IT, healthcare, and engineering offer high-demand job roles to international graduates, giving them a head start in their careers.</li>
+        </ul>
+        <br><br>
+        <h3>New Immigration Rules: Positive Changes for International Students</h3>
+        <p>Canada has recently introduced new immigration rules to better manage the influx of students while ensuring quality education:</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Updated Work Permit Policies:</strong> Students graduating from programmes offered by accredited institutions are eligible for work permits, which make finding employment easier.</li>
+            <li class="list-group-item"><strong>Clear Path to Permanent Residency:</strong> Canada is making it more streamlined for graduates with Canadian work experience to apply for permanent residency.</li>
+            <li class="list-group-item"><strong>Cap on Study Permits:</strong> While there is a cap on the number of permits, the focus is on attracting students to high-quality, government-approved programmes, ensuring better opportunities for deserving candidates.</li>
+        </ul>
+        <br><br>
+
+        <h3>Living in Canada: A Balanced Life</h3>
+    <p>Apart from academics and work opportunities, students enjoy a high standard of living in Canada. From vibrant cities like Toronto and Vancouver to quieter towns like Halifax, there is a place for everyone. Affordable public transport, healthcare facilities, and cultural events ensure that students have an enriching experience outside of the classroom.</p>
+    
+    <p>Canada continues to be a leading choice for international students thanks to its excellent education system, post-study work opportunities, and supportive immigration policies. Start your journey to success with Canada today!</p>
+</div>
+
+<div id="uk" class="country-content container bg-white mt-4 p-4 rounded shadow fade-in" style="display: none;">
+    <h3 class="border-bottom pb-2">Studies in the UK</h3>
+    <p>Studying in the United Kingdom offers international students a rich academic experience, access to world-renowned institutions, and diverse cultural exposure. This guide provides essential information for prospective students, including study opportunities, work options during and after studies, and recent data to inform your decisions.</p>
+<br>
+    <h3>Why Choose the UK for Higher Education?</h3>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Academic Excellence:</strong> The UK is home to prestigious universities known for high-quality education and research.</li>
+        <li class="list-group-item"><strong>Diverse Course Offerings:</strong> With over 32,000 undergraduate courses available, students can find programs tailored to their interests and career goals.</li>
+        <li class="list-group-item"><strong>Cultural Diversity:</strong> Studying in the UK provides exposure to a multicultural environment, enhancing personal growth and global perspectives.</li>
+    </ul>
+    <br><br>
+    <div style="display:flex;justify-content: center;align-items: center;">
+        <img src="https://images.pexels.com/photos/7507821/pexels-photo-7507821.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:100%;height:100%;border-radius: 10px;margin-bottom: 50px;">
+    </div>
+    <br><br>
+    <h3>Top Universities Hosting International Students</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>University</th>
+                <th>Total International Students (2022/23)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>University College London</td>
+                <td>28,120</td>
+            </tr>
+            <tr>
+                <td>University of Manchester</td>
+                <td>18,515</td>
+            </tr>
+            <tr>
+                <td>University of Edinburgh</td>
+                <td>16,625</td>
+            </tr>
+            <tr>
+                <td>King's College London</td>
+                <td>15,995</td>
+            </tr>
+            <tr>
+                <td>University of Glasgow</td>
+                <td>15,200</td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <h3>Application Process</h3>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Course Selection:</strong> Identify courses that align with your academic background and career aspirations.</li>
+        <li class="list-group-item"><strong>UCAS Application:</strong> Submit applications through the Universities and Colleges Admissions Service (UCAS).</li>
+        <li class="list-group-item"><strong>Entry Requirements:</strong> Ensure you meet specific course prerequisites, including language proficiency tests like IELTS or TOEFL.</li>
+        <li class="list-group-item"><strong>Deadlines:</strong> Adhere to application deadlines, typically in January for most courses starting in September.</li>
+    </ul>
+    <br><br>
+    <h3>Tuition Fees and Scholarships</h3>
+    <p><strong>Tuition Fees:</strong> International undergraduate tuition fees range from £10,000 to £38,000 per year, varying by course and institution.</p>
+    <p><strong>Scholarships:</strong> Explore scholarships such as the Chevening Scholarships, Commonwealth Scholarships, and university-specific awards to support your studies.</p>
+    <br><br>
+    <h3>Cost of Living</h3>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Accommodation:</strong> £500–£1,200 per month, depending on location and housing type.</li>
+        <li class="list-group-item"><strong>Other Expenses:</strong> Budget for food, transportation, study materials, and personal expenses, averaging £1,100–£1,300 monthly.</li>
+    </ul>
+    <br><br>
+    <h3>Work Opportunities During Studies</h3>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Part-Time Work:</strong> International students on a Student visa can work up to 20 hours per week during term time and full-time during vacations.</li>
+        <li class="list-group-item"><strong>Internships:</strong> Many universities offer internship programs to gain practical experience.</li>
+    </ul>
+    <br><br>
+    <h3>Post-Study Work Opportunities</h3>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Graduate Route Visa:</strong> Introduced in 2021, this visa allows international graduates to stay in the UK for two years (three years for PhD graduates) to work or look for work.</li>
+    </ul>
+    <br><br>
+    <h3>Economic Impact of International Students</h3>
+    <p>International students significantly contribute to the UK economy. In the 2021/22 academic year, their economic impact was estimated at £41.9 billion.</p>
+    <br><br>
+    <h3>Recent Trends</h3>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Increased Enrollment:</strong> The UK has seen a rise in international student numbers, with 758,855 enrolled in the 2022/23 academic year, representing 25.8% of all higher education students.</li>
+        <li class="list-group-item"><strong>Top Sending Countries:</strong> India, China, and Nigeria are among the leading countries sending students to the UK.</li>
+    </ul>
+    <br><br>
+    <h3>Conclusion</h3>
+    <p>The United Kingdom remains a top destination for international students, offering quality education, diverse cultural experiences, and robust post-study work opportunities. With LifePlanner by your side, you can navigate the application process, manage financial considerations, and access the support you need to make informed decisions and embark on a successful academic journey in the UK.</p>
+</div>
+<div id="australia" class="country-content container bg-white mt-4 p-4 rounded shadow fade-in" style="display: none;">
+    <h3>Studies in Australia</h3>
+    <p>Australia is a premier destination for international students, offering world-class education, diverse cultural experiences, and ample work opportunities during and after studies. This guide provides essential information for students considering Australia for their higher education.</p>
+    <br><br>
+    <h3>Why Choose Australia?</h3>
+    <ul>
+        <li>Quality Education: Home to renowned institutions like the University of Melbourne and Australian National University, Australia offers degrees recognized globally.</li>
+        <li>Cultural Diversity: With students from over 140 countries, Australia provides a rich multicultural environment.</li>
+        <li>Work Opportunities: International students can work part-time during their studies and have pathways to post-study work visas.</li>
+    </ul>
+    <br><br>
+
+    <div style="display:flex;justify-content: center;align-items: center;">
+        <img src="https://static-bestcolleges.tosshub.com/2024/News/IDK6CNDrN0MUGK4HPi5TyOIF7DvQvo0MsCcOFWGA.jpg" style="width:100%;height:100%;border-radius: 10px;margin-bottom: 50px;">
+    </div>
+
+    <br><br>
+    <h3>Popular Study Destinations</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Notable Institutions</th>
+                <th>Highlights</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Melbourne</td>
+                <td>University of Melbourne, RMIT University</td>
+                <td>Known for its arts scene and vibrant cultural life.</td>
+            </tr>
+            <tr>
+                <td>Sydney</td>
+                <td>University of Sydney, UNSW Sydney</td>
+                <td>Australia's largest city with iconic landmarks and beaches.</td>
+            </tr>
+            <tr>
+                <td>Brisbane</td>
+                <td>University of Queensland, Queensland University of Technology</td>
+                <td>Offers a subtropical climate and a relaxed lifestyle.</td>
+            </tr>
+            <tr>
+                <td>Adelaide</td>
+                <td>University of Adelaide, Flinders University</td>
+                <td>Affordable living with a focus on festivals and food culture.</td>
+            </tr>
+            <tr>
+                <td>Perth</td>
+                <td>University of Western Australia, Curtin University</td>
+                <td>Gateway to beautiful beaches and outdoor activities.</td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <h3>Working While Studying</h3>
+    <ul>
+        <li><strong>Work Hours:</strong> As of 2024, students can work up to 48 hours per fortnight during study periods.</li>
+        <li><strong>Types of Jobs:</strong> On-campus (library assistants, tutoring) and off-campus (retail, hospitality).</li>
+        <li><strong>Finding Jobs:</strong> Use job portals like SEEK and university career services.</li>
+    </ul>
+    <br><br>
+    <h3>Post-Study Work Opportunities</h3>
+    <ul>
+        <li><strong>Temporary Graduate Visa (Subclass 485):</strong> Allows graduates to work in Australia temporarily after studies.</li>
+        <li><strong>Streams:</strong> Graduate Work Stream and Post-Study Work Stream.</li>
+        <li><strong>Permanent Residency:</strong> Certain skilled graduates can apply through the General Skilled Migration program.</li>
+    </ul>
+    <br><br>
+    <h3>Recent Policy Updates</h3>
+    <ul>
+        <li><strong>Visa Fee Increase:</strong> As of July 1, 2024, the student visa fee increased from $710 to $1,600.</li>
+        <li><strong>Caps on International Enrollments:</strong> Limited to 270,000 students annually with specific allocations per university.</li>
+        <li><strong>Post-Study Work Rights:</strong> Adjustments in duration and eligibility criteria.</li>
+    </ul>
+    <br><br>
+    <h3>Cost of Living and Tuition Fees</h3>
+    <ul>
+        <li><strong>Tuition Fees:</strong> Undergraduate degrees range from AUD 20,000 to AUD 45,000 per year.</li>
+        <li><strong>Living Expenses:</strong> Estimated at AUD 21,041 annually.</li>
+    </ul>
+    <br><br>
+    <h3>Scholarships and Financial Aid</h3>
+    <ul>
+        <li><strong>Australia Awards:</strong> Government-funded scholarships for students from developing countries.</li>
+        <li><strong>University Scholarships:</strong> Offered based on merit, field of study, or country of origin.</li>
+    </ul>
+    <br><br>
+    <h3>Application Process</h3>
+    <ol>
+        <li>Choose a course and institution.</li>
+        <li>Check entry requirements.</li>
+        <li>Apply directly to institutions or through education agents.</li>
+        <li>Receive an offer letter and accept it by paying a deposit.</li>
+        <li>Apply for a student visa with your Confirmation of Enrolment (CoE).</li>
+    </ol>
+    <br><br>
+    <h3>Support Services for International Students</h3>
+    <ul>
+        <li><strong>Orientation Programs:</strong> Introductions to campus facilities and services.</li>
+        <li><strong>Academic Support:</strong> Workshops, tutoring, and study resources.</li>
+        <li><strong>Counseling Services:</strong> Support for personal or emotional challenges.</li>
+        <li><strong>Legal Rights:</strong> Equal workplace rights for all students.</li>
+    </ul>
+    <br><br>
+    <p>Lifeplanner is here to guide you through the entire process. From understanding available resources and navigating policies to exploring pathways for work and residency, we ensure you make informed decisions for a successful academic journey. Let us help you plan your studies, manage your budget, and seize this exciting opportunity to grow both academically and personally.</p>
+    </div>
+
+    <div id="newzealand" class="country-content container bg-white mt-4 p-4 rounded shadow fade-in" style="display: none;">
+        <h3>Studies in New Zealand</h3>
+        <p>New Zealand offers a diverse and welcoming environment for international students, combining high-quality education with vibrant cultural experiences. Here's a concise guide to studying and working in New Zealand, tailored for prospective students.</p>
+        <br><br>
+        <h3>Why Choose New Zealand?</h3>
+        <ul>
+          <li><strong>Quality Education:</strong> New Zealand's education system is renowned for its quality and innovation, with universities consistently ranking among the world's best.</li>
+          <li><strong>Cultural Diversity:</strong> Experience a rich blend of cultures, including the indigenous Māori heritage.</li>
+          <li><strong>Safety:</strong> Known for its low crime rates and political stability, New Zealand provides a secure environment for students.</li>
+        </ul>
+        <br><br>
+        <h3>Educational Institutions</h3>
+        <p>New Zealand's education system comprises universities, institutes of technology and polytechnics (ITPs), and private training establishments (PTEs).</p>
+        <br><br>
+        <table border="1" cellpadding="8" >
+          <thead>
+            <tr>
+              <th>Institution Type</th>
+              <th>Number</th>
+              <th>Notable Institutions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Universities</td>
+              <td>8</td>
+              <td>University of Auckland, University of Otago, Victoria University of Wellington</td>
+            </tr>
+            <tr>
+              <td>ITPs</td>
+              <td>16</td>
+              <td>Auckland Institute of Studies, Southern Institute of Technology</td>
+            </tr>
+            <tr>
+              <td>PTEs</td>
+              <td>700+</td>
+              <td>Varying specializations across sectors</td>
+            </tr>
+          </tbody>
+        </table>
+        <br><br>
+        <h3>Popular Study Areas</h3>
+        <ul>
+          <li>Business and Management</li>
+          <li>Information Technology</li>
+          <li>Engineering</li>
+          <li>Health Sciences</li>
+          <li>Environmental Studies</li>
+        </ul>
+        <br><br>
+        <div style="display:flex;justify-content: center;align-items: center;">
+            <img src="https://ml6jtigas305.i.optimole.com/cb:9clh.2bd2f/w:1920/h:1080/q:mauto/f:best/ig:avif/https://iegc.nz/wp-content/uploads/2018/01/University_of_Otago_www.FullHDWpp.com_.jpg" style="width:100%;height:100%;border-radius: 10px;margin-bottom: 50px;">
+        </div>
+        <br><br>
+        <h3>Tuition Fees and Living Costs</h3>
+        <p><strong>Tuition Fees:</strong> Vary by program and institution; undergraduate degrees range from NZD 22,000 to NZD 32,000 per year, while postgraduate degrees range from NZD 26,000 to NZD 37,000 per year.</p>
+        <p><strong>Living Costs:</strong> Estimated at NZD 15,000 to NZD 20,000 per year, covering accommodation, food, transportation, and other expenses.</p>
+        <br><br>
+        <h3>Scholarships</h3>
+        <p>Various scholarships are available for international students, including:</p>
+        <ul>
+          <li><strong>New Zealand Scholarships:</strong> Offered by the government for students from eligible countries.</li>
+          <li><strong>University-Specific Scholarships:</strong> Each university provides its own range of scholarships based on merit and need.</li>
+        </ul>
+        <br><br>
+        <h3>Work Opportunities During Studies</h3>
+        <p><strong>Part-Time Work:</strong> International students can work up to 20 hours per week during semesters and full-time during scheduled breaks.</p>
+        <p><strong>Minimum Wage:</strong> As of 2024, the minimum wage is NZD 22.70 per hour.</p>
+        <br><br>
+        <h3>Post-Study Work Opportunities</h3>
+        <p><strong>Post-Study Work Visa:</strong> Graduates can apply for a post-study work visa, valid for up to three years, depending on the qualification and location of study.</p>
+        <p><strong>Skilled Employment:</strong> Opportunities exist in sectors like IT, engineering, healthcare, and construction.</p>
+        <br><br>
+        <h3>Application Process</h3>
+        <ul>
+          <li>Choose a Program and Institution: Research and select based on your academic interests and career goals.</li>
+          <li>Check Entry Requirements: Ensure you meet academic and English language proficiency standards.</li>
+          <li>Apply Online: Submit applications directly through the institution's website.</li>
+          <li>Obtain a Student Visa: Upon acceptance, apply for a student visa through Immigration New Zealand.</li>
+        </ul>
+        <br><br>
+        <h3>Accommodation Options</h3>
+        <ul>
+          <li><strong>On-Campus Housing:</strong> Halls of residence or dormitories.</li>
+          <li><strong>Off-Campus Housing:</strong> Shared apartments or homestays.</li>
+        </ul>
+        <br><br>
+        <h3>Health Insurance</h3>
+        <p>International students must have comprehensive health insurance for the duration of their stay.</p>
+        <br><br>
+        <h3>Cultural Tips</h3>
+        <ul>
+          <li><strong>Māori Culture:</strong> Respect and engage with Māori customs and traditions.</li>
+          <li><strong>Social Etiquette:</strong> Punctuality and politeness are valued.</li>
+        </ul>
+        <br><br>
+        <h3>Conclusion</h3>
+        <p>Embarking on an educational journey in New Zealand offers a blend of academic excellence and enriching life experiences. Plan diligently, and make the most of the opportunities that await. Lifeplanner will be there to guide you every step of the way, from selecting the right institution to navigating the visa process and settling in your new home.</p>
+      </div>
+
+
+      <div id="usa" class="country-content container bg-white mt-4 p-4 rounded shadow fade-in" style="display: none;">
+
+        <h3>Studies in USA</h3>
+        <p>Studying in the United States offers international students a wealth of academic and professional opportunities. This guide provides essential information to help you navigate the process, from selecting a university to understanding work prospects during and after your studies.</p>
+    <br><br>
+        <h3>Choosing the Right University and Program</h3>
+        <p>When selecting a university, consider factors such as location, tuition fees, available scholarships, campus facilities, and the institution's reputation in your field of study. The U.S. boasts a diverse range of institutions, including public universities, private colleges, and community colleges, each offering unique programs and experiences.</p>
+        <br><br>
+        <h3>Application Process</h3>
+        <ul>
+          <li><strong>Standardized Tests:</strong> Many U.S. universities require standardized test scores as part of the application process.</li>
+          <li><strong>Undergraduate Programs:</strong> SAT or ACT scores are commonly required.</li>
+          <li><strong>Graduate Programs:</strong> GRE or GMAT scores may be necessary, depending on the program.</li>
+          <li><strong>English Proficiency:</strong> Non-native English speakers must demonstrate proficiency through tests such as TOEFL or IELTS.</li>
+          <li><strong>Application Materials:</strong> Prepare transcripts, letters of recommendation, a statement of purpose, and a resume or CV.</li>
+        </ul>
+        <br><br>
+        <h3>Financial Considerations</h3>
+        <p>Studying in the U.S. can be expensive, but various funding options are available:</p>
+        <ul>
+          <li><strong>Tuition and Fees:</strong> These vary widely between institutions and programs.</li>
+          <li><strong>Scholarships and Grants:</strong> Many universities offer merit-based or need-based financial aid.</li>
+          <li><strong>Assistantships:</strong> Graduate students may have opportunities for teaching or research assistantships that provide stipends and tuition waivers.</li>
+          <li><strong>Federal Aid:</strong> Some federal grants and loans are available to international students.</li>
+        </ul>
+        <br><br>
+        <h3>Aid Types</h3>
+        <table border="1" cellpadding="20">
+          <thead>
+            <tr>
+              <th>Aid Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pell Grant</td>
+              <td>Need-based grant for undergraduate students with significant financial need.</td>
+            </tr>
+            <tr>
+              <td>Federal Supplemental Educational Opportunity Grant (FSEOG)</td>
+              <td>Need-based grant for students with exceptional financial need.</td>
+            </tr>
+            <tr>
+              <td>Federal Stafford Loan</td>
+              <td>Available to all students; subsidized loans have interest paid by the government while in school.</td>
+            </tr>
+            <tr>
+              <td>Federal Perkins Loan</td>
+              <td>Low-interest loan for students with exceptional financial need.</td>
+            </tr>
+            <tr>
+              <td>Parent PLUS Loans</td>
+              <td>Loans that parents can take out to cover their child's educational expenses.</td>
+            </tr>
+          </tbody>
+        </table>
+        <br><br>
+        <div style="display:flex;justify-content: center;align-items: center;">
+            <img src="https://www.educationunlimited.com/blog/wp-content/uploads/2019/08/Webp.net-compress-image.jpg" style="width:100%;height:100%;border-radius: 10px;margin-bottom: 50px;">
+        </div>
+    
+        <br><br>
+        <h3>Visa Requirements</h3>
+        <ul>
+          <li><strong>F-1 Visa:</strong> For full-time students enrolled in an academic program.</li>
+          <li><strong>M-1 Visa:</strong> For students enrolled in vocational or non-academic programs.</li>
+        </ul>
+        <br><br>
+        <h3>Employment Opportunities</h3>
+        <p><strong>On-Campus Employment:</strong> F-1 students may work up to 20 hours per week on campus during the academic year and full-time during scheduled breaks.</p>
+        <p><strong>Curricular Practical Training (CPT):</strong> Allows F-1 students to engage in off-campus employment directly related to their field of study, typically during their program.</p>
+        <p><strong>Optional Practical Training (OPT):</strong> Provides up to 12 months of employment authorization after completing your degree.</p>
+        <p><strong>STEM OPT Extension:</strong> Students in STEM fields may be eligible for a 24-month extension of OPT.</p>
+        <br><br>
+        <h3>Post-Graduation Opportunities</h3>
+        <ul>
+          <li><strong>H-1B Visa:</strong> Allows U.S. companies to employ foreign workers in specialty occupations.</li>
+          <li><strong>Employment-Based Green Cards:</strong> For individuals sponsored by their employers for permanent residency.</li>
+        </ul>
+        <br><br>
+        <h3>Cultural Adaptation</h3>
+        <p>Adjusting to life in the U.S. involves understanding cultural norms, academic expectations, and social customs. Universities often provide orientation programs and support services to help international students acclimate.</p>
+        <br><br>
+        <h3>Conclusion</h3>
+        <p>Studying in the United States is an enriching experience that opens doors to world-class education, diverse cultural interactions, and unparalleled professional opportunities. With proper planning and guidance, you can make the most of your academic journey and prepare for a successful future. LifePlanner is here to support you every step of the way, ensuring your path to studying in the U.S. is seamless and rewarding.</p>
+      </div>
+
+
+      <div id="ireland" class="country-content container bg-white mt-4 p-4 rounded shadow fade-in" style="display: none;">
+        <h3>Studies in Ireland</h3>
+        <p>Ireland has become an increasingly popular destination for international students, offering high-quality education, vibrant culture, and promising career opportunities. This guide provides essential information for students considering studying in Ireland, including educational prospects, work opportunities during and after studies, and practical considerations.</p>
+       <br><br>
+        <h3>Why Study in Ireland?</h3>
+        <ul>
+          <li><strong>Quality Education:</strong> Irish universities are renowned globally, with several institutions ranking among the top worldwide.</li>
+          <li><strong>English-Speaking Environment:</strong> As an English-speaking country, Ireland offers a comfortable setting for international students to study and communicate.</li>
+          <li><strong>Cultural Experience:</strong> Rich in history and culture, Ireland provides a unique and enriching experience for students.</li>
+        </ul>
+        <br><br>
+        <h3>Top Universities in Ireland</h3>
+        <table border="1" cellpadding="20">
+          <thead>
+            <tr>
+              <th>University</th>
+              <th>Location</th>
+              <th>QS World Ranking 2024</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Trinity College Dublin</td>
+              <td>Dublin</td>
+              <td>98</td>
+            </tr>
+            <tr>
+              <td>University College Dublin</td>
+              <td>Dublin</td>
+              <td>181</td>
+            </tr>
+            <tr>
+              <td>National University of Ireland, Galway</td>
+              <td>Galway</td>
+              <td>270</td>
+            </tr>
+            <tr>
+              <td>University College Cork</td>
+              <td>Cork</td>
+              <td>292</td>
+            </tr>
+            <tr>
+              <td>Dublin City University</td>
+              <td>Dublin</td>
+              <td>490</td>
+            </tr>
+          </tbody>
+        </table>
+        <br><br>
+        <div style="display:flex;justify-content: center;align-items: center;">
+            <img src="https://images.pexels.com/photos/5061921/pexels-photo-5061921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:100%;height:100%;border-radius: 10px;margin-bottom: 50px;">
+        </div>
+        <br><br>
+        <h3>Popular Courses for International Students</h3>
+        <ul>
+          <li>Information Technology and Computer Science</li>
+          <li>Business and Management</li>
+          <li>Engineering</li>
+          <li>Medicine and Health Sciences</li>
+          <li>Natural Sciences</li>
+        </ul>
+        <br><br>
+        <h3>Tuition Fees and Living Expenses</h3>
+        <p><strong>Tuition Fees:</strong> Tuition fees vary depending on the course and university, typically ranging from €10,000 to €25,000 per year for international students.</p>
+        <p><strong>Living Expenses:</strong> Estimated living costs are around €10,000 to €15,000 per year, covering accommodation, food, travel, and other personal expenses.</p>
+        <br><br>
+        <h3>Scholarships and Financial Aid</h3>
+        <p>Various scholarships are available for international students, including:</p>
+        <ul>
+          <li>Government of Ireland International Education Scholarships</li>
+          <li>University-specific scholarships</li>
+          <li>Program-specific scholarships</li>
+        </ul>
+        <br><br>
+        <h3>Work Opportunities During Studies</h3>
+        <p><strong>Part-Time Work:</strong> International students are permitted to work part-time for up to 20 hours per week during term time and 40 hours per week during holidays.</p>
+        <p><strong>Minimum Wage:</strong> The national minimum wage is €11.30 per hour as of 2024.</p>
+        <br><br>
+        <h3>Post-Study Work Opportunities</h3>
+        <p><strong>Stay Back Option:</strong> Upon completing an undergraduate or master’s degree, international students can avail of the Third Level Graduate Programme, allowing them to stay in Ireland for up to 24 months to seek employment.</p>
+        <p><strong>Employment Sectors:</strong> Key industries include Information Technology, Pharmaceuticals, Finance, and Engineering, with a high demand for skilled graduates.</p>
+        <br><br>
+        <h3>Visa Requirements</h3>
+        <ul>
+          <li><strong>Student Visa:</strong> Non-EU/EEA students must obtain a student visa to study in Ireland.</li>
+          <li><strong>Documentation:</strong> Required documents include proof of acceptance to an Irish institution, financial statements, health insurance, and a valid passport.</li>
+        </ul>
+        <br><br>
+        <h3>Accommodation Options</h3>
+        <ul>
+          <li><strong>On-Campus Accommodation:</strong> Many universities offer on-campus housing, though availability may be limited.</li>
+          <li><strong>Off-Campus Accommodation:</strong> Options include private rentals, shared apartments, or homestays.</li>
+        </ul>
+        <br><br>
+        <h3>Application Process</h3>
+        <ul>
+          <li><strong>Research:</strong> Identify courses and universities that align with your academic goals.</li>
+          <li><strong>Application:</strong> Apply directly through the university's website or the Central Applications Office (CAO) for undergraduate courses.</li>
+          <li><strong>Deadlines:</strong> Application deadlines vary; ensure to check specific dates for each institution.</li>
+        </ul>
+        <br><br>
+        <h3>Cultural and Social Life</h3>
+        <ul>
+          <li><strong>Student Societies:</strong> Universities host various clubs and societies, providing opportunities to engage in extracurricular activities.</li>
+          <li><strong>Festivals and Events:</strong> Ireland is known for its vibrant festivals, music, and cultural events throughout the year.</li>
+        </ul>
+        <br><br>
+        <h3>Healthcare</h3>
+        <p><strong>Health Insurance:</strong> International students are required to have health insurance, either through private providers or university schemes.</p>
+        <br><br>
+        <h3>Safety</h3>
+        <p><strong>Low Crime Rate:</strong> Ireland is considered a safe country with a low crime rate, offering a secure environment for students.</p>
+    
+    <br><br>
+        <h3>Latest Updates and Trends</h3>
+        <ul>
+          <li><strong>Enrollment Trends:</strong> As of the 2023/24 academic year, Ireland has reached an all-time high in international student enrollment, with postgraduate enrollments surging by almost 25%.</li>
+          <li><strong>Government Initiatives:</strong> The "Global Citizens 2030" strategy aims to increase non-EU students in higher education by 10% by 2030.</li>
+          <li><strong>Reduced Fees:</strong> For the 2023/2024 academic year, a €1,000 reduction in college fees is expected for students under the Free Fees Scheme.</li>
+          <li><strong>Economic Growth:</strong> Ireland leads the EU in economic growth, with over 2.8 million employed and significant demand for skilled graduates in IT, healthcare, and other sectors.</li>
+          <li><strong>New Programs:</strong> South East Technological University (SETU) has introduced a bachelor’s degree in content creation and social media, attracting international interest.</li>
+        </ul>
+        <br><br>
+        <h3>Practical Tips for Prospective Students</h3>
+        <ul>
+          <li>Start applications early to secure placements and accommodation.</li>
+          <li>Plan finances considering tuition fees, scholarships, and living expenses.</li>
+          <li>Stay updated on government policies and economic trends.</li>
+        </ul>
+        <br><br>
+        <h3>Conclusion</h3>
+        <p>Ireland continues to stand out as a hub for education and career development, making it an excellent choice for international students. With a focus on quality education, rich cultural experiences, and promising post-study opportunities, Ireland offers a comprehensive and rewarding environment for students.</p>
+      </div>
+    
+<script>
+    function switchCountry(country, tabElement) {
+        // Hide all country content
+        const allContent = document.querySelectorAll('.country-content');
+        allContent.forEach(content => content.style.display = 'none');
+
+        // Show the selected country content
+        const selectedContent = document.getElementById(country);
+        if (selectedContent) {
+            selectedContent.style.display = 'block';
+        }
+
+       
+       
+    }
+</script>
+
+<style>
+  .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+  }
+
+  .floating-buttons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background-color: rgb(22, 100, 173);
+      color: white;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgb(22, 100, 173);
+      text-decoration: none;
+      font-size: 24px;
+      transition: background-color 0.3s ease;
+  }
+
+  .floating-buttons a.phone {
+      background-color: rgb(22, 100, 173);
+  }
+
+  .floating-buttons a.mail {
+      background-color: rgb(22, 100, 173);
+  }
+
+  .floating-buttons a:hover {
+      opacity: 0.9;
+      background-color: rgb(22, 100, 173);
+  }
+</style>
+
+<div class="floating-buttons">
+  <a href="https://wa.me/+918594060107" target="_blank" title="WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+  </a>
+  <a href="tel:+91 8594060107" class="phone" title="Call">
+      <i class="fa-solid fa-phone"></i>
+  </a>
+  <a href="mailto:info@lifeplanneruniversal.com" class="mail" title="Email">
+      <i class="fas fa-envelope"></i>
+  </a>
+</div>
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="footer-cta pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-md-4 mb-3">
+                    <div class="single-cta">
+                        
+                        <div class="cta-text">
+                            
+                            <h4>Find us</h4>
+                            <span>2nd Floor, Thevarolil Building, Lal Bahadur Shastri Rd, Baker Hill, Kottayam, Kerala 686001</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-4 col-md-4 mb-3">
+                    <div class="single-cta">
+                       
+                        <div class="cta-text">
+                            <h4>Call us</h4>
+                            <span>+91 9072222911 ,</span>
+                            <span>+91 9072222933</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4 mb-30">
+                    <div class="single-cta">
+                        
+                        <div class="cta-text">
+                            <h4>Mail us</h4>
+                            <span>info@lifeplanneruniversal.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 mb-50">
+                    <div class="footer-widget">
+                
+                        <div class="footer-text">
+                            <p>Life Planner Studies and Opportunities Pvt Ltd is a leading overseas education consultant, with headquarters in Kottayam and Corporate office in Cochin.</p>
+                        </div>
+                        <div class="footer-social-icon mb-4">
+                            <span>Follow us</span>
+                            <a href="https://www.instagram.com/lifeplannerstudies/?hl=en"><i class="fab fa-facebook-f bg-light text-dark"></i></a>
+                            <a href="#"><i class="fab fa-twitter bg-light text-dark"></i></a>
+                            <a href="#"><i class="fab fa-instagram bg-light text-dark"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-30" style="display:flex;justify-content: center;align-items: center;">
+                    <div class="footer-widget" >
+                        <div class="footer-widget-heading">
+                            <h4>Top Links</h4>
+                        </div>
+                        <ul>
+                            <li><a href="{% url 'lpapp:home' %}">Home</a></li>
+                            <li><a href="{% url 'lpapp:studycanada' %}">Countries</a></li>
+                            <li><a href="{% url 'lpapp:service' %}">services</a></li>
+                            <li><a href="{% url 'lpapp:blog' %}">Blog</a></li>
+                            <li><a href="{% url 'lpapp:contact' %}">Contact Us</a></li>
+                            <li><a href="{% url 'lpapp:about' %}">About us</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-50" style="display:flex;justify-content: center;align-items: center;">
+                    <img src="/static/LPRlogo.png" style="width:280px;">
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row"  style="display:flex;justify-content: center;align-items: center;">
+                    <div class="col-xl-6 col-lg-6 text-center ">
+                        <div class="copyright-text">
+                            <p>Copyright &copy; 2024, All Right Reserved <a href="">Lifeplanner Studies and Oppertunities</a></p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</footer>
+<style>
+    ul {
+    margin: 0px;
+    padding: 0px;
+    
+}
+.footer-section {
+background: linear-gradient(135deg, #5f9cad, #8080bc);
+  position: relative;
+  margin-top: 100px;
+}
+.footer-cta {
+  border-bottom: 1px solid #373636;
+}
+.single-cta i {
+  color: white;
+  font-size: 30px;
+  float: left;
+  margin-top: 8px;
+}
+.cta-text {
+  padding-left: 15px;
+  display: inline-block;
+}
+.cta-text h4 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.cta-text span {
+  color: #ffffff;
+  font-size: 15px;
+}
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-logo img {
+    max-width: 200px;
+}
+.footer-text p {
+  margin-bottom: 14px;
+  font-size: 14px;
+      color: white;
+  line-height: 28px;
+}
+.footer-social-icon span {
+  color: #ffffff;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+}
+.footer-social-icon a {
+  color: #fff;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+}
+.facebook-bg{
+  background: #3B5998;
+}
+.twitter-bg{
+  background: #55ACEE;
+}
+.google-bg{
+  background: #DD4B39;
+}
+.footer-widget-heading h4 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+.footer-widget-heading h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  height: 2px;
+  width: 50px;
+  background: #ff5e14;
+}
+.footer-widget ul li {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  margin-bottom: 12px;
+}
+.footer-widget ul li a:hover{
+  color: #ffffff;
+}
+.footer-widget ul li a {
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.subscribe-form {
+  position: relative;
+  overflow: hidden;
+}
+.subscribe-form input {
+  width: 100%;
+  padding: 14px 28px;
+  background: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+}
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: #ff5e14;
+    padding: 13px 20px;
+    border: 1px solid #ff5e14;
+    top: 0;
+}
+.subscribe-form button i {
+  color: #fff;
+  font-size: 22px;
+  transform: rotate(-6deg);
+}
+.copyright-area{
+    
+  padding: 25px 0;
+}
+.copyright-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #ffffff;
+}
+.copyright-text p a{
+  color: #ffffff;
+}
+.footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
+}
+.footer-menu li:hover a{
+  color: #ffffff;
+}
+.footer-menu li a {
+  font-size: 14px;
+  color: #878787;
+}
+</style>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+      
+        
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Include Swiper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

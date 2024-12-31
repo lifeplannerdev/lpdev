@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canada Immigration - Life Planner</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Comfortaa:wght@300..700&family=Dosis:wght@200..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">    <style>
+        @font-face {
+            font-family: myfont;
+            src: url(/static/Cabin-Medium.ttf);
+        }
+        body {
+            font-family: myfont;
+            line-height: 1.6;
+        }
+        .navbar {
+    background: transparent;
+    
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    transition: background 0.3s ease; /* Smooth transition for background color */
+}
+
+
+        .navbar .nav-link {
+            color: #ffffff;
+            font-weight: 500;
+            margin:10px;
+            
+        }
+
+        .navbar .nav-link:hover {
+            color: #ff4757;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+            
+            
+        
+    
+        }
+
+        .navbar-brand {
+            font-weight: 500;
+            color: #ffffff;
+            
+        }
+        
+
+.icon-menu {
+  --gap: 5px;
+  --height-bar: 2.5px;
+  --pos-y-bar-one: 0;
+  --pos-y-bar-three: 0;
+  --scale-bar: 1;
+  --rotate-bar-one: 0;
+  --rotate-bar-three: 0;
+  width: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  cursor: pointer;
+  position: relative;
+  margin-top:5px;
+  margin-right: 10px;
+  display:none;
+}
+@media (max-width: 767px) {
+            .icon-menu {
+                display: flex; 
+            }
+        }
+       
+.bar {
+  position: relative;
+  height: 3.2px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+        .hero {
+            position: relative;
+            background: url('https://img.freepik.com/free-photo/flag-canada_1401-84.jpg?t=st=1734074127~exp=1734077727~hmac=7e780082a8605a92ab4f3dcb1694f0846b89dde16e267a2227f48f513ee0ab88&w=900') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            height:400px
+        }
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+    
+         h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .section {
+            padding: 60px 20px;
+            margin-top:-40px;
+            
+        }
+      
+        .section h2 {
+            color: #3c658b;
+            font-weight: bold;
+            
+        }
+        .faq {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            
+        }
+        .footer {
+            background-color: #343a40;
+            color: #f8f9fa;
+            text-align: center;
+            padding: 20px;
+        }
+        .footer a {
+            color: #3c658b;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        @media (min-width: 768px) and (max-width: 1024px) {
+    .icon-menu{
+        display: block;
+        
+    }
+    .bar {
+  position: relative;
+  height: 5px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
+  margin:2px;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <img src="/static/LPsymbol.png" style="height:40px;width:90px;">
+        <input hidden class="check-icon" id="check-icon" name="check-icon" type="checkbox" >
+        <label class="icon-menu" for="check-icon" data-toggle="collapse" data-target="#navbarNav">
+            <div class="bar bar--1"></div>
+            <div class="bar bar--2"></div>
+            <div class="bar bar--3"></div>
+        </label>
+
+        <div class="collapse navbar-collapse" id="navbarNav" >
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:home' %}">Home</a></li>
+                    <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:service' %}">Services</a></li>
+                    <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:blog' %}">Blog</a></li>
+<!-- University Dropdown -->
+<li class="nav-item ml-4 dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        University
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background: rgba(0, 0, 0, 0.566);">
+        <a class="dropdown-item text-white" href="{% url 'lpapp:studycanada' %}">English-Speaking Countries</a>
+        <a class="dropdown-item text-white mt-3" href="{% url 'lpapp:studyeurope' %}">European Countries</a>
+        
+        
+    </div>
+</li>                    <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:contact' %}">Contact Us</a></li>
+                <!-- <li class="nav-item ml-4 locationLink"><a class="nav-link" href="#" >Location</a></li> -->
+
+            </ul>
+        </div>
+    </nav>
+    <script>
+        // Navbar background color change on scroll or menu toggle
+  function updateNavbarBackground() {
+      const navbar = document.querySelector(".navbar");
+      const menuCheckbox = document.querySelector("#check-icon");
+  
+      if (menuCheckbox.checked || window.scrollY > 50) {
+          navbar.style.background = "rgba(0, 0, 0, 0.8)";
+      } else {
+          navbar.style.background = "transparent";
+      }
+  }
+  
+  // Attach scroll event listener
+  window.addEventListener("scroll", updateNavbarBackground);
+  
+  // Attach toggle menu listener
+  document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
+  
+      </script>
+<!-- Header -->
+<header class="hero">
+    
+    <div class="overlay"></div>
+    
+</header>
+<style>
+  .blurIn {
+            color: #fff;
+            
+            animation-name: blurIn;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+            animation-direction: alternate;
+        }
+        .blurIn { animation-name: blurIn }
+@keyframes blurIn {
+    from {
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+</style>
+<div style="background-color: #852f2f;
+background-image: 
+    radial-gradient(at 47% 33%, hsl(7.64, 77%, 40%) 0, transparent 59%), 
+    radial-gradient(at 82% 65%, hsl(359.15, 89%, 48%) 0, transparent 55%);border-radius: 20;padding:20px;margin-bottom: 60px;">
+        <h1 class="text-center text-white blurIn">IMMIGRATE TO CANADA</h1>
+    </div>
+    <style>
+      /* Define the fade-in-up animation */
+      @keyframes fadeInUp {
+          from {
+              opacity: 0; /* Start fully transparent */
+              transform: translateY(50px); /* Start slightly below */
+          }
+          to {
+              opacity: 1; /* End fully visible */
+              transform: translateY(0); /* End at the original position */
+          }
+      }
+      
+      
+      
+      </style>
+
+<div style="display:flex;justify-content: center;align-items: center;margin-top: 40px;">
+    <div class="breadcrumb"><a href="{% url 'lpapp:home' %}">Home</a> \ Immigration</div></div>
+
+    <section class="section" style="animation:fadeInUp 1.5s ease-out;">
+        <div class="container">
+            <h2 class=" mb-4" style="font-size: 32px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #5f9cad, #8080bc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            ">Immigration to Canada: Your Complete Guide</h2>
+            <p class="lead ">Canada remains one of the most sought-after destinations for individuals and families looking to build a new life abroad. Known for its high standard of living, economic opportunities, and welcoming multicultural society, Canada offers various immigration pathways to meet the needs of skilled workers, entrepreneurs, students, and families.</p>
+            <p class="lead ">This blog will explore why Canada is an attractive option, the benefits of immigrating, key immigration pathways, and recent policy changes that applicants should be aware of.</p>        
+        </div>
+    </section>
+<!-- Why Canada Immigration -->
+<section class="section" style="animation:fadeInUp 1.5s ease-out;">
+    <div class="container">
+        <h2 class=" mb-4" style="font-size: 32px;
+        font-weight: bold;
+        background: linear-gradient(135deg, #5f9cad, #8080bc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;">Why Immigrate To Canada?</h2>
+        <p class="lead ">Canada has consistently ranked as one of the best countries to live in. Here is why so many people choose Canada:</p>
+        <li><strong>Strong Economy and Job Opportunities:</strong><br>
+            Canada’s growing industries, including technology, healthcare, construction, and renewable energy, create demand for skilled workers. The country’s economic stability ensures a promising future for immigrants.
+            </li><br>
+            <li><strong>High Quality of Life:</strong><br>
+                With universal healthcare, excellent education systems, and a clean environment, Canada offers a better quality of life compared to many other countries. Cities like Vancouver, Toronto, and Calgary are frequently rated among the world’s most liveable cities.
+                </li><br>
+                <li><strong>Safe and Welcoming Society::</strong><br>
+                    Canada has low crime rates and promotes multiculturalism, making it a safe and welcoming place for individuals and families.
+                    </li><br>
+                    <li><strong>Pathways to Permanent Residency:</strong><br>
+                        Canada’s immigration system is designed to encourage people to settle permanently. Whether you are a skilled worker, entrepreneur, or student, there are clear routes to becoming a permanent resident.
+                        </li><br>
+                              
+    </div>
+</section>
+<style>
+    /* From Uiverse.io by mrhyddenn */ 
+button {
+  background: transparent;
+  position: relative;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid rgb(40, 144, 241);
+  border-radius: 25px;
+  outline: none;
+  overflow: hidden;
+  color: #3c658b;
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+button span {
+  margin: 10px;
+}
+
+button::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  content: '';
+  border-radius: 50%;
+  display: block;
+  width: 20em;
+  height: 20em;
+  left: -5em;
+  text-align: center;
+  transition: box-shadow 0.5s ease-out;
+  z-index: -1;
+}
+
+button:hover {
+  color: #fff;
+  border: 1px solid #3c658b;
+  z-index:1000;
+}
+
+button:hover::before {
+  box-shadow: inset 0 0 0 10em #3c658b;
+  
+}
+ 
+</style>
+<div style="display:flex;justify-content: center;align-items: center;">
+    <img src="https://images.pexels.com/photos/1750754/pexels-photo-1750754.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:70%;height:80%;border-radius: 10px;margin-bottom: 20px;">
+</div>
+<div style="display:flex;justify-content:center;align-items:center;z-index:1000;">
+<button data-bs-toggle="modal" data-bs-target="#addAssessModal">
+    <i class="fa-solid fa-pen ml-2"></i>
+    <span>Assess Your Qualificaton</span>
+</button>
+</div>
+<!-- Key Immigration Pathways -->
+<section class="section" style="animation:fadeInUp 1.5s ease-out;">
+    <div class="container">
+        <h2 class="mb-4" style="font-size: 32px; font-weight: bold;
+        background: linear-gradient(135deg, #5f9cad, #8080bc);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Key Immigration Pathways to Canada
+        </h2>
+        <p class="lead">Canada offers several immigration programs to accommodate different applicants. Here are the most popular options:</p>
+
+        <li><strong>Express Entry:</strong><br>
+            The Express Entry system is Canada’s most popular pathway for skilled workers. It is a points-based system that evaluates applicants based on factors such as age, education, work experience, and language proficiency (English or French).<br><br>
+            <ul>
+                <li><strong>Federal Skilled Worker Program (FSWP):</strong> For skilled professionals with international work experience.</li>
+                <li><strong>Canadian Experience Class (CEC):</strong> For individuals with Canadian work experience.</li>
+                <li><strong>Federal Skilled Trades Program (FSTP):</strong> For skilled tradespeople in occupations like construction, electrical, and mechanical trades.</li>
+            </ul>
+            Express Entry is known for its fast processing times, with many applications completed within six months.
+        </li><br>
+
+        <li><strong>Provincial Nominee Programs (PNPs):</strong><br>
+            Canada’s provinces and territories can nominate individuals who meet local labour market needs. If you have skills or experience relevant to a particular province, a PNP can be a faster route to permanent residency. For example:<br>
+            <ul>
+                <li>Ontario Immigrant Nominee Program (OINP)</li>
+                <li>British Columbia Provincial Nominee Program (BC PNP)</li>
+                <li>Alberta Advantage Immigration Program (AAIP)</li>
+            </ul>
+            PNPs often prioritize occupations in demand, such as healthcare, technology, and skilled trades.
+        </li><br>
+
+        <li><strong>Family Sponsorship:</strong><br>
+            Canada allows citizens and permanent residents to sponsor close family members, including spouses, children, parents, and grandparents, to join them. This pathway ensures families can reunite and settle together in Canada.
+        </li><br>
+
+        <li><strong>Business Immigration:</strong><br>
+            Entrepreneurs, investors, and self-employed individuals can explore Canada’s business immigration programs, such as:<br>
+            <ul>
+                <li><strong>Start-Up Visa Program:</strong> For entrepreneurs with innovative business ideas that can generate employment in Canada.</li>
+                <li><strong>Self-Employed Persons Program:</strong> For individuals with experience in cultural or athletic fields who can contribute to Canada’s cultural life.</li>
+            </ul>
+        </li><br>
+
+        <li><strong>Study and Work Pathway:</strong><br>
+            Many international students use education as a stepping stone to permanent residency. After completing their studies, they can obtain a Post-Graduation Work Permit (PGWP), gain Canadian work experience, and apply for permanent residency through Express Entry or PNPs.
+        </li><br>
+    </div>
+</section>
+<div style="display:flex;justify-content: center;align-items: center;">
+    <img src="https://images.pexels.com/photos/8877431/pexels-photo-8877431.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:70%;height:80%;border-radius: 10px;margin-bottom: 20px;">
+</div>
+<!-- Benefits of Immigrating to Canada -->
+<section class="section" style="animation:fadeInUp 1.5s ease-out;">
+    <div class="container">
+        <h2 class="mb-4" style="font-size: 32px; font-weight: bold;
+        background: linear-gradient(135deg, #5f9cad, #8080bc);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Benefits of Immigrating to Canada
+        </h2>
+        <li><strong>Free Healthcare and Education:</strong><br>
+            Canada’s publicly funded healthcare system ensures access to medical care for all residents. Additionally, education up to secondary school is free, making it ideal for families.
+        </li><br>
+
+        <li><strong>Employment Opportunities:</strong><br>
+            Skilled immigrants benefit from Canada’s thriving job market. In-demand sectors include healthcare, IT, finance, and skilled trades.
+        </li><br>
+
+        <li><strong>Social Benefits:</strong><br>
+            Permanent residents enjoy benefits like unemployment insurance, retirement pensions, and parental leave.
+        </li><br>
+
+        <li><strong>Path to Citizenship:</strong><br>
+            After living in Canada as a permanent resident for three years within a five-year period, you can apply for Canadian citizenship.
+        </li><br>
+    </div>
+</section>
+
+<!-- Recent Changes in Immigration Policies -->
+<section class="section" style="animation:fadeInUp 1.5s ease-out;">
+    <div class="container">
+        <h2 class="mb-4" style="font-size: 32px; font-weight: bold;
+        background: linear-gradient(135deg, #5f9cad, #8080bc);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Recent Changes in Canada’s Immigration Policies
+        </h2>
+        <p class="lead">Canada’s immigration system is constantly updated to meet economic demands and manage population growth. Here are some of the key changes for 2024 and beyond:</p>
+        <li><strong>Reduction in Immigration Targets:</strong><br>
+            While Canada remains committed to welcoming immigrants, it has introduced slight reductions in targets for permanent residents to balance infrastructure and housing needs.<br>
+            <ul>
+                <li><strong>2025:</strong> 395,000 new permanent residents</li>
+                <li><strong>2026:</strong> 380,000 new permanent residents</li>
+            </ul>
+        </li><br>
+
+        <li><strong>Stricter Financial Proof Requirements for Students:</strong><br>
+            Students applying for study permits now need to show higher financial proof to cover tuition and living costs, ensuring they can sustain themselves during their stay.
+        </li><br>
+
+        <li><strong>Changes in Temporary Resident Rules:</strong><br>
+            Canada has announced plans to manage the number of temporary residents, including foreign workers and international students, by introducing stricter eligibility criteria.
+        </li><br>
+
+        <li><strong>Provincial-Specific Policies:</strong><br>
+            Provinces are adjusting their nominee programs to prioritize workers in occupations facing labour shortages. This makes it more important for applicants to align their skills with provincial needs.
+        </li><br>
+    </div>
+</section>
+
+<!-- Conclusion -->
+<section class="section" style="animation:fadeInUp 1.5s ease-out;">
+    <div class="container">
+        <h2 class="mb-4" style="font-size: 32px; font-weight: bold;
+        background: linear-gradient(135deg, #5f9cad, #8080bc);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Conclusion
+        </h2>
+        <p class="lead">Canada’s well-structured immigration pathways, combined with its high quality of life and economic opportunities, make it an ideal destination for those seeking a new beginning. Whether you are a skilled professional, entrepreneur, student, or family member, Canada offers options tailored to your needs.</p>
+        <p class="lead">While recent policy changes introduce new challenges, they also reflect Canada’s commitment to welcoming immigrants who can contribute to its economy and society. By staying informed, carefully planning your application, and aligning your goals with Canada’s immigration priorities, you can turn your dream of living in Canada into reality.</p>
+    </div>
+</section>
+
+
+<style>
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 100%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 20px;
+      position: relative;
+    }
+    
+    .title {
+      font-size: 28px;
+      color: rgb(22, 100, 173);
+      font-weight: 600;
+      letter-spacing: -1px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-left: 30px;
+    }
+    
+    .title::before,
+    .title::after {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      left: 0px;
+      background-color: rgb(22, 100, 173);
+    }
+    
+    .title::before {
+      width: 18px;
+      height: 18px;
+      background-color: rgb(22, 100, 173);
+    }
+    
+    .title::after {
+      width: 18px;
+      height: 18px;
+      animation: pulse 1s linear infinite;
+    }
+    
+    .message,
+    .signin {
+      color: rgba(88, 87, 87, 0.822);
+      font-size: 14px;
+    }
+    
+    .signin {
+      text-align: center;
+    }
+    
+    .signin a {
+      color: rgb(22, 100, 173);
+    }
+    
+    .signin a:hover {
+      text-decoration: underline rgb(22, 100, 173);
+    }
+    
+    .flex {
+      display: flex;
+      width: 100%;
+      gap: 6px;
+    }
+    
+    .form label {
+      position: relative;
+    }
+    
+    .form label .input {
+      width: 100%;
+      padding: 10px 10px 20px 10px;
+      outline: 0;
+      border: 1px solid rgba(105, 105, 105, 0.397);
+      border-radius: 10px;
+    }
+    
+    .form label .input + span {
+      position: absolute;
+      left: 10px;
+      bottom: 15px;
+      color: grey;
+      font-size: 0.9em;
+      cursor: text;
+      transition: 0.3s ease;
+    }
+    
+    .form label .input:placeholder-shown + span {
+      top: 15px;
+      font-size: 0.9em;
+    }
+    
+    .form label .input:focus + span,
+    .form label .input:valid + span {
+      top: -15px;
+      font-size: 0.7em;
+      font-weight: 600;
+    }
+    
+    .form label .input:valid + span {
+      color: rgb(0, 23, 128);
+    }
+    
+    .submit {
+      border: none;
+      border-radius: 30px;
+      outline: none;
+      background-color: rgb(22, 100, 173);
+      padding: 10px;
+      color: #fff;
+      font-size: 16px;
+      transform: 0.3s ease;
+    }
+    
+    .submit:hover {
+      background-color: rgb(56, 90, 194);
+    }
+    
+    @keyframes pulse {
+      from {
+        transform: scale(0.9);
+        opacity: 1;
+      }
+    
+      to {
+        transform: scale(1.8);
+        opacity: 0;
+      }
+    }
+    </style>
+    
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="addAssessModal" tabindex="-1" aria-labelledby="addAssessModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border-radius: 15px; box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);">
+        <!-- Modal Body -->
+        <div class="modal-body" style="padding: 25px 30px; background-color: #ffffff; border-radius: 20px;">
+            <form class="form" action="{% url 'lpapp:canada' %}" method="POST" id="candidateForm">
+                {% csrf_token %}
+                <p class="title">Your Qualificaton</p>
+
+                <label>
+                    <input required placeholder="" type="text" class="input" name="candidate">
+                    <span>Your Name</span>
+                </label>
+                
+                <label>
+                    <textarea required placeholder="" class="input" name="phno"></textarea>
+                    <span>Phone.No</span>
+                </label>
+                <label>
+                    <textarea required placeholder="" class="input" name="field"></textarea>
+                    <span>Field Of Work</span>
+                </label>
+                <label>
+                    <textarea required placeholder="" class="input" name="exp"></textarea>
+                    <span>Years Of Experience</span>
+                </label>
+
+                <button type="submit" class="submit" data-bs-dismiss="modal" style="display:flex;justify-content: center;align-items: center;" value="send/">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+ document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('candidateForm');
+    const requiredFields = form.querySelectorAll('input[required], textarea[required]');
+
+    // Function to check if all required fields are filled
+    function checkFormCompletion() {
+        let allFilled = true;
+        requiredFields.forEach(function (field) {
+            if (!field.value.trim()) {
+                allFilled = false;
+            }
+        });
+
+        // Update submit button's state
+        const submitButton = form.querySelector('button[type="submit"]');
+        if (submitButton) {
+            submitButton.disabled = !allFilled;
+        }
+    }
+
+    // Attach input listeners
+    requiredFields.forEach(function (field) {
+        field.addEventListener('input', checkFormCompletion);
+    });
+
+    // Initial form validation
+    checkFormCompletion();
+
+    // Form submit handler
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Fetch submission
+        const formData = new FormData(form);
+        fetch("{% url 'lpapp:canada' %}", {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+            },
+        })
+            .then(response => {
+                console.log('Response received:', response);
+                return response.json();
+            })
+            .then(data => {
+                console.log('Data parsed:', data);
+                if (data.success) {
+                    Swal.fire({
+                        toast: true,
+                        position: 'top',
+                        icon: 'success',
+                        title: 'Assessment recorded',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                    });
+                    form.reset(); // Reset form after success
+                    checkFormCompletion();
+                } else {
+                    Swal.fire({
+                        toast: true,
+                        position: 'top',
+                        icon: 'error',
+                        title: data.error || 'Submission Failed',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error during form submission:', error);
+                Swal.fire({
+                    toast: true,
+                    position: 'top',
+                    icon: 'error',
+                    title: 'Something Went Wrong',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                });
+            });
+    });
+});
+
+  </script>
+  
+<!-- Legal Authority -->
+
+<!-- FAQ Section -->
+<section class="section" style="animation:fadeInUp 1.5s ease-out;">
+    <div class="container">
+        <h2 class="mb-4 ml-3" style="font-size: 26px;
+        font-weight: bold;
+        background: linear-gradient(135deg, #5f9cad, #8080bc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;">Frequently Asked Questions</h2>
+        <div class="faq">
+
+            <div class="faq-item mt-5">
+                <h4>Why Canada?</h4>
+                <div class="faq-content">
+                    <ul>
+                        <li>Second largest country in the world</li>
+                        <li>Tenth biggest economy in the world</li>
+                        <li>Developing country</li>
+                        <li>Federal governance system instead of Unitary</li>
+                        <li>75% of unutilized landmass</li>
+                        <li>Unexploited natural resources</li>
+                        <li>Low population of three and a half crore</li>
+                    </ul>
+                </div>
+                
+            </div>
+
+            <div class="faq-item mt-5">
+                <h4>Benefits of Canada</h4>
+                <div class="faq-content">
+                    <ul>
+                        <li>Immense chance for immigration being the second largest country in the world with a population size similar to that of Kerala.</li>
+                        <li>Steady economic growth and abundance of natural resources that assures a sustainable future for Canada.</li>
+                        <li>Immigrant labour force required for infrastructure developed in its fast-growing economy. This proves why Canada has an immigrant population of 90% immigrants.</li>
+                    </ul>
+                </div>
+                
+            </div>
+
+            <div class="faq-item mt-5">
+                <h4>Why Life Planner?</h4>
+                <div class="faq-content">
+                    <ul>
+                        <li>12 years of experience in the field</li>
+                        <li>Many happy students and a large number of them became Canadian citizens after studies.</li>
+                        <li>Transparent processing without any hidden unnecessary charges.</li>
+                        <li>A friendly team of experts to assist you.</li>
+                        <li>Detailed counselling conducted throughout admission and visa processing after understanding the talent, interest, and study skills of individual students.</li>
+                        <li>Being a Federal governance system, all 10 provinces of Canada have different immigration laws. We help you choose Provinces with lesser immigration restrictions so you can become a permanent resident soon.</li>
+                        <li>Expert training through Gurukulam mode of education at our own Academy to ensure that you get admission with excellent IELTS score. Free training for selected candidates.</li>
+                        <li>Dedicated service provided in admission and visa processing, airport pick-up, and even arranging a place for you to stay in a new country.</li>
+                        <li>Find a job in Canada after studies with the help of our Immigration Consultant Office.</li>
+                    </ul>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .floating-buttons {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+    }
+
+    .floating-buttons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(22, 100, 173);
+        color: white;
+        border-radius: 50%;
+        box-shadow: 0 4px 6px rgb(22, 100, 173);
+        text-decoration: none;
+        font-size: 24px;
+        transition: background-color 0.3s ease;
+    }
+
+    .floating-buttons a.phone {
+        background-color: rgb(22, 100, 173);
+    }
+
+    .floating-buttons a.mail {
+        background-color: rgb(22, 100, 173);
+    }
+
+    .floating-buttons a:hover {
+        opacity: 0.9;
+        background-color: rgb(22, 100, 173);
+    }
+</style>
+
+<div class="floating-buttons">
+    <a href="https://wa.me/+918594060107" target="_blank" title="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="tel:+91 8594060107" class="phone" title="Call">
+        <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="mailto:info@lifeplanneruniversal.com" class="mail" title="Email">
+        <i class="fas fa-envelope"></i>
+    </a>
+</div>
+
+<!-- Footer -->
+<footer class="footer-section">
+    <div class="container">
+        <div class="footer-cta pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-md-4 mb-3">
+                    <div class="single-cta">
+                        
+                        <div class="cta-text">
+                            
+                            <h4>Find us</h4>
+                            <span>2nd Floor, Thevarolil Building, Lal Bahadur Shastri Rd, Baker Hill, Kottayam, Kerala 686001</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-4 col-md-4 mb-3">
+                    <div class="single-cta">
+                       
+                        <div class="cta-text">
+                            <h4>Call us</h4>
+                            <span>+91 9072222911 ,</span>
+                            <span>+91 9072222933</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4 mb-30">
+                    <div class="single-cta">
+                        
+                        <div class="cta-text">
+                            <h4>Mail us</h4>
+                            <span>info@lifeplanneruniversal.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 mb-50">
+                    <div class="footer-widget">
+                
+                        <div class="footer-text">
+                            <p>Life Planner Studies and Opportunities Pvt Ltd is a leading overseas education consultant, with headquarters in Kottayam and Corporate office in Cochin.</p>
+                        </div>
+                        <div class="footer-social-icon mb-4">
+                            <span>Follow us</span>
+                            <a href="https://www.instagram.com/lifeplannerstudies/?hl=en"><i class="fab fa-facebook-f bg-light text-dark"></i></a>
+                            <a href="#"><i class="fab fa-twitter bg-light text-dark"></i></a>
+                            <a href="#"><i class="fab fa-instagram bg-light text-dark"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-30" style="display:flex;justify-content: center;align-items: center;">
+                    <div class="footer-widget" >
+                        <div class="footer-widget-heading">
+                            <h4>Top Links</h4>
+                        </div>
+                        <ul>
+                            <li><a href="{% url 'lpapp:home' %}">Home</a></li>
+                            <li><a href="{% url 'lpapp:studycanada' %}">Countries</a></li>
+                            <li><a href="{% url 'lpapp:service' %}">services</a></li>
+                            <li><a href="{% url 'lpapp:blog' %}">Blog</a></li>
+                            <li><a href="{% url 'lpapp:contact' %}">Contact Us</a></li>
+                            <li><a href="{% url 'lpapp:about' %}">About us</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-50" style="display:flex;justify-content: center;align-items: center;">
+                    <img src="/static/LPRlogo.png" style="width:280px;">
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row"  style="display:flex;justify-content: center;align-items: center;">
+                    <div class="col-xl-6 col-lg-6 text-center ">
+                        <div class="copyright-text">
+                            <p>Copyright &copy; 2024, All Right Reserved <a href="https://codepen.io/anupkumar92/">Lifeplanner Studies and Oppertunities</a></p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</footer>
+<style>
+    ul {
+    margin: 0px;
+    padding: 0px;
+    
+}
+.footer-section {
+background: linear-gradient(135deg, #5f9cad, #8080bc);
+  position: relative;
+  margin-top: 100px;
+}
+.footer-cta {
+  border-bottom: 1px solid #373636;
+}
+.single-cta i {
+  color: white;
+  font-size: 30px;
+  float: left;
+  margin-top: 8px;
+}
+.cta-text {
+  padding-left: 15px;
+  display: inline-block;
+}
+.cta-text h4 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.cta-text span {
+  color: #ffffff;
+  font-size: 15px;
+}
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-logo img {
+    max-width: 200px;
+}
+.footer-text p {
+  margin-bottom: 14px;
+  font-size: 14px;
+      color: white;
+  line-height: 28px;
+}
+.footer-social-icon span {
+  color: #ffffff;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+}
+.footer-social-icon a {
+  color: #fff;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+}
+.facebook-bg{
+  background: #3B5998;
+}
+.twitter-bg{
+  background: #55ACEE;
+}
+.google-bg{
+  background: #DD4B39;
+}
+.footer-widget-heading h4 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+.footer-widget-heading h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  height: 2px;
+  width: 50px;
+  background: #ff5e14;
+}
+.footer-widget ul li {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  margin-bottom: 12px;
+}
+.footer-widget ul li a:hover{
+  color: #ffffff;
+}
+.footer-widget ul li a {
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.subscribe-form {
+  position: relative;
+  overflow: hidden;
+}
+.subscribe-form input {
+  width: 100%;
+  padding: 14px 28px;
+  background: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+}
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: #ff5e14;
+    padding: 13px 20px;
+    border: 1px solid #ff5e14;
+    top: 0;
+}
+.subscribe-form button i {
+  color: #fff;
+  font-size: 22px;
+  transform: rotate(-6deg);
+}
+.copyright-area{
+    
+  padding: 25px 0;
+}
+.copyright-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #ffffff;
+}
+.copyright-text p a{
+  color: #ffffff;
+}
+.footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
+}
+.footer-menu li:hover a{
+  color: #ffffff;
+}
+.footer-menu li a {
+  font-size: 14px;
+  color: #878787;
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+    
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<!-- Include Swiper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Planner</title>
+    
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Comfortaa:wght@300..700&family=Dosis:wght@200..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: myfont;
+            src: url(/static/Cabin-Medium.ttf);
+        }
+
+       body{
+        font-family: myfont;
+        background-color: white;
+       }
+        .navbar {
+    background: transparent; 
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    transition: background 0.3s ease; /* Smooth transition for background color */
+}
+
+
+        .navbar .nav-link {
+            color: #ffffff;
+            font-weight: 500;
+            margin:10px;
+            
+        }
+
+        .navbar .nav-link:hover {
+            color: #ff4757;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+            
+            
+        
+    
+        }
+
+        .navbar-brand {
+            font-weight: 500;
+            color: #ffffff;
+            
+        }
+        
+
+.icon-menu {
+  --gap: 5px;
+  --height-bar: 2.5px;
+  --pos-y-bar-one: 0;
+  --pos-y-bar-three: 0;
+  --scale-bar: 1;
+  --rotate-bar-one: 0;
+  --rotate-bar-three: 0;
+  width: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  cursor: pointer;
+  position: relative;
+  margin-top:5px;
+  margin-right: 10px;
+  display:none;
+}
+@media (max-width: 767px) {
+            .icon-menu {
+                display: flex; /* Show the icon only on mobile */
+            }
+        }
+
+.bar {
+  position: relative;
+  height: 3.2px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .icon-menu{
+        display: block;
+        
+    }
+    .bar {
+  position: relative;
+  height: 5px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
+  margin:2px;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+    }
+
+    </style>
+</head>
+
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <img src="/static/LPsymbol.png" style="height:40px;width:90px;">
+        <input hidden class="check-icon" id="check-icon" name="check-icon" type="checkbox" >
+        <label class="icon-menu" for="check-icon" data-toggle="collapse" data-target="#navbarNav">
+            <div class="bar bar--1"></div>
+            <div class="bar bar--2"></div>
+            <div class="bar bar--3"></div>
+        </label>
+
+        <div class="collapse navbar-collapse" id="navbarNav" >
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:home' %}">Home</a></li>                    <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:canada' %}">Immigration</a></li>
+                    <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:blog' %}">Blog</a></li>
+<!-- University Dropdown -->
+<li class="nav-item ml-4 dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        University
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background: rgba(0, 0, 0, 0.566);">
+        <a class="dropdown-item text-white" href="{% url 'lpapp:studycanada' %}">English-Speaking Countries</a>
+        <a class="dropdown-item text-white mt-3" href="{% url 'lpapp:studyeurope' %}">European Countries</a>
+        
+        
+    </div>
+</li>                    <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:contact' %}">Contact Us</a></li>
+                <!-- <li class="nav-item ml-4 locationLink"><a class="nav-link" href="#" >Location</a></li> -->
+
+            </ul>
+        </div>
+    </nav>
+    <script>
+      // Navbar background color change on scroll or menu toggle
+function updateNavbarBackground() {
+    const navbar = document.querySelector(".navbar");
+    const menuCheckbox = document.querySelector("#check-icon");
+
+    if (menuCheckbox.checked || window.scrollY > 50) {
+        navbar.style.background = "rgba(0, 0, 0, 0.8)";
+    } else {
+        navbar.style.background = "transparent";
+    }
+}
+
+// Attach scroll event listener
+window.addEventListener("scroll", updateNavbarBackground);
+
+// Attach toggle menu listener
+document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
+
+    </script>
+    <style>
+      /* Hero Section */
+ .hero-section {
+            background: url('https://images.pexels.com/photos/17193737/pexels-photo-17193737/free-photo-of-man-sitting-and-reading-book-near-laptop.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center / cover;
+            height: 800px;
+            
+            
+            
+            
+            
+        }
+        
+        @media (min-width: 1200px) {
+    .hero-section {
+        height: 700px;
+    }
+    
+}
+
+/* For medium screens (e.g., tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .hero-section {
+        height: 700px;
+        background-size: cover;
+    }
+    
+}
+
+/* For small screens (e.g., mobile devices) */
+@media (max-width: 767px) {
+    .hero-section {
+        
+        height: 350px;
+        background-position: center top;
+    }
+    
+}
+
+/* For extra small screens (e.g., very narrow mobile devices) */
+@media (max-width: 480px) {
+    .hero-section {
+        height: 300px;
+        background-position: center top;
+        background-size: cover;
+    }
+}
+
+    </style>
+
+    <div class="container-fluid p-0">
+      <div class="hero-section d-flex align-items-end justify-content-center">
+        <div class="overlay w-100 d-flex justify-content-center align-items-center" 
+        style="margin-top: -100px; padding: 20px; animation: fadeInUp 1.5s ease-out;">
+                 
+       <h4 class="text-center" style="font-size: 30px; color: white; font-weight: bold; margin-bottom: 50px; border-radius: 20px; background: rgba(0, 0, 0, 0.623); padding: 20px 10px;">
+           WE PROVIDE THE BEST IN CLASS SERVICES
+       </h4>
+   </div>
+   
+   <style>
+   /* Define the fade-in-up animation */
+   @keyframes fadeInUp {
+       from {
+           opacity: 0; /* Start fully transparent */
+           transform: translateY(50px); /* Start slightly below */
+       }
+       to {
+           opacity: 1; /* End fully visible */
+           transform: translateY(0); /* End at the original position */
+       }
+   }
+   
+   /* Add a fallback for reusable classes */
+   .overlay {
+       animation: fadeInUp 1.5s ease-out; /* Duration and timing */
+   }
+   </style>
+      </div>
+  </div>
+  <div style="display:flex;justify-content: center;align-items: center;margin-top: 40px;">
+<div class="breadcrumb"><a href="{% url 'lpapp:home' %}">Home</a> \ Services</div></div>
+
+  <section class="services-details-section">
+    <h2 class="section-title" style="margin-top: 50px;">OUR SERVICE</h2>
+
+    <!-- Seminars & Webinars -->
+    <div id="seminars" class="service-detail">
+        <div class="service-icon"><i class="fa-solid fa-chalkboard-teacher"></i></div>
+        <h4 class="service-heading">Seminars & Webinars</h4>
+        <div class="content">
+            <ul>
+                <li>Informative seminars and webinars provide detailed guidance on studying abroad.</li>
+                <li>Cover essential aspects, including university programs, admission requirements, and more.</li>
+                <li>Interactive online sessions are available for those unable to attend in person.</li>
+                <li>Live Q&A sessions address specific queries from students.</li>
+                <li>
+                    Post-seminar, each student receives:
+                    <ul>
+                        <li>One-on-one counselling to discuss academic and career aspirations.</li>
+                        <li>Support from an admission executive throughout the application process.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <button class="read-more-btn"><i class="fa-solid fa-angles-down"></i></button>
+    </div>
+
+    <!-- Academic & Career Counselling -->
+    <div id="counselling" class="service-detail">
+        <div class="service-icon"><i class="fa-solid fa-people-arrows"></i></div>
+        <h4 class="service-heading">Academic & Career Counselling</h4>
+        <div class="content">
+            <ul>
+                <li>Comprehensive evaluation of the student’s academic background and work experience.</li>
+                <li>Language proficiency assessment, particularly in German.</li>
+                <li>Match students with suitable academic programs and career opportunities.</li>
+                <li>Evaluate the student’s financial readiness for studying and living abroad.</li>
+            </ul>
+        </div>
+        <button class="read-more-btn"><i class="fa-solid fa-angles-down"></i></button>
+    </div>
+
+    <!-- Profile Assessment -->
+    <div id="profile" class="service-detail">
+        <div class="service-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+        <h4 class="service-heading">Profile Assessment</h4>
+        <div class="content">
+            <ul>
+                <li>Personalised counselling based on the profile assessment.</li>
+                <li>Identify the fields that align best with the student’s interests and goals.</li>
+                <li>
+                    Recommend skill development programs, such as:
+                    <ul>
+                        <li>Improving German language proficiency.</li>
+                        <li>Preparing for exams like IELTS.</li>
+                    </ul>
+                </li>
+                <li>Provide insights into the job market and conduct:</li>
+                <li>Mock interviews to boost confidence.</li>
+                <li>Industry-specific guidance for future career success.</li>
+            </ul>
+        </div>
+        <button class="read-more-btn"><i class="fa-solid fa-angles-down"></i></button>
+    </div>
+
+    <!-- Admission & Enrollment -->
+    <div id="admission" class="service-detail">
+        <div class="service-icon"><i class="fa-solid fa-file-signature"></i></div>
+        <h4 class="service-heading">Admission & Enrollment</h4>
+        <div class="content">
+            <ul>
+                <li>Guide students through the admission and enrollment process.</li>
+                <li>
+                    Assist in preparing application materials, including:
+                    <ul>
+                        <li>Resumes.</li>
+                        <li>Personal statements.</li>
+                        <li>Cover letters tailored to university requirements.</li>
+                    </ul>
+                </li>
+                <li>Provide details on program fees, duration, curriculum, and focus.</li>
+                <li>Support students with language proficiency requirements in German and English.</li>
+            </ul>
+        </div>
+        <button class="read-more-btn"><i class="fa-solid fa-angles-down"></i></button>
+    </div>
+
+    <!-- Financial Aid Guidance -->
+    <div id="financial-aid" class="service-detail">
+        <div class="service-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+        <h4 class="service-heading">Financial Aid Guidance</h4>
+        <div class="content">
+            <ul>
+                <li>Help students understand the financial requirements for studying abroad.</li>
+                <li>
+                    Provide guidance on visa-related financial documentation, such as:
+                    <ul>
+                        <li>Bank statements.</li>
+                        <li>Financial sponsorship letters.</li>
+                    </ul>
+                </li>
+                <li>Explore available financial aid options, including scholarships and student loans.</li>
+            </ul>
+        </div>
+        <button class="read-more-btn"><i class="fa-solid fa-angles-down"></i></button>
+    </div>
+
+    <!-- Visa -->
+    <div id="visa" class="service-detail">
+        <div class="service-icon"><i class="fa-solid fa-passport"></i></div>
+        <h4 class="service-heading">Visa Processing Assistance</h4>
+        <div class="content">
+            <ul>
+                <li>Full guidance on meeting visa requirements and selecting the correct visa type.</li>
+                <li>Assist in gathering and preparing the required visa documentation.</li>
+                <li>Ensure all documents meet embassy standards.</li>
+                <li>Prepare students for their visa interview to maximise success.</li>
+            </ul>
+        </div>
+        <button class="read-more-btn"><i class="fa-solid fa-angles-down"></i></button>
+    </div>
+
+    <!-- Pre-Departure -->
+    <div id="departure" class="service-detail">
+        <div class="service-icon"><i class="fa-solid fa-plane-departure"></i></div>
+        <h4 class="service-heading">Pre-Departure Briefing</h4>
+        <div class="content">
+            <ul>
+                <li>Provide a comprehensive pre-departure session covering:</li>
+                <li>Travel details, including flight bookings.</li>
+                <li>Accommodation arrangements at the study destination.</li>
+                <li>Country-specific guidelines for a smooth transition.</li>
+                <li>Ensure students feel prepared for their move abroad and understand next steps.</li>
+            </ul>
+        </div>
+        <button class="read-more-btn"><i class="fa-solid fa-angles-down"></i></button>
+    </div>
+
+    <!-- Post-Landing -->
+    <div id="landing" class="service-detail">
+        <div class="service-icon"><i class="fa-solid fa-plane-arrival"></i></div>
+        <h4 class="service-heading">Post-Landing Assistance</h4>
+        <div class="content">
+            <ul>
+                <li>Support students upon arrival with:</li>
+                <li>Immigration procedures.</li>
+                <li>Guidance on transport options.</li>
+                <li>Assist students in settling into their new environment.</li>
+                <li>Provide ongoing support to help students adjust confidently to their new life abroad.</li>
+            </ul>
+        </div>
+        <button class="read-more-btn"><i class="fa-solid fa-angles-down"></i></button>
+    </div>
+</section>
+
+
+<style>
+/* Read More Button */
+.read-more-btn {
+    background: none;
+    border: none;
+    color: rgb(22, 100, 173);
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    color: #17498c;
+}
+
+/* Content Transition Effect */
+.content {
+    overflow: hidden;
+    max-height: 3.3em; /* Adjust height for 2 lines */
+    transition: max-height 0.5s ease;
+}
+
+.content.expanded {
+    max-height: 1200px; /* Large enough to accommodate full content */
+}
+/* Ensure bullet points are visible */
+.content ul {
+    list-style-type: disc; /* Default bullet style */
+    margin-left: 20px; /* Indent bullets */
+    padding-left: 0; /* Adjust padding */
+}
+
+.content ul ul {
+    list-style-type: circle; /* Nested bullet style */
+    margin-left: 20px; /* Indent nested bullets */
+}
+
+.content li {
+    margin-bottom: 8px; /* Add spacing between list items */
+}
+
+@media (max-width: 768px) {
+    .read-more-btn {
+        display:block;
+        margin-left: auto; /* Push the button to the right */
+        justify-content: flex-end; /* Align the button to the right inside the flex container */
+    }
+}
+
+</style>
+
+<script>
+document.querySelectorAll(".read-more-btn").forEach(button => {
+    button.addEventListener("click", function () {
+        const content = this.previousElementSibling; // Get the content div before the button
+        const icon = this.querySelector("i"); // Get the icon in the button
+
+        if (content.classList.contains("expanded")) {
+            // Collapse
+            content.style.maxHeight = "3.6em"; // Animate to collapsed height
+        } else {
+            // Expand
+            content.style.maxHeight = `${content.scrollHeight}px`; // Set to full height
+        }
+
+        content.classList.toggle("expanded");
+        icon.classList.toggle("fa-angles-down");
+        icon.classList.toggle("fa-angles-up");
+    });
+});
+
+</script>
+<style>
+   /* Overall Section Styling */
+.services-details-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: rgb(22, 100, 173);
+    margin-bottom: 40px;
+}
+
+/* Individual Service Detail Cards */
+.service-detail {
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: #f8fbff;
+    border-left: 6px solid rgb(22, 100, 173);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    display: flex; /* Align items horizontally */
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.service-detail:hover {
+    transform: translateY(-5px);
+    background-color: #e9f3ff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Styling */
+.service-icon {
+    font-size: 40px;
+    color: rgb(22, 100, 173);
+    flex-shrink: 0; /* Prevent icon from resizing */
+}
+
+/* Headings and Text */
+.service-heading {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(22, 100, 173);
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.service-detail p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-details-section {
+        padding: 20px;
+        margin-top: -0px;
+
+    }
+
+    .service-detail {
+        flex-direction: column; /* Stack icon and content */
+        align-items: flex-start;
+    }
+
+    .service-icon {
+        margin-bottom: 10px;
+    }
+
+    .section-title {
+        font-size: 24px;
+        
+    }
+
+    .service-heading {
+        font-size: 20px;
+    }
+
+    .service-detail p {
+        font-size: 14px;
+    }
+}
+
+
+</style>
+
+
+<style>
+    .floating-buttons {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+    }
+
+    .floating-buttons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(22, 100, 173);
+        color: white;
+        border-radius: 50%;
+        box-shadow: 0 4px 6px rgb(22, 100, 173);
+        text-decoration: none;
+        font-size: 24px;
+        transition: background-color 0.3s ease;
+    }
+
+    .floating-buttons a.phone {
+        background-color: rgb(22, 100, 173);
+    }
+
+    .floating-buttons a.mail {
+        background-color: rgb(22, 100, 173);
+    }
+
+    .floating-buttons a:hover {
+        opacity: 0.9;
+        background-color: rgb(22, 100, 173);
+    }
+</style>
+
+<div class="floating-buttons">
+    <a href="https://wa.me/+918594060107" target="_blank" title="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="tel:+91 8594060107" class="phone" title="Call">
+        <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="mailto:info@lifeplanneruniversal.com" class="mail" title="Email">
+        <i class="fas fa-envelope"></i>
+    </a>
+</div>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-cta pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-md-4 mb-3">
+                        <div class="single-cta">
+                            
+                            <div class="cta-text">
+                                
+                                <h4>Find us</h4>
+                                <span>2nd Floor, Thevarolil Building, Lal Bahadur Shastri Rd, Baker Hill, Kottayam, Kerala 686001</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-4 col-md-4 mb-3">
+                        <div class="single-cta">
+                           
+                            <div class="cta-text">
+                                <h4>Call us</h4>
+                                <span>+91 9072222911 ,</span>
+                                <span>+91 9072222933</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            
+                            <div class="cta-text">
+                                <h4>Mail us</h4>
+                                <span>info@lifeplanneruniversal.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                    
+                            <div class="footer-text">
+                                <p>Life Planner Studies and Opportunities Pvt Ltd is a leading overseas education consultant, with headquarters in Kottayam and Corporate office in Cochin.</p>
+                            </div>
+                            <div class="footer-social-icon mb-4">
+                                <span>Follow us</span>
+                                <a href="https://www.instagram.com/lifeplannerstudies/?hl=en"><i class="fab fa-facebook-f bg-light text-dark"></i></a>
+                                <a href="#"><i class="fab fa-twitter bg-light text-dark"></i></a>
+                                <a href="#"><i class="fab fa-instagram bg-light text-dark"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30" style="display:flex;justify-content: center;align-items: center;">
+                        <div class="footer-widget" >
+                            <div class="footer-widget-heading">
+                                <h4>Top Links</h4>
+                            </div>
+                            <ul>
+                                <li><a href="{% url 'lpapp:home' %}">Home</a></li>
+                                <li><a href="{% url 'lpapp:studycanada' %}">Countries</a></li>
+                                <li><a href="{% url 'lpapp:service' %}">services</a></li>
+                                <li><a href="{% url 'lpapp:blog' %}">Blog</a></li>
+                                <li><a href="{% url 'lpapp:contact' %}">Contact Us</a></li>
+                                <li><a href="{% url 'lpapp:about' %}">About us</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50" style="display:flex;justify-content: center;align-items: center;">
+                        <img src="/static/LPRlogo.png" style="width:280px;">
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-area">
+                <div class="container">
+                    <div class="row"  style="display:flex;justify-content: center;align-items: center;">
+                        <div class="col-xl-6 col-lg-6 text-center ">
+                            <div class="copyright-text">
+                                <p>Copyright &copy; 2024, All Right Reserved <a href="https://codepen.io/anupkumar92/">Lifeplanner Studies and Oppertunities</a></p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+    <style>
+        ul {
+        margin: 0px;
+        padding: 0px;
+        
+    }
+    .footer-section {
+    background: linear-gradient(135deg, #5f9cad, #8080bc);
+      position: relative;
+      margin-top: 100px;
+    }
+    .footer-cta {
+      border-bottom: 1px solid #373636;
+    }
+    .single-cta i {
+      color: white;
+      font-size: 30px;
+      float: left;
+      margin-top: 8px;
+    }
+    .cta-text {
+      padding-left: 15px;
+      display: inline-block;
+    }
+    .cta-text h4 {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .cta-text span {
+      color: #ffffff;
+      font-size: 15px;
+    }
+    .footer-content {
+      position: relative;
+      z-index: 2;
+    }
+    .footer-pattern img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 330px;
+      background-size: cover;
+      background-position: 100% 100%;
+    }
+    .footer-logo {
+      margin-bottom: 30px;
+    }
+    .footer-logo img {
+        max-width: 200px;
+    }
+    .footer-text p {
+      margin-bottom: 14px;
+      font-size: 14px;
+          color: white;
+      line-height: 28px;
+    }
+    .footer-social-icon span {
+      color: #ffffff;
+      display: block;
+      font-size: 20px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 20px;
+    }
+    .footer-social-icon a {
+      color: #fff;
+      font-size: 16px;
+      margin-right: 15px;
+    }
+    .footer-social-icon i {
+      height: 40px;
+      width: 40px;
+      text-align: center;
+      line-height: 38px;
+      border-radius: 50%;
+    }
+    .facebook-bg{
+      background: #3B5998;
+    }
+    .twitter-bg{
+      background: #55ACEE;
+    }
+    .google-bg{
+      background: #DD4B39;
+    }
+    .footer-widget-heading h4 {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .footer-widget-heading h4::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -15px;
+      height: 2px;
+      width: 50px;
+      background: #ff5e14;
+    }
+    .footer-widget ul li {
+      display: inline-block;
+      float: left;
+      width: 50%;
+      margin-bottom: 12px;
+    }
+    .footer-widget ul li a:hover{
+      color: #ffffff;
+    }
+    .footer-widget ul li a {
+      color: #ffffff;
+      text-transform: capitalize;
+    }
+    .subscribe-form {
+      position: relative;
+      overflow: hidden;
+    }
+    .subscribe-form input {
+      width: 100%;
+      padding: 14px 28px;
+      background: #2E2E2E;
+      border: 1px solid #2E2E2E;
+      color: #fff;
+    }
+    .subscribe-form button {
+        position: absolute;
+        right: 0;
+        background: #ff5e14;
+        padding: 13px 20px;
+        border: 1px solid #ff5e14;
+        top: 0;
+    }
+    .subscribe-form button i {
+      color: #fff;
+      font-size: 22px;
+      transform: rotate(-6deg);
+    }
+    .copyright-area{
+        
+      padding: 25px 0;
+    }
+    .copyright-text p {
+      margin: 0;
+      font-size: 14px;
+      color: #ffffff;
+    }
+    .copyright-text p a{
+      color: #ffffff;
+    }
+    .footer-menu li {
+      display: inline-block;
+      margin-left: 20px;
+    }
+    .footer-menu li:hover a{
+      color: #ffffff;
+    }
+    .footer-menu li a {
+      font-size: 14px;
+      color: #878787;
+    }
+    </style>
+ <!-- Include Font Awesome for Social Media Icons -->
+ <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+    
+ <!-- Bootstrap JS -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+ <!-- Include Swiper.js -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

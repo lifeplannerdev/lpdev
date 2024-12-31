@@ -1,0 +1,1180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Comfortaa:wght@300..700&family=Dosis:wght@200..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <title>{{ team_member.name }} - Profile</title>
+    <style>
+        @font-face {
+            font-family: myfont;
+            src: url(/static/Cabin-Medium.ttf);
+        }
+
+        /* General Styling */
+        body {
+            font-family: myfont, 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Profile Header */
+        .profile-header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #80bccd, #9e9ed4);
+            color: white;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-pic-large {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            margin-top: 50px;
+        }
+
+        .profile-name {
+            font-size: 28px;
+            font-weight: 800;
+            margin: 10px 0;
+        }
+
+        .profile-phone {
+            color: #f1f1f1;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* Icon Section */
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .icon-circle:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-icon {
+            background-color: #25D366;
+        }
+
+        .phone-icon {
+            background-color: #3b82f6;
+        }
+
+        .email-icon {
+            background-color: #fbbf24;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <style>
+    .navbar {
+        background: transparent;
+        
+        padding: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        transition: background 0.3s ease; /* Smooth transition for background color */
+    }
+    
+    
+            .navbar .nav-link {
+                color: #ffffff;
+                font-weight: 500;
+                margin:10px;
+                
+                
+            }
+    
+            .navbar .nav-link:hover {
+                color: #ff4757;
+            }
+    
+            .navbar-toggler {
+                border-color: rgba(255, 255, 255, 0.1);
+                
+                
+            
+        
+            }
+    
+            .navbar-brand {
+                font-weight: 500;
+                color: #ffffff;
+                
+            }
+            
+    
+    .icon-menu {
+      --gap: 5px;
+      --height-bar: 2.5px;
+      --pos-y-bar-one: 0;
+      --pos-y-bar-three: 0;
+      --scale-bar: 1;
+      --rotate-bar-one: 0;
+      --rotate-bar-three: 0;
+      width: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+      cursor: pointer;
+      position: relative;
+      margin-top:5px;
+      margin-right: 10px;
+      display:none;
+    }
+    @media (max-width: 767px) {
+                .icon-menu {
+                    display: flex; 
+                }
+            }
+           
+    .bar {
+      position: relative;
+      height: 3.2px;
+      width: 100%;
+      border-radius: .5rem;
+      background-color: #d6d6d6;
+    }
+    
+    .bar--1 {
+      top: var(--pos-y-bar-one);
+      transform: rotate(var(--rotate-bar-one));
+      transition: top 200ms 100ms, transform 100ms;
+    }
+    
+    .bar--2 {
+      transform: scaleX(var(--scale-bar));
+      transition: transform 150ms 100ms;
+    }
+    
+    .bar--3 {
+      bottom: var(--pos-y-bar-three);
+      transform: rotate(var(--rotate-bar-three));
+      transition: bottom 200ms 100ms, transform 100ms;
+    }
+    
+    .check-icon:checked + .icon-menu > .bar--1 {
+      transition: top 200ms, transform 200ms 100ms;
+    }
+    
+    .check-icon:checked + .icon-menu > .bar--3 {
+      transition: bottom 200ms, transform 200ms 100ms;
+    }
+    
+    .check-icon:checked + .icon-menu {
+      --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+      --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+      --scale-bar: 0;
+      --rotate-bar-one: 45deg;
+      --rotate-bar-three: -45deg;
+    }
+    @media (min-width: 768px) and (max-width: 1024px) {
+    .icon-menu{
+        display: block;
+        
+    }
+    .bar {
+  position: relative;
+  height: 5px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
+  margin:2px;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+    }
+        </style>
+   
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <img src="/static/LPsymbol.png" style="height:40px;width:90px;">
+            <input hidden class="check-icon" id="check-icon" name="check-icon" type="checkbox" >
+            <label class="icon-menu" for="check-icon" data-toggle="collapse" data-target="#navbarNav">
+                <div class="bar bar--1"></div>
+                <div class="bar bar--2"></div>
+                <div class="bar bar--3"></div>
+            </label>
+    
+            <div class="collapse navbar-collapse" id="navbarNav" >
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:home' %}">Home</a></li>
+                    <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:service' %}">Services</a></li>
+                    <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:canada' %}">Immigration</a></li>
+                    <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:blog' %}">Blog</a></li>
+<!-- University Dropdown -->
+<li class="nav-item ml-4 dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      University
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background: rgba(0, 0, 0, 0.566);">
+      <a class="dropdown-item text-white" href="{% url 'lpapp:studycanada' %}">English-Speaking Countries</a>
+      <a class="dropdown-item text-white mt-3" href="{% url 'lpapp:studyeurope' %}">European Countries</a>
+      
+      
+  </div>
+</li>                    <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:contact' %}">Contact Us</a></li>
+                <!-- <li class="nav-item ml-4 locationLink"><a class="nav-link" href="#" >Location</a></li> -->
+
+            </ul>
+            </div>
+        </nav>
+        <script>
+            // Navbar background color change on scroll or menu toggle
+      function updateNavbarBackground() {
+          const navbar = document.querySelector(".navbar");
+          const menuCheckbox = document.querySelector("#check-icon");
+      
+          if (menuCheckbox.checked || window.scrollY > 50) {
+              navbar.style.background = "rgba(0, 0, 0, 0.8)";
+          } else {
+              navbar.style.background = "transparent";
+          }
+      }
+      
+      // Attach scroll event listener
+      window.addEventListener("scroll", updateNavbarBackground);
+      
+      // Attach toggle menu listener
+      document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
+      
+          </script>
+ <!-- Profile Header -->
+<div class="profile-header">
+    <div class="container">
+        <div class="row align-items-center" >
+            <!-- Profile Section -->
+            <div class="col-md-4 text-center text-md-start" >
+                <img src="{{ team_member.img.url }}" alt="{{ team_member.name }}" class="profile-pic-large">
+                <h2 class="profile-name">{{ team_member.name }}</h2>
+                <p class="profile-phone"> {{ team_member.post }}</p>
+
+                <!-- Icons Section -->
+                <div class="contact-icons">
+                    <!-- WhatsApp Icon -->
+                    <a href="https://wa.me/{{ team_member.phone }}" target="_blank" class="icon-circle whatsapp-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <!-- Dialer Icon -->
+                    <a href="tel:{{ team_member.phone }}" class="icon-circle phone-icon">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <!-- Mail Icon -->
+                    <a href="mailto:{{ team_member.email }}" class="icon-circle email-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="review-list-container mt-4 col-md-8 mt-4 mt-md-0" style="border-radius: 20px;">
+                
+                <div class="review-list">
+                    
+                    {% for review in reviews %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ review.review }}</h5>
+                            <p class="card-text">by {{ review.name }}</p>
+                            <small class="text-muted">Posted on {{ review.created_at|date:"M d, Y H:i" }}</small>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <h4 class="text-center text-dark">No reviews yet. Be the first to review!</h4>
+                    {% endfor %}
+                </div>
+                
+            </div>
+            
+
+<!--           
+            <div class="col-md-8 mt-4 mt-md-0" style="border:3px solid rgb(255, 255, 255);border-radius: 30px;padding:20px;">
+                <h3>Bio</h3>
+                <p class="bio-text mt-3 text-white">{{ team_member.bio }}</p>
+            </div> -->
+        </div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addReviewModal" style="border-radius:30px;margin-top: 30px;">
+            <i class="fa-solid fa-circle-plus mt-1"></i> Review
+        </button>
+    </div>
+</div>
+<style>
+  .content-area{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 10px 0;
+  
+
+}
+  .single-content{
+  width: 400px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+  border-radius:15px;
+  margin-top: 20px;
+  margin:20px;
+}
+
+.single-content::after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+.single-content:hover::after {
+position: absolute;
+  content: '';
+  transform: translateY(0);
+background: linear-gradient(35deg, rgba(0, 0, 0, 0.8) 25%, rgba(0, 0, 0, 0));
+z-index: 2;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+opacity: 1;
+}
+.single-content img{
+  object-fit: cover;
+  min-height: 100%;
+  height: auto;
+  transition: all 0.5s ease;
+  width: 100%;
+  height: auto;
+}
+.single-content:hover img{
+  transform: scale(1.3) translate(10%, 10%);
+}
+.single-content .info{
+  position: absolute;
+  z-index: 3;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateX(-105%);
+  transition: all 0.4s ease;
+  left: 5%;
+  right: 5%;
+  bottom: 5%;
+  padding: 10px 12px;
+  border-left: 4px solid #fff;
+  color: #ffffff;
+}
+.single-content:hover .info{
+  opacity: 1;
+  transform: translateX(0);
+}
+.single-content .info h2 {
+  text-transform: uppercase;
+letter-spacing: 3px;
+
+font-size: 23px;
+margin-top:15px;
+}
+.single-content .info h2,
+.single-content .info p{
+  transition: all 0.7s ease;
+  transform: translateX(-100%);
+  overflow: hidden;
+}
+.single-content:hover .info h2,
+.single-content:hover .info p{
+  transform: translateX(0);
+}
+.single-content .info p{
+  font-size: 13px;
+  line-height: 17px;
+
+}
+.single-content .info2{
+  position: absolute;
+
+  z-index: 3;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateX(-105%);
+  transition: all 0.4s ease;
+  left: 5%;
+  right: 5%;
+  bottom: 4%;
+  padding: 10px 12px;
+  border-left: 4px solid #fff;
+  color: #ffffff;
+}
+.single-content:hover .info2{
+  opacity: 1;
+  transform: translateX(0);
+}
+.single-content .info2 h2 {
+  text-transform: uppercase;
+letter-spacing: 3px;
+font-size: 23px;
+margin-top:15px;
+
+}
+.single-content .info2 h2,
+.single-content .info2 p{
+  transition: all 0.7s ease;
+  transform: translateX(-100%);
+  overflow: hidden;
+}
+.single-content:hover .info2 h2,
+.single-content:hover .info2 p{
+  transform: translateX(0);
+}
+.single-content .info2 p{
+  font-size: 13px;
+  line-height: 17px;
+  margin-top:10px;
+}
+.container {
+justify-content: flex-start;
+position: relative;
+}
+
+.button {
+cursor: pointer;
+background: none;
+border: none;
+border-radius: 5px;
+margin-right:350px;
+font-size: 15px;
+font-weight: 600;
+color: white;
+transition: all .3s ease;
+}
+.button:hover {
+letter-spacing: 3px;
+}
+
+.button:hover ~.second {
+opacity: .66;
+right: -20px;
+transition-delay: 50ms;
+}
+
+.button:hover ~.third {
+opacity: .33;
+right: -40px;
+transition-delay: 100ms;
+}
+
+.second,
+.third {
+opacity: 0;
+}
+  @media (max-width: 767.98px) {
+          .container {
+              padding-left: 30px;
+              padding-right: 30px;
+          }
+  }
+  @media (min-width: 768px) and (max-width: 991.98px) {
+         .content-area {
+              padding-left: 30px;
+              padding-right: 30px;
+              width:350px;
+          }
+  }
+
+
+</style>
+<div style="display:flex;justify-content: center;align-items: center;margin-top: 40px;">
+  <div class="breadcrumb"><a href="{% url 'lpapp:home' %}">Home</a> \ Profiles</div></div>
+
+<div class="container" style="margin-bottom: 150px;">
+  <div class="row">
+    <div class="content-area col-md-4 col-sm-6 mb-3 mt-3">
+      <div class="single-content">
+           <img src="https://i.pinimg.com/736x/ad/90/05/ad9005859ed82d1359e12e07e59c43f4.jpg" alt="">
+           <div class="info">
+               <h2>services</h2>
+               <a href="{% url 'lpapp:service' %}">
+               <button class="button" >VIEW</button>
+              </a>
+              </div>
+       </div>
+   </div>
+   <div class="content-area col-md-4 col-sm-6 mb-3 mt-3">
+    <div class="single-content">
+         <img src="https://i.pinimg.com/736x/8e/e0/60/8ee0600cce110a8b54126283322d952b.jpg" alt="">
+         <div class="info">
+             <h2>blogs</h2>
+             
+             <a href="{% url 'lpapp:blog' %}">
+              <button class="button" >VIEW</button>
+             </a>
+         </div>
+     </div>
+ </div>
+ <div class="content-area col-md-4 col-sm-6 mb-3 mt-3">
+  <div class="single-content">
+       <img src="https://i.pinimg.com/736x/dd/53/1c/dd531cfb5a129a6d76332ae1bd7c7f9b.jpg" alt="">
+       <div class="info">
+           <h2>immigration</h2>
+           <a href="{% url 'lpapp:blog' %}">
+            <button class="button" >VIEW</button>
+           </a>
+       </div>
+   </div>
+</div>
+   </div>
+   </div>
+
+
+
+
+    <style>
+        /* Make the review section scrollable */
+.review-list-container {
+    max-height: 500px; /* Adjust the height based on your design */
+    overflow-y: scroll;
+    scrollbar-width: thin; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.review-list-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.review-list-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.review-list-container::-webkit-scrollbar-thumb:hover {
+    background-color: #bbb;
+}
+
+/* Optional: Add padding for better appearance */
+.review-list-container {
+    padding-right: 10px;
+}
+
+        /* Bio Section */
+.container h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #fdfeff;
+    
+}
+
+.bio-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ffffff;
+}
+.review-title {
+    font-size: 32px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #050505, #222222);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+.review-list .card {
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.review-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.review-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+    </style>
+    
+    <style>
+
+        .form {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          max-width: 100%;
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 20px;
+          position: relative;
+        }
+        
+        .title {
+          font-size: 28px;
+          color: rgb(22, 100, 173);
+          font-weight: 600;
+          letter-spacing: -1px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          padding-left: 30px;
+        }
+        
+        .title::before,
+        .title::after {
+          position: absolute;
+          content: "";
+          height: 16px;
+          width: 16px;
+          border-radius: 50%;
+          left: 0px;
+          background-color: rgb(22, 100, 173);
+        }
+        
+        .title::before {
+          width: 18px;
+          height: 18px;
+          background-color: rgb(22, 100, 173);
+        }
+        
+        .title::after {
+          width: 18px;
+          height: 18px;
+          animation: pulse 1s linear infinite;
+        }
+        
+        .message,
+        .signin {
+          color: rgba(88, 87, 87, 0.822);
+          font-size: 14px;
+        }
+        
+        .signin {
+          text-align: center;
+        }
+        
+        .signin a {
+          color: rgb(22, 100, 173);
+        }
+        
+        .signin a:hover {
+          text-decoration: underline rgb(22, 100, 173);
+        }
+        
+        .flex {
+          display: flex;
+          width: 100%;
+          gap: 6px;
+        }
+        
+        .form label {
+          position: relative;
+        }
+        
+        .form label .input {
+          width: 100%;
+          padding: 10px 10px 20px 10px;
+          outline: 0;
+          border: 1px solid rgba(105, 105, 105, 0.397);
+          border-radius: 10px;
+        }
+        
+        .form label .input + span {
+          position: absolute;
+          left: 10px;
+          bottom: 15px;
+          color: grey;
+          font-size: 0.9em;
+          cursor: text;
+          transition: 0.3s ease;
+        }
+        
+        .form label .input:placeholder-shown + span {
+          top: 15px;
+          font-size: 0.9em;
+        }
+        
+        .form label .input:focus + span,
+        .form label .input:valid + span {
+          top: -15px;
+          font-size: 0.7em;
+          font-weight: 600;
+        }
+        
+        .form label .input:valid + span {
+          color: rgb(0, 23, 128);
+        }
+        
+        .submit {
+          border: none;
+          outline: none;
+          background-color: rgb(22, 100, 173);
+          padding: 10px;
+          border-radius: 10px;
+          color: #fff;
+          font-size: 16px;
+          transform: 0.3s ease;
+        }
+        
+        .submit:hover {
+          background-color: rgb(56, 90, 194);
+        }
+        
+        @keyframes pulse {
+          from {
+            transform: scale(0.9);
+            opacity: 1;
+          }
+        
+          to {
+            transform: scale(1.8);
+            opacity: 0;
+          }
+        }
+        </style>
+        
+    
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="addReviewModal" tabindex="-1" aria-labelledby="addReviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 15px; box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);">
+            <!-- Modal Body -->
+            <div class="modal-body" style="padding: 25px 30px; background-color: #ffffff; border-radius: 20px;">
+                <form class="form" id="addReviewForm">
+                    {% csrf_token %}
+                    <p class="title">Add Your Review</p>
+
+                    <label>
+                        <input required placeholder="" type="text" class="input" name="name">
+                        <span>Your Name</span>
+                    </label>
+                    
+
+                    <label>
+                        <textarea required placeholder="" class="input" name="review"></textarea>
+                        <span>Your Review</span>
+                    </label>
+                    
+
+                    <button type="submit" class="submit" data-bs-dismiss="modal">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("addReviewForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+
+        fetch("{% url 'lpapp:profile' team_member.pk %}", {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": formData.get("csrfmiddlewaretoken"),
+            },
+            body: formData,
+        })
+        .then((response) => {
+            if (response.ok) {
+                // Trigger SweetAlert Toast
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    },
+                });
+
+                Toast.fire({
+                    icon: "success",
+                    title: "Review Added!",
+                });
+
+                // Optionally refresh the reviews without reloading the page
+                location.reload();
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "Failed to submit your review. Please try again.",
+                });
+            }
+        })
+        .catch((error) => {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "An unexpected error occurred.",
+            });
+        });
+    });
+</script>
+
+   
+
+
+    
+
+    
+
+    <!-- Footer -->
+    <footer class="footer-section">
+      <div class="container">
+          <div class="footer-cta pt-5 pb-5">
+              <div class="row">
+                  <div class="col-xl-4 col-md-4 mb-3">
+                      <div class="single-cta">
+                          
+                          <div class="cta-text">
+                              
+                              <h4>Find us</h4>
+                              <span>2nd Floor, Thevarolil Building, Lal Bahadur Shastri Rd, Baker Hill, Kottayam, Kerala 686001</span>
+                            </div>
+                      </div>
+                  </div>
+                  
+                  <div class="col-xl-4 col-md-4 mb-3">
+                      <div class="single-cta">
+                         
+                          <div class="cta-text">
+                              <h4>Call us</h4>
+                              <span>+91 9072222911 ,</span>
+                              <span>+91 9072222933</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-xl-4 col-md-4 mb-30">
+                      <div class="single-cta">
+                          
+                          <div class="cta-text">
+                              <h4>Mail us</h4>
+                              <span>info@lifeplanneruniversal.com</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="footer-content pt-5 pb-5">
+              <div class="row">
+                  <div class="col-xl-4 col-lg-4 mb-50">
+                      <div class="footer-widget">
+                  
+                          <div class="footer-text">
+                              <p>Life Planner Studies and Opportunities Pvt Ltd is a leading overseas education consultant, with headquarters in Kottayam and Corporate office in Cochin.</p>
+                          </div>
+                          <div class="footer-social-icon mb-4">
+                              <span>Follow us</span>
+                              <a href="https://www.instagram.com/lifeplannerstudies/?hl=en"><i class="fab fa-facebook-f bg-light text-dark"></i></a>
+                              <a href="#"><i class="fab fa-twitter bg-light text-dark"></i></a>
+                              <a href="#"><i class="fab fa-instagram bg-light text-dark"></i></a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-6 mb-30" style="display:flex;justify-content: center;align-items: center;">
+                      <div class="footer-widget" >
+                          <div class="footer-widget-heading">
+                              <h4>Top Links</h4>
+                          </div>
+                          <ul>
+                              <li><a href="{% url 'lpapp:home' %}">Home</a></li>
+                              <li><a href="{% url 'lpapp:studycanada' %}">Countries</a></li>
+                              <li><a href="{% url 'lpapp:service' %}">services</a></li>
+                              <li><a href="{% url 'lpapp:blog' %}">Blog</a></li>
+                              <li><a href="{% url 'lpapp:contact' %}">Contact Us</a></li>
+                              <li><a href="{% url 'lpapp:about' %}">About us</a></li>
+                              
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-6 mb-50" style="display:flex;justify-content: center;align-items: center;">
+                      <img src="/static/LPRlogo.png" style="width:280px;">
+                  </div>
+              </div>
+          </div>
+          <div class="copyright-area">
+              <div class="container">
+                  <div class="row"  style="display:flex;justify-content: center;align-items: center;">
+                      <div class="col-xl-6 col-lg-6 text-center ">
+                          <div class="copyright-text">
+                              <p>Copyright &copy; 2024, All Right Reserved <a href="https://codepen.io/anupkumar92/">Lifeplanner Studies and Oppertunities</a></p>
+                          </div>
+                      </div>
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+  </footer>
+  <style>
+      ul {
+      margin: 0px;
+      padding: 0px;
+      
+  }
+  .footer-section {
+  background: linear-gradient(135deg, #5f9cad, #8080bc);
+    position: relative;
+    margin-top: 100px;
+  }
+  .footer-cta {
+    border-bottom: 1px solid #373636;
+  }
+  .single-cta i {
+    color: white;
+    font-size: 30px;
+    float: left;
+    margin-top: 8px;
+  }
+  .cta-text {
+    padding-left: 15px;
+    display: inline-block;
+  }
+  .cta-text h4 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .cta-text span {
+    color: #ffffff;
+    font-size: 15px;
+  }
+  .footer-content {
+    position: relative;
+    z-index: 2;
+  }
+  .footer-pattern img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 330px;
+    background-size: cover;
+    background-position: 100% 100%;
+  }
+  .footer-logo {
+    margin-bottom: 30px;
+  }
+  .footer-logo img {
+      max-width: 200px;
+  }
+  .footer-text p {
+    margin-bottom: 14px;
+    font-size: 14px;
+        color: white;
+    line-height: 28px;
+  }
+  .footer-social-icon span {
+    color: #ffffff;
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+  }
+  .footer-social-icon a {
+    color: #fff;
+    font-size: 16px;
+    margin-right: 15px;
+  }
+  .footer-social-icon i {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+  }
+  .facebook-bg{
+    background: #3B5998;
+  }
+  .twitter-bg{
+    background: #55ACEE;
+  }
+  .google-bg{
+    background: #DD4B39;
+  }
+  .footer-widget-heading h4 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .footer-widget-heading h4::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    height: 2px;
+    width: 50px;
+    background: #ff5e14;
+  }
+  .footer-widget ul li {
+    display: inline-block;
+    float: left;
+    width: 50%;
+    margin-bottom: 12px;
+  }
+  .footer-widget ul li a:hover{
+    color: #ffffff;
+  }
+  .footer-widget ul li a {
+    color: #ffffff;
+    text-transform: capitalize;
+  }
+  .subscribe-form {
+    position: relative;
+    overflow: hidden;
+  }
+  .subscribe-form input {
+    width: 100%;
+    padding: 14px 28px;
+    background: #2E2E2E;
+    border: 1px solid #2E2E2E;
+    color: #fff;
+  }
+  .subscribe-form button {
+      position: absolute;
+      right: 0;
+      background: #ff5e14;
+      padding: 13px 20px;
+      border: 1px solid #ff5e14;
+      top: 0;
+  }
+  .subscribe-form button i {
+    color: #fff;
+    font-size: 22px;
+    transform: rotate(-6deg);
+  }
+  .copyright-area{
+      
+    padding: 25px 0;
+  }
+  .copyright-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #ffffff;
+  }
+  .copyright-text p a{
+    color: #ffffff;
+  }
+  .footer-menu li {
+    display: inline-block;
+    margin-left: 20px;
+  }
+  .footer-menu li:hover a{
+    color: #ffffff;
+  }
+  .footer-menu li a {
+    font-size: 14px;
+    color: #878787;
+  }
+  </style>
+
+ <!-- Include Font Awesome for Social Media Icons -->
+ <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+    
+ <!-- Bootstrap JS -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+ <!-- Include Swiper.js -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
