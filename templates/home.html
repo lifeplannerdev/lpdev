@@ -2468,12 +2468,12 @@ showTestimonial(currentIndex);
                         <span>Email</span>
                     </label>
                     <label>
-                        <input required placeholder="" type="Phone.no" class="input" name="phone_number">
+                        <input required placeholder="" type="Phone.no" class="input" name="phone_number" style="margin-top: 10px;margin-bottom: 30px;">
                         <span>Phone.no</span>
                     </label>
                     <label>
-                        <input placeholder="" type="Message" class="input" name="message">
-                        <span>Message</span>
+                        <input placeholder="" type="Message" class="input" name="message" style="color:grey;margin-top: 0px;">
+                        <span style="color:grey;margin-top: -15px;">Message</span>
                     </label>
                     {{ form_as.p }}
                     <button type="submit" class="submit" data-bs-dismiss="modal" style="background-color: grey;" disabled>Submit</button>
@@ -2690,7 +2690,7 @@ Toast.fire({
 
 .form label .input:focus + span,
 .form label .input:valid + span {
-  top: 30px;
+  top: -10px;
   font-size: 0.7em;
   font-weight: 600;
 }
