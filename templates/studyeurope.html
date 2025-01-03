@@ -315,10 +315,11 @@
         font-size: 20px;
         border: none;
         font-weight: bold;
-        border-bottom-right-radius: 15px;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
         cursor: pointer;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin-top: -1px;
+        margin-top: 10px;
       }
   
       .dropdown-btn:hover {
@@ -368,7 +369,7 @@
     </style>
   
     <div class="dropdown">
-      <button class="dropdown-btn" id="dropdownBtn" onclick="toggleDropdown()">Countries</button>
+      <button class="dropdown-btn" id="dropdownBtn" onclick="toggleDropdown()"> All Countries</button>
       <div class="dropdown-content" id="dropdownContent">
         <a href="#" onclick="switchCountry('germany')">Germany</a>
         <a href="#" onclick="switchCountry('poland')">Poland</a>
