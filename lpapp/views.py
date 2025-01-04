@@ -143,6 +143,8 @@ def canada(request):
 
     return render(request,"canada.html")
 
+def germany(request):
+    return render(request,"germany.html")
 
 def studycanada(request):
     return render(request,"studycanada.html")   

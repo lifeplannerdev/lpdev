@@ -11,6 +11,7 @@ urlpatterns = [
    path('albums/',views.albums,name='albums'),
    path('contact/',views.contact,name='contact'),
    path('canada/',views.canada,name='canada'),
+   path('germany/',views.germany,name='germany'),
    path('studycanada/',views.studycanada,name='studycanada'),
    path('studyeurope/',views.studyeurope,name='studyeurope'),
    path('about/',views.about,name='about'),
