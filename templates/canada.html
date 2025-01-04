@@ -129,20 +129,13 @@
 }
         .hero {
             position: relative;
-            background: url('https://img.freepik.com/free-photo/flag-canada_1401-84.jpg?t=st=1734074127~exp=1734077727~hmac=7e780082a8605a92ab4f3dcb1694f0846b89dde16e267a2227f48f513ee0ab88&w=900') center/cover no-repeat;
+            background: url('/static/immigration1.jpg') center/cover no-repeat;
             color: white;
             text-align: center;
             padding: 100px 20px;
-            height:400px
+            height:500px
         }
-        .hero .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
+       
     
          h1 {
             font-size: 3rem;
@@ -283,7 +276,7 @@
 <!-- Header -->
 <header class="hero">
     
-    <div class="overlay"></div>
+    
     
 </header>
 <style>
@@ -304,12 +297,13 @@
 }
 
 </style>
-<div style="background-color: #852f2f;
+<div  style="background-color: #b4ade3;
 background-image: 
-    radial-gradient(at 47% 33%, hsl(7.64, 77%, 40%) 0, transparent 59%), 
-    radial-gradient(at 82% 65%, hsl(359.15, 89%, 48%) 0, transparent 55%);border-radius: 20;padding:20px;margin-bottom: 60px;">
-        <h1 class="text-center text-white blurIn">IMMIGRATE TO CANADA</h1>
+    radial-gradient(at 47% 33%, hsl(247, 27%, 63%) 0, transparent 59%), 
+    radial-gradient(at 82% 65%, hsl(188, 34%, 52%) 0, transparent 55%);border-radius: 20;padding:20px;margin-bottom: 60px;">
+        <h1 class="text-center text-white blurIn">IMMIGRATION</h1>
     </div>
+   
     <style>
       /* Define the fade-in-up animation */
       @keyframes fadeInUp {
@@ -342,8 +336,9 @@ background-image:
             border: none;
             padding: 10px 20px;
             margin: 0 5px;
-            border-bottom-right-radius: 15px;
-            border-top-left-radius: 15px;
+            /* border-bottom-right-radius: 15px;
+            border-top-left-radius: 15px; */
+            border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s ease;
             width:150px;
@@ -357,7 +352,7 @@ background-image:
         }
     
         .toggle-button:hover {
-            background-color: #3c658b;
+            background-color: #8080bc;
         }
     
         .immigration-content {
@@ -378,6 +373,7 @@ background-image:
             // Hide all content
             document.getElementById('canada-content').classList.add('hidden');
             document.getElementById('germany-content').classList.add('hidden');
+            
     
             // Show the selected content
             document.getElementById(`${country}-content`).classList.remove('hidden');
