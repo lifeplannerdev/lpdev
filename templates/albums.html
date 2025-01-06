@@ -1,452 +1,671 @@
-{% load static %}
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Open Props Image Gallery</title>
-    <meta name="description" content="Image gallery with View Transitions API & Scroll-Driven Animation" />
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Gallery with Bootstrap</title>
 
-<body>
-    <header><h1 class="text-white">GALLERY</h1></header>
-    <main>
-        <section>
-            <div class="imageGallery">
-                
-                <button>
-                    <picture>
-                        <img width="309" height="309" src="https://i.pinimg.com/736x/48/50/e2/4850e264ff7ec2321eec45bf7666296a.jpg" alt="A cute cat" loading="lazy" />
-                    </picture>
-                </button>
-                <button>
-                    <picture>
-                        <img width="309" height="309" src="https://i.pinimg.com/736x/60/50/7a/60507af53435179dd569093b7a2c280b.jpg" alt="A cute cat" loading="lazy" />
-                    </picture>
-                </button>
-                <button>
-                    <picture>
-                        <img width="309" height="309" src="https://i.pinimg.com/736x/49/67/ba/4967ba058ca0ff34bb3aa175ed50f63f.jpg" alt="A cute cat" loading="lazy" />
-                    </picture>
-                </button>
-                <button>
-                    <picture>
-                        <img width="309" height="309" src="https://i.pinimg.com/736x/5e/bd/7f/5ebd7f3f22e55434ddaa3a5e8790b2cc.jpg" alt="A cute cat" loading="lazy" />
-                    </picture>
-                </button>
-                <button>
-                    <picture>
-                        <img width="309" height="309" src="https://images.pexels.com/photos/3184396/pexels-photo-3184396.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A cute cat" loading="lazy" />
-                    </picture>
-                </button>
-                <button>
-                    <picture>
-                        <img width="309" height="309" src="https://images.pexels.com/photos/3184300/pexels-photo-3184300.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A cute cat" loading="lazy" />
-                    </picture>
-                </button>
-                <button>
-                    <picture>
-                        <img width="309" height="309" src="https://images.pexels.com/photos/7163354/pexels-photo-7163354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A cute cat" loading="lazy" />
-                    </picture>
-                </button>
-                <button>
-                    <picture>
-                        <img width="309" height="309" src="https://images.pexels.com/photos/3183181/pexels-photo-3183181.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A cute cat" loading="lazy" />
-                    </picture>
-                </button>
-                <button>
-                    <picture>
-                        <img width="309" height="309" src="https://images.pexels.com/photos/3183156/pexels-photo-3183156.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A cute cat" loading="lazy" />
-                    </picture>
-                </button>
-                <button>
-                    <picture>
-                        <img width="309" height="309" src="https://images.pexels.com/photos/3182835/pexels-photo-3182835.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A cute cat" loading="lazy" />
-                    </picture>
-                </button>
-                <button>
-                    <picture>
-                        <img width="309" height="309" src="https://images.pexels.com/photos/3182826/pexels-photo-3182826.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A cute cat" loading="lazy" />
-                    </picture>
-                </button>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-                
-            </div>
-
-            <dialog class="dialog" id="dialog">
-                <div class="dialogContainer">
-                    <div class="carousel" id="carousel">
-                        <picture>
-                            <img width="309" height="309" src="/https://i.pinimg.com/736x/48/50/e2/4850e264ff7ec2321eec45bf7666296a.jpg" alt="A cute cat" loading="lazy" />
-                        </picture>
-                        <picture>
-                            <img width="309" height="309" src="https://i.pinimg.com/736x/60/50/7a/60507af53435179dd569093b7a2c280b.jpg" alt="A cute cat" loading="lazy" />
-                        </picture>
-                        <picture>
-                            <img width="309" height="309" src="/static/office2.jpg" alt="A cute cat" loading="lazy" />
-                        </picture>
-                        <picture>
-                            <img width="309" height="309" src="/static/office1.jpg" alt="A cute cat" loading="lazy" />
-                        </picture>   
-                        <picture>
-                            <img width="309" height="309" src="https://images.pexels.com/photos/3184396/pexels-photo-3184396.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A cute cat" loading="lazy" />
-                        </picture> 
-                        <picture>
-                            <img width="309" height="309" src="https://images.pexels.com/photos/3184300/pexels-photo-3184300.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A cute cat" loading="lazy" />
-                        </picture>
-                        <picture>
-                            <img width="309" height="309" src="https://images.pexels.com/photos/7163354/pexels-photo-7163354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A cute cat" loading="lazy" />
-                        </picture>
-                        <picture>
-                            <img width="309" height="309" src="https://images.pexels.com/photos/3183181/pexels-photo-3183181.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A cute cat" loading="lazy" />
-                        </picture>
-                        <picture>
-                            <img width="309" height="309" src="https://images.pexels.com/photos/3183156/pexels-photo-3183156.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A cute cat" loading="lazy" />
-                        </picture>
-                        <picture>
-                            <img width="309" height="309" src="https://images.pexels.com/photos/3182835/pexels-photo-3182835.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A cute cat" loading="lazy" />
-                        </picture>
-                        <picture>
-                            <img width="309" height="309" src="https://images.pexels.com/photos/3182826/pexels-photo-3182826.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A cute cat" loading="lazy" />
-                        </picture>
-                    
-                    </div>
-                    <div class="controls">
-                        <button id="prevBtn" onclick="carousel.scrollBy(-100, 0)">
-                            <i class="ri-arrow-left-circle-fill"></i>
-                        </button>
-                        <button id="nextBtn" onclick="carousel.scrollBy(100, 0)">
-                            <i class="ri-arrow-right-circle-fill"></i>
-                        </button>
-                    </div>
-                </div>
-                <button id="closeDialogBtn" class="closeDialog">
-                    <i class="ri-close-line"></i>
-                </button>
-            </dialog>
-        </section>
-    </main>
-
+    <!-- Custom CSS -->
     <style>
-        @import 'https://unpkg.com/open-props@1.7.0/open-props.min.css' layer(design.system);
-        @import 'https://unpkg.com/open-props@1.7.0/normalize.dark.min.css' layer(design.normalize);
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..900&family=Lobster&display=swap');
-        body {
-    background-color: #ffffff; /* White background */
-    color: #000000; /* Default text color for better contrast */
+        @font-face {
+            font-family: myfont;
+            src: url(/static/Cabin-Medium.ttf);
+        }
+        .body{
+            font-family: myfont;
+        }
+        .image-container {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            height:300px
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Popup Styling */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .popup .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .navbar {
+    background: transparent; 
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    transition: background 0.3s ease; /* Smooth transition for background color */
 }
 
-main {
-    background-color: #ffffff; /* Ensures the main container is also white */
-    padding: 20px; /* Optional: Adds some spacing around the content */
-    border-radius: 8px; /* Optional: Rounded corners for a polished look */
+
+        .navbar .nav-link {
+            color: #ffffff;
+            font-weight: 500;
+            margin:10px;
+            
+        }
+
+        .navbar .nav-link:hover {
+            color: #ff4757;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+            
+            
+        
     
+        }
+
+        .navbar-brand {
+            font-weight: 500;
+            color: #ffffff;
+            
+        }
+        
+
+.icon-menu {
+  --gap: 5px;
+  --height-bar: 2.5px;
+  --pos-y-bar-one: 0;
+  --pos-y-bar-three: 0;
+  --scale-bar: 1;
+  --rotate-bar-one: 0;
+  --rotate-bar-three: 0;
+  width: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  cursor: pointer;
+  position: relative;
+  margin-top:5px;
+  margin-right: 10px;
+  display:none;
+}
+@media (max-width: 767px) {
+            .icon-menu {
+                display: flex; /* Show the icon only on mobile */
+            }
+        }
+
+.bar {
+  position: relative;
+  height: 3.2px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
 }
 
-
-        .green-glow {
-    color: transparent;
-    background: linear-gradient(to right, #4caf50 20%, #8bc34a 40%, #4caf50 60%, #8bc34a 80%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 255, 0, 0.5);
-    font-weight: bold;
-    font-size: 2em;
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
 }
-        @layer base.override-normalize {
-            :root {
-                font-family: myfont;
-                --surface-1: oklch(0 0 0);
-                --text-1: oklch(0.97 0 0);
-                --text-2: oklch(0.73 0 0);
-                --link-visited: oklch(0.73 0 0);
-            }
 
-            a {
-                color: var(--text-2);
-                display: flex;
-                gap: var(--size-1);
-            }
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .icon-menu{
+        display: block;
+        
+    }
+    .bar {
+  position: relative;
+  height: 5px;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #d6d6d6;
+  margin:2px;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+    }
+
+    header {
+            background: linear-gradient(135deg, #5f9cad, #8080bc);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            
         }
 
-        @layer base.app {
-            body {
-                --max-inline: 935px;
-                --gap: var(--size-fluid-4);
-
-            }
-
-            @font-face {
-                font-family: myfont;
-                src: url(/static/Cabin-Medium.ttf);
-            }
-
-            section {
-                display: grid;
-                justify-content: center;
-                padding-inline: var(--size-1);
-                gap: var(--size-7);
-            }
-        }
-
-        @layer components.header {
-            header {
-                display: flex;
-                justify-content: center;
-                padding-block: var(--gap);
-                background-color: white;
-                position: sticky;
-                inset-block-start: 0;
-                z-index: var(--layer-1);
-
-                & h1 {
-                    font-size: 25px;
-    font-weight: bold;
-    background: linear-gradient(135deg, #5f9cad, #8080bc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: -50px;
-                }
-            }
-        }
-
-        @layer components.gallery {
-            .imageGallery {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                max-inline-size: var(--max-inline);
-                gap: calc(var(--border-size-2) * 2);
-
-                & img {
-                    aspect-ratio: 4/3;
-                    max-inline-size: 100%;
-                    background-image: var(--gradient-8);
-
-                }
-
-                & > button {
-                    position: relative;
-                    padding: 0;
-                    margin: 3px;
-                    border: none;
-
-
-                    &::after {
-                        content: '';
-                        inset: 0;
-                        display: block;
-                        background-color: oklch(0 0 0 / 0.4);
-                        position: absolute;
-                        background-image: url(https://raw.githubusercontent.com/mobalti/open-props-interfaces/7d7d59bdb5dca71ec7280b88876b45d31cbf3c4a/image-gallery/images/pushpin-fill.svg);
-                        background-size: var(--size-5);
-                        background-repeat: no-repeat;
-                        background-position: top var(--size-1) right var(--size-1);
-                        opacity: 0;
-                        transition: 0.2s ease;
-                    }
-
-                    &:hover::after {
-                        opacity: 1;
-                    }
-                }
-            }
-        }
-
-        @layer components.dialog {
-            .dialog {
-                --sm-font-size: 0.875rem;
-                --size: min(80dvh, 100%);
-                --fade-duration: 1s;
-
-                inline-size: var(--size);
-                max-inline-size: 600px;
-                border-radius: unset;
-                padding: 0;
-                overflow: hidden; /* Ensure the dialog does not overflow */
-
-                .dialog-container {
-                    display: flex;
-                    flex-direction: column;
-                    gap: var(--size-3);
-                    position: relative;
-                    overflow: hidden;
-                }
-
-                .controls {
-                    position: fixed;
-                    z-index: var(--layer-1);
-                    inset-block-start: calc(50% - var(--size-5) / 2);
-                    inset-inline: var(--size-3);
-                    display: flex;
-                    justify-content: space-between;
-                    opacity: 0;
-                    animation: var(--animation-fade-in) var(--fade-duration) forwards;
-
-                    & button {
-                        inline-size: var(--size-8);
-                        border-radius: var(--radius-round);
-                        aspect-ratio: var(--ratio-square);
-                        font-size: 1.75rem;
-                        background: transparent;
-                        display: inline-flex;
-                        align-items: center;
-                        justify-content: center;
-                        padding: 0;
-                        box-shadow: var(--shadow-1);
-                        color: var(--stone-1);
-                        transition: color 0.2s ease;
-                        @media (width > 600px) {
-                            font-size: 3rem;
-                        }
-
-                        &:hover {
-                            color: var(--stone-6);
-                        }
-                    }
-                }
-
-                .closeDialog {
-                    position: fixed;
-                    inset-block-start: var(--size-2);
-                    inset-inline-end: var(--size-2);
-                    block-size: 48px;
-                    inline-size: 48px;
-                    background-color: transparent;
-                    font-size: var(--font-size-5);
-                    padding: 0;
-                }
-
-                .carousel {
-                    display: grid;
-                    grid-auto-flow: column;
-                    grid-auto-columns: var(--size);
-                    inline-size: var(--size);
-                    block-size: var(--size);
-                    overflow-x: auto; /* Allow horizontal scrolling */
-                    overscroll-behavior: contain;
-                    scroll-snap-type: x mandatory;
-                    scrollbar-width: none; /* Firefox */
-                    -ms-overflow-style: none; /* IE and Edge */
-
-                    &::-webkit-scrollbar {
-                        display: none; /* Hide scrollbar */
-                    }
-
-                    & img {
-                        inline-size: 100%;
-                        block-size: 100%;
-                    }
-
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        inset: 0;
-                        background-color: var(--surface-1);
-                        background-image: url(https://raw.githubusercontent.com/mobalti/open-props-interfaces/7d7d59bdb5dca71ec7280b88876b45d31cbf3c4a/image-gallery/images/bars-rotate-fade.svg);
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        z-index: var(--layer-3);
-                        animation: var(--animation-fade-out) var(--fade-duration) forwards, var(--fade-duration) op-hide 1s forwards;
-                    }
-                }
-            }
-        }
-
-        @layer animation.base {
-            @keyframes op-hide {
-                100% {
-                    visibility: hidden;
-                }
-            }
-        }
-
-        @layer animation.scroll-driven {
-            body {
-                timeline-scope: --carousel;
-            }
-
-            #carousel {
-                overflow-x: scroll;
-                scroll-snap-type: x mandatory;
-                overscroll-behavior: contain;
-                scroll-behavior: smooth;
-                scroll-timeline: --carousel inline;
-
-                > * {
-                    scroll-snap-align: center;
-                }
-            }
-
-            #nextBtn {
-                animation: auto next ease;
-                animation-timeline: --carousel;
-                animation-range: 0% 101%;
-            }
-
-            #prevBtn {
-                animation: auto prev ease;
-            }
-
-            @keyframes prev {
-                from {
-                    visibility: hidden;
-                }
-            }
-
-            @keyframes next {
-                99%,
-                100% {
-                    visibility: hidden;
-                }
-            }
-        }
-
-        @layer components.footer {
-            footer {
-                display: flex;
-                justify-content: center;
-                padding-block: var(--gap);
-                font-weight: var(--font-weight-8);
-                color: var(--stone-8);
-            }
+        header h2 {
+            font-size: 3.5rem;
+            margin: 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 50px;
         }
     </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <img src="/static/LPsymbol.png" style="height:40px;width:90px;">
+        <input hidden class="check-icon" id="check-icon" name="check-icon" type="checkbox" >
+        <label class="icon-menu" for="check-icon" data-toggle="collapse" data-target="#navbarNav">
+            <div class="bar bar--1"></div>
+            <div class="bar bar--2"></div>
+            <div class="bar bar--3"></div>
+        </label>
+
+        <div class="collapse navbar-collapse" id="navbarNav" >
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:home' %}">Home</a></li>                    <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:canada' %}">Immigration</a></li>
+                    <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:blog' %}">Blog</a></li>
+<!-- University Dropdown -->
+<li class="nav-item ml-4 dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        University
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background: rgba(0, 0, 0, 0.566);">
+        <a class="dropdown-item text-white" href="{% url 'lpapp:studycanada' %}">English-Speaking Countries</a>
+        <a class="dropdown-item text-white mt-3" href="{% url 'lpapp:studyeurope' %}">European Countries</a>
+        
+        
+    </div>
+</li>                    <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:contact' %}">Contact Us</a></li>
+                <!-- <li class="nav-item ml-4 locationLink"><a class="nav-link" href="#" >Location</a></li> -->
+
+            </ul>
+        </div>
+    </nav>
     <script>
-        const dialog = document.querySelector('#dialog');
-        const images = document.querySelectorAll('.imageGallery button');
-        const closeDialogBtn = document.querySelector('#closeDialogBtn');
+      // Navbar background color change on scroll or menu toggle
+function updateNavbarBackground() {
+    const navbar = document.querySelector(".navbar");
+    const menuCheckbox = document.querySelector("#check-icon");
 
-        function openDialog(index) {
-            if (!document.startViewTransition) {
-                dialog.showModal();
-                document.querySelectorAll('#carousel img')[index].scrollIntoView();
-            } else handleTransition(index);
-        }
+    if (menuCheckbox.checked || window.scrollY > 50) {
+        navbar.style.background = "rgba(0, 0, 0, 0.8)";
+    } else {
+        navbar.style.background = "transparent";
+    }
+}
 
-        async function handleTransition(index) {
-            const transition = document.startViewTransition(() => dialog.showModal());
-            try {
-                await transition.finished;
-            } finally {
-                document.querySelectorAll('#carousel img')[index].scrollIntoView();
-            }
-        }
+// Attach scroll event listener
+window.addEventListener("scroll", updateNavbarBackground);
 
-        const closeDialog = () => {
-            if (!document.startViewTransition) dialog.close();
-            else document.startViewTransition(() => dialog.close());
-        };
+// Attach toggle menu listener
+document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
 
-        images.forEach((img, index) => {
-            img.addEventListener('click', () => openDialog(index));
-        });
-
-        closeDialogBtn.addEventListener('click', () => closeDialog());
     </script>
-    
-</body>
 
+<header>
+    <h2>GALLERY</h2>
+</header>
+
+    <div class="container mt-5">
+        
+        <div class="row g-4">
+            <div class="col-md-4 col-sm-6">
+                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/e0/a6/96/e0a696b2e30b12d4fbac688d531ffc71.jpg')">
+                    <img src="https://i.pinimg.com/736x/e0/a6/96/e0a696b2e30b12d4fbac688d531ffc71.jpg" alt="Image 1">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/6e/89/1a/6e891a4e22df7cf8bb2406b8fd21d238.jpg')">
+                    <img src="https://i.pinimg.com/736x/6e/89/1a/6e891a4e22df7cf8bb2406b8fd21d238.jpg" alt="Image 2">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/57/73/1a/57731a0ae2560b8da2e3c82bb2597759.jpg')">
+                    <img src="https://i.pinimg.com/736x/57/73/1a/57731a0ae2560b8da2e3c82bb2597759.jpg" alt="Image 3">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/99/cf/8f/99cf8fab3d8da7dacc54e50e826426df.jpg')">
+                    <img src="https://i.pinimg.com/736x/99/cf/8f/99cf8fab3d8da7dacc54e50e826426df.jpg" alt="Image 4">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/48/50/e2/4850e264ff7ec2321eec45bf7666296a.jpg')">
+                    <img src="https://i.pinimg.com/736x/48/50/e2/4850e264ff7ec2321eec45bf7666296a.jpg" alt="Image 5">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/50/c5/72/50c572589b97556679884da798e4644b.jpg')">
+                    <img src="https://i.pinimg.com/736x/50/c5/72/50c572589b97556679884da798e4644b.jpg" alt="Image 6">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/e0/a6/96/e0a696b2e30b12d4fbac688d531ffc71.jpg')">
+                    <img src="https://i.pinimg.com/736x/e0/a6/96/e0a696b2e30b12d4fbac688d531ffc71.jpg" alt="Image 1">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/6e/89/1a/6e891a4e22df7cf8bb2406b8fd21d238.jpg')">
+                    <img src="https://i.pinimg.com/736x/6e/89/1a/6e891a4e22df7cf8bb2406b8fd21d238.jpg" alt="Image 2">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/90/45/81/904581f5b121772ffb28d2907ae8ec93.jpg')">
+                    <img src="https://i.pinimg.com/736x/90/45/81/904581f5b121772ffb28d2907ae8ec93.jpg" alt="Image 3">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/60/50/7a/60507af53435179dd569093b7a2c280b.jpg')">
+                    <img src="https://i.pinimg.com/736x/60/50/7a/60507af53435179dd569093b7a2c280b.jpg" alt="Image 4">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/49/67/ba/4967ba058ca0ff34bb3aa175ed50f63f.jpg')">
+                    <img src="https://i.pinimg.com/736x/49/67/ba/4967ba058ca0ff34bb3aa175ed50f63f.jpg" alt="Image 5">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/17/23/59/17235944f3c3788f3925cd698aa04bd7.jpg')">
+                    <img src="https://i.pinimg.com/736x/17/23/59/17235944f3c3788f3925cd698aa04bd7.jpg" alt="Image 6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup" class="popup hidden">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <img id="popup-img" src="" alt="Popup Image">
+    </div>
+
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-cta pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-md-4 mb-3">
+                        <div class="single-cta">
+                            
+                            <div class="cta-text">
+                                
+                                <h4>Find us</h4>
+                                <span>2nd Floor, Thevarolil Building, Lal Bahadur Shastri Rd, Baker Hill, Kottayam, Kerala 686001</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-4 col-md-4 mb-3">
+                        <div class="single-cta">
+                           
+                            <div class="cta-text">
+                                <h4>Call us</h4>
+                                <span>+91 9072222911 ,</span>
+                                <span>+91 9072222933</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            
+                            <div class="cta-text">
+                                <h4>Mail us</h4>
+                                <span>info@lifeplanneruniversal.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                    
+                            <div class="footer-text">
+                                <p>Life Planner Studies and Opportunities Pvt Ltd is a leading overseas education consultant, with headquarters in Kottayam and Corporate office in Cochin.</p>
+                            </div>
+                            <div class="footer-social-icon mb-4">
+                                <span>Follow us</span>
+                                <a href="https://www.instagram.com/lifeplannerstudies/?hl=en"><i class="fab fa-facebook-f bg-light text-dark"></i></a>
+                                <a href="#"><i class="fab fa-twitter bg-light text-dark"></i></a>
+                                <a href="#"><i class="fab fa-instagram bg-light text-dark"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30" style="display:flex;justify-content: center;align-items: center;">
+                        <div class="footer-widget" >
+                            <div class="footer-widget-heading">
+                                <h4>Top Links</h4>
+                            </div>
+                            <ul>
+                                <li><a href="{% url 'lpapp:home' %}">Home</a></li>
+                                <li><a href="{% url 'lpapp:studycanada' %}">Countries</a></li>
+                                <li><a href="{% url 'lpapp:service' %}">services</a></li>
+                                <li><a href="{% url 'lpapp:blog' %}">Blog</a></li>
+                                <li><a href="{% url 'lpapp:contact' %}">Contact Us</a></li>
+                                <li><a href="{% url 'lpapp:about' %}">About us</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50" style="display:flex;justify-content: center;align-items: center;">
+                        <img src="/static/LPRlogo.png" style="width:280px;">
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-area">
+                <div class="container">
+                    <div class="row"  style="display:flex;justify-content: center;align-items: center;">
+                        <div class="col-xl-6 col-lg-6 text-center ">
+                            <div class="copyright-text">
+                                <p>Copyright &copy; 2024, All Right Reserved <a href="">Lifeplanner Studies and Oppertunities</a></p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+    <style>
+        ul {
+        margin: 0px;
+        padding: 0px;
+        
+    }
+    .footer-section {
+    background: linear-gradient(135deg, #5f9cad, #8080bc);
+      position: relative;
+      margin-top: 100px;
+    }
+    .footer-cta {
+      border-bottom: 1px solid #373636;
+    }
+    .single-cta i {
+      color: white;
+      font-size: 30px;
+      float: left;
+      margin-top: 8px;
+    }
+    .cta-text {
+      padding-left: 15px;
+      display: inline-block;
+    }
+    .cta-text h4 {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .cta-text span {
+      color: #ffffff;
+      font-size: 15px;
+    }
+    .footer-content {
+      position: relative;
+      z-index: 2;
+    }
+    .footer-pattern img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 330px;
+      background-size: cover;
+      background-position: 100% 100%;
+    }
+    .footer-logo {
+      margin-bottom: 30px;
+    }
+    .footer-logo img {
+        max-width: 200px;
+    }
+    .footer-text p {
+      margin-bottom: 14px;
+      font-size: 14px;
+          color: white;
+      line-height: 28px;
+    }
+    .footer-social-icon span {
+      color: #ffffff;
+      display: block;
+      font-size: 20px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 20px;
+    }
+    .footer-social-icon a {
+      color: #fff;
+      font-size: 16px;
+      margin-right: 15px;
+    }
+    .footer-social-icon i {
+      height: 40px;
+      width: 40px;
+      text-align: center;
+      line-height: 38px;
+      border-radius: 50%;
+    }
+    .facebook-bg{
+      background: #3B5998;
+    }
+    .twitter-bg{
+      background: #55ACEE;
+    }
+    .google-bg{
+      background: #DD4B39;
+    }
+    .footer-widget-heading h4 {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .footer-widget-heading h4::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -15px;
+      height: 2px;
+      width: 50px;
+      background: #ff5e14;
+    }
+    .footer-widget ul li {
+      display: inline-block;
+      float: left;
+      width: 50%;
+      margin-bottom: 12px;
+    }
+    .footer-widget ul li a:hover{
+      color: #ffffff;
+    }
+    .footer-widget ul li a {
+      color: #ffffff;
+      text-transform: capitalize;
+    }
+    .subscribe-form {
+      position: relative;
+      overflow: hidden;
+    }
+    .subscribe-form input {
+      width: 100%;
+      padding: 14px 28px;
+      background: #2E2E2E;
+      border: 1px solid #2E2E2E;
+      color: #fff;
+    }
+    .subscribe-form button {
+        position: absolute;
+        right: 0;
+        background: #ff5e14;
+        padding: 13px 20px;
+        border: 1px solid #ff5e14;
+        top: 0;
+    }
+    .subscribe-form button i {
+      color: #fff;
+      font-size: 22px;
+      transform: rotate(-6deg);
+    }
+    .copyright-area{
+        
+      padding: 25px 0;
+    }
+    .copyright-text p {
+      margin: 0;
+      font-size: 14px;
+      color: #ffffff;
+    }
+    .copyright-text p a{
+      color: #ffffff;
+    }
+    .footer-menu li {
+      display: inline-block;
+      margin-left: 20px;
+    }
+    .footer-menu li:hover a{
+      color: #ffffff;
+    }
+    .footer-menu li a {
+      font-size: 14px;
+      color: #878787;
+    }
+    </style>
+
+    <!-- Bootstrap JS -->
+
+    <!-- Custom JavaScript -->
+    <script>
+        function openPopup(src) {
+            const popup = document.getElementById("popup");
+            const popupImg = document.getElementById("popup-img");
+
+            popupImg.src = src;
+            popup.classList.remove("hidden");
+        }
+
+        function closePopup() {
+            const popup = document.getElementById("popup");
+            popup.classList.add("hidden");
+        }
+    </script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<!-- Include Swiper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
