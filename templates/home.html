@@ -1423,7 +1423,7 @@ window.addEventListener("click", function (event) {
             <div class="profile-cards-container">
                 {% for member in team_members %}
                 <div class="profile-card">
-                    <img src="{{ member.img.url }}" alt="Profile Picture" class="profile-pic">
+                    <img src="{{ member.img.url }}" alt="Profile Picture" class="profile-pic" loading="lazy">
                     <h3 class="profile-name">{{ member.name }}</h3>
                     <p class="profile-specialization">{{ member.post }}</p>
                     <a href="{% url 'lpapp:profile' member.pk %}" class="review-button" style="margin-top: 10px;text-decoration:none;">
