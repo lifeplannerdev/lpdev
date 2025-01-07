@@ -16,7 +16,7 @@
         body {
             font-family: myfont;
            
-            background-color: #f4f7fa;
+            background-color: #dde2e7;
             color: #444;
         }
 
@@ -202,7 +202,7 @@ form span a:hover {
     text-decoration: underline;
 }
  .navbar {
-    background: rgba(0, 0, 0, 0.7);
+    background: transparent;
     
     padding: 0.5rem;
     display: flex;
@@ -398,7 +398,7 @@ form span a:hover {
       if (menuCheckbox.checked || window.scrollY > 50) {
           navbar.style.background = "rgba(0, 0, 0, 0.8)";
       } else {
-          navbar.style.background = "rgba(0, 0, 0, 0.8)";
+          navbar.style.background = "transparent";
       }
   }
   
@@ -410,15 +410,17 @@ form span a:hover {
   
       </script>
    
-
-<div class="carousel" data-flickity='{ "autoPlay": true, "prevNextButtons": false, "wrapAround": true }' style="background:transparent;background-size:200px;">
+<div>
+    <img src="/static/lpr3.jpg" style="width:100%;">
+</div>
+<div class="carousel" data-flickity='{ "autoPlay": true, "prevNextButtons": false, "wrapAround": true }' style="background:transparent;background-size:200px;margin-top: -20px;">
     <!-- Carousel Cell 1 -->
-    <div class="carousel-cell" style="background-image: url(/static/wall.jpg); position: relative;">
+    <div class="carousel-cell" style="background-image: url(/static/hall2.jpg); position: relative;">
       
     </div>
 
     <!-- Carousel Cell 2 -->
-    <div class="carousel-cell" style="background-image: url(/static/hall2.jpg); position: relative;">
+    <div class="carousel-cell" style="background-image: url(/static/wall.jpg); position: relative;">
         
     </div>
 
@@ -502,7 +504,7 @@ form span a:hover {
 
     <div class="container">
         
-        <div class="breadcrumb"><a href="{% url 'lpapp:home' %}">Home</a> \ Contact Us</div>
+        <div class="breadcrumb" style="display: flex;justify-content: center;align-items: center;width:100%;"><a href="{% url 'lpapp:home' %}">Home</a> \ Contact Us</div>
 
         <div class="contact-section">
             <!-- Contact Details -->
