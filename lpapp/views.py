@@ -31,7 +31,7 @@ def home(request):
     else:
         appointment_form = AppointmentForm()
         enrollment_form = WebinarForm()
-        team_members = Team.objects.all()  # Fetch all team members
+        team_members = Team.objects.only('name', 'img', 'post')
     
     return render(request, 'home.html', {
         'form': appointment_form,
