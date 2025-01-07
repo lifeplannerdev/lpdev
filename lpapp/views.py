@@ -5,8 +5,9 @@ from .models import Team,Appointment,Immigration
 from .forms import TeamForm,ReviewForm
 from .models import Team, Review
 from django.shortcuts import get_object_or_404
+from django.views.decorators.cache import cache_page
 
-
+@cache_page(300)  # Cache the entire view for 5 minutes (300 seconds)
 def home(request):
     if request.method == 'POST':
         # Check if the form submission is for the AppointmentForm
