@@ -1421,6 +1421,8 @@ window.addEventListener("click", function (event) {
         <div class="profile-cards-wrapper">
             <h2 class="profile-heading">OUR TEAM</h2>
             <div class="profile-cards-container">
+                {% load cache %}
+                {% cache 300 team_members %}
                 {% for member in team_members %}
                 <div class="profile-card">
                     <img src="{{ member.img.url }}" alt="Profile Picture" class="profile-pic" loading="lazy">
@@ -1431,6 +1433,7 @@ window.addEventListener("click", function (event) {
                     </a>
                 </div>
                 {% endfor %}
+                {% endcache %}
             </div>
         </div>
     <!-- services -->
