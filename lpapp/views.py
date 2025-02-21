@@ -172,7 +172,8 @@ def demo(request):
     return render(request,"demo.html")
 
 def careers(request):
-    return render(request, "careers.html")
+    job_listings = Careers.objects.all().order_by('-created_at')  # Fetch jobs sorted by latest
+    return render(request, "careers.html", {'job_listings': job_listings})
 
 
 def uploadjob(request):

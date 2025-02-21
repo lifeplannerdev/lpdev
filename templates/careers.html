@@ -35,31 +35,34 @@
     <section class="container my-5">
         <h2 class="text-center" style="font-weight: 600;">Current Openings</h2>
         <div class="row mt-4">
-            <div class="col-md-6">
-                <div class="card shadow-sm p-4" style="margin-bottom: 20px;">
-                    <h3>Software Engineer</h3>
-                    <p class="text-muted">Location: Remote</p>
-                    <p>We are looking for a skilled developer proficient in JavaScript and Python.</p>
-                    <a href="#" class="btn btn-primary">Apply Now</a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card shadow-sm p-4">
-                    <h3>Marketing Specialist</h3>
-                    <p class="text-muted">Location: New York, USA</p>
-                    <p>Seeking a creative marketing specialist with expertise in digital campaigns.</p>
-                    <a href="#" class="btn btn-primary">Apply Now</a>
-                </div>
-            </div>
+            {% if job_listings %}
+                {% for job in job_listings %}
+                    <div class="col-md-6">
+                        <div class="card shadow-sm p-4 mb-4" >
+                            <h3>{{ job.job_title }}</h3>
+                            <p class="text-muted">Location: {{ job.job_location }}</p>
+                            <p class="text-muted">{{ job.job_exp }}</p>
+                            <p>Mode: {{ job.get_job_mode_display }} | Type: {{ job.get_job_type_display }}</p>
+                            <p>Salary: {% if job.job_salary %} ${{ job.job_salary }} {% else %} Not Disclosed {% endif %}</p>
+                            <!-- <p>{{ job.job_details|truncatewords:20 }}</p> -->
+                            <a href="#" class="btn btn-primary">VIEW</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="text-center text-muted">No job openings available at the moment. Please check back later.</p>
+            {% endif %}
         </div>
     </section>
     
     <!-- Resume Submission -->
-    <section class="text-white text-center py-5" style="background: linear-gradient(135deg, #5f9cad, #8080bc);">
+     <div style="display:flex;justify-content: center;">
+    <section class="text-white text-center py-5" style="background: linear-gradient(135deg, #5f9cad, #8080bc);width:90%;border-radius:10px;">
         <h2 style="font-weight: 600;">Can't find the right role?</h2>
         <p style="font-weight: 600;">Send us your resume, and we'll get in touch.</p>
         <a href="#" class="btn btn-light text-dark" style="font-weight: 600;">Submit Resume</a>
     </section>
+</div>
     
     <!-- Footer -->
     <footer class="text-center py-3 bg-light mt-5">
