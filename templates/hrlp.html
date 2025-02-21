@@ -28,21 +28,21 @@
                     <a href="{% url 'lpapp:careers' %}" class="btn btn-primary">Go</a>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-5">
                 <div class="card admin-card shadow-sm p-4">
                     <h3>Applications</h3>
                     <p>View job applications</p>
                     <a href="{% url 'lpapp:applications' %}" class="btn btn-primary">Go</a>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-5">
                 <div class="card admin-card shadow-sm p-4">
                     <h3>Edit</h3>
                     <p>Edit job uploads</p>
-                    <a href="/edit/" class="btn btn-primary">Go</a>
+                    <a href="{% url 'lpapp:uploadjob' %}" class="btn btn-primary">Go</a>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-5">
                 <div class="card admin-card shadow-sm p-4">
                     <h3>Home</h3>
                     <p>Return to homepage</p>

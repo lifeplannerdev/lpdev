@@ -215,7 +215,7 @@ def uploadjob(request):
 
 
 def job_applications(request):
-    """Retrieve job applications and update status if a POST request is made."""
+    
     applications = JobApplication.objects.all().order_by("-applied_at")
 
     if request.method == "POST":
