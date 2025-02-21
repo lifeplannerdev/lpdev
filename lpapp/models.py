@@ -103,24 +103,21 @@ class Careers(models.Model):
 
 
 class JobApplication(models.Model):
+    STATUS_CHOICES = [
+        ("pending", "Pending"),
+        ("shortlisted", "Shortlisted"),
+        ("rejected", "Rejected"),
+    ]
+
     job = models.ForeignKey(Careers, on_delete=models.CASCADE, related_name="applications")
     name = models.CharField(max_length=255)
     email = models.EmailField()
     resume = models.FileField(upload_to="resumes/")
     applied_at = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending")  # ✅ Add Status Field
 
     def __str__(self):
-        return f"{self.name} - {self.job.job_title}"        
+        return f"{self.name} - {self.job.job_title}"      
 
 
-def delete_application(request, app_id):
-    """Deletes a job application based on the given ID."""
-    if request.method == "POST":
-        try:
-            application = get_object_or_404(JobApplication, id=app_id)
-            application.delete()
-            return JsonResponse({"success": True})
-        except Exception as e:
-            return JsonResponse({"success": False, "error": str(e)})
-    
-    return JsonResponse({"success": False, "error": "Invalid request"}, status=400)    
+ 
