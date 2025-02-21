@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Planner Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .admin-card {
+            transition: transform 0.2s;
+        }
+        .admin-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-3">
+        <h1>Life Planner Admin Dashboard</h1>
+    </header>
+
+    <div class="container my-5">
+        <div class="row text-center">
+            <div class="col-md-6 mb-5">
+                <div class="card admin-card shadow-sm p-4">
+                    <h3>Careers</h3>
+                    <p>Manage job listings</p>
+                    <a href="{% url 'lpapp:careers' %}" class="btn btn-primary">Go</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card admin-card shadow-sm p-4">
+                    <h3>Applications</h3>
+                    <p>View job applications</p>
+                    <a href="{% url 'lpapp:applications' %}" class="btn btn-primary">Go</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card admin-card shadow-sm p-4">
+                    <h3>Edit</h3>
+                    <p>Edit job uploads</p>
+                    <a href="/edit/" class="btn btn-primary">Go</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card admin-card shadow-sm p-4">
+                    <h3>Home</h3>
+                    <p>Return to homepage</p>
+                    <a href="{% url 'lpapp:home' %}" class="btn btn-primary">Go</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

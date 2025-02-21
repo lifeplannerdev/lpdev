@@ -19,6 +19,7 @@ urlpatterns = [
    path('blog2/',views.blog2,name='blog2'),
    path('blog3/',views.blog3,name='blog3'),
    path('demo/',views.demo,name='demo'),
+   path('hrlp/',views.hrlp,name='hrlp'),
    path('careers/',views.careers,name='careers'),
    path('careers/<slug:slug>/',views.jobdetails, name='jobdetails'),
    path('uploadjob/',views.uploadjob,name='uploadjob'),

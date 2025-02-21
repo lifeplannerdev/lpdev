@@ -177,6 +177,10 @@ def careers(request):
     job_listings = Careers.objects.all().order_by('-created_at')  # Fetch jobs sorted by latest
     return render(request, "careers.html", {'job_listings': job_listings})
 
+
+def hrlp(request):
+    return render(request,"hrlp.html")
+
 def jobdetails(request, slug):
     job = get_object_or_404(Careers, slug=slug)
 
