@@ -22,6 +22,8 @@ urlpatterns = [
    path('careers/',views.careers,name='careers'),
    path('careers/<slug:slug>/',views.jobdetails, name='jobdetails'),
    path('uploadjob/',views.uploadjob,name='uploadjob'),
+   path('applications/',views.job_applications,name='applications'),
+   path("delete-application/<int:app_id>/",views.delete_application, name="delete_application"),
 
  
 ]

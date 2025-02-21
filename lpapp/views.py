@@ -1,12 +1,14 @@
 from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from .forms import AppointmentForm,WebinarForm  
-from .models import Team,Appointment,Immigration
+from .models import Team,Appointment,Immigration,JobApplication
 from .forms import TeamForm,ReviewForm
 from .models import Team, Review
 from django.contrib import messages
 from .models import Careers
+import json
 from .forms import CareersForm
+from .models import JobApplication
 from django.shortcuts import get_object_or_404
 from django.views.decorators.cache import cache_page
 
@@ -177,6 +179,19 @@ def careers(request):
 
 def jobdetails(request, slug):
     job = get_object_or_404(Careers, slug=slug)
+
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        resume = request.FILES.get("resume")
+
+        if name and email and resume:
+            JobApplication.objects.create(job=job, name=name, email=email, resume=resume)
+            messages.success(request, "Your application has been submitted successfully!")
+            return redirect("lpapp:jobdetails", slug=slug)
+        else:
+            messages.error(request, "Please fill in all fields.")
+
     return render(request, "jobdetails.html", {"job": job})
 
 
@@ -193,3 +208,33 @@ def uploadjob(request):
         form = CareersForm()
     
     return render(request, "uploadjob.html", {'form': form})
+
+
+def job_applications(request):
+    """Retrieve job applications and update status if a POST request is made."""
+    applications = JobApplication.objects.all().order_by("-applied_at")
+
+    if request.method == "POST":
+        for app in applications:
+            status_key = f"status_{app.id}"
+            new_status = request.POST.get(status_key, app.status)  # Default to existing status if not found
+            if new_status != app.status:
+                app.status = new_status
+                app.save()
+
+        return render(request, "applications.html", {"applications": applications, "message": "Changes saved successfully!"})
+
+    return render(request, "applications.html", {"applications": applications})
+
+
+def delete_application(request, app_id):
+    """Deletes a job application based on the given ID."""
+    if request.method == "POST":
+        try:
+            application = get_object_or_404(JobApplication, id=app_id)
+            application.delete()
+            return JsonResponse({"success": True})
+        except Exception as e:
+            return JsonResponse({"success": False, "error": str(e)})
+    
+    return JsonResponse({"success": False, "error": "Invalid request"}, status=400)
