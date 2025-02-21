@@ -4,6 +4,9 @@ from .forms import AppointmentForm,WebinarForm
 from .models import Team,Appointment,Immigration
 from .forms import TeamForm,ReviewForm
 from .models import Team, Review
+from django.contrib import messages
+from .models import Careers
+from .forms import CareersForm
 from django.shortcuts import get_object_or_404
 from django.views.decorators.cache import cache_page
 
@@ -169,4 +172,19 @@ def demo(request):
     return render(request,"demo.html")
 
 def careers(request):
-    return render(request,"careers.html")
+    return render(request, "careers.html")
+
+
+def uploadjob(request):
+    if request.method == 'POST':
+        form = CareersForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Job posting uploaded successfully!")
+            return redirect('lpapp:uploadjob')  # Redirect to the same page to avoid form resubmission
+        else:
+            messages.error(request, "Error uploading job posting. Please check your input.")
+    else:
+        form = CareersForm()
+    
+    return render(request, "uploadjob.html", {'form': form})

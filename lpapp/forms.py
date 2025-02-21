@@ -2,7 +2,7 @@ from django import forms
 from .models import Appointment,Immigration
 from .models import Webinar
 from .models import Team
-from .models import Review
+from .models import Review,Careers
 
 class ReviewForm(forms.ModelForm):
     class Meta:
@@ -32,3 +32,10 @@ class CandidateForm(forms.ModelForm):
     class Meta:
         model = Immigration
         fields = '__all__'
+
+
+
+class CareersForm(forms.ModelForm):
+    class Meta:
+        model = Careers
+        fields = ['job_title', 'job_mode', 'job_salary', 'job_location', 'job_type', 'job_exp', 'job_details']      
