@@ -167,3 +167,6 @@ def blog3(request):
 
 def demo(request):
     return render(request,"demo.html")
+
+def careers(request):
+    return render(request,"careers.html")

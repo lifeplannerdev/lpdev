@@ -19,6 +19,7 @@ urlpatterns = [
    path('blog2/',views.blog2,name='blog2'),
    path('blog3/',views.blog3,name='blog3'),
    path('demo/',views.demo,name='demo'),
+   path('careers/',views.careers,name='careers'),
 
  
 ]
