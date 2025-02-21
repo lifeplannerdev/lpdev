@@ -67,6 +67,8 @@ class Immigration(models.Model):
 #     def __str__(self):
 #         return self.job_title
 
+from django.utils.text import slugify
+
 class Careers(models.Model):
     JOB_MODE_CHOICES = [
         ('remote', 'Remote'),
@@ -85,11 +87,18 @@ class Careers(models.Model):
     job_salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, verbose_name="Salary")
     job_location = models.CharField(max_length=255, verbose_name="Location")
     job_type = models.CharField(max_length=50, choices=JOB_TYPE_CHOICES, verbose_name="Job Type")
-    job_exp = models.CharField(max_length=255, verbose_name="Experience Level", blank=True, null=True)  # No choices
+    job_exp = models.CharField(max_length=255, verbose_name="Experience Level", blank=True, null=True)
     job_details = models.TextField(verbose_name="Job Details")
+    slug = models.SlugField(max_length=255, unique=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
 
     def __str__(self):
         return self.job_title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.job_title)
+        super().save(*args, **kwargs)
+
 
     

@@ -43,9 +43,9 @@
                             <p class="text-muted">Location: {{ job.job_location }}</p>
                             <p class="text-muted">{{ job.job_exp }}</p>
                             <p>Mode: {{ job.get_job_mode_display }} | Type: {{ job.get_job_type_display }}</p>
-                            <p>Salary: {% if job.job_salary %} ${{ job.job_salary }} {% else %} Not Disclosed {% endif %}</p>
+                            <p>Salary: {% if job.job_salary %} Rs {{ job.job_salary }} {% else %} Not Disclosed {% endif %}</p>
                             <!-- <p>{{ job.job_details|truncatewords:20 }}</p> -->
-                            <a href="#" class="btn btn-primary">VIEW</a>
+                            <a href="{% url 'lpapp:jobdetails' job.slug %}" class="btn btn-primary">VIEW</a>
                         </div>
                     </div>
                 {% endfor %}
