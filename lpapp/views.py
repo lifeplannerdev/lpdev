@@ -241,7 +241,7 @@ def jobdetails(request, slug):
 
             if resume_url:
                 JobApplication.objects.create(job=job, name=name, email=email, resume=resume_url)
-                messages.success(request, "Your application has been submitted successfully!")
+                messages.success(request, "Your application has been submitted successfully.Please consider a cool off period of 30 days")
             else:
                 messages.error(request, "Error uploading your resume. Please try again.")
 
