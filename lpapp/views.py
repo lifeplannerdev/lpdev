@@ -205,7 +205,7 @@ def get_signed_url(bucket_name, file_path):
         return None
     
 def upload_to_supabase(file, filename):
-    bucket_name = "resume"
+    bucket_name = "resumes"
     file_path = f"resumes/{filename}"  # Ensure this matches your folder structure
 
     try:
@@ -245,7 +245,7 @@ def jobdetails(request, slug):
             else:
                 messages.error(request, "Error uploading your resume. Please try again.")
 
-            return redirect("lpapp:jobdetails", slug=slug)
+            return redirect("lpapp:careers", slug=slug)
         else:
             messages.error(request, "Please fill in all fields.")
 
