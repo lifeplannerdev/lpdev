@@ -181,6 +181,52 @@ def careers(request):
 def hrlp(request):
     return render(request,"hrlp.html")
 
+
+import os
+
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from supabase import create_client
+from .models import Careers, JobApplication
+
+# Supabase Credentials
+SUPABASE_URL = "https://eqqgddahocfmgothdhel.supabase.co"  # Replace with your Supabase URL
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxcWdkZGFob2NmbWdvdGhkaGVsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczNTYxNzA2NywiZXhwIjoyMDUxMTkzMDY3fQ.qXkgqwMOc3hwSmrMwoXG5iZIA8ZF-45ZyRmMGzvgLgY"  # Use your Service Role Key
+
+supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+def get_signed_url(bucket_name, file_path):
+    """Generates a signed URL for private Supabase files."""
+    try:
+        response = supabase.storage.from_(bucket_name).create_signed_url(file_path, 60*60*24)  # 24-hour expiry
+        return response.get("signedURL")
+    except Exception as e:
+        print(f"Error generating signed URL: {e}")
+        return None
+    
+def upload_to_supabase(file, filename):
+    bucket_name = "resume"
+    file_path = f"resumes/{filename}"  # Ensure this matches your folder structure
+
+    try:
+        file_bytes = file.read()
+        
+        # ✅ Upload with the correct MIME type
+        supabase.storage.from_(bucket_name).upload(
+            file_path, 
+            file_bytes, 
+            {"content-type": "application/pdf"}
+        )
+
+        # ✅ Return the direct download link
+        return f"{SUPABASE_URL}/storage/v1/object/public/{bucket_name}/{file_path}"
+
+    except Exception as e:
+        print(f"Unexpected Error: {e}")
+        return None
+
+
+
 def jobdetails(request, slug):
     job = get_object_or_404(Careers, slug=slug)
 
@@ -190,14 +236,20 @@ def jobdetails(request, slug):
         resume = request.FILES.get("resume")
 
         if name and email and resume:
-            JobApplication.objects.create(job=job, name=name, email=email, resume=resume)
-            messages.success(request, "Your application has been submitted successfully!")
+            # ✅ Upload resume to Supabase
+            resume_url = upload_to_supabase(resume, resume.name)
+
+            if resume_url:
+                JobApplication.objects.create(job=job, name=name, email=email, resume=resume_url)
+                messages.success(request, "Your application has been submitted successfully!")
+            else:
+                messages.error(request, "Error uploading your resume. Please try again.")
+
             return redirect("lpapp:jobdetails", slug=slug)
         else:
             messages.error(request, "Please fill in all fields.")
 
     return render(request, "jobdetails.html", {"job": job})
-
 
 def uploadjob(request):
     if request.method == 'POST':

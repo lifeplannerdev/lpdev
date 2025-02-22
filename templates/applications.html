@@ -46,7 +46,8 @@
                                 <td>{{ app.job.job_title }}</td>
                                 <td>
                                     {% if app.resume %}
-                                        <a href="{{ app.resume.url }}" target="_blank" class="btn btn-sm btn-primary">View</a>
+                                    <a href="{{ app.resume }}" download class="btn btn-sm btn-success">Download</a>
+
                                     {% else %}
                                         <span class="text-muted">No Resume</span>
                                     {% endif %}

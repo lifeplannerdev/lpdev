@@ -160,3 +160,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
+from supabase import create_client
+
+SUPABASE_URL = "https://eqqgddahocfmgothdhel.supabase.co"  
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxcWdkZGFob2NmbWdvdGhkaGVsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczNTYxNzA2NywiZXhwIjoyMDUxMTkzMDY3fQ.qXkgqwMOc3hwSmrMwoXG5iZIA8ZF-45ZyRmMGzvgLgY"  
+
+supabase = create_client(SUPABASE_URL, SUPABASE_KEY)

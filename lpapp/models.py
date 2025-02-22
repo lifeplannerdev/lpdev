@@ -112,12 +112,12 @@ class JobApplication(models.Model):
     job = models.ForeignKey(Careers, on_delete=models.CASCADE, related_name="applications")
     name = models.CharField(max_length=255)
     email = models.EmailField()
-    resume = models.FileField(upload_to="resumes/")
+    resume = models.CharField(max_length=500, blank=True, null=True)
     applied_at = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending")  # ✅ Add Status Field
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending")
 
     def __str__(self):
-        return f"{self.name} - {self.job.job_title}"      
+        return f"{self.name} - {self.job.job_title}"
 
 
  
