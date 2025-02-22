@@ -245,7 +245,7 @@ def jobdetails(request, slug):
             else:
                 messages.error(request, "Error uploading your resume. Please try again.")
 
-            return redirect("lpapp:careers", slug=slug)
+            return redirect("lpapp:jobdetails", slug=slug)
         else:
             messages.error(request, "Please fill in all fields.")
 
