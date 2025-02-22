@@ -205,7 +205,7 @@ def get_signed_url(bucket_name, file_path):
         return None
     
 def upload_to_supabase(file, filename):
-    bucket_name = "resumes"
+    bucket_name = "resume"
     file_path = f"resumes/{filename}"  # Ensure this matches your folder structure
 
     try:
