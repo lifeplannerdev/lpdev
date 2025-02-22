@@ -1432,9 +1432,20 @@ window.addEventListener("click", function (event) {
                     </a>
                 </div>
                 {% endfor %}
+                <div class="profile-card">
+                    <img src="/static/null.jpg" alt="Profile Picture" class="profile-pic" loading="lazy">
+                    <h3 class="profile-name">Join Us</h3>
+                    <p class="profile-specialization">Explore Our Opportunities</p>
+                    <a href="{% url 'lpapp:careers' %}" class="review-button" style="margin-top: 10px;text-decoration:none;">
+                        <i class="fa-solid fa-circle-user" style="margin-right: 10px;"></i>Careers
+                    </a>
+                </div>
+                
                 
             </div>
+            
         </div>
+       
     <!-- services -->
 
     <style>
@@ -1599,6 +1610,8 @@ window.addEventListener("click", function (event) {
     
     
       </style>
+
+
       <div class="two-column-container">
         <!-- Timeline Section -->
         <div class="timeline-section">
