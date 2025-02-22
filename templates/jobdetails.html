@@ -29,6 +29,16 @@
     </style>
 </head>
 <body class="bg-light">
+    {% if messages %}
+    <div class="container mt-3">
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
     <div class="container my-5">
         <h1 class="text-center">{{ job.job_title }}</h1>
         <p class="text-center text-muted">{{ job.created_at|date:"F d, Y" }}</p>
