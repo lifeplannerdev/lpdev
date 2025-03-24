@@ -1313,218 +1313,287 @@ window.addEventListener("click", function (event) {
         </section>
         
         <style>
-            .profile-cards-wrapper {
-                margin: 70px auto;
-                text-align: center;
-                max-width: 900px;
-                padding: 0 15px;
+            .team-section {
+                margin: 80px auto;
+                max-width: 1400px;
+                padding: 0 20px;
+                font-family: myfont;
             }
         
-            .profile-heading {
-                font-size: 2.5rem;
-                font-weight: 700;
-                color: rgb(22, 100, 173);
-                margin-bottom: 15px;
+            .team-heading-container {
+                text-align: center;
+                margin-bottom: 50px;
+                position: relative;
+            }
+        
+            .team-heading {
+                font-size: 3rem;
+                font-weight: 800;
+                color: #1a1a1a;
+                margin: 0;
+                letter-spacing: -1px;
                 position: relative;
                 display: inline-block;
             }
-            
-            .profile-heading::after {
+        
+            .team-heading span {
+                color: rgb(22, 100, 173);
+            }
+        
+            .team-subheading {
+                font-size: 1.1rem;
+                color: #555;
+                max-width: 600px;
+                margin: 15px auto 0;
+                line-height: 1.6;
+            }
+        
+            .team-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 30px;
+                margin-top: 30px;
+            }
+        
+            .team-card {
+                position: relative;
+                border-radius: 10px;
+                overflow: hidden;
+                background: #fff;
+                transition: all 0.4s ease;
+                height: 360px;
+            }
+        
+            .team-card:hover {
+                transform: translateY(-10px);
+            }
+        
+            .card-background {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 35%;
+                background: linear-gradient(45deg, #3586ff, #8c52ff);
+                clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+                transition: all 0.4s ease;
+            }
+        
+            .team-card:hover .card-background {
+                height: 50%;
+            }
+        
+            .profile-image-container {
+                position: relative;
+                z-index: 2;
+                text-align: center;
+                padding-top: 50px;
+            }
+        
+            .profile-image {
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 5px solid #fff;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+                transition: all 0.4s ease;
+            }
+        
+            .team-card:hover .profile-image {
+                transform: scale(1.1);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            }
+        
+            .team-member-details {
+                padding: 20px;
+                text-align: center;
+                position: relative;
+                z-index: 2;
+            }
+        
+            .member-name {
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: #1a1a1a;
+                margin: 15px 0 5px;
+                transition: all 0.3s ease;
+            }
+        
+            .team-card:hover .member-name {
+                color: rgb(22, 100, 173);
+            }
+        
+            .member-role {
+                font-size: 1.1rem;
+                color: #555;
+                margin-bottom: 25px;
+                position: relative;
+                display: inline-block;
+            }
+        
+            .member-role::after {
                 content: "";
                 position: absolute;
                 bottom: -10px;
                 left: 50%;
                 transform: translateX(-50%);
-                width: 60px;
+                width: 40px;
                 height: 3px;
-                background: linear-gradient(135deg, #5f9cad, #8080bc);
+                background: linear-gradient(45deg, #3586ff, #8c52ff);
                 border-radius: 3px;
             }
         
-            .profile-cards-container {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 10px;
-                padding: 40px 20px;
-                margin-top: 20px;
-            }
-        
-            /* For horizontal scrolling on small screens */
-            @media (max-width: 768px) {
-                .profile-cards-container {
-                    flex-wrap: nowrap;
-                    justify-content: flex-start;
-                    overflow-x: auto;
-                    scroll-snap-type: x mandatory;
-                    padding-bottom: 20px;
-                    -webkit-overflow-scrolling: touch;
-                    scrollbar-width: thin;
-                }
-                
-                .profile-cards-container::-webkit-scrollbar {
-                    height: 6px;
-                }
-                
-                .profile-cards-container::-webkit-scrollbar-thumb {
-                    background: rgb(22, 100, 173);
-                    border-radius: 10px;
-                }
-            }
-        
-            .profile-card {
-                flex: 0 0 250px;
-                background: white;
-                border-radius: 20px;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-                padding: 25px 20px;
-                text-align: center;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-                position: relative;
-                overflow: hidden;
-                scroll-snap-align: center;
-            }
-            
-            .profile-card::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 5px;
-                background: linear-gradient(135deg, #5f9cad, #8080bc);
-            }
-            
-            .profile-card:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 15px 30px rgba(22, 100, 173, 0.15);
-            }
-        
-            .profile-pic {
-                width: 120px;
-                height: 120px;
-                border-radius: 50%;
-                object-fit: cover;
-                border: 5px solid white;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                margin: 0 auto 15px;
-                transition: transform 0.3s ease;
-            }
-            
-            .profile-card:hover .profile-pic {
-                transform: scale(1.05);
-            }
-        
-            .profile-name {
-                font-size: 1.3rem;
-                font-weight: bold;
-                color: rgb(22, 100, 173);
-                margin: 15px 0 5px;
-            }
-        
-            .profile-specialization {
-                font-size: 0.95rem;
-                color: #666;
-                margin-bottom: 20px;
-            }
-        
             .review-button {
-                background-color: white;
+                background: #fff;
                 color: rgb(22, 100, 173);
                 border: 2px solid rgb(22, 100, 173);
-                padding: 10px 20px;
+                padding: 10px 24px;
+                border-radius: 30px;
                 font-size: 0.9rem;
                 font-weight: 600;
-                border-radius: 30px;
                 cursor: pointer;
                 transition: all 0.3s ease;
                 display: inline-flex;
                 align-items: center;
-                justify-content: center;
+                gap: 8px;
                 text-decoration: none;
             }
-            
+        
             .review-button:hover {
-                background: linear-gradient(135deg, #5f9cad, #8080bc);
+                background: linear-gradient(45deg, #3586ff, #8c52ff);
                 color: white;
                 border-color: transparent;
-                transform: scale(1.05);
             }
         
-            .join-us-container {
-                display: flex;
-                justify-content: center;
-                margin-top: 30px;
+            .team-card::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background: linear-gradient(45deg, #3586ff, #8c52ff);
+                transform: scaleX(0);
+                transition: transform 0.4s ease;
+                z-index: 3;
             }
         
-            .join-us-button {
-                width: 150px;
-                height: 50px;
-                border-radius: 30px;
+            .team-card:hover::before {
+                transform: scaleX(1);
+            }
+        
+            .join-team-container {
+                text-align: center;
+                margin-top: 60px;
+            }
+        
+            .join-team-button {
                 background: linear-gradient(135deg, #5f9cad, #8080bc);
                 color: white;
                 border: none;
-                font-weight: bold;
-                font-size: 1.1em;
+                padding: 15px 40px;
+                border-radius: 40px;
+                font-size: 1.1rem;
+                font-weight: 600;
                 cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-                display: flex;
+                transition: all 0.3s ease;
+                display: inline-flex;
                 align-items: center;
-                justify-content: center;
                 gap: 10px;
+                box-shadow: 0 10px 25px rgba(53, 134, 255, 0.3);
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
             }
-            
-            .join-us-button:hover {
+        
+            .join-team-button::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 100%;
+                background: linear-gradient(45deg, #8c52ff, #3586ff);
+                transition: all 0.5s ease;
+                z-index: -1;
+            }
+        
+            .join-team-button:hover {
                 transform: translateY(-5px);
-                box-shadow: 0 10px 20px rgba(95, 156, 173, 0.3);
+                box-shadow: 0 15px 30px rgba(53, 134, 255, 0.4);
+            }
+        
+            .join-team-button:hover::before {
+                width: 100%;
             }
         
             @media (max-width: 768px) {
-                .profile-card {
-                    flex: 0 0 260px;
+                .team-heading {
+                    font-size: 2.5rem;
                 }
-                
-                .profile-heading {
+        
+                .team-grid {
+                    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+                }
+            }
+        
+            @media (max-width: 576px) {
+                .team-heading {
                     font-size: 2rem;
                 }
-            }
-        
-            @media (max-width: 480px) {
-                .profile-cards-wrapper {
-                    margin: 50px auto;
+                
+                .team-grid {
+                    display: flex;
+                    overflow-x: auto;
+                    scroll-snap-type: x mandatory;
+                    gap: 20px;
+                    padding: 20px 10px;
+                    margin: 0 -20px;
                 }
                 
-                .profile-pic {
-                    width: 100px;
-                    height: 100px;
+                .team-card {
+                    flex: 0 0 270px;
+                    scroll-snap-align: center;
+                    margin-bottom: 10px;
                 }
             }
-        </style> 
+        </style>
         
-        <div class="profile-cards-wrapper">
-            <h2 class="profile-heading">OUR TEAM</h2>
-            <div class="profile-cards-container">
+        <section class="team-section">
+            <div class="team-heading-container">
+                <h2 class="team-heading">Our <span>Team</span></h2>
+                <p class="team-subheading">Meet our talented team of professionals committed to delivering excellence in everything we do.</p>
+            </div>
+            
+            <div class="team-grid">
                 {% for member in team_members %}
-                <div class="profile-card">
-                    <img src="{{ member.img.url }}" alt="{{ member.name }}" class="profile-pic" loading="lazy">
-                    <h3 class="profile-name">{{ member.name }}</h3>
-                    <p class="profile-specialization">{{ member.post }}</p>
-                    <a href="{% url 'lpapp:profile' member.pk %}" class="review-button">
-                        <i class="fa-solid fa-circle-user" style="margin-right: 8px;"></i>Reviews
-                    </a>
+                <div class="team-card">
+                    <div class="card-background"></div>
+                    <div class="profile-image-container">
+                        <img src="{{ member.img.url }}" alt="{{ member.name }}" class="profile-image" loading="lazy">
+                    </div>
+                    <div class="team-member-details">
+                        <h3 class="member-name">{{ member.name }}</h3>
+                        <p class="member-role">{{ member.post }}</p>
+                        <a href="{% url 'lpapp:profile' member.pk %}" class="review-button">
+                            <i class="fa-solid fa-star"></i>
+                            View Reviews
+                        </a>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
-        
-            <div class="join-us-container">
+            
+            <div class="join-team-container">
                 <a href="{% url 'lpapp:careers' %}" style="text-decoration: none;">
-                    <button class="join-us-button">
-                        Join Us
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <button class="join-team-button">
+                        Join Our Team
+                        <i class="fa-solid fa-arrow-right"></i>
                     </button>
                 </a>
             </div>
-        </div>
+        </section>
        
     <!-- services -->
 
