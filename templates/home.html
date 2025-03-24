@@ -1164,113 +1164,7 @@ window.addEventListener("click", function (event) {
          </div>
          </div>
     <!-- profile cards -->
-    <style>
-        .profile-cards-wrapper {
-            margin: 50px auto;
-            
-            text-align: center;
-        }
     
-        .profile-heading {
-            font-size: 24px;
-            font-weight: bold;
-            color:  rgb(22, 100, 173);
-            margin-bottom: -5px;
-        }
-    
-        .profile-cards-container {
-    display: flex;
-    justify-content: flex-start; 
-    gap: 20px;
-    overflow-x: auto; 
-    padding: 30px;
-    scroll-padding-left: 10px;
-    scrollbar-width: none;
-    scrollbar-color: rgb(22, 100, 173) #f9f9f9;
-}
-
-.profile-cards-container::-webkit-scrollbar {
-    height: 8px;
-}
-
-.profile-cards-container::-webkit-scrollbar-thumb {
-    background:  rgb(22, 100, 173);
-    border-radius: 10px;
-}
-
-.profile-card {
-    flex: 0 0 200px; /* Maintain consistent card width */
-    background: #f9f9f9;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    text-align: center;
-}
-
-@media (min-width: 768px) {
-    .profile-cards-container {
-        justify-content: center; /* Center cards on larger screens */
-    }
-}
-
-@media (max-width: 768px) {
-    .profile-card {
-        flex: 0 0 70%; /* Wider cards for better visibility on mobile */
-    }
-}
-        .profile-pic {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-            object-fit: cover;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-    
-        .profile-name {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 10px 0 5px;
-            color:  rgb(22, 100, 173);
-        }
-    
-        .profile-specialization {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 15px;
-        }
-    
-        .review-button {
-            background-color: white;
-            color:  rgb(22, 100, 173);
-            border: none;
-            padding: 8px 16px;
-            font-size: 14px;
-            border-radius: 30px;
-            margin-bottom:20px;
-            cursor: pointer;
-            border:solid 1px  rgb(22, 100, 173);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-    
-        .review-button:hover {
-            background-color:  rgb(22, 100, 173);
-            transform: scale(1.05);
-            color:white;
-            
-        }
-    
-        @media (max-width: 768px) {
-            .profile-cards-wrapper {
-                margin-top: 30px;
-            }
-            .profile-card {
-                flex: 0 0 70%;
-                
-                
-            }
-        }
-    </style>
     <style>
         /* Services Section */
         .services-section {
@@ -1418,40 +1312,218 @@ window.addEventListener("click", function (event) {
             </div>
         </section>
         
+        <style>
+            .profile-cards-wrapper {
+                margin: 70px auto;
+                text-align: center;
+                max-width: 900px;
+                padding: 0 15px;
+            }
+        
+            .profile-heading {
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: rgb(22, 100, 173);
+                margin-bottom: 15px;
+                position: relative;
+                display: inline-block;
+            }
+            
+            .profile-heading::after {
+                content: "";
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 3px;
+                background: linear-gradient(135deg, #5f9cad, #8080bc);
+                border-radius: 3px;
+            }
+        
+            .profile-cards-container {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 30px;
+                padding: 40px 20px;
+                margin-top: 20px;
+            }
+        
+            /* For horizontal scrolling on small screens */
+            @media (max-width: 768px) {
+                .profile-cards-container {
+                    flex-wrap: nowrap;
+                    justify-content: flex-start;
+                    overflow-x: auto;
+                    scroll-snap-type: x mandatory;
+                    padding-bottom: 20px;
+                    -webkit-overflow-scrolling: touch;
+                    scrollbar-width: thin;
+                }
+                
+                .profile-cards-container::-webkit-scrollbar {
+                    height: 6px;
+                }
+                
+                .profile-cards-container::-webkit-scrollbar-thumb {
+                    background: rgb(22, 100, 173);
+                    border-radius: 10px;
+                }
+            }
+        
+            .profile-card {
+                flex: 0 0 250px;
+                background: white;
+                border-radius: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+                padding: 25px 20px;
+                text-align: center;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                position: relative;
+                overflow: hidden;
+                scroll-snap-align: center;
+            }
+            
+            .profile-card::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 5px;
+                background: linear-gradient(135deg, #5f9cad, #8080bc);
+            }
+            
+            .profile-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 30px rgba(22, 100, 173, 0.15);
+            }
+        
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 5px solid white;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                margin: 0 auto 15px;
+                transition: transform 0.3s ease;
+            }
+            
+            .profile-card:hover .profile-pic {
+                transform: scale(1.05);
+            }
+        
+            .profile-name {
+                font-size: 1.3rem;
+                font-weight: bold;
+                color: rgb(22, 100, 173);
+                margin: 15px 0 5px;
+            }
+        
+            .profile-specialization {
+                font-size: 0.95rem;
+                color: #666;
+                margin-bottom: 20px;
+            }
+        
+            .review-button {
+                background-color: white;
+                color: rgb(22, 100, 173);
+                border: 2px solid rgb(22, 100, 173);
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                font-weight: 600;
+                border-radius: 30px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+            }
+            
+            .review-button:hover {
+                background: linear-gradient(135deg, #5f9cad, #8080bc);
+                color: white;
+                border-color: transparent;
+                transform: scale(1.05);
+            }
+        
+            .join-us-container {
+                display: flex;
+                justify-content: center;
+                margin-top: 30px;
+            }
+        
+            .join-us-button {
+                width: 150px;
+                height: 50px;
+                border-radius: 30px;
+                background: linear-gradient(135deg, #5f9cad, #8080bc);
+                color: white;
+                border: none;
+                font-weight: bold;
+                font-size: 1.1em;
+                cursor: pointer;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .join-us-button:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(95, 156, 173, 0.3);
+            }
+        
+            @media (max-width: 768px) {
+                .profile-card {
+                    flex: 0 0 260px;
+                }
+                
+                .profile-heading {
+                    font-size: 2rem;
+                }
+            }
+        
+            @media (max-width: 480px) {
+                .profile-cards-wrapper {
+                    margin: 50px auto;
+                }
+                
+                .profile-pic {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+        </style> 
+        
         <div class="profile-cards-wrapper">
             <h2 class="profile-heading">OUR TEAM</h2>
             <div class="profile-cards-container">
-                
                 {% for member in team_members %}
                 <div class="profile-card">
-                    <img src="{{ member.img.url }}" alt="Profile Picture" class="profile-pic" loading="lazy">
+                    <img src="{{ member.img.url }}" alt="{{ member.name }}" class="profile-pic" loading="lazy">
                     <h3 class="profile-name">{{ member.name }}</h3>
                     <p class="profile-specialization">{{ member.post }}</p>
-                    <a href="{% url 'lpapp:profile' member.pk %}" class="review-button" style="margin-top: 10px;text-decoration:none;">
-                        <i class="fa-solid fa-circle-user" style="margin-right: 10px;"></i>Reviews
+                    <a href="{% url 'lpapp:profile' member.pk %}" class="review-button">
+                        <i class="fa-solid fa-circle-user" style="margin-right: 8px;"></i>Reviews
                     </a>
                 </div>
                 {% endfor %}
-                <!-- <div class="profile-card">
-                    <img src="/static/null.jpg" alt="Profile Picture" class="profile-pic" loading="lazy">
-                    <h3 class="profile-name">Join Us</h3>
-                    <p class="profile-specialization">Explore Our Opportunities</p>
-                    <a href="{% url 'lpapp:careers' %}" class="review-button" style="margin-top: 10px;text-decoration:none;">
-                        <i class="fa-solid fa-circle-user" style="margin-right: 10px;"></i>Careers
-                    </a>
-                </div> -->
-                
-                
             </div>
-
-            <div style="display:flex;justify-content: center;margin-top: 10px;"><a href="{% url 'lpapp:careers' %}">
-                <button style="width:120px;height:40px;border-radius: 30px;background: linear-gradient(135deg, #5f9cad, #8080bc);color:white;
-                border:none;font-weight: bold;font-size: 1em;"> Join Us <i class="fa-solid fa-arrow-up-right-from-square ml-2" style="font-size: 0.9em;"></i>
-            
-                </button>
-            </a>
+        
+            <div class="join-us-container">
+                <a href="{% url 'lpapp:careers' %}" style="text-decoration: none;">
+                    <button class="join-us-button">
+                        Join Us
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </button>
+                </a>
             </div>
-            
         </div>
        
     <!-- services -->
