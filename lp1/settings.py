@@ -110,16 +110,6 @@ DATABASES = {
 
 }
 
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "rediss://:ATVOAAIjcDFmNjJhYjI0N2I4Nzg0ZjM4OGU1MmNjYzRkY2YzNjVkMnAxMA@comic-alien-13646.upstash.io:6379",
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "SSL": True,  # Required for Upstash
-        }
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
