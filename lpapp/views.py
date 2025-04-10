@@ -12,7 +12,7 @@ from .models import JobApplication
 from django.shortcuts import get_object_or_404
 from django.views.decorators.cache import cache_page
 
-  
+@cache_page(300)  
 def home(request):
     if request.method == 'POST':
         # Check if the form submission is for the AppointmentForm
