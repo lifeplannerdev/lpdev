@@ -1,22 +1,17 @@
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Image Gallery with Bootstrap</title>
+    <title>Life Planner - Photo Gallery</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">  
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Custom CSS -->
@@ -25,28 +20,140 @@
             font-family: myfont;
             src: url(/static/Cabin-Medium.ttf);
         }
-        .body{
+        body {
             font-family: myfont;
+            background-color: #f8f9fa;
         }
-        .image-container {
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #5f9cad, #8080bc);
+            color: white;
+            padding: 5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            height:300px
+            margin-bottom: 3rem;
         }
 
-        .image-container img {
+        header h2 {
+            font-size: 3.5rem;
+            margin: 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            transition: transform 0.3s ease;
+            background: url('https://eqqgddahocfmgothdhel.supabase.co/storage/v1/object/sign/images/blogcover_11zon.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvYmxvZ2NvdmVyXzExem9uLmpwZyIsImlhdCI6MTc0NDc5OTQyOSwiZXhwIjoyNTMzMTk5NDI5fQ.BryDe_F13KMkzIFOHFMFVlW_pKJA7HHaBIBoUdFTkqo') center/cover;
+            opacity: 0.15;
+            z-index: 1;
         }
 
-        .image-container:hover img {
+        /* Gallery Container */
+        .gallery-container {
+            padding: 0 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Gallery Filter */
+        .gallery-filter {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 2px solid #5f9cad;
+            color: #5f9cad;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: linear-gradient(135deg, #5f9cad, #8080bc);
+            color: white;
+            border-color: transparent;
+        }
+        
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            aspect-ratio: 1 / 1;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
             transform: scale(1.1);
         }
-
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        
+        .gallery-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-description {
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease 0.2s;
+        }
+        
+        .gallery-item:hover .gallery-description {
+            opacity: 0.8;
+        }
+        
         /* Popup Styling */
         .popup {
             position: fixed;
@@ -54,34 +161,130 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.9);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .popup.show {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .popup img {
-            max-width: 80%;
-            max-height: 80%;
+        .popup-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .popup-img {
+            max-width: 100%;
+            max-height: 80vh;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
         }
-
-        .popup .close-btn {
+        
+        .popup-caption {
+            color: white;
+            text-align: center;
+            margin-top: 1rem;
+            max-width: 600px;
+        }
+        
+        .close-btn {
             position: absolute;
             top: 20px;
             right: 30px;
-            font-size: 2em;
+            font-size: 2.5em;
             color: white;
             cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+        
+        /* Loading Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .gallery-item {
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            header h2 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .filter-btn {
+                padding: 0.4rem 1.2rem;
+                margin: 0 0.3rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .filter-btn {
+                display: block;
+                width: 80%;
+                margin: 0.5rem auto;
+            }
         }
 
-        .hidden {
-            display: none;
+        /* Watermark */
+        .watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 999;
         }
-
-        .navbar {
+    </style>
+</head>
+<body>
+<style>
+     .navbar {
     background: transparent; 
     padding: 0.5rem;
     display: flex;
@@ -233,28 +436,7 @@
 }
     }
 
-    header {
-            background: linear-gradient(135deg, #5f9cad, #8080bc);
-            color: white;
-            padding: 3rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            
-            
-        }
-
-        header h2 {
-            font-size: 3.5rem;
-            margin: 0;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 50px;
-        }
-    </style>
-</head>
-<body>
-
+</style>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <img src="/static/LPsymbol.png" style="height:40px;width:90px;">
         <input hidden class="check-icon" id="check-icon" name="check-icon" type="checkbox" >
@@ -307,81 +489,104 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
     </script>
 
 <header>
-    <h2>GALLERY</h2>
+    <h2 class="animate__animated animate__fadeInDown">OUR GALLERY</h2>
+    <p class="animate__animated animate__fadeInUp" style="font-size: 1.2rem; margin-top: 1rem;">Capturing Moments, Creating Memories</p>
 </header>
 
-    <div class="container mt-5">
+<div class="gallery-container">
+    <!-- Gallery Filter -->
+   
+    
+    <!-- Gallery Grid -->
+    <div class="gallery-grid">
+        <!-- Gallery Item 1 -->
+        <div class="gallery-item" data-category="events" style="animation-delay: 0.1s;">
+            <img src="https://i.pinimg.com/736x/e0/a6/96/e0a696b2e30b12d4fbac688d531ffc71.jpg" alt="Event Photo" class="gallery-img">
+            
+        </div>
         
-        <div class="row g-4">
-            <div class="col-md-4 col-sm-6">
-                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/e0/a6/96/e0a696b2e30b12d4fbac688d531ffc71.jpg')">
-                    <img src="https://i.pinimg.com/736x/e0/a6/96/e0a696b2e30b12d4fbac688d531ffc71.jpg" alt="Image 1">
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/6e/89/1a/6e891a4e22df7cf8bb2406b8fd21d238.jpg')">
-                    <img src="https://i.pinimg.com/736x/6e/89/1a/6e891a4e22df7cf8bb2406b8fd21d238.jpg" alt="Image 2">
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/57/73/1a/57731a0ae2560b8da2e3c82bb2597759.jpg')">
-                    <img src="https://i.pinimg.com/736x/57/73/1a/57731a0ae2560b8da2e3c82bb2597759.jpg" alt="Image 3">
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/99/cf/8f/99cf8fab3d8da7dacc54e50e826426df.jpg')">
-                    <img src="https://i.pinimg.com/736x/99/cf/8f/99cf8fab3d8da7dacc54e50e826426df.jpg" alt="Image 4">
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/48/50/e2/4850e264ff7ec2321eec45bf7666296a.jpg')">
-                    <img src="https://i.pinimg.com/736x/48/50/e2/4850e264ff7ec2321eec45bf7666296a.jpg" alt="Image 5">
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/50/c5/72/50c572589b97556679884da798e4644b.jpg')">
-                    <img src="https://i.pinimg.com/736x/50/c5/72/50c572589b97556679884da798e4644b.jpg" alt="Image 6">
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/cd/d8/b5/cdd8b5b46599e18c56816909ab67ab7f.jpg')">
-                    <img src="https://i.pinimg.com/736x/cd/d8/b5/cdd8b5b46599e18c56816909ab67ab7f.jpg" alt="Image 1">
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/67/57/b6/6757b66a52857f176a1d74373a5833b0.jpg')">
-                    <img src="https://i.pinimg.com/736x/67/57/b6/6757b66a52857f176a1d74373a5833b0.jpg" alt="Image 2">
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/90/45/81/904581f5b121772ffb28d2907ae8ec93.jpg')">
-                    <img src="https://i.pinimg.com/736x/90/45/81/904581f5b121772ffb28d2907ae8ec93.jpg" alt="Image 3">
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/60/50/7a/60507af53435179dd569093b7a2c280b.jpg')">
-                    <img src="https://i.pinimg.com/736x/60/50/7a/60507af53435179dd569093b7a2c280b.jpg" alt="Image 4">
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/49/67/ba/4967ba058ca0ff34bb3aa175ed50f63f.jpg')">
-                    <img src="https://i.pinimg.com/736x/49/67/ba/4967ba058ca0ff34bb3aa175ed50f63f.jpg" alt="Image 5">
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image-container" onclick="openPopup('https://i.pinimg.com/736x/17/23/59/17235944f3c3788f3925cd698aa04bd7.jpg')">
-                    <img src="https://i.pinimg.com/736x/17/23/59/17235944f3c3788f3925cd698aa04bd7.jpg" alt="Image 6">
-                </div>
-            </div>
+        <!-- Gallery Item 2 -->
+        <div class="gallery-item" data-category="students" style="animation-delay: 0.2s;">
+            <img src="https://i.pinimg.com/736x/6e/89/1a/6e891a4e22df7cf8bb2406b8fd21d238.jpg" alt="Student Photo" class="gallery-img">
+            
+        </div>
+        
+        <!-- Gallery Item 3 -->
+        <div class="gallery-item" data-category="universities" style="animation-delay: 0.3s;">
+            <img src="https://i.pinimg.com/736x/57/73/1a/57731a0ae2560b8da2e3c82bb2597759.jpg" alt="University Photo" class="gallery-img">
+            
+        </div>
+        
+        <!-- Gallery Item 4 -->
+        <div class="gallery-item" data-category="success" style="animation-delay: 0.4s;">
+            <img src="https://i.pinimg.com/736x/99/cf/8f/99cf8fab3d8da7dacc54e50e826426df.jpg" alt="Success Story" class="gallery-img">
+            
+        </div>
+        
+        <!-- Gallery Item 5 -->
+        <div class="gallery-item" data-category="events" style="animation-delay: 0.5s;">
+            <img src="https://i.pinimg.com/736x/48/50/e2/4850e264ff7ec2321eec45bf7666296a.jpg" alt="Event Photo" class="gallery-img">
+           
+        </div>
+        
+        <!-- Gallery Item 6 -->
+        <div class="gallery-item" data-category="students" style="animation-delay: 0.6s;">
+            <img src="https://i.pinimg.com/736x/50/c5/72/50c572589b97556679884da798e4644b.jpg" alt="Student Photo" class="gallery-img">
+            
+        </div>
+        
+        <!-- Gallery Item 7 -->
+        <div class="gallery-item" data-category="universities" style="animation-delay: 0.7s;">
+            <img src="https://i.pinimg.com/736x/cd/d8/b5/cdd8b5b46599e18c56816909ab67ab7f.jpg" alt="University Photo" class="gallery-img">
+            
+        </div>
+        
+        <!-- Gallery Item 8 -->
+        <div class="gallery-item" data-category="success" style="animation-delay: 0.8s;">
+            <img src="https://i.pinimg.com/736x/67/57/b6/6757b66a52857f176a1d74373a5833b0.jpg" alt="Success Story" class="gallery-img">
+            
+        </div>
+        
+        <!-- Gallery Item 9 -->
+        <div class="gallery-item" data-category="events" style="animation-delay: 0.9s;">
+            <img src="https://i.pinimg.com/736x/90/45/81/904581f5b121772ffb28d2907ae8ec93.jpg" alt="Event Photo" class="gallery-img">
+           
+        </div>
+        
+        <!-- Gallery Item 10 -->
+        <div class="gallery-item" data-category="students" style="animation-delay: 1.0s;">
+            <img src="https://i.pinimg.com/736x/60/50/7a/60507af53435179dd569093b7a2c280b.jpg" alt="Student Photo" class="gallery-img">
+            
+        </div>
+        
+        <!-- Gallery Item 11 -->
+        <div class="gallery-item" data-category="universities" style="animation-delay: 1.1s;">
+            <img src="https://i.pinimg.com/736x/49/67/ba/4967ba058ca0ff34bb3aa175ed50f63f.jpg" alt="University Photo" class="gallery-img">
+            
+        </div>
+        
+        <!-- Gallery Item 12 -->
+        <div class="gallery-item" data-category="success" style="animation-delay: 1.2s;">
+            <img src="https://i.pinimg.com/736x/17/23/59/17235944f3c3788f3925cd698aa04bd7.jpg" alt="Success Story" class="gallery-img">
+            
         </div>
     </div>
+</div>
 
-    <!-- Popup -->
-    <div id="popup" class="popup hidden">
-        <span class="close-btn" onclick="closePopup()">&times;</span>
-        <img id="popup-img" src="" alt="Popup Image">
+<!-- Popup -->
+<div id="popup" class="popup">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <div class="popup-content">
+        <img id="popup-img" src="" alt="Popup Image" class="popup-img">
+        <div class="popup-caption">
+            <h3 id="popup-title"></h3>
+            <p id="popup-description"></p>
+        </div>
     </div>
+</div>
 
+<!-- Watermark -->
+<div class="watermark">Life Planner Gallery</div>
 
     <!-- Footer Section -->
     <footer class="footer-section">
@@ -639,35 +844,110 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
     </style>
 
     <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
     <!-- Custom JavaScript -->
     <script>
-        function openPopup(src) {
+        // Gallery Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Initialize animation delays
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+        
+        // Enhanced Popup Functionality
+        function openPopup(src, title = '', description = '') {
             const popup = document.getElementById("popup");
             const popupImg = document.getElementById("popup-img");
-
+            const popupTitle = document.getElementById("popup-title");
+            const popupDescription = document.getElementById("popup-description");
+            
+            // Get the clicked item's caption if available
+            const clickedItem = event.currentTarget.closest('.gallery-item');
+            if (clickedItem) {
+                const caption = clickedItem.querySelector('.gallery-caption');
+                if (caption) {
+                    title = caption.querySelector('.gallery-title').textContent;
+                    description = caption.querySelector('.gallery-description').textContent;
+                }
+            }
+            
             popupImg.src = src;
-            popup.classList.remove("hidden");
+            popupTitle.textContent = title;
+            popupDescription.textContent = description;
+            
+            // Show popup with animation
+            setTimeout(() => {
+                popup.classList.add('show');
+            }, 10);
+            
+            // Prevent scrolling when popup is open
+            document.body.style.overflow = 'hidden';
         }
-
+        
         function closePopup() {
             const popup = document.getElementById("popup");
-            popup.classList.add("hidden");
+            popup.classList.remove('show');
+            
+            // Restore scrolling
+            document.body.style.overflow = 'auto';
         }
+        
+        // Close popup when clicking outside the image
+        document.getElementById('popup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+        
+        // Close popup with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePopup();
+            }
+        });
+        
+        // Add click event to all gallery items
+        document.querySelectorAll('.gallery-img').forEach(img => {
+            img.addEventListener('click', function() {
+                const container = this.closest('.gallery-item');
+                const title = container.querySelector('.gallery-title')?.textContent || '';
+                const desc = container.querySelector('.gallery-description')?.textContent || '';
+                openPopup(this.src, title, desc);
+            });
+        });
     </script>
-
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<!-- Include Swiper.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
-
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
