@@ -1912,184 +1912,317 @@ window.addEventListener("click", function (event) {
             }
         }
         </style>
+       <style>
+                .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
         
-        <h2 class="text-center mb-5 testimonial-title" >Our Achievers</h2>
-
-
-
-<div class="carousel" data-flickity='{ "autoPlay": true, "prevNextButtons": false, "wrapAround": true ,"pageDots": false }' style="background:transparent;background-size:200px;">
-    <!-- Carousel Cell 1 -->
-    <div class="carousel-cell" style="background-image: url(static/aslam.jpg); position: relative;">
-        <div class="carousel-info">
-            <h4>Aslam Khalid Rafeeque</h4>
-            <p>Germany</p>
-        </div>
-    </div>
-
-    <!-- Carousel Cell 2 -->
-    <div class="carousel-cell" style="background-image: url(static/aleena.jpg); position: relative;">
-        <div class="carousel-info">
-            <h4>Aleena K Sajeev</h4>
-            <p>Germany</p>
-        </div>
-    </div>
-    <div class="carousel-cell" style="background-image: url(static/thejo.jpg); position: relative;">
-        <div class="carousel-info">
-            <h4>Thejo George Jacob</h4>
-            <p>Spain</p>
-        </div>
-        </div>
-    <!-- Carousel Cell 3 -->
-    <div class="carousel-cell" style="background-image: url(static/laya.jpg); position: relative;">
-        <div class="carousel-info">
-            <h4>Leya Thankam Chandy</h4>
-            <p>Germany</p>
-        </div>
-    </div>
-
-    <!-- Carousel Cell 4 -->
-    <div class="carousel-cell" style="background-image: url(static/gokul.jpg); position: relative;">
-        <div class="carousel-info">
-            <h4>Gokul Prasad</h4>
-            <p>Germany</p>
-        </div>
-    </div>
-    <!-- Carousel Cell 5 -->
-    <div class="carousel-cell" style="background-image: url(static/lois.jpg); position: relative;">
-        <div class="carousel-info">
-            <h4>Lois Maria Romeo</h4>
-            <p>Poland</p>
-        </div>
-    </div>
-    <div class="carousel-cell" style="background-image: url(static/athira.jpg); position: relative;">
-        <div class="carousel-info">
-            <h4>Athira Aji</h4>
-            <p>Germany</p>
-        </div>
-    </div>
-    <div class="carousel-cell" style="background-image: url(static/aishwarya.jpg); position: relative;">
-        <div class="carousel-info">
-            <h4>Aishwarya Mohanachandran</h4>
-            <p>Germany</p>
-        </div>
-    </div>
-    <div class="carousel-cell" style="background-image: url(static/ansa.jpg); position: relative;">
-        <div class="carousel-info">
-            <h4>Ansa Hanna Moncy</h4>
-            <p>Germany</p>
-        </div>
-    </div>
-    <div class="carousel-cell" style="background-image: url(static/amantu1.jpg); position: relative;">
-        <div class="carousel-info">
-            <h4>Amantu Kurian</h4>
-            <p>Germany</p>
-        </div>
+        .section-title {
+            position: relative;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
         
-    </div>
+        .section-title::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2c3e50);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
 
-    <div class="carousel-cell" style="background-image: url(static/krishna.jpg); position: relative;">
-        <div class="carousel-info">
-            <h4>Krishna Suresh</h4>
-            <p>Germany</p>
-        </div>
+        .carousel {
+            margin-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .carousel-cell {
+            width: 32%;
+            height: 450px;
+            margin-right: 20px;
+            border-radius: 15px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
         
-    </div>
+        .carousel-cell:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
 
-    <div class="carousel-cell" style="background-image: url(static/shibi.jpg); position: relative;">
-        <div class="carousel-info">
-            <h4>Shibitha Shibu</h4>
-            <p>Germany</p>
-        </div>
+        .carousel-cell::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
+        }
         
-    </div>
-    
-    <div class="carousel-cell" style="background-image: url(static/aleenasabu.jpg); position: relative;">
-        <div class="carousel-info">
-            <h4>Aleena Sabu</h4>
-            <p>Germany</p>
+        .carousel-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 20px;
+            z-index: 2;
+            transform: translateY(5px);
+            transition: transform 0.3s ease;
+        }
+        
+        .carousel-cell:hover .carousel-info {
+            transform: translateY(0);
+        }
+        
+        .carousel-info h4 {
+            color: white;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .carousel-info p {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .carousel-info p::before {
+            content: "🌍";
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .flickity-button {
+            background: #ffffff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .flickity-button:hover {
+            background: #f0f0f0;
+        }
+        
+        .flickity-prev-next-button.previous {
+            left: -30px;
+        }
+        
+        .flickity-prev-next-button.next {
+            right: -30px;
+        }
+        
+        
+        /* Highlight effect */
+        .carousel-cell::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+            transform: skewX(-25deg);
+            transition: 0.5s;
+            z-index: 1;
+        }
+        
+        .carousel-cell:hover::after {
+            left: 130%;
+            transition: 0.7s;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .carousel-cell {
+                width: 45%;
+                height: 400px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-cell {
+                width: 50%;
+                height: 350px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+            
+            .carousel-info h4 {
+                font-size: 1.4rem;
+            }
+            
+            .flickity-prev-next-button {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .carousel-cell {
+                width: 80%;
+                height: 300px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .carousel-info h4 {
+                font-size: 1.3rem;
+            }
+        }
+       </style>
+       <div class="container">
+        <h2 class="section-title">Our Achievers</h2>
+        
+        <div class="carousel" data-flickity='{ "autoPlay": 3000, "wrapAround": true, "pageDots": false, "prevNextButtons": true, "cellAlign": "center", "adaptiveHeight": true }'>
+            <!-- Carousel Cell 1 -->
+            <div class="carousel-cell" style="background-image: url(static/aslam.jpg);">
+                <div class="carousel-info">
+                    <h4>Aslam Khalid Rafeeque</h4>
+                    <p>Germany</p>
+                </div>
+            </div>
+
+            <!-- Carousel Cell 2 -->
+            <div class="carousel-cell" style="background-image: url(static/aleena.jpg);">
+                <div class="carousel-info">
+                    <h4>Aleena K Sajeev</h4>
+                    <p>Germany</p>
+                </div>
+            </div>
+            
+            <!-- Carousel Cell 3 -->
+            <div class="carousel-cell" style="background-image: url(static/thejo.jpg);">
+                <div class="carousel-info">
+                    <h4>Thejo George Jacob</h4>
+                    <p>Spain</p>
+                </div>
+            </div>
+            
+            <!-- Carousel Cell 4 -->
+            <div class="carousel-cell" style="background-image: url(static/laya.jpg);">
+                <div class="carousel-info">
+                    <h4>Leya Thankam Chandy</h4>
+                    <p>Germany</p>
+                </div>
+            </div>
+
+            <!-- Carousel Cell 5 -->
+            <div class="carousel-cell" style="background-image: url(static/gokul.jpg);">
+                <div class="carousel-info">
+                    <h4>Gokul Prasad</h4>
+                    <p>Germany</p>
+                </div>
+            </div>
+            
+            <!-- Carousel Cell 6 -->
+            <div class="carousel-cell" style="background-image: url(static/lois.jpg);">
+                <div class="carousel-info">
+                    <h4>Lois Maria Romeo</h4>
+                    <p>Poland</p>
+                </div>
+            </div>
+            
+            <!-- Carousel Cell 7 -->
+            <div class="carousel-cell" style="background-image: url(static/athira.jpg);">
+                <div class="carousel-info">
+                    <h4>Athira Aji</h4>
+                    <p>Germany</p>
+                </div>
+            </div>
+            
+            <!-- Carousel Cell 8 -->
+            <div class="carousel-cell" style="background-image: url(static/aishwarya.jpg);">
+                <div class="carousel-info">
+                    <h4>Aishwarya Mohanachandran</h4>
+                    <p>Germany</p>
+                </div>
+            </div>
+            
+            <!-- Carousel Cell 9 -->
+            <div class="carousel-cell" style="background-image: url(static/ansa.jpg);">
+                <div class="carousel-info">
+                    <h4>Ansa Hanna Moncy</h4>
+                    <p>Germany</p>
+                </div>
+            </div>
+            
+            <!-- Carousel Cell 10 -->
+            <div class="carousel-cell" style="background-image: url(static/amantu1.jpg);">
+                <div class="carousel-info">
+                    <h4>Amantu Kurian</h4>
+                    <p>Germany</p>
+                </div>
+            </div>
+
+            <!-- Carousel Cell 11 -->
+            <div class="carousel-cell" style="background-image: url(static/krishna.jpg);">
+                <div class="carousel-info">
+                    <h4>Krishna Suresh</h4>
+                    <p>Germany</p>
+                </div>
+            </div>
+
+            <!-- Carousel Cell 12 -->
+            <div class="carousel-cell" style="background-image: url(static/shibi.jpg);">
+                <div class="carousel-info">
+                    <h4>Shibitha Shibu</h4>
+                    <p>Germany</p>
+                </div>
+            </div>
+            
+            <!-- Carousel Cell 13 -->
+            <div class="carousel-cell" style="background-image: url(static/aleenasabu.jpg);">
+                <div class="carousel-info">
+                    <h4>Aleena Sabu</h4>
+                    <p>Germany</p>
+                </div>
+            </div>
+            
+            <!-- Carousel Cell 14 -->
+            <div class="carousel-cell" style="background-image: url(static/rini.jpg);">
+                <div class="carousel-info">
+                    <h4>Rini Alexander</h4>
+                    <p>Germany</p>
+                </div>
+            </div>
+
+            <!-- Carousel Cell 15 -->
+            <div class="carousel-cell" style="background-image: url(static/manoj.jpg);">
+                <div class="carousel-info">
+                    <h4>Manoj G</h4>
+                    <p>Germany</p>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="carousel-cell" style="background-image: url(static/rini.jpg); position: relative;">
-        <div class="carousel-info">
-            <h4>Rini Alexander</h4>
-            <p>Germany</p>
-        </div>
-    </div>
-
-    <div class="carousel-cell" style="background-image: url(static/manoj.jpg); position: relative;">
-        <div class="carousel-info">
-            <h4>Manoj G</h4>
-            <p>Germany</p>
-        </div>
-    </div>
-</div>
-
-<style>
-/* Carousel Styling */
-.carousel {
-    margin-top: 30px;
-    z-index: 10;
-}
-
-.carousel-cell {
-    width: 35%;
-    height: 400px;
-    margin-right: 10px;
-    border-radius: 15px;
-    background-size: cover;
-    background-position: center center;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Overlay for Text */
-.carousel-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    text-align: center;
-    border-radius: 0 0 15px 15px;
-}
-
-.carousel-info h4 {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.carousel-info p {
-    margin: 5px 0 0;
-    font-size: 1.1rem;
-    font-weight: 300;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .carousel {
-        margin-top: 20px;
-        margin-bottom: 70px;
-    }
-
-    .carousel-cell {
-        width: 60%;
-        height: 250px;
-        margin-right: 10px;
-        margin-top: 10px;
-    }
-
-    .carousel-info h4 {
-        font-size: 1.2rem;
-    }
-
-    .carousel-info p {
-        font-size: 0.9rem;
-    }
-}
-</style>
 <style>
     /* Testimonial Section */
 .testimonial-section {
