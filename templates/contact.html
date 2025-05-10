@@ -838,6 +838,33 @@ text-align: center;
   </div>
     
   </div>
+  <div class="join-us-container" style="text-align: center; margin: 40px 0;">
+    <a href="{% url 'lpapp:careers' %}" class="join-us-button" style="
+        display: inline-block;
+        padding: 15px 40px;
+        margin-top: -20px;
+        margin-bottom: 40px;
+        background: linear-gradient(135deg, rgb(22, 100, 173), #416283);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(22, 100, 173, 0.3);
+        border: 2px solid transparent;
+    ">
+        <i class="fas fa-user-plus" style="margin-right: 10px;"></i>Join Our Team
+    </a>
+</div>
+
+<style>
+.join-us-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(22, 100, 173, 0.4);
+    background: linear-gradient(135deg, #2c3e50, rgb(22, 100, 173));
+}
+</style>
   <h3 class="text-center" style="font-size: 32px;
 font-weight: bold;
 background:rgb(22, 100, 173);
@@ -845,7 +872,10 @@ background:rgb(22, 100, 173);
 -webkit-text-fill-color: transparent;
 margin-top: 40px;margin-bottom: -30px; ">OUR LOCATION</h3>
 </div>
-        <div class="map-section">
+
+
+
+<div class="map-section">
           
             <h4>Kottayam (Head Office)</h4>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.829412842771!2d76.523034!3d9.591567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0629fd9f07b621%3A0xb44e03e56a1dcbeb!2sSastri%20Rd%2C%20Kottayam%2C%20Kerala!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
