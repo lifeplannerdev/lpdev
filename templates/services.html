@@ -344,10 +344,10 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
         <h4 class="service-heading">Academic & Career Counselling</h4>
         <div class="content">
             <ul>
-                <li>Comprehensive evaluation of the student’s academic background and work experience.</li>
+                <li>Comprehensive evaluation of the student's academic background and work experience.</li>
                 <li>Language proficiency assessment, particularly in German.</li>
                 <li>Match students with suitable academic programs and career opportunities.</li>
-                <li>Evaluate the student’s financial readiness for studying and living abroad.</li>
+                <li>Evaluate the student's financial readiness for studying and living abroad.</li>
             </ul>
         </div>
         <button class="read-more-btn"><i class="fa-solid fa-angles-down"></i></button>
@@ -360,7 +360,7 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
         <div class="content">
             <ul>
                 <li>Personalised counselling based on the profile assessment.</li>
-                <li>Identify the fields that align best with the student’s interests and goals.</li>
+                <li>Identify the fields that align best with the student's interests and goals.</li>
                 <li>
                     Recommend skill development programs, such as:
                     <ul>
@@ -470,30 +470,30 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
 <style>
 /* Read More Button */
 .read-more-btn {
+    align-self: flex-end;
     background: none;
     border: none;
     color: rgb(22, 100, 173);
     cursor: pointer;
+    padding: 5px 10px;
     font-size: 18px;
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    transition: color 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .read-more-btn:hover {
-    color: #17498c;
+    transform: translateY(-2px);
 }
 
 /* Content Transition Effect */
 .content {
+    flex: 1;
     overflow: hidden;
-    max-height: 3.3em; /* Adjust height for 2 lines */
-    transition: max-height 0.5s ease;
+    max-height: 3.6em;
+    transition: max-height 0.3s ease;
 }
 
 .content.expanded {
-    max-height: 1200px; /* Large enough to accommodate full content */
+    max-height: none;
 }
 /* Ensure bullet points are visible */
 .content ul {
@@ -512,10 +512,12 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
 }
 
 @media (max-width: 768px) {
+    .service-detail {
+        padding: 20px;
+    }
+    
     .read-more-btn {
-        display:block;
-        margin-left: auto; /* Push the button to the right */
-        justify-content: flex-end; /* Align the button to the right inside the flex container */
+        margin-top: 10px;
     }
 }
 
@@ -569,8 +571,8 @@ document.querySelectorAll(".read-more-btn").forEach(button => {
     border-left: 6px solid rgb(22, 100, 173);
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    display: flex; /* Align items horizontally */
-    align-items: center;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
