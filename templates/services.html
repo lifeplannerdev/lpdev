@@ -488,27 +488,29 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
 .content {
     flex: 1;
     overflow: hidden;
-    max-height: 3.6em;
+    max-height: 2.5em;
     transition: max-height 0.3s ease;
 }
 
 .content.expanded {
     max-height: none;
 }
+
 /* Ensure bullet points are visible */
 .content ul {
-    list-style-type: disc; /* Default bullet style */
-    margin-left: 20px; /* Indent bullets */
-    padding-left: 0; /* Adjust padding */
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 0;
 }
 
 .content ul ul {
-    list-style-type: circle; /* Nested bullet style */
-    margin-left: 20px; /* Indent nested bullets */
+    list-style-type: circle;
+    margin-left: 20px;
 }
 
 .content li {
-    margin-bottom: 8px; /* Add spacing between list items */
+    margin-bottom: 8px;
+    line-height: 1.4;
 }
 
 @media (max-width: 768px) {
@@ -518,6 +520,15 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
     
     .read-more-btn {
         margin-top: 10px;
+    }
+
+    .content {
+        max-height: 2.8em; /* Adjusted to show first point completely */
+    }
+
+    .content li {
+        margin-bottom: 6px;
+        font-size: 14px;
     }
 }
 
