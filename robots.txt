@@ -1,0 +1,13 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow sensitive directories
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /logs/
+
+# Sitemap location
+Sitemap: https://yourdomain.com/sitemap.xml 
