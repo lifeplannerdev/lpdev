@@ -10,4 +10,4 @@ Disallow: /temp/
 Disallow: /logs/
 
 # Sitemap location
-Sitemap: https://yourdomain.com/sitemap.xml 
+Sitemap: https://www.lifeplanneruniversal.com//sitemap.xml 
