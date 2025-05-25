@@ -509,7 +509,7 @@
             }
     
             .hero-title {
-                font-size: 4.5rem;
+                font-size: 4rem;
                 font-weight: 900;
                 color: var(--white);
                 margin-bottom: 25px;
@@ -941,120 +941,121 @@
             }
         </style>
  
-        <section class="hero-section">
-            <div class="floating-shapes">
-                <div class="shape"></div>
-                <div class="shape"></div>
-                <div class="shape"></div>
-                <div class="shape"></div>
+ <section class="hero-section">
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">ABROAD STUDY<br>MADE SIMPLE</h1>
+            <p class="hero-description">Embark on your international education journey with confidence. We provide comprehensive guidance, personalized support, and expert advice to help you achieve your study abroad dreams.</p>
+            <div class="hero-actions">
+                <button type="button" class="hero-button" id="learnMoreBtn">Enroll Now</button>
+                <a href="#" class="secondary-button">Learn More →</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label">Universities</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Programs</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="image-container">
+                <img src="/static/lp60.png" alt="Students studying" class="primary-image">
             </div>
             
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1 class="hero-title">ABROAD STUDY<br>MADE SIMPLE</h1>
-                    <p class="hero-description">Embark on your international education journey with confidence. We provide comprehensive guidance, personalized support, and expert advice to help you achieve your study abroad dreams.</p>
-                    <div class="hero-actions">
-                        <button type="button" class="hero-button" id="learnMoreBtn">Enroll Now</button>
-                        <a href="#" class="secondary-button">Learn More →</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">300+</div>
-                            <div class="stat-label">Universities</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">30+</div>
-                            <div class="stat-label">Countries</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">100+</div>
-                            <div class="stat-label">Programs</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="image-container">
-                        <img src="/static/lp51.png" alt="Students studying" class="primary-image">
-                    </div>
-                    <div class="floating-card">
-                        <div class="card-icon">✈️</div>
-                        <div class="card-content">
-                            <div class="card-title">Processing Services</div>
-                            <div class="card-description">Expert guidance for your visa processing</div>
-                        </div>
-                    </div>
+            <div class="floating-card">
+                <div class="card-icon">✈️</div>
+                <div class="card-content">
+                    <div class="card-title">Processing Services</div>
+                    <div class="card-description">Expert guidance for your visa processing</div>
                 </div>
             </div>
-        </section>
-    
-        <script>
-            // Enhanced interactivity
-            document.addEventListener('DOMContentLoaded', function() {
-                const heroButton = document.getElementById('learnMoreBtn');
-                const statNumbers = document.querySelectorAll('.stat-number');
-                
-                // Button click animation
-                heroButton.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
-                });
-                
-                // Animate stats on scroll (for mobile)
-                const observerOptions = {
-                    threshold: 0.5,
-                    rootMargin: '0px 0px -100px 0px'
-                };
-                
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const number = entry.target;
-                            const finalNumber = parseInt(number.textContent);
-                            let currentNumber = 0;
-                            const increment = finalNumber / 20;
-                            
-                            const counter = setInterval(() => {
-                                currentNumber += increment;
-                                if (currentNumber >= finalNumber) {
-                                    number.textContent = number.dataset.final;
-                                    clearInterval(counter);
-                                } else {
-                                    number.textContent = Math.floor(currentNumber) + (number.dataset.suffix || '');
-                                }
-                            }, 50);
-                        }
-                    });
-                }, observerOptions);
-                
-                statNumbers.forEach(number => {
-                    number.dataset.final = number.textContent;
-                    number.dataset.suffix = number.textContent.includes('+') ? '+' : 
-                                           number.textContent.includes('%') ? '%' : '';
-                    observer.observe(number);
-                });
-                
-                // Mobile touch optimizations
-                if ('ontouchstart' in window) {
-                    document.body.classList.add('touch-device');
+        </div>
+    </div>
+</section>
+
+<script>
+    // Enhanced interactivity
+    document.addEventListener('DOMContentLoaded', function() {
+        const heroButton = document.getElementById('learnMoreBtn');
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        // Button click animation
+        heroButton.addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+        
+        // Animate stats on scroll (for mobile)
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const number = entry.target;
+                    const finalNumber = parseInt(number.textContent);
+                    let currentNumber = 0;
+                    const increment = finalNumber / 20;
                     
-                    // Add touch feedback
-                    const touchElements = document.querySelectorAll('.hero-button, .secondary-button, .floating-card');
-                    touchElements.forEach(element => {
-                        element.addEventListener('touchstart', function() {
-                            this.style.transform = 'scale(0.98)';
-                        });
-                        
-                        element.addEventListener('touchend', function() {
-                            setTimeout(() => {
-                                this.style.transform = '';
-                            }, 100);
-                        });
-                    });
+                    const counter = setInterval(() => {
+                        currentNumber += increment;
+                        if (currentNumber >= finalNumber) {
+                            number.textContent = number.dataset.final;
+                            clearInterval(counter);
+                        } else {
+                            number.textContent = Math.floor(currentNumber) + (number.dataset.suffix || '');
+                        }
+                    }, 50);
                 }
             });
-        </script>
+        }, observerOptions);
+        
+        statNumbers.forEach(number => {
+            number.dataset.final = number.textContent;
+            number.dataset.suffix = number.textContent.includes('+') ? '+' : 
+                                   number.textContent.includes('%') ? '%' : '';
+            observer.observe(number);
+        });
+        
+        // Mobile touch optimizations
+        if ('ontouchstart' in window) {
+            document.body.classList.add('touch-device');
+            
+            // Add touch feedback
+            const touchElements = document.querySelectorAll('.hero-button, .secondary-button, .floating-card');
+            touchElements.forEach(element => {
+                element.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                element.addEventListener('touchend', function() {
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 100);
+                });
+            });
+        }
+    });
+</script>
 
     
     
