@@ -483,7 +483,15 @@
     animation: fadeIn 1s ease-in forwards;
     animation-delay: 0.5s;
 }
-
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-section {
+        height:35vh;
+    }
+    .hero-description {
+        display: none;
+    }
+    
+}
 @media (max-width: 768px) {
     .hero-description {
         display: none;
