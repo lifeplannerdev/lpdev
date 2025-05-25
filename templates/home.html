@@ -640,9 +640,7 @@
             }
         }
 
-        .stat-item:nth-child(1) { --delay: 1; }
-        .stat-item:nth-child(2) { --delay: 2; }
-        .stat-item:nth-child(3) { --delay: 3; }
+        
 
         .stat-number {
             font-size: 2.5rem;
@@ -651,13 +649,10 @@
             margin-bottom: 8px;
             line-height: 1;
             text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-            animation: numberPulse 2s ease-in-out infinite alternate;
+            
         }
 
-        @keyframes numberPulse {
-            from { transform: scale(1); }
-            to { transform: scale(1.05); }
-        }
+        
 
         .stat-label {
             font-size: 0.95rem;
