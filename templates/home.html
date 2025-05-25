@@ -534,15 +534,69 @@
     .hero-title {
         font-size: 3.5rem;
     }
+    .hero-section{
+        height:35vh;
+    }
 }
 
 @media (max-width: 992px) {
     .hero-title {
         font-size: 3rem;
     }
+    .hero-section{
+        height:35vh;
+    }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 991px) {
+    .hero-section {
+        min-height: 60vh;
+        padding: 40px 0;
+    }
+    .hero-content {
+        padding: 20px;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+        margin-top: 60px;
+        margin-right: 40px;
+    }
+    .hero-description {
+        display: none;
+    }
+    .button2 {
+        font-size: 0.95rem;
+        padding: 8px 18px;
+        margin-left: 3rem !important;
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+    .hero-section {
+        min-height: 50vh;
+        padding: 30px 0;
+    }
+    .hero-content {
+        padding: 15px;
+    }
+    .hero-title {
+        font-size: 2rem;
+        margin-top: 40px;
+        margin-right: 30px;
+    }
+    .hero-description {
+        display: none;
+    }
+    .button2 {
+        font-size: 0.9rem;
+        padding: 7px 16px;
+        margin-left: 2rem !important;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 599px) {
     .hero-section {
         height: 35vh;
     }
