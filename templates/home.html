@@ -943,7 +943,7 @@
     <p class="hero-description1">Embark on your international education journey with confidence. We provide comprehensive guidance, personalized support, and expert advice to help you achieve your study abroad dreams.</p>
     <div class="hero-actions1">
         <button type="button1" class="hero-button1" id="learnMoreBtn">Enroll Now</button>
-        <a href="#" class="secondary-button1">About Us</a>
+        <a href="{% url 'lpapp:about' %}" class="secondary-button1" style="text-decoration: none;color:white;">About Us</a>
     </div>
     
 </div>
@@ -1297,7 +1297,7 @@ modal.style.display = "none";
       position: relative;
       border-radius: 30px;
       overflow: hidden;
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
     }
     
     .image-wrapper2 {
@@ -1410,7 +1410,7 @@ modal.style.display = "none";
       border-radius: 50px;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 10px 20px rgba(95, 156, 173, 0.3);
+      box-shadow: 0 6px 20px rgba(95, 156, 173, 0.3);
     }
     
     .about-button2:hover {
@@ -1522,11 +1522,11 @@ modal.style.display = "none";
       <!-- Content Column (Right) -->
       <div class="about-content2" style="flex: 1; min-width: 0;">
         <h2 style="font-size: 1rem; font-weight: 600; color: #6366f1; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">About Us</h2>
-        <h3 style="font-size: 2.8rem; font-weight: 800; color: #0f172a; line-height: 1.2; margin-bottom: 25px; letter-spacing: -1px;">
-          Best Study Abroad Consultancy in <span style="color: #1664ad;">Kottayam</span>
+        <h3 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; line-height: 1.2; margin-bottom: 25px; letter-spacing: -1px;">
+          Life Planner Studies & <span style="color: #1664ad;">Opportunities</span>
         </h3>
         <p style="font-size: 1.1rem; color: #475569; line-height: 1.8; margin-bottom: 30px;">
-          Life Planner, from its modest start-up in 2012, has become a reputed and well-respected educational facilitator among the study abroad consultants in Kottayam, Kerala. Accredited by an ISO certification within this short span of trustworthy service, we offer detailed counseling for each student throughout admission and visa processing.
+          Life Planner, from its modest start-up in 2012, has become the best study abroad consultancy in kottayam and kochi, Kerala. Accredited by an ISO certification within this short span of trustworthy service, we offer detailed counseling for each student throughout admission and visa processing.
         </p>
         
         <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 40px;">
@@ -1557,6 +1557,7 @@ modal.style.display = "none";
         <button data-bs-toggle="modal" data-bs-target="#appointmentModal" style="padding: 18px 40px; font-size: 1rem; font-weight: 600; color: white; background:linear-gradient(135deg, #5f9cad, #8080bc); border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);">
           Book Free Consultation
         </button>
+        
       </div>
     </div>
   </section>
@@ -1881,14 +1882,14 @@ Toast.fire({
             transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             transform-style: preserve-3d;
             perspective: 1000px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
         }
 
         .bento-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.02) 50%, transparent 100%);
+            background:rgb(242, 252, 252);
             opacity: 0;
             transition: opacity 0.6s ease;
             z-index: 1;

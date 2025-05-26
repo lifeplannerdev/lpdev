@@ -2968,6 +2968,530 @@ Toast.fire({
     }
     </style>
     <style>
+  .profile-cards-wrapper {
+      margin: 10px auto;
+      z-index: 1000;
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 60px;
+  }
+
+  .profile-heading {
+      font-size: 30px;
+      font-weight: bold;
+      color:  rgb(22, 100, 173);
+      margin-bottom: -1px;
+  }
+
+  .profile-cards-container {
+display: flex;
+justify-content: flex-start; 
+gap: 20px;
+overflow-x: auto; 
+padding: 30px;
+
+
+scroll-padding-left: 10px;
+scrollbar-width: none;
+scrollbar-color: rgb(22, 100, 173) #f9f9f9;
+}
+
+.profile-cards-container::-webkit-scrollbar {
+height: 8px;
+}
+
+.profile-cards-container::-webkit-scrollbar-thumb {
+background:  rgb(22, 100, 173);
+border-radius: 10px;
+}
+
+.profile-card {
+flex: 0 0 175px; /* Maintain consistent card width */
+background: #f9f9f9;
+border-radius: 20px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+padding: 15px;
+
+text-align: center;
+}
+
+@media (min-width: 768px) {
+.profile-cards-container {
+  justify-content: center; /* Center cards on larger screens */
+}
+}
+
+@media (max-width: 768px) {
+.profile-card {
+  flex: 0 0 80%; /* Wider cards for better visibility on mobile */
+}
+}
+  .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .profile-name {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 10px 0 5px;
+      color:  rgb(22, 100, 173);
+  }
+
+  .profile-specialization {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 25px;
+  }
+
+  .review-button {
+      background-color: white;
+      color:  rgb(22, 100, 173);
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 30px;
+      margin-bottom:30px;
+      cursor: pointer;
+      border:solid 1px   rgb(22, 100, 173);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .review-button:hover {
+      background-color:   rgb(22, 100, 173);
+      transform: scale(1.05);
+      color:white;
+      
+  }
+
+  @media (max-width: 768px) {
+      .profile-card {
+          flex: 0 0 85%;
+      }
+      .profile-heading{
+        margin-top: -70px;
+      }
+      
+  }
+</style>
+<div class="profile-cards-wrapper">
+  <h2 class="profile-heading">OUR EXECUTIVES</h2>
+  <div class="profile-cards-container">
+      <div class="profile-card">
+          <img src="/static/sujin.png" alt="Profile Picture" class="profile-pic">
+          <h3 class="profile-name">Sujin C Cherian</h3>
+          <p class="profile-specialization">Managing Director</p>
+          <a href="mailto:mdlifeplanner@gmail.com" class="review-button" style="margin-top: 10px;text-decoration:none;">
+              <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i>Contact
+          </a>
+      </div>
+      <div class="profile-card">
+        <img src="/static/Navya.jpg" alt="Profile Picture" class="profile-pic">
+        <h3 class="profile-name">Navya Rajagopal</h3>
+        <p class="profile-specialization">Operations Manager</p>
+        <a href="mailto:navya@lifeplanneruniversal.com" class="review-button" style="margin-top: 10px;text-decoration:none;">
+            <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i>Contact
+        </a>
+    </div>
+   
+      <!-- <div class="profile-card">
+        <img src="/static/mihal.png" alt="Profile Picture" class="profile-pic">
+        <h3 class="profile-name">Mohammed Mihal</h3>
+        <p class="profile-specialization">HR Executive</p>
+        <a href="mailto:hrlifeplanneruniversal@gmail.com" class="review-button" style="margin-top: 10px;text-decoration:none;">
+            <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i>Contact
+        </a>
+    </div> -->
+    
+  <div class="profile-card">
+    <img src="/static/aneeta.jpg" alt="Profile Picture" class="profile-pic">
+    <h3 class="profile-name">Aneeta Mariya</h3>
+    <p class="profile-specialization">Processing Executive</p>
+    <a href="mailto:" class="review-button" style="margin-top: 10px;text-decoration:none;">
+        <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i>Contact
+    </a>
+</div>
+<div class="profile-card">
+    <img src="/static/bintu.jpg" alt="Profile Picture" class="profile-pic">
+    <h3 class="profile-name">Bintu Mariyam Biju</h3>
+    <p class="profile-specialization">Agency Manager</p>
+    <a href="tel:+91 8089030107" class="review-button" style="margin-top: 10px;text-decoration:none;">
+        <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i>Contact
+    </a>
+    
+</div>
+<div class="profile-card">
+  <img src="/static/Ardra.jpg" alt="Profile Picture" class="profile-pic">
+  <h3 class="profile-name">Ardra Unnikrishnan</h3>
+  <p class="profile-specialization">Admission Manager</p>
+  <a href="mailto:lifeplannerktm@gmail.com" class="review-button" style="margin-bottom:10px;text-decoration:none;">
+      <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i>Contact
+  </a>
+</div>
+<div class="profile-card">
+    <img src="/static/aish.jpg" alt="Profile Picture" class="profile-pic">
+    <h3 class="profile-name">Aishwarya A B</h3>
+    <p class="profile-specialization">Admission Manager</p>
+    <a href="mailto:lifeplannercochin@gmail.com" class="review-button" style="margin-bottom:10px;text-decoration:none;">
+        <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i>Contact
+    </a>
+  </div>
+    
+  </div>
+  <div class="join-us-container" style="text-align: center; margin: 40px 0;">
+    <a href="{% url 'lpapp:careers' %}" class="join-us-button" style="
+        display: inline-block;
+        padding: 15px 40px;
+        margin-top: -20px;
+        margin-bottom: 40px;
+        background: linear-gradient(135deg, rgb(22, 100, 173), #416283);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(22, 100, 173, 0.3);
+        border: 2px solid transparent;
+    ">
+        <i class="fas fa-user-plus" style="margin-right: 10px;"></i>Join Our Team
+    </a>
+</div>
+
+
+<style>
+    .flowchart-section {
+      padding: 80px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+      
+    }
+    
+    .flowchart-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 15px;
+    }
+    
+    .flowchart-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #64748b;
+      max-width: 700px;
+      margin: 0 auto 60px;
+      line-height: 1.6;
+    }
+    
+    .flowchart-container {
+      position: relative;
+      min-height: 600px;
+      overflow: hidden;
+    }
+    
+    .flowchart-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, #5f9cad, #8080bc);
+      transform: translateX(-50%);
+      z-index: 1;
+      border-radius: 4px;
+    }
+    
+    .flowchart-nodes {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 40px 0;
+    }
+    
+    .flowchart-node {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .node-container {
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+    }
+    
+    .node-card {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .node-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, #5f9cad, #8080bc);
+    }
+    
+    .node-number {
+      position: absolute;
+      left: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #5f9cad, #8080bc);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 5px 15px rgba(95, 156, 173, 0.3);
+      z-index: 3;
+    }
+    
+    .node-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 10px;
+      padding-left: 15px;
+      position: relative;
+    }
+    
+    .node-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #5f9cad;
+    }
+    
+    .node-description {
+      font-size: 1rem;
+      color: #64748b;
+      line-height: 1.6;
+      padding-left: 15px;
+    }
+    
+    /* Alternate sides for desktop */
+    @media (min-width: 768px) {
+      .flowchart-node:nth-child(odd) .node-container {
+        margin-left: auto;
+        padding-right: 80px;
+      }
+      
+      .flowchart-node:nth-child(even) .node-container {
+        margin-right: auto;
+        padding-left: 80px;
+      }
+      
+      .flowchart-node:nth-child(odd) .node-number {
+        left: auto;
+        right: -25px;
+      }
+    }
+    
+    /* Mobile adjustments */
+    @media (max-width: 767px) {
+      .flowchart-section {
+        padding: 60px 15px;
+      }
+      
+      .flowchart-title {
+        font-size: 2rem;
+      }
+      
+      .flowchart-subtitle {
+        font-size: 1rem;
+        margin-bottom: 40px;
+      }
+      
+      .flowchart-line {
+        left: 30px;
+      }
+      
+      .node-container {
+        padding-left: 80px;
+      }
+      
+      .node-number {
+        left: 5px;
+      }
+      
+      .node-card {
+        padding: 20px;
+      }
+    }
+    
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .flowchart-node {
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
+    }
+    
+    .flowchart-node:nth-child(1) { animation-delay: 0.1s; }
+    .flowchart-node:nth-child(2) { animation-delay: 0.2s; }
+    .flowchart-node:nth-child(3) { animation-delay: 0.3s; }
+    .flowchart-node:nth-child(4) { animation-delay: 0.4s; }
+    .flowchart-node:nth-child(5) { animation-delay: 0.5s; }
+    .flowchart-node:nth-child(6) { animation-delay: 0.6s; }
+    .flowchart-node:nth-child(7) { animation-delay: 0.7s; }
+    .flowchart-node:nth-child(8) { animation-delay: 0.8s; }
+  </style>
+  
+  <section class="flowchart-section">
+    <h2 class="flowchart-title">Our 8-Step Process</h2>
+    <p class="flowchart-subtitle">From initial counseling to post-arrival support, we guide you through every step of your study abroad journey</p>
+    
+    <div class="flowchart-container">
+      <div class="flowchart-line"></div>
+      
+      <div class="flowchart-nodes">
+        <!-- Step 1 -->
+        <div class="flowchart-node">
+          <div class="node-container">
+            <div class="node-number">1</div>
+            <div class="node-card">
+              <h3 class="node-title">Seminars & Webinars</h3>
+              <p class="node-description">Interactive sessions to understand study abroad opportunities, country options, and admission processes.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="flowchart-node">
+          <div class="node-container">
+            <div class="node-number">2</div>
+            <div class="node-card">
+              <h3 class="node-title">Academic & Career Counselling</h3>
+              <p class="node-description">Personalized guidance to choose the right course and university based on your academic background and career goals.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="flowchart-node">
+          <div class="node-container">
+            <div class="node-number">3</div>
+            <div class="node-card">
+              <h3 class="node-title">Profile Assessment</h3>
+              <p class="node-description">Comprehensive evaluation of your academic records, test scores, and extracurriculars to identify strengths.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 4 -->
+        <div class="flowchart-node">
+          <div class="node-container">
+            <div class="node-number">4</div>
+            <div class="node-card">
+              <h3 class="node-title">Admission & Enrollment</h3>
+              <p class="node-description">Assistance with applications, documentation, and communication with universities for successful admission.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 5 -->
+        <div class="flowchart-node">
+          <div class="node-container">
+            <div class="node-number">5</div>
+            <div class="node-card">
+              <h3 class="node-title">Financial Aid Guidance</h3>
+              <p class="node-description">Expert advice on scholarships, education loans, and financial planning for international studies.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 6 -->
+        <div class="flowchart-node">
+          <div class="node-container">
+            <div class="node-number">6</div>
+            <div class="node-card">
+              <h3 class="node-title">Visa Processing Assistance</h3>
+              <p class="node-description">End-to-end support for visa applications, documentation, and interview preparation.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 7 -->
+        <div class="flowchart-node">
+          <div class="node-container">
+            <div class="node-number">7</div>
+            <div class="node-card">
+              <h3 class="node-title">Pre-Departure Briefing</h3>
+              <p class="node-description">Orientation sessions covering accommodation, travel, cultural adaptation, and essential preparations.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 8 -->
+        <div class="flowchart-node">
+          <div class="node-container">
+            <div class="node-number">8</div>
+            <div class="node-card">
+              <h3 class="node-title">Post-Landing Assistance</h3>
+              <p class="node-description">Ongoing support after arrival including airport pickup, accommodation settling, and local orientation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    // Intersection Observer for animation triggering
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+          }
+        });
+      }, {threshold: 0.1});
+      
+      document.querySelectorAll('.flowchart-node').forEach(node => {
+        node.style.animationPlayState = 'paused';
+        observer.observe(node);
+      });
+    });
+  </script>
+
+
+    <style>
         /* Testimonial Section */
     .testimonial-section {
         background-color:transparent;
