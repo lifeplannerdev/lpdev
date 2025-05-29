@@ -2845,7 +2845,356 @@ Toast.fire({
     
     
     </script>
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title1">Frequently Asked Questions</h2>
+                <div class="section-subtitle">Find answers to common questions about studying abroad</div>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" style="outline: none;">
+                        <div class="question-content">
+                            <span class="question-icon"></span>
+                            <span class="question-text">1. Why should I study abroad?</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            <p>Studying abroad offers global exposure, high-quality education, cultural exchange, and better career opportunities, helping you grow personally and professionally.</p>
+                        </div>
+                    </div>
+                </div>
     
+                <div class="faq-item">
+                    <button class="faq-question" style="outline: none;">
+                        <div class="question-content">
+                            <span class="question-icon"></span>
+                            <span class="question-text">2. Do I need a visa to study abroad?</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            <p>Yes, most countries require international students to have a student visa. The type and process depend on the country and length of your program.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question" style="outline: none;">
+                        <div class="question-content">
+                            <span class="question-icon"></span>
+                            <span class="question-text">3. How do I choose the right country and university?</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            <p>Consider your field of study, budget, language, career goals, and lifestyle preferences. Research university rankings, course content, and visa policies to make an informed choice.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question" style="outline: none;">
+                        <div class="question-content">
+                            <span class="question-icon"></span>
+                            <span class="question-text">4. Can I get financial aid or scholarships?</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            <p>Yes, many universities and governments offer scholarships and financial aid for international students based on academic merit, need, or specific programs.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question" style="outline: none;">
+                        <div class="question-content">
+                            <span class="question-icon"></span>
+                            <span class="question-text">5. How long does the student visa process take?</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            <p>The student visa process typically takes 2 to 8 weeks, depending on the country. It's best to apply as early as possible to avoid delays.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+    /* FAQ Section Styles */
+    .faq-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f8fbff 0%, #e6f0fa 100%);
+        position: relative;
+        overflow: hidden;
+        outline: none;
+        transition: all 0.3s ease;
+        position: relative
+    }
+    
+    .faq-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(22, 100, 173, 0.03)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
+        opacity: 0.5;
+        z-index: 0;
+        
+    }
+    
+    .faq-section .container {
+        position: relative;
+        z-index: 1;
+    }
+   
+/* Custom focus indicator */
+.faq-question:focus-visible {
+    
+    border-radius: 8px;
+}
+
+/* Fallback for older browsers */
+.faq-question:focus {
+    
+    border-radius: 8px;
+}
+    .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+        margin-top: -100px;
+    }
+    
+    .section-title1 {
+        color: rgb(22, 100, 173);
+        font-size: 2.8rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+        
+    }
+    
+    .section-title1::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, rgba(22, 100, 173, 0.3) 0%, rgba(22, 100, 173, 1) 50%, rgba(22, 100, 173, 0.3) 100%);
+        border-radius: 2px;
+    }
+    
+    .section-subtitle {
+        color: #666;
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+    
+    .faq-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    .faq-item {
+        background: white;
+        border-radius: 12px;
+        margin-bottom: 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        border: 1px solid rgba(22, 100, 173, 0.1);
+    }
+    
+    .faq-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .faq-question {
+        width: 100%;
+        padding: 25px 30px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #333;
+        background: none;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+        
+        
+    }
+    
+    .question-content {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .question-icon {
+        font-size: 1.4rem;
+        color: rgb(22, 100, 173);
+    }
+    
+    .question-text {
+        transition: color 0.3s ease;
+    }
+    
+    
+    
+    .faq-question:hover .question-text {
+        color: rgb(22, 100, 173);
+    }
+    
+    .faq-question i {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        color: rgba(22, 100, 173, 0.7);
+    }
+    
+    .faq-question.active {
+        
+        outline: none;
+    }
+    
+    .faq-question.active .question-text {
+        color: rgb(22, 100, 173);
+    }
+    
+    .faq-question.active i {
+        transform: rotate(180deg);
+        color: rgb(22, 100, 173);
+    }
+    
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    }
+    
+    .answer-content {
+        padding: 0 30px 30px 70px;
+        position: relative;
+    }
+    
+    .answer-content::before {
+        content: "";
+        position: absolute;
+        left: 40px;
+        top: 0;
+        height: 100%;
+        width: 3px;
+        background: linear-gradient(to bottom, rgba(22, 100, 173, 0.3), rgba(22, 100, 173, 0.8));
+        border-radius: 3px;
+    }
+    
+    .faq-answer.active {
+        max-height: 500px;
+    }
+    
+    .faq-answer p {
+        color: #555;
+        line-height: 1.8;
+        margin: 0;
+        font-size: 1.05rem;
+    }
+    
+    @media (max-width: 768px) {
+        .faq-section {
+            padding: 60px 20px;
+        }
+    
+        .section-title1 {
+            font-size: 2rem;
+        }
+    
+        .section-subtitle {
+            font-size: 1rem;
+            padding: 0 15px;
+        }
+    
+        .faq-question {
+            padding: 18px 20px;
+            font-size: 1.1rem;
+        }
+    
+        .question-icon {
+            font-size: 1.2rem;
+        }
+    
+        .answer-content {
+            padding: 0 20px 20px 50px;
+        }
+    
+        .answer-content::before {
+            left: 30px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .section-title1 {
+            font-size: 1.6rem;
+        }
+    
+        .faq-question {
+            padding: 15px;
+            font-size: 1rem;
+        }
+    
+        .question-content {
+            gap: 10px;
+        }
+    
+        .answer-content {
+            padding: 0 15px 15px 40px;
+        }
+    
+        .answer-content::before {
+            left: 25px;
+        }
+    }
+    </style>
+    
+    <script>
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const answer = button.nextElementSibling;
+            const isActive = button.classList.contains('active');
+    
+            // Close all FAQs first
+            document.querySelectorAll('.faq-question').forEach(otherButton => {
+                if (otherButton !== button) {
+                    otherButton.classList.remove('active');
+                    otherButton.nextElementSibling.classList.remove('active');
+                }
+            });
+    
+            // Toggle current FAQ
+            button.classList.toggle('active');
+            answer.classList.toggle('active');
+        });
+    });
+    </script>
+
     <style>
         /* Slideshow Container */
         .logo-slideshow {
@@ -3387,8 +3736,6 @@ background: linear-gradient(135deg, #5f9cad, #8080bc);
 <!-- Bootstrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-
 
 
 
