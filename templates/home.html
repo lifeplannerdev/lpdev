@@ -233,7 +233,7 @@
     </div>
 </li>                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:blog' %}">Blog</a></li>
                 <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:contact' %}">Contact Us</a></li>
-                <li class="nav-item ml-4 locationLink"><a class="nav-link" href="#" >Location</a></li>
+                <li class="nav-item ml-4 locationLink"><a class="nav-link" href="#" id="locationLink">Location</a></li>
 
             </ul>
         </div>
@@ -258,132 +258,163 @@
   document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
   
       </script>
-    <style>
-        /* Blur background when popup is active */
-        .blur {
-            filter: blur(5px);
-            transition: filter 0.3s ease;
+   <style>
+    /* Blur background when popup is active */
+    .blur {
+        filter: blur(5px);
+        transition: filter 0.3s ease;
+    }
+
+    /* Popup container */
+    .popup {
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    /* Show the popup with animation */
+    .popup.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Popup content */
+    .popup-content {
+        position: absolute;
+        background: linear-gradient(135deg, #80bccd, #7474b1);
+        width: 350px;
+        max-width: 90%;
+        padding: 30px 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    /* Show the popup content with animation */
+    .popup.show .popup-content {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        animation: jelly 0.6s ease forwards;
+    }
+
+    /* Jelly keyframe animation */
+    @keyframes jelly {
+        0% {
+            transform: translate(-50%, -50%) scale(0.6);
         }
-    
-        /* Popup container */
-        .popup {
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+        30% {
+            transform: translate(-50%, -50%) scale(1.2);
         }
-    
-        /* Show the popup with animation */
-        .popup.show {
-            opacity: 1;
-            visibility: visible;
+        50% {
+            transform: translate(-50%, -50%) scale(0.9);
         }
-    
-        /* Popup content */
-        .popup-content {
-            position: absolute;
-            background: linear-gradient(135deg, #80bccd, #7474b1);
-            width: 350px;
-            max-width: 90%;
-            padding: 30px 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) scale(0.8);
-            animation: jelly 0.6s ease forwards;
-            opacity: 0;
+        70% {
+            transform: translate(-50%, -50%) scale(1.05);
         }
-    
-        /* Show the popup content with animation */
-        .popup.show .popup-content {
-            opacity: 1;
-            animation: jelly 0.6s ease forwards;
+        100% {
+            transform: translate(-50%, -50%) scale(1);
         }
-    
-        /* Jelly keyframe animation */
-        @keyframes jelly {
-            0% {
-                transform: translate(-50%, -50%) scale(0.6);
-            }
-            30% {
-                transform: translate(-50%, -50%) scale(1.2);
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(0.9);
-            }
-            70% {
-                transform: translate(-50%, -50%) scale(1.05);
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-        }
-    
-        /* Close button */
-        .close-btn {
-            position: absolute;
-            right: 15px;
-            top: 10px;
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-    
-        .close-btn:hover {
-            color: #f44336;
-        }
-    
-        /* Location buttons */
-        .location-buttons button {
-            background-color: rgb(22, 100, 173);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            margin: 10px;
-            width: 150px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-    
-        .location-buttons button:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
-    
-        .location-buttons button:active {
-            transform: scale(0.95);
-        }
-    
-        /* Prevent scrolling when popup is active */
-        body.no-scroll {
-            overflow: hidden;
-        }
-    </style>
-    
-    <!-- Popup Container -->
-    <div id="locationPopup" class="popup">
-        <div class="popup-content">
-            <span class="close-btn">&times;</span>
-    <h5 style="color:#003290;margin-bottom: 20px;">OUR LOCATIONS</h5>
-            <div class="location-buttons">
-              <a href="https://www.google.com/maps/dir//2nd+Floor,+Thevarolil+Building,+Lal+Bahadur+Shastri+Rd,+Baker+Hill,+Kottayam,+Kerala+686001/@9.5924512,76.4447446,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3b062b0a6569652b:0xa874c155759a8734!2m2!1d76.5271465!2d9.5924609?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D"><button>Kottayam</button></a>
-                <a href="https://www.google.com/maps/place/Life+Planner+Studies+%26+Opportunities+(P)+Ltd./@10.0385265,76.3155546,20.25z/data=!3m1!5s0x3b080db5144e157b:0x65f63ba6964c29fe!4m12!1m5!3m4!2zMTDCsDAyJzE4LjUiTiA3NsKwMTgnNTYuOSJF!8m2!3d10.0384667!4d76.3157994!3m5!1s0x3b080d7a4bc19b43:0x1d4126320c8d21bc!8m2!3d10.0387171!4d76.3158274!16s%2Fg%2F11fjy3mddq?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" style="text-decoration: none;color:white;"> <button>Kochi</button></a>
-            </div>
+    }
+
+    /* Close button */
+    .close-btn {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .close-btn:hover {
+        color: #f44336;
+    }
+
+    /* Location buttons */
+    .location-buttons button {
+        background-color: rgb(22, 100, 173);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        margin: 10px;
+        width: 150px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .location-buttons button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    .location-buttons button:active {
+        transform: scale(0.95);
+    }
+
+    /* Prevent scrolling when popup is active */
+    body.no-scroll {
+        overflow: hidden;
+    }
+</style>
+
+<!-- Popup Container -->
+<div class="popup" id="locationPopup"> <!-- Changed to class-based selection -->
+    <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h5 style="color:#003290;margin-bottom: 20px;">OUR LOCATIONS</h5>
+        <div class="location-buttons">
+            <a href="https://www.google.com/maps/dir//2nd+Floor,+Thevarolil+Building,+Lal+Bahadur+Shastri+Rd,+Baker+Hill,+Kottayam,+Kerala+686001/@9.5924512,76.4447446,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3b062b0a6569652b:0xa874c155759a8734!2m2!1d76.5271465!2d9.5924609?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D"><button>Kottayam</button></a>
+            <a href="https://www.google.com/maps/place/Life+Planner+Studies+%26+Opportunities+(P)+Ltd./@10.0385265,76.3155546,20.25z/data=!3m1!5s0x3b080db5144e157b:0x65f63ba6964c29fe!4m12!1m5!3m4!2zMTDCsDAyJzE4LjUiTiA3NsKwMTgnNTYuOSJF!8m2!3d10.0384667!4d76.3157994!3m5!1s0x3b080d7a4bc19b43:0x1d4126320c8d21bc!8m2!3d10.0387171!4d76.3158274!16s%2Fg%2F11fjy3mddq?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" style="text-decoration: none;color:white;"> <button>Kochi</button></a>
         </div>
     </div>
-    
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get elements
+        const locationLink = document.getElementById('locationLink');
+        const popup = document.querySelector('.popup');
+        const closeBtn = document.querySelector('.close-btn');
+        const body = document.body;
+        
+        // Show popup when location link is clicked
+        locationLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            popup.classList.add('show');
+            body.classList.add('no-scroll');
+        });
+        
+        // Close popup when X button is clicked
+        closeBtn.addEventListener('click', function() {
+            popup.classList.remove('show');
+            body.classList.remove('no-scroll');
+        });
+        
+        // Close popup when clicking outside of it
+        popup.addEventListener('click', function(e) {
+            if (e.target === popup) {
+                popup.classList.remove('show');
+                body.classList.remove('no-scroll');
+            }
+        });
+    });
+</script>
     
    <!-- Hero Section -->
  
@@ -885,7 +916,7 @@
         }
 
         .primary-image1 {
-            height: 300px;
+            height: 350px;
         }
 
         .floating-card1 {
@@ -1047,7 +1078,7 @@ if ('ontouchstart' in window) {
  <div class="modal1" id="popupModal"  >
     <div class="modal-content1" style="margin-top:10px;">
         <span class="close-btn1" id="closeModal">&times;</span>
-        <img src="/static/webinar2.jpeg" alt="Ad Poster" class="modal-poster1">
+        <img src="/static/webinar.jpg" alt="Ad Poster" class="modal-poster1">
         <form id="enrollForm1" method="post">
             {% csrf_token %}
             

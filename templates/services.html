@@ -497,7 +497,7 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
 .content {
     flex: 1;
     overflow: hidden;
-    max-height: 2.5em;
+    max-height: 3.6em; /* Increased from 2.5em to show first point completely */
     transition: max-height 0.3s ease;
 }
 
@@ -510,6 +510,7 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
     list-style-type: disc;
     margin-left: 20px;
     padding-left: 0;
+    margin-top: 0; /* Remove top margin to prevent extra space */
 }
 
 .content ul ul {
@@ -532,7 +533,7 @@ document.querySelector("#check-icon").addEventListener("change", updateNavbarBac
     }
 
     .content {
-        max-height: 2.8em; /* Adjusted to show first point completely */
+        max-height: 3.6em; /* Keep consistent with desktop view */
     }
 
     .content li {
