@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost','.vercel.app','www.lifeplanneruniversa
 
 
 # Application definition
+SITE_ID = 1
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'lpapp',
     'htmlmin',
+    'django.contrib.sites',
+    'django.contrib.sitemaps'
     
 ]
 

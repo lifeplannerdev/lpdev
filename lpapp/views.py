@@ -56,7 +56,6 @@ def blog(request):
 
 
 
-
 def teamupdate(request):
     if request.method == 'POST':
         form = TeamForm(request.POST, request.FILES)
