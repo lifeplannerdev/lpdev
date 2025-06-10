@@ -3,11 +3,9 @@ User-agent: *
 Allow: /
 
 # Disallow sensitive directories
-Disallow: /api/
 Disallow: /admin/
-Disallow: /private/
-Disallow: /temp/
-Disallow: /logs/
+Disallow: /media/resumes/
+Disallow: /static/admin/
 
-# Sitemap location
-Sitemap: https://www.lifeplanneruniversal.com/sitemap.xml 
+# Add sitemap location
+Sitemap: https://www.lifeplanneruniversal.com/sitemap.xml
