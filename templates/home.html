@@ -2936,221 +2936,35 @@ Toast.fire({
     
     
     </script>
-    
-
-    <style>
-        /* Slideshow Container */
-        .logo-slideshow {
-            width: 100%;
-            overflow: hidden;
-            background-color: transparent;
-            padding: 20px 0;
-            position: relative;
-            display: flex;
-            align-items: center;
-            margin-top: -150px;
-        }
-    
-        /* Slideshow Track */
-        .logo-track {
-            display: flex;
-            gap: 40px; /* Space between logos */
-            animation: scroll 20s linear infinite;
-            padding: 20px ;
-            /* Adjust duration for speed */
-        }
-    
-        /* Individual Logo */
-        .logo-slide {
-            min-width: 150px;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            background-color: transparent; 
-            padding: 10px;
-        }
-    
-        /* Logo Image */
-        .logo-slide img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-    
-        /* Keyframes for infinite scroll */
-        @keyframes scroll {
-            from {
-                transform: translateX(0);
-            }
-            to {
-                transform: translateX(-50%);
-            }
-        }
-    
-        /* Pause on hover */
-        .logo-slideshow:hover .logo-track {
-            animation-play-state: paused;
-        }
-    </style>
-    <div class="text-center" style="margin-bottom: 70px;margin-top: 85px;">
-        <h4 class="shimmer-text">PARTNERING UNIVERSITIES & COLLEGES</h4>
-    </div>
-    <style>
-        /* Shimmer Text Effect */
-    .shimmer-text {
-        font-size: 28px;
-        font-weight: bold;
-        text-align: center;
-        color: #003290;
-        background: linear-gradient(90deg, #003290, #002ee8, #a980cd, #003290);
-        background-size: 200% auto;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: shimmer 3s linear infinite;
-        margin-top: 50px;
-        margin-bottom: 30px;
-    }
-    
-    /* Keyframes for Shimmer Effect */
-    @keyframes shimmer {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-    
-    /* Media Queries */
-    
-    /* For screens smaller than 768px (mobile devices) */
-    @media (max-width: 768px) {
-        .shimmer-text {
-            font-size: 22px; /* Smaller font size for mobile */
-            margin-top: 40px;
-            margin-bottom: 40px;
-        }
-    }
-    
-    /* For screens smaller than 480px (very small devices like phones in portrait mode) */
-    @media (max-width: 480px) {
-        .shimmer-text {
-            font-size: 20px; /* Even smaller font size for very small screens */
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-    }
-    
-    /* For larger screens above 1200px (large desktops) */
-    @media (min-width: 1200px) {
-        .shimmer-text {
-            font-size: 32px; /* Increase font size for larger screens */
-            margin-top: 60px;
-            margin-bottom: 70px;
-        }
-    }
-    
-    </style>
-    
-    
-    <div class="logo-slideshow">
-        <div class="logo-track">
-            <!-- Add logo slides here -->
-            <div class="logo-slide">
-                <img src="/static/lodz.png" alt="Logo 1">
+    <!-- <div class="container my-5">
+        <h2 class="text-center mb-5">Meet Our Team</h2>
+        <div class="row">
+            {% for member in team_members %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                   
+                    <img src="{{ member.img.url }}" class="card-img-top" alt="{{ member.name }}" style="height: 300px; object-fit: cover;">
+                    
+                    <div class="card-body">
+                        
+                        <h5 class="card-title">{{ member.name }}</h5>
+                       
+                        <p class="card-text text-muted">{{ member.post }}</p>
+                        
+                        <p class="card-text">{{ member.bio|truncatewords:20 }}</p>
+                    </div>
+                    
+                    <div class="card-footer bg-white">
+                        
+                        <a href="{% url 'lpapp:profile' pk=member.pk %}" class="btn btn-primary">
+                            Leave a Review
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="logo-slide">
-                <img src="https://www.timeshighereducation.com/sites/default/files/styles/article785xauto/public/university-of-warsaw-crest_780.jpg?itok=kCxCOpVf" alt="Logo 1">
-            </div>
-            <div class="logo-slide">
-                <img src="/static/ncu.png" alt="Logo 2">
-            </div>
-            <div class="logo-slide">
-                <img src="https://www.thinkpoland.org/media/schoolimage/image/school_587_1.jpg" alt="Logo 3">
-            </div>
-            <div class="logo-slide">
-                <img src="/static/cc.png" alt="Logo 4">
-            </div>
-            <div class="logo-slide">
-                <img src="/static/IAS.jpg" alt="Logo 4">
-            </div>
-            <div class="logo-slide">
-                <img src="https://digitproject.pl/wp-content/uploads/2023/04/uni2-1.png" alt="Logo 4">
-            </div>
-            <div class="logo-slide">
-                <img src="/static/vum.jpg" alt="Logo 5">
-    
-            </div>
-            <div class="logo-slide">
-                <img src="https://study.gov.pl/sites/default/files/logo_ucz_wiz/88/logo_pwr_kolor_poziom_ang.png" alt="Logo 2">
-            </div>
-            <div class="logo-slide">
-                <img src="/static/ei.jpg" alt="Logo 6">
-            </div>
-            <div class="logo-slide">
-                <img src="https://duhocedutime.edu.vn/wp-content/uploads/2023/06/bsbi-logo.jpg" alt="Logo 6">
-            </div>
-            <div class="logo-slide">
-                <img src="/static/uoe.png" alt="Logo 7">
-            </div>
-            <div class="logo-slide">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLG2TUmFxCLdVhv2trKdck_8wj-kn-YSBMlg&s" alt="Logo 7">
-            </div>
-            <div class="logo-slide">
-                <img src="https://www.sgh.waw.pl/sites/sgh.waw.pl/files/2021-06/godlo-SGH-zielone-png.png" alt="Logo 7">
-            </div>
-    
-            <!-- Duplicate logos seamlessly -->
-            <div class="logo-slide">
-                <img src="/static/lodz.png" alt="Logo 1">
-            </div>
-            <div class="logo-slide">
-                <img src="https://www.timeshighereducation.com/sites/default/files/styles/article785xauto/public/university-of-warsaw-crest_780.jpg?itok=kCxCOpVf" alt="Logo 1">
-            </div>
-            <div class="logo-slide">
-                <img src="/static/ncu.png" alt="Logo 2">
-            </div>
-            <div class="logo-slide">
-                <img src="https://www.thinkpoland.org/media/schoolimage/image/school_587_1.jpg" alt="Logo 3">
-            </div>
-            <div class="logo-slide">
-                <img src="/static/cc.png" alt="Logo 4">
-            </div>
-            <div class="logo-slide">
-                <img src="/static/IAS.jpg" alt="Logo 4">
-            </div>
-            <div class="logo-slide">
-                <img src="/static/vum.jpg" alt="Logo 5">
-            </div>
-            <div class="logo-slide">
-                <img src="https://digitproject.pl/wp-content/uploads/2023/04/uni2-1.png" alt="Logo 4">
-            </div>
-            <div class="logo-slide">
-                <img src="https://study.gov.pl/sites/default/files/logo_ucz_wiz/88/logo_pwr_kolor_poziom_ang.png" alt="Logo 2">
-            </div>
-            <div class="logo-slide">
-                <img src="/static/ei.jpg" alt="Logo 6">
-            </div>
-            <div class="logo-slide">
-                <img src="https://duhocedutime.edu.vn/wp-content/uploads/2023/06/bsbi-logo.jpg" alt="Logo 6">
-            </div>
-            <div class="logo-slide">
-                <img src="/static/uoe.png" alt="Logo 7">
-            </div>
-            <div class="logo-slide">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLG2TUmFxCLdVhv2trKdck_8wj-kn-YSBMlg&s" alt="Logo 7">
-            </div>
-            <div class="logo-slide">
-                <img src="https://www.sgh.waw.pl/sites/sgh.waw.pl/files/2021-06/godlo-SGH-zielone-png.png" alt="Logo 7">
-            </div>
+            {% endfor %}
         </div>
-    </div>
-    
+    </div> -->
     <section class="faq-section">
         <div class="container">
             <div class="section-header">
@@ -3504,6 +3318,220 @@ Toast.fire({
         });
     });
     </script>
+    <style>
+        /* Slideshow Container */
+        .logo-slideshow {
+            width: 100%;
+            overflow: hidden;
+            background-color: transparent;
+            padding: 20px 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-top: -150px;
+        }
+    
+        /* Slideshow Track */
+        .logo-track {
+            display: flex;
+            gap: 40px; /* Space between logos */
+            animation: scroll 20s linear infinite;
+            padding: 20px ;
+            /* Adjust duration for speed */
+        }
+    
+        /* Individual Logo */
+        .logo-slide {
+            min-width: 150px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background-color: transparent; 
+            padding: 10px;
+        }
+    
+        /* Logo Image */
+        .logo-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    
+        /* Keyframes for infinite scroll */
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+    
+        /* Pause on hover */
+        .logo-slideshow:hover .logo-track {
+            animation-play-state: paused;
+        }
+    </style>
+    <div class="text-center" style="margin-bottom: 70px;margin-top: 85px;">
+        <h4 class="shimmer-text">PARTNERING UNIVERSITIES & COLLEGES</h4>
+    </div>
+    <style>
+        /* Shimmer Text Effect */
+    .shimmer-text {
+        font-size: 28px;
+        font-weight: bold;
+        text-align: center;
+        color: #003290;
+        background: linear-gradient(90deg, #003290, #002ee8, #a980cd, #003290);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shimmer 3s linear infinite;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+    
+    /* Keyframes for Shimmer Effect */
+    @keyframes shimmer {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    
+    /* Media Queries */
+    
+    /* For screens smaller than 768px (mobile devices) */
+    @media (max-width: 768px) {
+        .shimmer-text {
+            font-size: 22px; /* Smaller font size for mobile */
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+    }
+    
+    /* For screens smaller than 480px (very small devices like phones in portrait mode) */
+    @media (max-width: 480px) {
+        .shimmer-text {
+            font-size: 20px; /* Even smaller font size for very small screens */
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+    }
+    
+    /* For larger screens above 1200px (large desktops) */
+    @media (min-width: 1200px) {
+        .shimmer-text {
+            font-size: 32px; /* Increase font size for larger screens */
+            margin-top: 60px;
+            margin-bottom: 70px;
+        }
+    }
+    
+    </style>
+    
+    
+    <div class="logo-slideshow">
+        <div class="logo-track">
+            <!-- Add logo slides here -->
+            <div class="logo-slide">
+                <img src="/static/lodz.png" alt="Logo 1">
+            </div>
+            <div class="logo-slide">
+                <img src="https://www.timeshighereducation.com/sites/default/files/styles/article785xauto/public/university-of-warsaw-crest_780.jpg?itok=kCxCOpVf" alt="Logo 1">
+            </div>
+            <div class="logo-slide">
+                <img src="/static/ncu.png" alt="Logo 2">
+            </div>
+            <div class="logo-slide">
+                <img src="https://www.thinkpoland.org/media/schoolimage/image/school_587_1.jpg" alt="Logo 3">
+            </div>
+            <div class="logo-slide">
+                <img src="/static/cc.png" alt="Logo 4">
+            </div>
+            <div class="logo-slide">
+                <img src="/static/IAS.jpg" alt="Logo 4">
+            </div>
+            <div class="logo-slide">
+                <img src="https://digitproject.pl/wp-content/uploads/2023/04/uni2-1.png" alt="Logo 4">
+            </div>
+            <div class="logo-slide">
+                <img src="/static/vum.jpg" alt="Logo 5">
+    
+            </div>
+            <div class="logo-slide">
+                <img src="https://study.gov.pl/sites/default/files/logo_ucz_wiz/88/logo_pwr_kolor_poziom_ang.png" alt="Logo 2">
+            </div>
+            <div class="logo-slide">
+                <img src="/static/ei.jpg" alt="Logo 6">
+            </div>
+            <div class="logo-slide">
+                <img src="https://duhocedutime.edu.vn/wp-content/uploads/2023/06/bsbi-logo.jpg" alt="Logo 6">
+            </div>
+            <div class="logo-slide">
+                <img src="/static/uoe.png" alt="Logo 7">
+            </div>
+            <div class="logo-slide">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLG2TUmFxCLdVhv2trKdck_8wj-kn-YSBMlg&s" alt="Logo 7">
+            </div>
+            <div class="logo-slide">
+                <img src="https://www.sgh.waw.pl/sites/sgh.waw.pl/files/2021-06/godlo-SGH-zielone-png.png" alt="Logo 7">
+            </div>
+    
+            <!-- Duplicate logos seamlessly -->
+            <div class="logo-slide">
+                <img src="/static/lodz.png" alt="Logo 1">
+            </div>
+            <div class="logo-slide">
+                <img src="https://www.timeshighereducation.com/sites/default/files/styles/article785xauto/public/university-of-warsaw-crest_780.jpg?itok=kCxCOpVf" alt="Logo 1">
+            </div>
+            <div class="logo-slide">
+                <img src="/static/ncu.png" alt="Logo 2">
+            </div>
+            <div class="logo-slide">
+                <img src="https://www.thinkpoland.org/media/schoolimage/image/school_587_1.jpg" alt="Logo 3">
+            </div>
+            <div class="logo-slide">
+                <img src="/static/cc.png" alt="Logo 4">
+            </div>
+            <div class="logo-slide">
+                <img src="/static/IAS.jpg" alt="Logo 4">
+            </div>
+            <div class="logo-slide">
+                <img src="/static/vum.jpg" alt="Logo 5">
+            </div>
+            <div class="logo-slide">
+                <img src="https://digitproject.pl/wp-content/uploads/2023/04/uni2-1.png" alt="Logo 4">
+            </div>
+            <div class="logo-slide">
+                <img src="https://study.gov.pl/sites/default/files/logo_ucz_wiz/88/logo_pwr_kolor_poziom_ang.png" alt="Logo 2">
+            </div>
+            <div class="logo-slide">
+                <img src="/static/ei.jpg" alt="Logo 6">
+            </div>
+            <div class="logo-slide">
+                <img src="https://duhocedutime.edu.vn/wp-content/uploads/2023/06/bsbi-logo.jpg" alt="Logo 6">
+            </div>
+            <div class="logo-slide">
+                <img src="/static/uoe.png" alt="Logo 7">
+            </div>
+            <div class="logo-slide">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLG2TUmFxCLdVhv2trKdck_8wj-kn-YSBMlg&s" alt="Logo 7">
+            </div>
+            <div class="logo-slide">
+                <img src="https://www.sgh.waw.pl/sites/sgh.waw.pl/files/2021-06/godlo-SGH-zielone-png.png" alt="Logo 7">
+            </div>
+        </div>
+    </div>
+    
+    
 <style>
     .floating-buttons {
         position: fixed;

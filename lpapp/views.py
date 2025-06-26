@@ -169,6 +169,15 @@ def blog2(request):
 def blog3(request):
     return render(request,"blog3.html")
 
+def blog4(request):
+    return render(request,"blog4.html")
+
+def blog5(request):
+    return render(request,"blog5.html")
+
+def blog6(request):
+    return render(request,"blog6.html")
+
 def demo(request):
     return render(request,"demo.html")
 
@@ -180,6 +189,8 @@ def careers(request):
 def hrlp(request):
     return render(request,"hrlp.html")
 
+
+# supabase storage application submission for careers
 
 import os
 
