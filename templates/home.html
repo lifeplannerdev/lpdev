@@ -1731,7 +1731,7 @@ modal.style.display = "none";
                     </label>
                     <label>
                         <input placeholder="" type="Message" class="input" name="message" style="color:grey;margin-top: 0px;">
-                        <span style="color:grey;margin-top: -15px;">Message</span>
+                        <span style="color:grey;margin-top: -15px;">Message ( Optional )</span>
                     </label>
                     {{ form_as.p }}
                     <button type="submit" class="submit" data-bs-dismiss="modal" style="background-color: grey;" disabled>Submit</button>
@@ -1745,18 +1745,65 @@ modal.style.display = "none";
     const form = document.getElementById('appointmentForm');
     const submitButton = form.querySelector('.submit');
     const requiredFields = form.querySelectorAll('input[required]');
+    const appointmentEmailInput = form.querySelector('input[name="email"]');
+    const appointmentPhoneInput = form.querySelector('input[name="phone_number"]');
 
-    // Function to check if all required fields are filled
+    // Email validation function - only Gmail addresses
+    function validateEmail(email) {
+        const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        return gmailRegex.test(email);
+    }
+
+    // Phone validation function - exactly 10 digits
+    function validatePhone(phone) {
+        const phoneRegex = /^\d{10}$/;
+        return phoneRegex.test(phone);
+    }
+
+    // Function to check if all required fields are filled and valid
     function checkFormCompletion() {
         let allFilled = true;
+        let allValid = true;
+
+        // Check if all required fields are filled
         requiredFields.forEach(function(field) {
             if (!field.value.trim()) {
                 allFilled = false;
             }
         });
 
+        // Validate email if filled
+        if (appointmentEmailInput.value.trim()) {
+            if (!validateEmail(appointmentEmailInput.value.trim())) {
+                allValid = false;
+                appointmentEmailInput.style.borderColor = '#ff4444';
+                appointmentEmailInput.style.boxShadow = '0 0 5px rgba(255, 68, 68, 0.3)';
+            } else {
+                appointmentEmailInput.style.borderColor = '#28a745';
+                appointmentEmailInput.style.boxShadow = '0 0 5px rgba(40, 167, 69, 0.3)';
+            }
+        } else {
+            appointmentEmailInput.style.borderColor = '';
+            appointmentEmailInput.style.boxShadow = '';
+        }
+
+        // Validate phone if filled
+        if (appointmentPhoneInput.value.trim()) {
+            if (!validatePhone(appointmentPhoneInput.value.trim())) {
+                allValid = false;
+                appointmentPhoneInput.style.borderColor = '#ff4444';
+                appointmentPhoneInput.style.boxShadow = '0 0 5px rgba(255, 68, 68, 0.3)';
+            } else {
+                appointmentPhoneInput.style.borderColor = '#28a745';
+                appointmentPhoneInput.style.boxShadow = '0 0 5px rgba(40, 167, 69, 0.3)';
+            }
+        } else {
+            appointmentPhoneInput.style.borderColor = '';
+            appointmentPhoneInput.style.boxShadow = '';
+        }
+
         // Update the button's style and enabled state
-        if (allFilled) {
+        if (allFilled && allValid) {
             submitButton.style.backgroundColor = 'blue';  // Change to blue
             submitButton.disabled = false;  // Enable the button
         } else {
@@ -1768,6 +1815,52 @@ modal.style.display = "none";
     // Attach event listeners to all required input fields
     requiredFields.forEach(function(field) {
         field.addEventListener('input', checkFormCompletion);  // Check on each input change
+        field.addEventListener('blur', checkFormCompletion);   // Check when field loses focus
+    });
+
+    // Add specific validation messages
+    appointmentEmailInput.addEventListener('blur', function() {
+        if (this.value.trim() && !validateEmail(this.value.trim())) {
+            // Show error message
+            let errorMsg = this.parentNode.querySelector('.error-message');
+            if (!errorMsg) {
+                errorMsg = document.createElement('div');
+                errorMsg.className = 'error-message';
+                errorMsg.style.color = '#ff4444';
+                errorMsg.style.fontSize = '12px';
+                errorMsg.style.marginTop = '5px';
+                this.parentNode.appendChild(errorMsg);
+            }
+            errorMsg.textContent = 'Please enter a valid Gmail address (e.g., example@gmail.com)';
+        } else {
+            // Remove error message
+            const errorMsg = this.parentNode.querySelector('.error-message');
+            if (errorMsg) {
+                errorMsg.remove();
+            }
+        }
+    });
+
+    appointmentPhoneInput.addEventListener('blur', function() {
+        if (this.value.trim() && !validatePhone(this.value.trim())) {
+            // Show error message
+            let errorMsg = this.parentNode.querySelector('.error-message');
+            if (!errorMsg) {
+                errorMsg = document.createElement('div');
+                errorMsg.className = 'error-message';
+                errorMsg.style.color = '#ff4444';
+                errorMsg.style.fontSize = '12px';
+                errorMsg.style.marginTop = '2px';
+                this.parentNode.appendChild(errorMsg);
+            }
+            errorMsg.textContent = 'Please enter 10 digits for phone number';
+        } else {
+            // Remove error message
+            const errorMsg = this.parentNode.querySelector('.error-message');
+            if (errorMsg) {
+                errorMsg.remove();
+            }
+        }
     });
 
     // Initial check when the page loads
@@ -1776,6 +1869,48 @@ modal.style.display = "none";
     // Submit form event
     form.addEventListener('submit', function(event) {
         event.preventDefault();  // Prevent default form submission
+
+        // Final validation before submission
+        const email = appointmentEmailInput.value.trim();
+        const phone = appointmentPhoneInput.value.trim();
+
+        if (!validateEmail(email)) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: "error",
+                title: "Please enter a valid Gmail address"
+            });
+            return;
+        }
+
+        if (!validatePhone(phone)) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: "error",
+                title: "Please enter exactly 10 digits for phone number"
+            });
+            return;
+        }
 
         // If form is valid (submit button is enabled), submit via fetch
         if (submitButton.disabled === false) {
@@ -1807,6 +1942,13 @@ Toast.fire({
 });
                     form.reset();  // Reset the form
                     checkFormCompletion();  // Recheck form state
+                    
+                    // Clear any error messages
+                    document.querySelectorAll('.error-message').forEach(msg => msg.remove());
+                    appointmentEmailInput.style.borderColor = '';
+                    appointmentEmailInput.style.boxShadow = '';
+                    appointmentPhoneInput.style.borderColor = '';
+                    appointmentPhoneInput.style.boxShadow = '';
                 } else {
                     const Toast = Swal.mixin({
   toast: true,
@@ -3506,6 +3648,9 @@ Toast.fire({
             </div>
             <div class="logo-slide">
                 <img src="/static/vum.jpg" alt="Logo 5">
+            </div>
+            <div class="logo-slide">
+                <img src="/static/vum.jpg" alt="Logo 4">
             </div>
             <div class="logo-slide">
                 <img src="https://digitproject.pl/wp-content/uploads/2023/04/uni2-1.png" alt="Logo 4">
