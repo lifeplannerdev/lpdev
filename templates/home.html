@@ -3171,7 +3171,7 @@ Toast.fire({
                     </div>
                     <div class="member-card-footer card-footer bg-transparent border-0 text-center pb-4">
                         <a href="{% url 'lpapp:profile' pk=member.pk %}" class="member-card-btn btn btn-primary px-4">
-                            Leave a Review <i class="fas fa-arrow-right ms-2"></i>
+                            Reviews <i class="fas fa-arrow-right ms-2 ml-2"></i>
                         </a>
                     </div>
                 </div>
@@ -3202,7 +3202,7 @@ Toast.fire({
                         </div>
                         <div class="member-card-footer card-footer bg-transparent border-0 text-center pb-4">
                             <a href="{% url 'lpapp:profile' pk=member.pk %}" class="member-card-btn btn btn-primary px-4">
-                                Leave a Review <i class="fas fa-arrow-right ms-2"></i>
+                                Reviews <i class="fas fa-arrow-right ms-2 ml-2"></i>
                             </a>
                         </div>
                     </div>
@@ -3254,15 +3254,16 @@ Toast.fire({
         
         /* Card Styles */
         .member-card {
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.164);
             transition: all 0.3s ease;
             background: #fff;
             height: 100%;
             display: flex;
             flex-direction: column;
             width: 100%;
+            
         }
         
         .member-card:hover {
