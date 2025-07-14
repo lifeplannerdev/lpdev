@@ -45,7 +45,8 @@ def home(request):
         'team_members': team_members,  # Pass the team members to the template
     })
 
-
+def kochi(request):
+    return render(request,"kochi.html")
 
 
 def service(request):

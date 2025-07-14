@@ -4,6 +4,7 @@ app_name='lpapp'
 
 urlpatterns = [
    path('',views.home,name='home'),
+   path('kochi/',views.kochi,name='kochi'),
    path('service/',views.service,name='service'),
    path('blog/',views.blog,name='blog'),
    path('teamupdate/', views.teamupdate, name='teamupdate'),
