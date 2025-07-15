@@ -455,8 +455,8 @@ opportunities, and visa success rates."
         <span class="close-btn">&times;</span>
         <h5 style="color:#003290;margin-bottom: 20px;">OUR LOCATIONS</h5>
         <div class="location-buttons">
-            <a href="https://www.google.com/maps/dir//2nd+Floor,+Thevarolil+Building,+Lal+Bahadur+Shastri+Rd,+Baker+Hill,+Kottayam,+Kerala+686001/@9.5924512,76.4447446,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3b062b0a6569652b:0xa874c155759a8734!2m2!1d76.5271465!2d9.5924609?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D"><button>Kottayam</button></a>
-            <a href="https://www.google.com/maps/place/Life+Planner+Studies+%26+Opportunities+(P)+Ltd./@10.0385265,76.3155546,20.25z/data=!3m1!5s0x3b080db5144e157b:0x65f63ba6964c29fe!4m12!1m5!3m4!2zMTDCsDAyJzE4LjUiTiA3NsKwMTgnNTYuOSJF!8m2!3d10.0384667!4d76.3157994!3m5!1s0x3b080d7a4bc19b43:0x1d4126320c8d21bc!8m2!3d10.0387171!4d76.3158274!16s%2Fg%2F11fjy3mddq?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" style="text-decoration: none;color:white;"> <button>Kochi</button></a>
+            <a href="#"><button>Kottayam</button></a>
+            <a href="{% url 'lpapp:kochi' %}" style="text-decoration: none;color:white;"> <button>Kochi</button></a>
         </div>
     </div>
 </div>
@@ -682,7 +682,7 @@ opportunities, and visa success rates."
         border-radius: 60px;
         cursor: pointer;
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        
         position: relative;
         overflow: hidden;
         backdrop-filter: blur(10px);
@@ -1080,9 +1080,9 @@ opportunities, and visa success rates."
     <p class="hero-description1">Trusted study abroad consultants in Kerala offering expert guidance, visa support, and admission help for students across the state.</p>
     <div class="hero-actions1">
         <button type="button1" class="hero-button1" id="learnMoreBtn">Enroll Now</button>
-        <a href="{% url 'lpapp:kochi' %}" class="secondary-button1" style="text-decoration: none;color:white;">
+        <a href="{% url 'lpapp:about' %}" class="secondary-button1" style="text-decoration: none;color:white;">
 
-            Kochi 
+            About Us 
                 <i class="fa-solid fa-circle-arrow-right" style="margin-left: 8px;"></i>
         </a>
     </div>
@@ -1658,6 +1658,7 @@ modal.style.display = "none";
             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; opacity: 0.9;"
             loading="lazy"
           >
+          
         </div>
         
       </div>
@@ -1700,6 +1701,7 @@ modal.style.display = "none";
         <button data-bs-toggle="modal" data-bs-target="#appointmentModal" style="padding: 18px 40px; font-size: 1rem; font-weight: 600; color: white; background:linear-gradient(135deg, #5f9cad, #8080bc); border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);">
           Book Free Consultation
         </button>
+        
         
       </div>
     </div>
