@@ -155,8 +155,21 @@ def germany(request):
 def studycanada(request):
     return render(request,"studycanada.html")   
  
-def studyeurope(request):
-    return render(request,"studyeurope.html")  
+def studyeurope(request, country=None):
+    # List of valid country slugs
+    valid_countries = ['germany', 'poland', 'bulgaria', 'spain', 'malta', 
+                      'italy', 'hungary', 'sweden', 'france', 'moldova']
+    
+    # Set default country if none provided or invalid
+    if not country or country.lower() not in valid_countries:
+        country = 'germany'
+    else:
+        country = country.lower()
+    
+    context = {
+        'active_country': country,
+    }
+    return render(request, "studyeurope.html", context) 
 
 def about(request):
     return render(request,"about.html")
