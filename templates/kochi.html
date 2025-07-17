@@ -1086,7 +1086,7 @@
         align-items: flex-start;
         
     }
-    .view-more-card img {
+    .view-more-card dotlottie-player {
         margin-bottom: 0 !important;
         margin-right: 16px;
         width: 60px !important;
@@ -1097,6 +1097,7 @@
     .view-more-card span {
         font-size: 1.4rem !important;
         justify-content: flex-start;
+        
     }
                 }
             
@@ -1174,8 +1175,15 @@
                     <!-- Card 5: View More (replaces Bulgaria) -->
                     <div class="bento-card view-more-card" style="display: flex; align-items: center; justify-content: center; background:linear-gradient(135deg, #5f9cad, #8080bc); color: white; cursor: pointer;">
                         <a href="{% url 'lpapp:studyeurope' %}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; text-decoration: none; color: inherit;">
-                            <img src="/static/world2.gif" alt="World" style="width: 120px; height: 120px; margin-bottom: 10px;" />
-                            
+                            <dotlottie-player 
+                            src="/static/earth10.json" 
+                            background="transparent" 
+                            speed="1" 
+                            style="width: 200px; height: 200px;" 
+                            loop 
+                            autoplay>
+                        </dotlottie-player>
+                        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>                            
                             <span style="font-size: 1.5rem; font-weight: bold;">View All
                                 <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 8px;"></i>
                             </span>
