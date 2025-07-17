@@ -1444,12 +1444,12 @@ modal.style.display = "none";
       background: linear-gradient(135deg, #5f9cad, #8080bc);
     }
     
-    .about-image2 img {
+    .about-image2 dotlottie-player {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 90%;
+      height: 90%;
       object-fit: cover;
       mix-blend-mode: multiply;
       opacity: 0.9;
@@ -1652,12 +1652,21 @@ modal.style.display = "none";
       <!-- Image Column (Left) -->
       <div class="about-image2" style="flex: 1; min-width: 0; position: relative; border-radius: 30px; overflow: hidden;">
      <div style="padding-bottom: 100%; position: relative;">
-          <img 
+          <!-- <img 
             src="/static/life88.jpg" 
             alt="Life Planner team counseling students"
             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; opacity: 0.9;"
             loading="lazy"
-          >
+          > -->
+          <dotlottie-player 
+                            src="/static/abroad.json" 
+                            background="transparent" 
+                            speed="1" 
+                             
+                            loop 
+                            autoplay>
+                        </dotlottie-player>
+                        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
           
         </div>
         
