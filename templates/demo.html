@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emma & James - Wedding Invitation</title>
+    <title>Sharon & Liya - Wedding Invitation</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -20,6 +20,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+        }
+
+        .reception-heading {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .reception-heading i {
+            margin: 0 10px;
+            color: #ff9a9e;
         }
 
         .invitation-container {
@@ -199,6 +213,9 @@
             font-size: 22px;
             font-weight: bold;
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .venue-address {
@@ -212,6 +229,7 @@
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             height: 300px;
+            position: relative;
         }
 
         .map-placeholder {
@@ -225,6 +243,27 @@
             font-size: 18px;
             text-align: center;
             padding: 20px;
+        }
+
+        .map-link {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.9);
+            padding: 5px 10px;
+            border-radius: 20px;
+            color: #0984e3;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .map-link:hover {
+            background: white;
+            transform: translateY(-2px);
         }
 
         .rsvp-section {
@@ -285,6 +324,10 @@
             .header {
                 padding: 30px 20px;
             }
+            
+            .reception-heading {
+                font-size: 24px;
+            }
         }
 
         .decorative-element {
@@ -321,6 +364,7 @@
     </style>
 </head>
 <body>
+
     <div class="invitation-container">
         <div class="decorative-element"></div>
         <div class="decorative-element"></div>
@@ -354,50 +398,57 @@
                         <i class="fas fa-church church-icon"></i>
                         <div>CRUZ MILAGRES CATHOLIC CHURCH</div>
                         <div style="font-size: 14px; margin-top: 10px; opacity: 0.8;">
-                           
+                            Ochanthuruth, Kochi, Kerala
                         </div>
                     </div>
                 </div>
-                <div class="section">
-                    <h2>Location</h2>
-                    <div class="map-container">
-                        <div class="map-placeholder">
-                            <div>
-                                <i class="fas fa-map-marker-alt" style="font-size: 48px; margin-bottom: 15px;"></i>
-                                <div><iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d126552.95223823973!2d76.15743809549829!3d10.000411866462604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3b0812eee64a9fa9%3A0xbb50c5f55a49d03c!2s262Q%2B5W8%2C%20Ochanthuruth%2C%20Kochi%2C%20Kerala%20682508!3m2!1d10.000422!2d76.23984!5e1!3m2!1sen!2sin!4v1753261837576!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-                                <div style="font-size: 14px; margin-top: 10px; opacity: 0.9;">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
                 <div class="venue-details">
-                    <div class="venue-name">Reception</div>
+                    <div class="venue-name">
+                        <i class="fas fa-map-marker-alt"></i> Church Location
+                    </div>
                     <div class="venue-address">
-                        Ochanthuruth Service Co Operative Bank Auditorium <br>
-                        in Puthuvype, Ernakulam<br>
-                        
+                        262Q+5W8, Ochanthuruth, Kochi, Kerala 682508
                     </div>
                 </div>
-            </div>
-            <div class="section">
-                <h2>Location</h2>
                 <div class="map-container">
-                    <div class="map-placeholder">
-                        <div>
-                            <i class="fas fa-map-marker-alt" style="font-size: 48px; margin-bottom: 15px;"></i>
-                            <div><iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d126551.50555689634!2d76.15078609555069!3d10.004125562853678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3b0812e5244ceb81%3A0xa0433ee95900acea!2s263M%2BM74%2C%20Pallipuram%20Road%2C%20Vypin%20Munapam%20Road%20Vypin%20Munapam%2C%20Ochanthuruth%2C%20Kochi%2C%20Kerala%20682508!3m2!1d10.0042032!2d76.2331489!5e1!3m2!1sen!2sin!4v1753262356520!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-                            <div style="font-size: 14px; margin-top: 10px; opacity: 0.9;">
-                                
-                            </div>
-                        </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d126552.95223823973!2d76.15743809549829!3d10.000411866462604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3b0812eee64a9fa9%3A0xbb50c5f55a49d03c!2s262Q%2B5W8%2C%20Ochanthuruth%2C%20Kochi%2C%20Kerala%20682508!3m2!1d10.000422!2d76.23984!5e1!3m2!1sen!2sin!4v1753261837576!5m2!1sen!2sin" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <a href="https://maps.google.com/maps?q=Cruz+Milagres+Catholic+Church+Ochanthuruth" target="_blank" class="map-link">
+                        <i class="fas fa-external-link-alt"></i> Open in Maps
+                    </a>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Reception Venue</h2>
+                <div class="venue-details">
+                    <div class="venue-name">
+                        <i class="fas fa-utensils"></i> 
                     </div>
+                    <div class="venue-address">
+                        Ochanthuruth Service Co Operative Bank Auditorium<br>
+                        Puthuvype, Ernakulam, Kerala 682508
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d126551.50555689634!2d76.15078609555069!3d10.004125562853678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3b0812e5244ceb81%3A0xa0433ee95900acea!2s263M%2BM74%2C%20Pallipuram%20Road%2C%20Vypin%20Munapam%20Road%20Vypin%20Munapam%2C%20Ochanthuruth%2C%20Kochi%2C%20Kerala%20682508!3m2!1d10.0042032!2d76.2331489!5e1!3m2!1sen!2sin!4v1753262356520!5m2!1sen!2sin" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <a href="https://maps.google.com/maps?q=Ochanthuruth+Service+Co+Operative+Bank+Auditorium+Puthuvype" target="_blank" class="map-link">
+                        <i class="fas fa-external-link-alt"></i> Open in Maps
+                    </a>
                 </div>
             </div>
            
-           
+            <!-- <div class="section">
+                <div class="rsvp-section">
+                    <h2>RSVP</h2>
+                    <div class="rsvp-details">
+                        Please let us know if you'll be joining us for our special day<br>
+                        Contact: +91 1234567890
+                    </div>
+                </div>
+            </div> -->
+        </div>
 
         <div class="footer">
             <div>"Love is not just looking at each other, it's looking in the same direction together"</div>
