@@ -491,7 +491,448 @@ opportunities, and visa success rates."
         });
     });
 </script>
+    <!-- Add this just before the closing </body> tag -->
+<div class="inauguration-modal" id="inaugurationModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <h2>Grand Opening Celebration!</h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="ribbon">
+          <span>New Location</span>
+        </div>
+        <div class="content-wrapper">
+          <div class="left-section">
+            <div class="date-circle">
+              <div class="month">AUG</div>
+              <div class="day">04</div>
+              <div class="year">2025</div>
+            </div>
+          </div>
+          <div class="right-section">
+            <h3>We're thrilled to open our new office in Kottayam!</h3>
+            <p class="invitation-text">You're cordially invited to join our special inauguration ceremony on Monday, August 4th 2025</p>
+            <div class="details">
+              <p><i class="fas fa-map-marker-alt"></i> Railway Rd Nagampadam, Kottayam,Kerala</p>
+              <p><i class="fas fa-clock"></i> 10:00 AM onwards</p>
+              <p><i class="fas fa-glass-cheers"></i> Refreshments & Social events</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="engaging-text">
+            <p> <span class="highlight">Let's make this grand opening memorable together!</span></p>
+          </div>
+          <button class="remind-btn">Remind Me Later</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+  /* Inauguration Modal Styles */
+  .inauguration-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 9999;
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .modal-content {
+    position: relative;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 5% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+    animation: slideUp 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  
+  .modal-header {
+    background: linear-gradient(135deg, #1664ad, #5f9cad);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .modal-header h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 2;
+  }
+  
+  .close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 3;
+  }
+  
+  .close-modal:hover {
+    transform: scale(1.2);
+    color: #ffeb3b;
+  }
+  
+  .modal-body {
+    padding: 30px;
+    position: relative;
+  }
+  
+  .ribbon {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    width: 150px;
+    height: 40px;
+    background: linear-gradient(45deg, #ff8a00, #ff0058);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%, 5% 50%);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 1;
+  }
+  
+  .ribbon span {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+  
+  .content-wrapper {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .left-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .date-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1664ad, #5f9cad);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 3px solid white;
+  }
+  
+  .month {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  
+  .day {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1;
+  }
+  
+  .year {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  .right-section {
+    flex: 2;
+  }
+  
+  .right-section h3 {
+    color: #1664ad;
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .invitation-text {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-style: italic;
+    font-weight: 500;
+  }
+  
+  .details p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .details i {
+    margin-right: 10px;
+    color: #1664ad;
+    width: 20px;
+    text-align: center;
+  }
+  
+  .modal-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .engaging-text {
+    margin-bottom: 20px;
+  }
+  
+  .engaging-text {
+    padding: 15px;
+    background-color: rgba(22, 100, 173, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .engaging-text p {
+    margin: 0;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .highlight {
+    color: #1664ad;
+    font-weight: bold;
+  }
+  
+  .engaging-text a {
+    color: #1664ad;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+  
+  .engaging-text a:hover {
+    color: #ff8a00;
+    text-decoration: underline;
+  }
+  
+  .remind-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    background: white;
+    color: #1664ad;
+    border: 1px solid #1664ad;
+    margin: 0 auto;
+  }
+  
+  .remind-btn:hover {
+    background: #f5f5f5;
+  }
+  
+  /* Confetti animation */
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f0f0f0;
+    opacity: 0.7;
+    animation: confettiFall 5s linear infinite;
+  }
+  
+  @keyframes confettiFall {
+    0% {
+      transform: translateY(-100px) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  /* Position confetti randomly */
+  .confetti:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    background-color: #ffeb3b;
+  }
+  .confetti:nth-child(2) {
+    left: 20%;
+    animation-delay: 0.5s;
+    background-color: #4caf50;
+  }
+  .confetti:nth-child(3) {
+    left: 30%;
+    animation-delay: 1s;
+    background-color: #2196f3;
+  }
+  .confetti:nth-child(4) {
+    left: 40%;
+    animation-delay: 1.5s;
+    background-color: #ff5722;
+  }
+  .confetti:nth-child(5) {
+    left: 50%;
+    animation-delay: 2s;
+    background-color: #9c27b0;
+  }
+  .confetti:nth-child(6) {
+    left: 60%;
+    animation-delay: 2.5s;
+    background-color: #e91e63;
+  }
+  .confetti:nth-child(7) {
+    left: 70%;
+    animation-delay: 3s;
+    background-color: #00bcd4;
+  }
+  .confetti:nth-child(8) {
+    left: 80%;
+    animation-delay: 3.5s;
+    background-color: #8bc34a;
+  }
+  .confetti:nth-child(9) {
+    left: 90%;
+    animation-delay: 4s;
+    background-color: #ff9800;
+  }
+  .confetti:nth-child(10) {
+    left: 100%;
+    animation-delay: 4.5s;
+    background-color: #607d8b;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { 
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to { 
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .modal-content {
+      width: 95%;
+      margin: 10% auto;
+    }
     
+    .content-wrapper {
+      flex-direction: column;
+    }
+    
+    .left-section {
+      margin-bottom: 20px;
+    }
+    
+    .right-section h3 {
+      font-size: 1.3rem;
+    }
+    
+    .engaging-text {
+      font-size: 14px;
+    }
+  }
+  </style>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('inaugurationModal');
+      const lastShownKey = 'inaugurationModalLastShown';
+      const remindLaterKey = 'inaugurationModalRemindLater';
+      
+      // Check if user clicked "Remind Me Later" last time
+      const remindLater = localStorage.getItem(remindLaterKey);
+      const now = new Date().getTime();
+      
+      // Show immediately if:
+      // 1. First visit (no lastShown time) AND not coming from "Remind Me Later"
+      // OR
+      // 2. It's been more than 2 minutes since last shown
+      const lastShown = localStorage.getItem(lastShownKey);
+      const shouldShow = (!lastShown && !remindLater) || 
+                        (lastShown && (now - parseInt(lastShown)) > 120000);
+    
+      if (shouldShow) {
+        setTimeout(function() {
+          modal.style.display = 'block';
+          document.body.classList.add('modal-open');
+          localStorage.setItem(lastShownKey, now.toString());
+          localStorage.removeItem(remindLaterKey); // Clear remind later flag
+        }, 2000);
+      }
+      
+      // Close modal when X is clicked
+      document.querySelector('.close-modal').addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+      });
+      
+      // Close modal when Remind Me Later is clicked
+      document.querySelector('.remind-btn').addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+        localStorage.setItem(remindLaterKey, 'true');
+      });
+      
+      // Close modal when clicking outside
+      window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+          modal.style.display = 'none';
+          document.body.classList.remove('modal-open');
+        }
+      });
+    });
+    </script>
    <!-- Hero Section -->
 <style>
     * {
