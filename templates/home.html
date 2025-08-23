@@ -2295,16 +2295,16 @@ Toast.fire({
   font-size: 10px;
 }
 
-/* Enhanced mobile responsiveness */
-@media (max-width: 576px) {
+/* Tablet optimization */
+@media (max-width: 768px) and (min-width: 577px) {
   .form {
-    padding: 20px 18px;
-    gap: 12px;
+    padding: 18px 20px;
+    gap: 10px;
   }
   
   .title {
-    font-size: 22px;
-    padding-left: 36px;
+    font-size: 24px;
+    padding-left: 38px;
   }
   
   .title::before {
@@ -2312,35 +2312,131 @@ Toast.fire({
     height: 28px;
   }
   
-  .title::after {
-    left: 7px;
-    font-size: 12px;
-  }
-  
   .flex {
-    flex-direction: column;
     gap: 10px;
   }
   
   .form label .input {
     padding: 12px 12px;
+    font-size: 13px;
+  }
+  
+  .submit {
+    padding: 12px 20px;
     font-size: 14px;
+  }
+}
+
+/* Enhanced mobile responsiveness */
+@media (max-width: 576px) {
+  .form {
+    padding: 16px 14px 14px 14px;
+    gap: 8px;
+    border-radius: 16px;
+  }
+  
+  .title {
+    font-size: 20px;
+    padding-left: 32px;
+    margin-bottom: 2px;
+  }
+  
+  .title::before {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .title::after {
+    left: 6px;
+    font-size: 11px;
+  }
+  
+  .message {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+  
+  .flex {
+    flex-direction: row;
+    gap: 8px;
+  }
+  
+  .form label .input {
+    padding: 10px 10px;
+    font-size: 13px;
+    border-radius: 10px;
   }
   
   .form label .input + span {
-    left: 12px;
-    font-size: 13px;
+    left: 10px;
+    top: 10px;
+    font-size: 12px;
   }
   
   .form label .input:focus + span,
   .form label .input:valid + span {
-    left: 8px;
-    font-size: 10px;
+    left: 6px;
+    top: -6px;
+    font-size: 9px;
+    padding: 0 3px;
   }
   
   .submit {
-    padding: 12px 18px;
-    font-size: 14px;
+    padding: 10px 16px;
+    font-size: 13px;
+    margin-top: 2px;
+    border-radius: 10px;
+  }
+  
+  /* Make single-field inputs more compact */
+  .form label:not(.flex .form label) .input {
+    padding: 9px 10px;
+  }
+  
+  .form label:not(.flex .form label) .input + span {
+    top: 9px;
+  }
+  
+  .form label:not(.flex .form label) .input:focus + span,
+  .form label:not(.flex .form label) .input:valid + span {
+    top: -6px;
+  }
+}
+
+/* Extra small screens optimization */
+@media (max-width: 380px) {
+  .form {
+    padding: 12px 10px;
+    gap: 6px;
+  }
+  
+  .title {
+    font-size: 18px;
+    padding-left: 28px;
+  }
+  
+  .title::before {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .title::after {
+    left: 5.5px;
+    font-size: 10px;
+  }
+  
+  .flex {
+    gap: 6px;
+  }
+  
+  .form label .input {
+    padding: 8px 8px;
+    font-size: 12px;
+  }
+  
+  .submit {
+    padding: 8px 14px;
+    font-size: 12px;
   }
 }
 
