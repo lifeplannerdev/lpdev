@@ -468,7 +468,10 @@
         position: relative;
         display: flex;
         align-items: center;
-        background: linear-gradient(135deg, #5f9cad, #8080bc);
+        background-color: #8ec5d4;
+    background-image: 
+        radial-gradient(at 47% 33%, hsl(188, 51%, 61%) 0, transparent 59%), 
+        radial-gradient(at 82% 65%, hsl(279, 47%, 68%) 0, transparent 55%);
     }
 
     .hero-section1::before {
@@ -1069,7 +1072,7 @@
 </div>
 <div class="hero-image1">
     <div class="image-container1">
-        <img src="/static/header2.png" alt="Students studying" class="primary-image1">
+        <img src="/static/header3.png" alt="Students studying" class="primary-image1">
     </div>
     
     <div class="floating-card1">
@@ -1772,13 +1775,13 @@ modal.style.display = "none";
         .section-title {
             font-size: 2.5rem;
             font-weight: 800;
-            color: #1a202c;
+            color: #5f9cad;
             line-height: 1.2;
             margin-bottom: 16px;
         }
         
         .section-title span {
-            color: #1664ad;
+            color: #5f9cad;
         }
         
         .bento-grid {
@@ -1810,15 +1813,25 @@ modal.style.display = "none";
         .franchise-card {
             grid-column: span 6;
             grid-row: span 2;
-            background: linear-gradient(135deg, #5f9cad 0%, #8080bc 100%);
-            color: white;
+ background-color: #8ec5d4;
+    background-image: 
+        radial-gradient(at 47% 33%, hsl(188, 51%, 61%) 0, transparent 59%), 
+        radial-gradient(at 82% 65%, hsl(279, 47%, 68%) 0, transparent 55%);
+
+            color: rgb(255, 255, 255);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.363);
         }
         
         .distributor-card {
             grid-column: span 6;
             grid-row: span 2;
-            background: linear-gradient(135deg, #5f9cad 0%, #8080bc 100%);
-            color: white;
+ background-color: #8ec5d4;
+    background-image: 
+        radial-gradient(at 47% 33%, hsl(188, 51%, 61%) 0, transparent 59%), 
+        radial-gradient(at 82% 65%, hsl(279, 47%, 68%) 0, transparent 55%);
+
+            color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.363);
         }
         
         /* Success Stories */
@@ -1903,8 +1916,12 @@ modal.style.display = "none";
         }
         
         .franchise-cta {
-            background: white;
+           background-color: #ffffff;
+    
+
             color: #5f9cad;
+            border-radius: 12px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.563);
         }
         
         .franchise-cta:hover {
@@ -1913,8 +1930,12 @@ modal.style.display = "none";
         }
         
         .distributor-cta {
-            background: white;
-            color: #1664ad;
+              background-color: #ffffff;
+    
+
+            color: #5f9cad;
+            border-radius: 12px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.563);
         }
         
         .distributor-cta:hover {
@@ -1941,7 +1962,7 @@ modal.style.display = "none";
         .stat-number {
             font-size: 1.5rem;
             font-weight: 800;
-            color: #1664ad;
+            color: #5f9cad;
             display: block;
         }
         
@@ -1956,7 +1977,11 @@ modal.style.display = "none";
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #5f9cad, #8080bc);
+            background-color: #8ec5d4;
+    background-image: 
+        radial-gradient(at 47% 33%, hsl(188, 51%, 61%) 0, transparent 59%), 
+        radial-gradient(at 82% 65%, hsl(279, 47%, 68%) 0, transparent 55%);
+
             margin: 0 auto 12px;
             display: flex;
             align-items: center;
@@ -2651,9 +2676,8 @@ modal.style.display = "none";
             <div class="bento-grid">
                 <!-- Franchise Partner Card -->
                 <div class="bento-item franchise-card">
-                    <div class="card-header">
+                    <div class="card-header" style="background: transparent;">
                         <h4 class="card-title">Franchise Partner</h4>
-                        <p class="card-subtitle">Build Your Educational Empire</p>
                     </div>
                     <ul class="card-features partnership-features">
                         <li>Low Investment, High ROI</li>
@@ -2668,9 +2692,9 @@ modal.style.display = "none";
                 
                 <!-- Distributor Partner Card -->
                 <div class="bento-item distributor-card">
-                    <div class="card-header">
+                    <div class="card-header" style="background: transparent;">
                         <h4 class="card-title">Admission Partner</h4>
-                        <p class="card-subtitle">Secure Investment Returns</p>
+                        
                     </div>
                     <ul class="card-features partnership-features">
                         <li>Low Investment, Fixed Deposit Model</li>
@@ -2755,20 +2779,7 @@ modal.style.display = "none";
                         <label for="fphone">Phone Number *</label>
                         <input type="tel" id="fphone" name="phone" required placeholder="Enter your phone number">
                     </div>
-                    <div class="form-group">
-                        <label for="fcity">Preferred City *</label>
-                        <input type="text" id="fcity" name="city" required placeholder="Enter your preferred city">
-                    </div>
-                    <div class="form-group">
-                        <label for="finvestment">Investment Capacity</label>
-                        <select id="finvestment" name="investment">
-                            <option value="">Select Investment Range</option>
-                            <option value="5-10L">₹5-10 Lakhs</option>
-                            <option value="10-25L">₹10-25 Lakhs</option>
-                            <option value="25-50L">₹25-50 Lakhs</option>
-                            <option value="50L+">₹50+ Lakhs</option>
-                        </select>
-                    </div>
+                    
                     <div class="form-group">
                         <label for="fexperience">Relevant Experience</label>
                         <textarea id="fexperience" name="experience" rows="3" placeholder="Tell us about your background and relevant experience..."></textarea>
@@ -2800,20 +2811,7 @@ modal.style.display = "none";
                         <label for="dphone">Phone Number *</label>
                         <input type="tel" id="dphone" name="phone" required placeholder="Enter your phone number">
                     </div>
-                    <div class="form-group">
-                        <label for="dlocation">Location *</label>
-                        <input type="text" id="dlocation" name="location" required placeholder="Enter your location">
-                    </div>
-                    <div class="form-group">
-                        <label for="dinvestment">Investment Amount</label>
-                        <select id="dinvestment" name="investment">
-                            <option value="">Select Investment Range</option>
-                            <option value="1-5L">₹1-5 Lakhs</option>
-                            <option value="5-10L">₹5-10 Lakhs</option>
-                            <option value="10-25L">₹10-25 Lakhs</option>
-                            <option value="25L+">₹25+ Lakhs</option>
-                        </select>
-                    </div>
+                    
                     <div class="form-group">
                         <label for="dinterest">Areas of Interest</label>
                         <textarea id="dinterest" name="interest" rows="3" placeholder="Which services and opportunities interest you most?"></textarea>
@@ -3139,7 +3137,7 @@ modal.style.display = "none";
                 <div class="row"  style="display:flex;justify-content: center;align-items: center;">
                     <div class="col-xl-6 col-lg-6 text-center ">
                         <div class="copyright-text">
-                            <p>Copyright &copy; 2024, All Right Reserved Lifeplanner Studies and Oppertunities</p>
+                            <p>Copyright &copy; 2024, All Right Reserved Lifeplanner Studies and Opportunities</p>
                         </div>
                     </div>
                     
