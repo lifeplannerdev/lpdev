@@ -55,6 +55,9 @@ def service(request):
 def blog(request):
     return render(request,"blog.html")
 
+def partnering(request):
+    return render(request,"partnering.html")
+
 
 
 def teamupdate(request):
