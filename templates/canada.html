@@ -937,141 +937,230 @@ button:hover::before {
 
 
 <style>
+    /* Modern Immigration Form Styles */
+    .qualification-form {
+        background: linear-gradient(135deg, rgba(95, 156, 173, 0.1), rgba(128, 128, 188, 0.1));
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
 
+    .qualification-form::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    }
+
+    .qualification-form .form-title {
+        font-size: 24px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #5f9cad, #8080bc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        margin-bottom: 8px;
+        position: relative;
+    }
+
+    .qualification-form .form-title::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 2px;
+        background: linear-gradient(135deg, #5f9cad, #8080bc);
+        border-radius: 1px;
+    }
+
+    .qualification-form .form-group {
+        position: relative;
+        margin-bottom: 6px;
+    }
+
+    .qualification-form .form-input {
+        width: 100%;
+        padding: 14px 16px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(95, 156, 173, 0.3);
+        border-radius: 12px;
+        font-size: 14px;
+        color: #2c3e50;
+        transition: all 0.3s ease;
+        outline: none;
+        font-family: inherit;
+        resize: vertical;
+        min-height: 50px;
+    }
+
+    .qualification-form .form-input:focus {
+        border-color: #5f9cad;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 0 0 3px rgba(95, 156, 173, 0.1);
+    }
+
+    .qualification-form .form-label {
+        position: absolute;
+        top: 14px;
+        left: 16px;
+        color: #7f8c8d;
+        font-size: 14px;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        background: transparent;
+        z-index: 1;
+    }
+
+    .qualification-form .form-input:focus + .form-label,
+    .qualification-form .form-input:not(:placeholder-shown) + .form-label {
+        top: -8px;
+        left: 12px;
+        font-size: 12px;
+        color: #5f9cad;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 0 4px;
+        font-weight: 500;
+    }
+
+    .qualification-form .submit-btn {
+        background: linear-gradient(135deg, #5f9cad, #8080bc);
+        border: none;
+        border-radius: 12px;
+        padding: 14px 24px;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-top: 8px;
+    }
+
+    .qualification-form .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(95, 156, 173, 0.3);
+    }
+
+    .qualification-form .submit-btn:active {
+        transform: translateY(0);
+    }
+
+    .qualification-form .submit-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .qualification-form .submit-btn:hover::before {
+        left: 100%;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .qualification-form {
+            padding: 16px;
+            gap: 10px;
+        }
+
+        .qualification-form .form-title {
+            font-size: 20px;
+        }
+
+        .qualification-form .form-input {
+            padding: 12px 14px;
+            font-size: 13px;
+            min-height: 46px;
+        }
+
+        .qualification-form .form-label {
+            top: 12px;
+            left: 14px;
+            font-size: 13px;
+        }
+
+        .qualification-form .form-input:focus + .form-label,
+        .qualification-form .form-input:not(:placeholder-shown) + .form-label {
+            font-size: 11px;
+        }
+
+        .qualification-form .submit-btn {
+            padding: 12px 20px;
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .qualification-form {
+            padding: 12px;
+            gap: 8px;
+        }
+
+        .qualification-form .form-title {
+            font-size: 18px;
+        }
+
+        .qualification-form .form-input {
+            padding: 10px 12px;
+            font-size: 12px;
+            min-height: 42px;
+        }
+
+        .qualification-form .form-label {
+            top: 10px;
+            left: 12px;
+            font-size: 12px;
+        }
+
+        .qualification-form .submit-btn {
+            padding: 10px 18px;
+            font-size: 13px;
+        }
+    }
+
+    /* Legacy styles for backward compatibility */
     .form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 100%;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 20px;
-      position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 100%;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 20px;
+        position: relative;
     }
-    
-    .title {
-      font-size: 28px;
-      color: rgb(22, 100, 173);
-      font-weight: 600;
-      letter-spacing: -1px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding-left: 30px;
-    }
-    
-    .title::before,
-    .title::after {
-      position: absolute;
-      content: "";
-      height: 16px;
-      width: 16px;
-      border-radius: 50%;
-      left: 0px;
-      background-color: rgb(22, 100, 173);
-    }
-    
-    .title::before {
-      width: 18px;
-      height: 18px;
-      background-color: rgb(22, 100, 173);
-    }
-    
-    .title::after {
-      width: 18px;
-      height: 18px;
-      animation: pulse 1s linear infinite;
-    }
-    
-    .message,
-    .signin {
-      color: rgba(88, 87, 87, 0.822);
-      font-size: 14px;
-    }
-    
-    .signin {
-      text-align: center;
-    }
-    
-    .signin a {
-      color: rgb(22, 100, 173);
-    }
-    
-    .signin a:hover {
-      text-decoration: underline rgb(22, 100, 173);
-    }
-    
-    .flex {
-      display: flex;
-      width: 100%;
-      gap: 6px;
-    }
-    
-    .form label {
-      position: relative;
-    }
-    
-    .form label .input {
-      width: 100%;
-      padding: 10px 10px 20px 10px;
-      outline: 0;
-      border: 1px solid rgba(105, 105, 105, 0.397);
-      border-radius: 10px;
-    }
-    
-    .form label .input + span {
-      position: absolute;
-      left: 10px;
-      bottom: 15px;
-      color: grey;
-      font-size: 0.9em;
-      cursor: text;
-      transition: 0.3s ease;
-    }
-    
-    .form label .input:placeholder-shown + span {
-      top: 15px;
-      font-size: 0.9em;
-    }
-    
-    .form label .input:focus + span,
-    .form label .input:valid + span {
-      top: -15px;
-      font-size: 0.7em;
-      font-weight: 600;
-    }
-    
-    .form label .input:valid + span {
-      color: rgb(0, 23, 128);
-    }
-    
-    .submit {
-      border: none;
-      border-radius: 30px;
-      outline: none;
-      background-color: rgb(22, 100, 173);
-      padding: 10px;
-      color: #fff;
-      font-size: 16px;
-      transform: 0.3s ease;
-    }
-    
-    .submit:hover {
-      background-color: rgb(56, 90, 194);
-    }
-    
+
     @keyframes pulse {
-      from {
-        transform: scale(0.9);
-        opacity: 1;
-      }
-    
-      to {
-        transform: scale(1.8);
-        opacity: 0;
-      }
+        from {
+            transform: scale(0.9);
+            opacity: 1;
+        }
+        to {
+            transform: scale(1.8);
+            opacity: 0;
+        }
     }
-    </style>
+</style>
     
 
 
@@ -1083,29 +1172,31 @@ button:hover::before {
     <div class="modal-content" style="border-radius: 15px; box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);">
         <!-- Modal Body -->
         <div class="modal-body" style="padding: 25px 30px; background-color: #ffffff; border-radius: 20px;">
-            <form class="form" action="{% url 'lpapp:canada' %}" method="POST" id="candidateForm">
+            <form class="qualification-form" action="{% url 'lpapp:canada' %}" method="POST" id="candidateForm">
                 {% csrf_token %}
-                <p class="title">Your Qualificaton</p>
+                <h3 class="form-title">Your Qualification Assessment</h3>
 
-                <label>
-                    <input required placeholder="" type="text" class="input" name="candidate">
-                    <span>Your Name</span>
-                </label>
+                <div class="form-group">
+                    <input required placeholder=" " type="text" class="form-input" name="candidate" id="candidate">
+                    <label for="candidate" class="form-label">Your Full Name</label>
+                </div>
                 
-                <label>
-                    <textarea required placeholder="" class="input" name="phno"></textarea>
-                    <span>Phone.No</span>
-                </label>
-                <label>
-                    <textarea required placeholder="" class="input" name="field"></textarea>
-                    <span>Field Of Work</span>
-                </label>
-                <label>
-                    <textarea required placeholder="" class="input" name="exp"></textarea>
-                    <span>Years Of Experience</span>
-                </label>
+                <div class="form-group">
+                    <input required placeholder=" " type="tel" class="form-input" name="phno" id="phno">
+                    <label for="phno" class="form-label">Phone Number</label>
+                </div>
 
-                <button type="submit" class="submit" data-bs-dismiss="modal" style="display:flex;justify-content: center;align-items: center;" value="send/">Submit</button>
+                <div class="form-group">
+                    <input required placeholder=" " type="text" class="form-input" name="field" id="field">
+                    <label for="field" class="form-label">Field of Work</label>
+                </div>
+
+                <div class="form-group">
+                    <input required placeholder=" " type="text" class="form-input" name="exp" id="exp">
+                    <label for="exp" class="form-label">Years of Experience</label>
+                </div>
+
+                <button type="submit" class="submit-btn" data-bs-dismiss="modal">Submit Assessment</button>
             </form>
         </div>
     </div>
@@ -1115,7 +1206,7 @@ button:hover::before {
 <script>
  document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('candidateForm');
-    const requiredFields = form.querySelectorAll('input[required], textarea[required]');
+    const requiredFields = form.querySelectorAll('input[required]');
 
     // Function to check if all required fields are filled
     function checkFormCompletion() {
@@ -1130,12 +1221,20 @@ button:hover::before {
         const submitButton = form.querySelector('button[type="submit"]');
         if (submitButton) {
             submitButton.disabled = !allFilled;
+            if (!allFilled) {
+                submitButton.style.opacity = '0.6';
+                submitButton.style.cursor = 'not-allowed';
+            } else {
+                submitButton.style.opacity = '1';
+                submitButton.style.cursor = 'pointer';
+            }
         }
     }
 
     // Attach input listeners
     requiredFields.forEach(function (field) {
         field.addEventListener('input', checkFormCompletion);
+        field.addEventListener('blur', checkFormCompletion);
     });
 
     // Initial form validation
@@ -1144,6 +1243,13 @@ button:hover::before {
     // Form submit handler
     form.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent default form submission
+
+        // Disable submit button during submission
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting...';
+        submitButton.style.opacity = '0.6';
 
         // Fetch submission
         const formData = new FormData(form);
@@ -1165,9 +1271,10 @@ button:hover::before {
                         toast: true,
                         position: 'top',
                         icon: 'success',
-                        title: 'Assessment recorded',
+                        title: 'Assessment Submitted Successfully!',
+                        text: 'We will contact you soon with your qualification assessment.',
                         showConfirmButton: false,
-                        timer: 3000,
+                        timer: 4000,
                         timerProgressBar: true,
                     });
                     form.reset(); // Reset form after success
@@ -1178,8 +1285,9 @@ button:hover::before {
                         position: 'top',
                         icon: 'error',
                         title: data.error || 'Submission Failed',
+                        text: 'Please try again or contact us directly.',
                         showConfirmButton: false,
-                        timer: 3000,
+                        timer: 4000,
                         timerProgressBar: true,
                     });
                 }
@@ -1190,16 +1298,23 @@ button:hover::before {
                     toast: true,
                     position: 'top',
                     icon: 'error',
-                    title: 'Something Went Wrong',
+                    title: 'Network Error',
+                    text: 'Please check your connection and try again.',
                     showConfirmButton: false,
-                    timer: 3000,
+                    timer: 4000,
                     timerProgressBar: true,
                 });
+            })
+            .finally(() => {
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+                submitButton.style.opacity = '1';
+                checkFormCompletion();
             });
     });
 });
-
-  </script>
+</script>
   
 <!-- Legal Authority -->
 
