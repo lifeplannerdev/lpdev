@@ -2017,6 +2017,14 @@ modal.style.display = "none";
             margin-bottom: 8px;
         }
         
+        .team-social {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 12px;
+            justify-content: center;
+        }
+
         .team-email {
             display: inline-flex;
             align-items: center;
@@ -2028,6 +2036,7 @@ modal.style.display = "none";
             border-radius: 20px;
             background: rgba(95, 156, 173, 0.1);
             transition: all 0.3s ease;
+            flex: 1;
         }
         
         .team-email:hover {
@@ -2038,6 +2047,28 @@ modal.style.display = "none";
         
         .team-email i {
             font-size: 0.9rem;
+        }
+
+        .team-linkedin {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #0077b5;
+            text-decoration: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(0, 119, 181, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .team-linkedin:hover {
+            background: rgba(0, 119, 181, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .team-linkedin i {
+            font-size: 1.1rem;
         }
         
         /* Enhanced Modal Styles with Advanced Glass Morphism */
@@ -2785,10 +2816,15 @@ modal.style.display = "none";
                     </div>
                     <div class="team-name">Sujin C Cherian</div>
                     <div class="team-role">Chief Executive Officer</div>
-                    <a href="mailto:md@lifeplanneruniversal.com" class="team-email">
-                        <i class="fas fa-envelope"></i>
-                        md@lifeplanneruniversal.com
-                    </a>
+                    <div class="team-social">
+                        <a href="mailto:md@lifeplanneruniversal.com" class="team-email">
+                            <i class="fas fa-envelope"></i>
+                            md@lifeplanneruniversal.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/sujin-c-cherian" target="_blank" class="team-linkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
                 </div>
                 
                 <!-- Head of Business Card -->
@@ -2798,10 +2834,15 @@ modal.style.display = "none";
                     </div>
                     <div class="team-name">Govind Venugopal</div>
                     <div class="team-role">Head of Business</div>
-                    <a href="mailto:hob@lifeplanneruniversal.com" class="team-email">
-                        <i class="fas fa-envelope"></i>
-                        hob@lifeplanneruniversal.com
-                    </a>
+                    <div class="team-social">
+                        <a href="mailto:hob@lifeplanneruniversal.com" class="team-email">
+                            <i class="fas fa-envelope"></i>
+                            hob@lifeplanneruniversal.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/govind-venugopal" target="_blank" class="team-linkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
