@@ -243,6 +243,7 @@
 
         <div class="collapse navbar-collapse" id="navbarNav" >
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:about' %}">Home</a></li>
                 <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:service' %}">Services</a></li>
                 <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:canada' %}">Immigration</a></li>
 <!-- University Dropdown -->
@@ -258,7 +259,6 @@
     </div>
 </li>                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:blog' %}">Blog</a></li>
                 <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:contact' %}">Contact Us</a></li>
-                <li class="nav-item ml-4 locationLink"><a class="nav-link" href="#" id="locationLink">Location</a></li>
 
             </ul>
         </div>
@@ -270,9 +270,8 @@
       const menuCheckbox = document.querySelector("#check-icon");
   
       if (menuCheckbox.checked || window.scrollY > 50) {
-          navbar.style.backgroundColor = "#8ec5d4";
-          navbar.style.backgroundImage = "radial-gradient(at 47% 33%, hsl(188, 51%, 61%) 0, transparent 59%), radial-gradient(at 82% 65%, hsl(190, 47%, 68%) 0, transparent 55%)";
-      } else {
+          navbar.style.background="linear-gradient(135deg, #5f9cad, #8080bc)";
+        } else {
           navbar.style.background = "transparent";
       }
   }
@@ -284,163 +283,7 @@
   document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
   
       </script>
-   <style>
-    /* Blur background when popup is active */
-    .blur {
-        filter: blur(5px);
-        transition: filter 0.3s ease;
-    }
-
-    /* Popup container */
-    .popup {
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.5s ease, visibility 0.5s ease;
-    }
-
-    /* Show the popup with animation */
-    .popup.show {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    /* Popup content */
-    .popup-content {
-        position: absolute;
-        background: linear-gradient(135deg, #80bccd, #7474b1);
-        width: 350px;
-        max-width: 90%;
-        padding: 30px 20px;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%) scale(0.8);
-        opacity: 0;
-        transition: transform 0.5s ease, opacity 0.5s ease;
-    }
-
-    /* Show the popup content with animation */
-    .popup.show .popup-content {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-        animation: jelly 0.6s ease forwards;
-    }
-
-    /* Jelly keyframe animation */
-    @keyframes jelly {
-        0% {
-            transform: translate(-50%, -50%) scale(0.6);
-        }
-        30% {
-            transform: translate(-50%, -50%) scale(1.2);
-        }
-        50% {
-            transform: translate(-50%, -50%) scale(0.9);
-        }
-        70% {
-            transform: translate(-50%, -50%) scale(1.05);
-        }
-        100% {
-            transform: translate(-50%, -50%) scale(1);
-        }
-    }
-
-    /* Close button */
-    .close-btn {
-        position: absolute;
-        right: 15px;
-        top: 10px;
-        font-size: 24px;
-        font-weight: bold;
-        color: #333;
-        cursor: pointer;
-        transition: color 0.3s ease;
-    }
-
-    .close-btn:hover {
-        color: #f44336;
-    }
-
-    /* Location buttons */
-    .location-buttons button {
-        background-color: rgb(22, 100, 173);
-        color: white;
-        border: none;
-        padding: 12px 20px;
-        margin: 10px;
-        width: 150px;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .location-buttons button:hover {
-        background-color: #0056b3;
-        transform: scale(1.05);
-    }
-
-    .location-buttons button:active {
-        transform: scale(0.95);
-    }
-
-    /* Prevent scrolling when popup is active */
-    body.no-scroll {
-        overflow: hidden;
-    }
-</style>
-
-<!-- Popup Container -->
-<div class="popup" id="locationPopup"> <!-- Changed to class-based selection -->
-    <div class="popup-content">
-        <span class="close-btn">&times;</span>
-        <h5 style="color:#003290;margin-bottom: 20px;">OUR LOCATIONS</h5>
-        <div class="location-buttons">
-            <a href="#"><button>Kottayam</button></a>
-            <a href="{% url 'lpapp:kochi' %}" style="text-decoration: none;color:white;"> <button>Kochi</button></a>
-        </div>
-    </div>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get elements
-        const locationLink = document.getElementById('locationLink');
-        const popup = document.querySelector('.popup');
-        const closeBtn = document.querySelector('.close-btn');
-        const body = document.body;
-        
-        // Show popup when location link is clicked
-        locationLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            popup.classList.add('show');
-            body.classList.add('no-scroll');
-        });
-        
-        // Close popup when X button is clicked
-        closeBtn.addEventListener('click', function() {
-            popup.classList.remove('show');
-            body.classList.remove('no-scroll');
-        });
-        
-        // Close popup when clicking outside of it
-        popup.addEventListener('click', function(e) {
-            if (e.target === popup) {
-                popup.classList.remove('show');
-                body.classList.remove('no-scroll');
-            }
-        });
-    });
-</script>
+   
 
    <!-- Hero Section -->
 <style>
@@ -469,10 +312,7 @@
         position: relative;
         display: flex;
         align-items: center;
-        background-color: #8ec5d4;
-    background-image: 
-        radial-gradient(at 47% 33%, hsl(188, 51%, 61%) 0, transparent 59%), 
-        radial-gradient(at 82% 65%, hsl(279, 47%, 68%) 0, transparent 55%);
+        background: linear-gradient(135deg, #5f9cad, #8080bc);
     }
 
     .hero-section1::before {
@@ -627,7 +467,7 @@
         padding: 20px 50px;
         font-size: 1.2rem;
         font-weight: 700;
-        color: var(--text-dark);
+        color: rgb(67, 124, 171);
         background: linear-gradient(135deg, 
             rgba(255, 255, 255, 0.95) 0%, 
             rgba(255, 255, 255, 0.85) 100%);
@@ -1069,7 +909,7 @@
         justify-content: flex-start;">
     <div class="hero-actions1">
         <a href="{% url 'lpapp:about' %}">
-        <button type="button1" class="hero-button1" id="learnMoreBtn">About Us
+        <button type="button1" class="hero-button1">About Us
         <i class="fa-solid fa-circle-arrow-right" style="margin-left: 8px;"></i>
         </button>
         </a>
@@ -1157,252 +997,8 @@ if ('ontouchstart' in window) {
 }
 });
 </script>
- <div class="modal1" id="popupModal"  >
-    <div class="modal-content1" style="margin-top:10px;">
-        <span class="close-btn1" id="closeModal">&times;</span>
-        <img src="/static/webinar.jpg" alt="Ad Poster" class="modal-poster1">
-        <form id="enrollForm1" method="post">
-            {% csrf_token %}
-            
-            <!-- Custom input for Name -->
-            <input type="text" name="name" placeholder="Your Name" required style="border-radius: 30px;">
-            {% if enrollment_form.name.errors %}
-                <div class="error" style="color: red;">{{ enrollment_form.name.errors.0 }}</div>
-            {% endif %}
-            
-            
-            <input type="text" name="mail" placeholder="Your Email" required style="border-radius: 30px;">
-{% if enrollment_form.mail.errors %}
-<div class="error" style="color: red;">{{ enrollment_form.mail.errors.0 }}</div>
-{% endif %}
 
 
-            
-            <button type="submit" class="enroll-btn" disabled>Enroll Now</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    const enrollForm = document.getElementById('enrollForm1');
-    const enrollButton = enrollForm.querySelector('.enroll-btn');
-    const nameInput = enrollForm.querySelector('input[name="name"]');
-    const emailInput = enrollForm.querySelector('input[name="mail"]');
-    const modal = document.getElementById('popupModal');
-    const closeModalBtn = document.getElementById('closeModal');
-
-    // Function to check if both fields are filled
-    function checkFormCompletion() {
-        if (nameInput.value.trim() && emailInput.value.trim()) {
-            enrollButton.disabled = false;  // Enable button when both fields are filled
-            enrollButton.style.backgroundColor = 'blue';  // Change color to blue
-        } else {
-            enrollButton.disabled = true;  // Disable button if fields are not filled
-            enrollButton.style.backgroundColor = 'grey';  // Change color to grey
-        }
-    }
-
-    // Attach event listeners to inputs to check form completion on each input change
-    nameInput.addEventListener('input', checkFormCompletion);
-    emailInput.addEventListener('input', checkFormCompletion);
-
-    // Initial check when the page loads
-    checkFormCompletion();
-
-    // Submit form event
-    enrollForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent default form submission
-        
-        enrollButton.disabled = true; // Disable the button during processing
-        
-        const formData = new FormData(enrollForm);
-        fetch("{% url 'lpapp:home' %}", { // Update the URL to your enroll view
-            method: 'POST',
-            body: formData,
-            headers: {
-                'X-CSRFToken': '{{ csrf_token }}',
-            },
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top",
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    },
-                });
-                Toast.fire({
-                    icon: "success",
-                    title: "Enrolled Successfully",
-                });
-                enrollForm.reset(); // Reset the form
-                checkFormCompletion();  // Recheck form state
-                modal.style.display = "none";  // Close the modal
-            } else {
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top",
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    },
-                });
-                Toast.fire({
-                    icon: "error",
-                    title: "Enrollment Failed",
-                });
-            }
-        })
-        .catch(error => {
-            console.error("Error during form submission:", error);
-            const Toast = Swal.mixin({
-                toast: true,
-                position: "top",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.onmouseenter = Swal.stopTimer;
-                    toast.onmouseleave = Swal.resumeTimer;
-                },
-            });
-            Toast.fire({
-                icon: "error",
-                title: "Something Went Wrong",
-            });
-        })
-        .finally(() => {
-            enrollButton.disabled = false; // Re-enable the button
-        });
-    });
-
-    // Close modal when close button is clicked
-    closeModalBtn.addEventListener('click', () => {
-        modal.style.display = "none";
-    });
-
-    // Optional: Close modal when clicking outside of the modal
-    window.addEventListener('click', function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-</script>
-<style>
-    .button2 {
-padding: 10px 20px;
-font-size: 16px;
-background-color: linear-gradient(135deg, #9e9ed4, #80bccd);
-color: #fff;
-border: none;
-cursor: pointer;
-border-radius: 30px;
-
-}
-
-.button2:hover {
-background-color: #0056b3;
-}
-
-.modal1 {
-display: none; /* Hidden by default */
-position: fixed; /* Stay in place */
-z-index: 1000; /* Sit on top */
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
-z-index:1000px;
-}
-
-.modal-content1 {
-background-color: #fff;
-margin: 10% auto; /* Center the modal */
-padding: 20px;
-border-radius: 10px;
-width: 80%;
-max-width: 400px;
-text-align: center;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-animation: fadeIn 0.3s ease-in-out;
-}
-
-.modal-poster1 {
-width: 100%;
-border-radius: 10px;
-margin-bottom: 20px;
-}
-
-.close-btn1 {
-position: absolute;
-top: 10px;
-right: 20px;
-font-size: 20px;
-cursor: pointer;
-}
-
-.enroll-btn {
-padding: 10px 20px;
-font-size: 16px;
-background: linear-gradient(135deg, #464699, #39badd);
-color: #fff;
-border: none;
-border-radius: 30px;
-width:90%;
-cursor: pointer;
-}
-
-.enroll-btn:hover {
-
-background: linear-gradient(135deg, #9e9ed4, #80bccd);
-}
-
-input[type="text"], input[type="email"] {
-width: 90%;
-padding: 10px;
-margin: 10px 0;
-border: 1px solid #ccc;
-border-radius: 5px;
-}
-
-@keyframes fadeIn {
-from {
-opacity: 0;
-transform: scale(0.9);
-}
-to {
-opacity: 1;
-transform: scale(1);
-}
-}
-  </style>
-  <script>
-    document.getElementById("learnMoreBtn").addEventListener("click", function () {
-document.getElementById("popupModal").style.display = "block";
-});
-
-document.getElementById("closeModal").addEventListener("click", function () {
-document.getElementById("popupModal").style.display = "none";
-});
-
-window.addEventListener("click", function (event) {
-const modal = document.getElementById("popupModal");
-if (event.target === modal) {
-modal.style.display = "none";
-}
-});
-
-  </script>
 <!-- About Section -->
 <style>
     /* About Section - Responsive */
@@ -1517,11 +1113,7 @@ modal.style.display = "none";
     .stat-icon2 {
       width: 50px;
       height: 50px;
-       background-color: #8ec5d4;
-    background-image: 
-        radial-gradient(at 47% 33%, hsl(188, 51%, 61%) 0, transparent 59%), 
-        radial-gradient(at 82% 65%, hsl(279, 47%, 68%) 0, transparent 55%);
-
+      background: linear-gradient(135deg, #5f9cad, #8080bc);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -1916,7 +1508,7 @@ modal.style.display = "none";
         
         /* CTA Buttons */
         .cta-button {
-            width: 50%;
+            width: 30%;
             padding: 12px 24px;
             font-size: 0.9rem;
             font-weight: 600;
@@ -1933,9 +1525,10 @@ modal.style.display = "none";
            background-color: #ffffff;
     
 
-            color: #343434;
+            color: rgb(56, 54, 54);
             border-radius: 12px;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.563);
+            box-shadow:inset 0 4px 4px rgba(0, 0, 0, 0.563);
+            text-align:left
         }
         
         .franchise-cta:hover {
@@ -1947,9 +1540,10 @@ modal.style.display = "none";
               background-color: #ffffff;
     
 
-            color: #393a3a;
+            color: rgb(56, 54, 54);
             border-radius: 12px;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.563);
+            box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.563);
+            text-align:left
         }
         
         .distributor-cta:hover {
@@ -2732,6 +2326,10 @@ modal.style.display = "none";
             .bento-item {
                 padding: 20px;
             }
+            .cta-button {
+                width: 50%;
+                font-size: 0.85rem;
+            }
         }
     </style>
 
@@ -2821,7 +2419,9 @@ modal.style.display = "none";
                             <i class="fas fa-envelope"></i>
                             md@lifeplanneruniversal.com
                         </a>
-                        <a href="https://www.linkedin.com/in/sujin-c-cherian" target="_blank" class="team-linkedin">
+                        <a href=
+                        "https://www.linkedin.com/in/sujin-c-cherian-55605a55?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+                        target="_blank" class="team-linkedin">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
@@ -2839,7 +2439,9 @@ modal.style.display = "none";
                             <i class="fas fa-envelope"></i>
                             hob@lifeplanneruniversal.com
                         </a>
-                        <a href="https://www.linkedin.com/in/govind-venugopal" target="_blank" class="team-linkedin">
+                        <a href=
+                        "https://www.linkedin.com/in/govind-venugopal-13631a246?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+                        target="_blank" class="team-linkedin">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
@@ -3244,11 +2846,7 @@ modal.style.display = "none";
     
 }
 .footer-section {
- background-color: #8ec5d4;
-    background-image: 
-        radial-gradient(at 47% 33%, hsl(188, 51%, 61%) 0, transparent 59%), 
-        radial-gradient(at 82% 65%, hsl(279, 47%, 68%) 0, transparent 55%);
-
+  background: linear-gradient(135deg, #5f9cad, #8080bc);
   position: relative;
   margin-top: 60px;
 }
