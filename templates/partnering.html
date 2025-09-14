@@ -270,7 +270,8 @@
       const menuCheckbox = document.querySelector("#check-icon");
   
       if (menuCheckbox.checked || window.scrollY > 50) {
-          navbar.style.background = "linear-gradient(135deg, #5f9cad, #8080bc)";
+          navbar.style.backgroundColor = "#8ec5d4";
+          navbar.style.backgroundImage = "radial-gradient(at 47% 33%, hsl(188, 51%, 61%) 0, transparent 59%), radial-gradient(at 82% 65%, hsl(190, 47%, 68%) 0, transparent 55%)";
       } else {
           navbar.style.background = "transparent";
       }
@@ -600,7 +601,7 @@
     }
 
     .hero-title1 {
-        font-size: 4rem;
+        font-size: 3.7rem;
         font-weight: bold;
         color: var(--white);
         margin-bottom: 25px;
@@ -1057,8 +1058,8 @@
 <div class="hero-container1">
 <div class="hero-content1">
     <!-- Added badge here -->
-    <div class="hero-badge">Your Best Partnership Opportunity</div>
-    <h1 class="hero-title1">Partner With Life Planner-Franchise or Admission Opportunities</h1>
+    <div class="hero-badge"> BE A PART OF TRANSFORMING OVERSEAS EDUCATION JOURNEYS</div>
+    <h1 class="hero-title1">Partner with Life planner, Kerala's Most Trusted Consultants</h1>
     <p class="hero-description1"></p>
     <div class="hero-actions1">
         <button type="button1" class="hero-button1" id="learnMoreBtn">Apply Now</button>
@@ -1509,7 +1510,11 @@ modal.style.display = "none";
     .stat-icon2 {
       width: 50px;
       height: 50px;
-      background: linear-gradient(135deg, #5f9cad, #8080bc);
+       background-color: #8ec5d4;
+    background-image: 
+        radial-gradient(at 47% 33%, hsl(188, 51%, 61%) 0, transparent 59%), 
+        radial-gradient(at 82% 65%, hsl(279, 47%, 68%) 0, transparent 55%);
+
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -1692,7 +1697,7 @@ modal.style.display = "none";
         
         <div class="stats-container2">
           <div class="stat-card2">
-            <div class="stat-icon2">
+            <div class="stat-icon2" >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M9 12l2 2 4-4"></path>
                 <path d="M21 12c.552 0 1-.448 1-1V5c0-.552-.448-1-1-1H3c-.552 0-1 .448-1 1v6c0 .552.448 1 1 1h18z"></path>
@@ -1977,18 +1982,17 @@ modal.style.display = "none";
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background-color: #8ec5d4;
-    background-image: 
-        radial-gradient(at 47% 33%, hsl(188, 51%, 61%) 0, transparent 59%), 
-        radial-gradient(at 82% 65%, hsl(279, 47%, 68%) 0, transparent 55%);
-
             margin: 0 auto 12px;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
+        }
+        
+        .team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .team-name {
@@ -2001,6 +2005,30 @@ modal.style.display = "none";
         .team-role {
             font-size: 0.875rem;
             color: #64748b;
+            margin-bottom: 8px;
+        }
+        
+        .team-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #5f9cad;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(95, 156, 173, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .team-email:hover {
+            background: rgba(95, 156, 173, 0.15);
+            color: #4a7d8a;
+            transform: translateY(-2px);
+        }
+        
+        .team-email i {
+            font-size: 0.9rem;
         }
         
         /* Enhanced Modal Styles with Advanced Glass Morphism */
@@ -2686,7 +2714,7 @@ modal.style.display = "none";
                         <li>Proven Business Model</li>
                     </ul>
                     <button class="cta-button franchise-cta" onclick="openModal('franchiseModal')">
-                        Apply 
+                        Apply <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
                     </button>
                 </div>
                 
@@ -2703,7 +2731,7 @@ modal.style.display = "none";
                         <li>Minimal Risk Investment</li>
                     </ul>
                     <button class="cta-button distributor-cta" onclick="openModal('distributorModal')">
-                        Apply 
+                        Apply <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
                     </button>
                 </div>
                 
@@ -2743,16 +2771,28 @@ modal.style.display = "none";
                 
                 <!-- CEO Card -->
                 <div class="bento-item team-card ceo-card">
-                    <div class="team-avatar">SC</div>
+                    <div class="team-avatar">
+                        <img src="/static/sujin.png" alt="CEO">
+                    </div>
                     <div class="team-name">Sujin C Cherian</div>
                     <div class="team-role">Chief Executive Officer</div>
+                    <a href="mailto:md@lifeplanneruniversal.com" class="team-email">
+                        <i class="fas fa-envelope"></i>
+                        md@lifeplanneruniversal.com
+                    </a>
                 </div>
                 
                 <!-- Head of Business Card -->
                 <div class="bento-item team-card hob-card">
-                    <div class="team-avatar">GV</div>
+                    <div class="team-avatar">
+                        <img src="/static/hob.jpg" alt="Head of Business">
+                    </div>
                     <div class="team-name">Govind Venugopal</div>
                     <div class="team-role">Head of Business</div>
+                    <a href="mailto:hob@lifeplanneruniversal.com" class="team-email">
+                        <i class="fas fa-envelope"></i>
+                        hob@lifeplanneruniversal.com
+                    </a>
                 </div>
             </div>
         </div>
@@ -3154,7 +3194,11 @@ modal.style.display = "none";
     
 }
 .footer-section {
-background: linear-gradient(135deg, #5f9cad, #8080bc);
+ background-color: #8ec5d4;
+    background-image: 
+        radial-gradient(at 47% 33%, hsl(188, 51%, 61%) 0, transparent 59%), 
+        radial-gradient(at 82% 65%, hsl(279, 47%, 68%) 0, transparent 55%);
+
   position: relative;
   margin-top: 60px;
 }
