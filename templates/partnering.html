@@ -2530,27 +2530,23 @@ if ('ontouchstart' in window) {
                 <button class="close" onclick="closeModal('distributorModal')" type="button">&times;</button>
             </div>
             <div class="modal-body">
-                <form id="distributorForm">
-                    <div class="form-group">
-                        <label for="dname">Full Name *</label>
-                        <input type="text" id="dname" name="fullName" required placeholder="Enter your full name">
-                    </div>
-                    <div class="form-group">
-                        <label for="demail">Email Address *</label>
-                        <input type="email" id="demail" name="email" required placeholder="Enter your email address">
-                    </div>
-                    <div class="form-group">
-                        <label for="dphone">Phone Number *</label>
-                        <input type="tel" id="dphone" name="phone" required placeholder="Enter your phone number">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="dinterest">Areas of Interest</label>
-                        <textarea id="dinterest" name="interest" rows="3" placeholder="Which services and opportunities interest you most?"></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Submit Application</button>
-                </form>
-            </div>
+                <form id="partnershipForm" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required>
+    </div>
+    <div class="form-group">
+        <input type="tel" class="form-control" name="phone_number" id="phone" placeholder="Phone Number" required>
+    </div>
+    <div class="form-group">
+        <input type="email" class="form-control" name="email" id="email" placeholder="Email Address" required>
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" name="message" id="message" placeholder="Tell us about your interest and background" rows="4"></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Submit Application</button>
+</form>
+<div id="formMessage" class="mt-3" style="display: none;"></div>
         </div>
     </div>
     

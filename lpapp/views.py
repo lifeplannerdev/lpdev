@@ -1,8 +1,8 @@
 from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from .forms import AppointmentForm,WebinarForm  
-from .models import Team,Appointment,Immigration,JobApplication
-from .forms import TeamForm,ReviewForm
+from .models import Team,Appointment,Immigration,JobApplication,AdmissionPartner
+from .forms import TeamForm,ReviewForm,AdmissionPartnerForm
 from .models import Team, Review
 from django.contrib import messages
 from .models import Careers
@@ -56,7 +56,17 @@ def blog(request):
     return render(request,"blog.html")
 
 def partnering(request):
-    return render(request,"partnering.html")
+    if request.method == 'POST':
+        form = AdmissionPartnerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return JsonResponse({'success': True, 'message': 'Your request has been recorded!'})
+        else:
+            return JsonResponse({'success': False, 'error': form.errors.as_json()})
+    else:
+        form = AdmissionPartnerForm()
+    
+    return render(request, "partnering.html", {'form': form})
 
 
 
