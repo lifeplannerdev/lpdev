@@ -2,7 +2,7 @@ from django import forms
 from .models import Appointment,Immigration
 from .models import Webinar
 from .models import Team
-from .models import Review,Careers,AdmissionPartner
+from .models import Review,Careers,AdmissionPartner,FranchisePartner
 
 class ReviewForm(forms.ModelForm):
     class Meta:
@@ -43,4 +43,10 @@ class CareersForm(forms.ModelForm):
 class AdmissionPartnerForm(forms.ModelForm):
     class Meta:
         model = AdmissionPartner
-        fields = '__all__'            
+        fields = '__all__'    
+
+
+class FranchisePartnerForm(forms.ModelForm):
+    class Meta:
+        model = FranchisePartner
+        fields = '__all__'

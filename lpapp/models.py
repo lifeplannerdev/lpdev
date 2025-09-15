@@ -129,6 +129,17 @@ class AdmissionPartner(models.Model):
 
     def __str__(self):
           return self.name
+    
+
+class FranchisePartner(models.Model):
+    franchisename = models.CharField(max_length=100)
+    franchiseemail = models.EmailField()
+    franchisephone_number = models.CharField(max_length=20)
+    franchisemessage=models.TextField(max_length=500,null=True,blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+          return self.name
 
 
 

@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render,redirect
-from .forms import AppointmentForm,WebinarForm  
-from .models import Team,Appointment,Immigration,JobApplication,AdmissionPartner
+from .forms import AppointmentForm, FranchisePartnerForm,WebinarForm  
+from .models import Team,Appointment,Immigration,JobApplication,AdmissionPartner,FranchisePartner
 from .forms import TeamForm,ReviewForm,AdmissionPartnerForm
 from .models import Team, Review
 from django.contrib import messages
@@ -57,16 +57,29 @@ def blog(request):
 
 def partnering(request):
     if request.method == 'POST':
-        form = AdmissionPartnerForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return JsonResponse({'success': True, 'message': 'Your request has been recorded!'})
-        else:
-            return JsonResponse({'success': False, 'error': form.errors.as_json()})
-    else:
-        form = AdmissionPartnerForm()
+            # Determine which form was submitted based on a unique field
+        if "name" in request.POST:  
+            form = AdmissionPartnerForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return JsonResponse({'success': True, 'message': 'Your request has been recorded!'})
+            else:
+                return JsonResponse({'success': False, 'error': form.errors.as_json()})
+                
+        elif "franchisename" in request.POST: 
+            form1 = FranchisePartnerForm(request.POST)
+            if form1.is_valid():
+                form1.save() 
+                return JsonResponse({'success': True, 'message': 'Your request has been recorded!'})
+            else:
+                return JsonResponse({'success': False, 'error': form1.errors.as_json()}) 
     
-    return render(request, "partnering.html", {'form': form})
+    else:
+        # Initialize empty forms for GET requests
+        form = AdmissionPartnerForm()
+        form1 = FranchisePartnerForm()
+    
+    return render(request, "partnering.html", {'form': form, 'form1': form1})
 
 
 
