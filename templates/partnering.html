@@ -1419,6 +1419,9 @@ if ('ontouchstart' in window) {
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
         }
         
         .bento-item:hover {
@@ -1529,9 +1532,28 @@ if ('ontouchstart' in window) {
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 36px;
+            margin-top: auto;
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .cta-button {
+                width: calc(100% - 40px);
+                left: 20px;
+                bottom: 20px;
+                text-align: center;
+                
+            }
             
+            .card-features {
+                margin-bottom: 70px;
+            }
             
+            .bento-item {
+                min-height: 320px;
+            }
         }
         
         .franchise-cta {
@@ -2382,6 +2404,7 @@ if ('ontouchstart' in window) {
             .cta-button {
                 width: 50%;
                 font-size: 0.85rem;
+                
             }
         }
     </style>
@@ -2844,21 +2867,16 @@ if ('ontouchstart' in window) {
                 <form id="franchiseForm" method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="fname">Full Name *</label>
-                        <input type="text" id="fname" name="franchisename" required placeholder="Enter your full name">
+                        <input type="text" class="form-control" name="franchisename" id="fname" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <label for="femail">Email Address *</label>
-                        <input type="email" id="femail" name="franchiseemail" required placeholder="Enter your email address">
+                        <input type="email" class="form-control" name="franchiseemail" id="femail" placeholder="Email Address" required>
                     </div>
                     <div class="form-group">
-                        <label for="fphone">Phone Number *</label>
-                        <input type="tel" id="fphone" name="franchisephone_number" required placeholder="Enter your phone number">
+                        <input type="tel" class="form-control" name="franchisephone_number" id="fphone" placeholder="Phone Number" required>
                     </div>
-                    
                     <div class="form-group">
-                        <label for="fexperience">Relevant Experience</label>
-                        <textarea id="fexperience" name="franchisemessage" rows="3" placeholder="Tell us about your background and relevant experience..."></textarea>
+                        <textarea class="form-control" name="franchisemessage" id="fexperience" placeholder="Tell us about your interest and background" rows="4"></textarea>
                     </div>
                     <button type="submit" class="submit-btn">Submit Application</button>
                 </form>
