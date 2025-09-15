@@ -1419,9 +1419,6 @@ if ('ontouchstart' in window) {
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
         }
         
         .bento-item:hover {
@@ -1501,6 +1498,7 @@ if ('ontouchstart' in window) {
             list-style: none;
             padding: 0;
             margin: 16px 0;
+            margin-bottom: 80px;
         }
         
         .card-features li {
@@ -1519,7 +1517,7 @@ if ('ontouchstart' in window) {
         }
         
         .partnership-features li:before {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(26, 26, 26, 0.8);
         }
         
         /* CTA Buttons */
@@ -1536,24 +1534,6 @@ if ('ontouchstart' in window) {
             position: absolute;
             bottom: 24px;
             left: 24px;
-        }
-
-        @media (max-width: 768px) {
-            .cta-button {
-                width: calc(100% - 40px);
-                left: 20px;
-                bottom: 20px;
-                text-align: center;
-                
-            }
-            
-            .card-features {
-                margin-bottom: 70px;
-            }
-            
-            .bento-item {
-                min-height: 320px;
-            }
         }
         
         .franchise-cta {
@@ -2404,7 +2384,6 @@ if ('ontouchstart' in window) {
             .cta-button {
                 width: 50%;
                 font-size: 0.85rem;
-                
             }
         }
     </style>
