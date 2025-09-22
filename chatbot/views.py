@@ -25,7 +25,7 @@ def chatbot(request):
                 return JsonResponse({"reply": "Please enter a message."})
 
             # Gemini model
-            model = genai.GenerativeModel("models/gemini-2.5-pro")
+            model = genai.GenerativeModel("models/gemini-2.5-flash")
 
             # Correct format: role + parts -> list of dicts with 'text'
             response = model.generate_content([
