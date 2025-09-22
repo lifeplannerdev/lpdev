@@ -28,6 +28,7 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('lpapp.urls')),
+    path("", include("chatbot.urls")),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap')
 ]
