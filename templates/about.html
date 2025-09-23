@@ -485,47 +485,28 @@ Recognised with ISO certification, we have earned a reputation for providing tru
       </button>
   </a>
   </div>
-    <style>
-      .floating-buttons {
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          z-index: 1000;
-      }
-  
-      .floating-buttons a {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 50px;
-          height: 50px;
-          background-color: rgb(22, 100, 173);
-          color: white;
-          border-radius: 50%;
-          box-shadow: 0 4px 6px rgb(22, 100, 173);
-          text-decoration: none;
-          font-size: 24px;
-          transition: background-color 0.3s ease;
-      }
-  
-      .floating-buttons a.phone {
-          background-color: rgb(22, 100, 173);
-      }
-  
-      .floating-buttons a.mail {
-          background-color: rgb(22, 100, 173);
-      }
-  
-      .floating-buttons a:hover {
-          opacity: 0.9;
-          background-color: rgb(22, 100, 173);
-      }
-  </style>
-  
-  <div class="floating-buttons">
+    <!-- Chat Window -->
+<div id="chatWindow">
+    <div id="chatHeader">
+        <span>Life Planner Chatbot</span>
+        <button onclick="toggleChat()">✖</button>
+    </div>
+
+    <div id="chatMessages"></div>
+
+    <div id="chatInputArea">
+        <input id="chatInput" type="text" placeholder="Type a message..." 
+               onkeypress="if(event.key==='Enter'){sendMessage()}">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<!-- Floating Buttons -->
+<div class="floating-buttons">
+    <!-- AI Chatbot Button -->
+    <button onclick="toggleChat()" title="AI Chatbot">
+        <i class="fa-solid fa-robot"></i>
+    </button>
     <a href="https://wa.me/+918943510107" target="_blank" title="WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
@@ -536,6 +517,201 @@ Recognised with ISO certification, we have earned a reputation for providing tru
         <i class="fas fa-envelope"></i>
     </a>
 </div>
+
+<!-- Styles -->
+<style>
+/* Floating Buttons */
+.floating-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.floating-buttons a, 
+.floating-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(22, 100, 173);
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgb(22, 100, 173);
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.floating-buttons a:hover, 
+.floating-buttons button:hover {
+    opacity: 0.9;
+    background-color: rgb(18, 85, 150);
+}
+
+/* Chat Window */
+#chatWindow {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    height: 450px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    overflow: hidden;
+    z-index: 10000;
+    flex-direction: column;
+}
+
+/* Header */
+#chatHeader {
+    background: linear-gradient(135deg, #5f9cad, #8080bc);
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chatHeader button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Messages */
+#chatMessages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.user-message {
+    text-align: right;
+    margin: 5px 0;
+}
+.user-message span {
+    background: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.bot-message {
+    text-align: left;
+    margin: 5px 0;
+}
+.bot-message span {
+    background: #f1f1f1;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+/* Typing animation */
+.typing span {
+    display: inline-flex;
+    gap: 3px;
+}
+.typing span div {
+    width: 6px;
+    height: 6px;
+    background-color: #555;
+    border-radius: 50%;
+    animation: bounce 1s infinite;
+}
+.typing span div:nth-child(2) { animation-delay: 0.2s; }
+.typing span div:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+    0%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+}
+
+/* Input Area */
+#chatInputArea {
+    border-top: 1px solid #ddd;
+    display: flex;
+    padding: 8px;
+}
+#chatInput {
+    flex: 1;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+#chatInputArea button {
+    margin-left: 5px;
+    background: linear-gradient(135deg, #5f9cad, #8080bc);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+</style>
+
+<!-- Script -->
+<script>
+function toggleChat() {
+    const chatWindow = document.getElementById("chatWindow");
+    chatWindow.style.display = chatWindow.style.display === "none" || chatWindow.style.display === "" 
+        ? "flex" : "none";
+}
+
+async function sendMessage() {
+    const input = document.getElementById("chatInput");
+    const message = input.value.trim();
+    if (!message) return;
+
+    const messagesDiv = document.getElementById("chatMessages");
+
+    // Show user's message
+    messagesDiv.innerHTML += `<div class="user-message"><span>${message}</span></div>`;
+    input.value = "";
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+    // Add typing indicator with 3 bouncing dots
+    const typingIndicator = document.createElement("div");
+    typingIndicator.className = "bot-message typing";
+    typingIndicator.innerHTML = `<span><div></div><div></div><div></div></span>`;
+    messagesDiv.appendChild(typingIndicator);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+    try {
+        const response = await fetch("/chat/", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({message})
+        });
+        const data = await response.json();
+
+        // Remove typing indicator
+        messagesDiv.removeChild(typingIndicator);
+
+        // Show AI response
+        messagesDiv.innerHTML += `<div class="bot-message"><span>${data.reply}</span></div>`;
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+    } catch (error) {
+        messagesDiv.removeChild(typingIndicator);
+        messagesDiv.innerHTML += `<div class="bot-message"><span>⚠️ Error connecting to server</span></div>`;
+    }
+}
+</script>
 
 <footer class="footer-section">
   <div class="container">
