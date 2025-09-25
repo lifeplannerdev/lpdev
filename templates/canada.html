@@ -1380,46 +1380,9 @@ button:hover::before {
 </section>
 </div>
 
-<style>
-    .floating-buttons {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        z-index: 1000;
-    }
 
-    .floating-buttons a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 50px;
-        height: 50px;
-        background-color: rgb(22, 100, 173);
-        color: white;
-        border-radius: 50%;
-        box-shadow: 0 4px 6px rgb(22, 100, 173);
-        text-decoration: none;
-        font-size: 24px;
-        transition: background-color 0.3s ease;
-    }
 
-    .floating-buttons a.phone {
-        background-color: rgb(22, 100, 173);
-    }
-
-    .floating-buttons a.mail {
-        background-color: rgb(22, 100, 173);
-    }
-
-    .floating-buttons a:hover {
-        opacity: 0.9;
-        background-color: rgb(22, 100, 173);
-    }
-</style>
-
+<!-- Floating Buttons -->
 <div class="floating-buttons">
     <a href="https://wa.me/+918943510107" target="_blank" title="WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
@@ -1431,6 +1394,45 @@ button:hover::before {
         <i class="fas fa-envelope"></i>
     </a>
 </div>
+
+<!-- Styles -->
+<style>
+/* Floating Buttons */
+.floating-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.floating-buttons a, 
+.floating-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(22, 100, 173);
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgb(22, 100, 173);
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.floating-buttons a:hover, 
+.floating-buttons button:hover {
+    opacity: 0.9;
+    background-color: rgb(18, 85, 150);
+}
+
+</style>
+
 
 
 <footer class="footer-section">
