@@ -204,6 +204,15 @@ def blog5(request):
 
 def blog6(request):
     return render(request,"blog6.html")
+    
+def blog7(request):
+    return render(request,"blog7.html")
+
+def blog8(request):
+    return render(request,"blog8.html")
+
+def blog9(request):
+    return render(request,"blog9.html")
 
 def demo(request):
     return render(request,"demo.html")
