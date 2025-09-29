@@ -37,12 +37,12 @@ def home(request):
     else:
         appointment_form = AppointmentForm()
         enrollment_form = WebinarForm()
-        team_members = Team.objects.only('name', 'img', 'post')
+        
     
     return render(request, 'home.html', {
         'form': appointment_form,
         'enrollment_form': enrollment_form,
-        'team_members': team_members,  # Pass the team members to the template
+        
     })
 
 def kochi(request):
