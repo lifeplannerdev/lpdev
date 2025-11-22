@@ -998,7 +998,8 @@ if ('ontouchstart' in window) {
 }
 });
 </script>
-
+<div style="display:flex;justify-content: center;align-items: center;margin-top: 40px;">
+    <div class="breadcrumb"><a href="{% url 'lpapp:home' %}">Home</a> \ Partner With Us</div></div>
 
 <!-- About Section -->
 <style>
@@ -1498,13 +1499,13 @@ if ('ontouchstart' in window) {
         
         .card-features li:before {
             content: "✓";
-            color: #10b981;
+            color: #000000;
             font-weight: bold;
             font-size: 1rem;
         }
         
         .partnership-features li:before {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(0, 0, 0, 0.8);
         }
         
         /* CTA Buttons */
@@ -1517,7 +1518,9 @@ if ('ontouchstart' in window) {
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 36px;
+            margin-top: 75px;
+            bottom:20px;
+            left:20px;
             
             
         }
@@ -2451,7 +2454,7 @@ if ('ontouchstart' in window) {
                 <!-- CEO Card -->
                 <div class="bento-item team-card ceo-card">
                     <div class="team-avatar">
-                        <img src="/static/sujin.png" alt="CEO">
+                        <img src="/static/sujin1.jpg" alt="CEO">
                     </div>
                     <div class="team-name">Sujin C Cherian</div>
                     <div class="team-role">Chief Executive Officer</div>
