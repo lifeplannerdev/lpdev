@@ -178,11 +178,6 @@ def canada(request):
 def germany(request):
     return render(request,"germany.html")
 
-def italy(request):
-    return render(request,"italy.html")
-
-def switzerland(request):
-    return render(request,"switzerland.html")
 
 
 
