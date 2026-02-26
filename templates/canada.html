@@ -354,6 +354,8 @@
         .toggle-section {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
             margin: 20px 0;
         }
     
@@ -368,7 +370,7 @@
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            width:150px;
+            width:120px;
             display: flex;
             justify-content: center;
         }
@@ -394,20 +396,25 @@
     <div class="toggle-section">
         <button id="canada-button" class="toggle-button active" onclick="showContent('canada')">Canada</button>
         <button id="germany-button" class="toggle-button" onclick="showContent('germany')">Germany</button>
+        <button id="italy-button" class="toggle-button" onclick="showContent('italy')">Italy</button>
+        <button id="switzerland-button" class="toggle-button" onclick="showContent('switzerland')">Switzerland</button>
     </div>
     <script>
         function showContent(country) {
             // Hide all content
             document.getElementById('canada-content').classList.add('hidden');
             document.getElementById('germany-content').classList.add('hidden');
-            
-    
+            document.getElementById('italy-content').classList.add('hidden');
+            document.getElementById('switzerland-content').classList.add('hidden');
+
             // Show the selected content
             document.getElementById(`${country}-content`).classList.remove('hidden');
     
             // Update button styles
             document.getElementById('canada-button').classList.remove('active');
             document.getElementById('germany-button').classList.remove('active');
+            document.getElementById('italy-button').classList.remove('active');
+            document.getElementById('switzerland-button').classList.remove('active');
             document.getElementById(`${country}-button`).classList.add('active');
         }
     
@@ -1381,6 +1388,182 @@ button:hover::before {
 </div>
 
 
+<div id="italy-content" class="immigration-content hidden">
+    <section class="section mt-2" style="animation:fadeInUp 1.5s ease-out;">
+        <div class="container">
+            <div style="display:flex;justify-content: center;align-items: center;">
+                <img src="https://flagcdn.com/w1280/it.png" style="width:70%;border-radius: 10px;margin-bottom: 20px;" alt="Italy Flag">
+            </div>
+            <br>
+            <h2 class="mb-4" style="font-size: 32px; font-weight: bold;
+                background: linear-gradient(135deg, #5f9cad, #8080bc);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Immigration to Italy: Your Complete Guide
+            </h2>
+            <p class="lead">Italy, one of the world's most beloved countries, is increasingly attracting immigrants with its rich culture, vibrant economy, and high quality of life. From the fashion and design capital of Milan to the historic streets of Rome and the scenic coastlines of Sicily, Italy offers a unique and enriching environment for individuals and families seeking to build a new life in Europe.</p>
+            <p class="lead">This guide covers why Italy is an increasingly popular immigration destination, the key pathways available, the benefits of living there, and the latest policy updates that applicants must be aware of.</p>
+        </div>
+    </section>
+
+    <section class="section" style="animation:fadeInUp 1.5s ease-out;">
+        <div class="container">
+            <h2 class="mb-4" style="font-size: 32px; font-weight: bold;
+                background: linear-gradient(135deg, #5f9cad, #8080bc);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Why Immigrate to Italy?
+            </h2>
+            <p class="lead">Italy combines cultural heritage, economic opportunity, and a warm Mediterranean lifestyle that few countries can match. Here is why so many people choose Italy:</p>
+            <li><strong>Rich Cultural Heritage and Lifestyle:</strong><br>Italy is home to more UNESCO World Heritage Sites than any other country. Its world-renowned cuisine, art, fashion, and architecture make everyday life an extraordinary experience.</li><br>
+            <li><strong>Strong Economy and Key Industries:</strong><br>Italy has the third-largest economy in the Eurozone. Key industries include fashion, automotive manufacturing, food and beverage, tourism, and a growing technology sector.</li><br>
+            <li><strong>Access to the European Union:</strong><br>As an EU member state, Italy offers residents access to freedom of movement across all 27 European countries in the Schengen Zone.</li><br>
+            <li><strong>Attractive Tax Incentives for New Residents:</strong><br>Italy has introduced several special tax regimes — including the Impatriati regime offering up to 70% tax exemption on Italian income — to attract foreign workers, retirees, and entrepreneurs.</li><br>
+        </div>
+    </section>
+
+    <div style="display:flex;justify-content: center;align-items: center;">
+        <img src="https://images.pexels.com/photos/2064827/pexels-photo-2064827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:70%;height:80%;border-radius: 10px;margin-bottom: 20px;" alt="Amalfi Coast Italy">
+    </div>
+
+    <section class="section" style="animation:fadeInUp 1.5s ease-out;">
+        <div class="container">
+            <h2 class="mb-4" style="font-size: 32px; font-weight: bold;
+                background: linear-gradient(135deg, #5f9cad, #8080bc);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Key Immigration Pathways to Italy
+            </h2>
+            <li><strong>Work Visa (Nulla Osta):</strong><br>Non-EU nationals need a work permit issued by Italian immigration authorities, followed by a work visa. Italy manages annual quotas for non-EU workers through the Decreto Flussi (Flows Decree).
+                <ul>
+                    <li><strong>Subordinate Employment:</strong> For those with a job offer from an Italian employer.</li>
+                    <li><strong>Seasonal Work:</strong> For temporary employment in agriculture, tourism, and hospitality.</li>
+                    <li><strong>Highly Qualified Workers:</strong> Italy's EU Blue Card pathway for highly skilled professionals.</li>
+                </ul>
+            </li><br>
+            <li><strong>EU Blue Card:</strong><br>For highly skilled non-EU workers with a job offer at a salary at least 1.5 times the average gross annual salary in Italy, along with relevant qualifications.</li><br>
+            <li><strong>Digital Nomad Visa:</strong><br>Italy introduced its Digital Nomad Visa in 2024, allowing remote workers and freelancers from non-EU countries to live and work in Italy while employed by foreign companies or clients.</li><br>
+            <li><strong>Student Visa:</strong><br>Italy is home to some of Europe's oldest universities including the University of Bologna, La Sapienza, and Politecnico di Milano. Students can convert their visa into a work permit after graduation.</li><br>
+            <li><strong>Family Reunification:</strong><br>Italian residents and citizens can sponsor family members including spouses, dependent children, and parents to join them in Italy.</li><br>
+        </div>
+    </section>
+
+    <div style="display:flex;justify-content: center;align-items: center;">
+        <img src="https://images.pexels.com/photos/532263/pexels-photo-532263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:70%;height:80%;border-radius: 10px;margin-bottom: 20px;" alt="Tuscany Italy Rolling Hills">
+    </div>
+
+    <section class="section" style="animation:fadeInUp 1.5s ease-out;">
+        <div class="container">
+            <h2 class="mb-4" style="font-size: 32px; font-weight: bold;
+                background: linear-gradient(135deg, #5f9cad, #8080bc);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Benefits of Immigrating to Italy
+            </h2>
+            <li><strong>Universal Healthcare (SSN):</strong><br>Italy's National Health Service provides free or low-cost healthcare to all residents with a valid residence permit.</li><br>
+            <li><strong>Free Public Education:</strong><br>Public education is free from primary through secondary school. Italy also has world-class universities with affordable tuition fees.</li><br>
+            <li><strong>Special Tax Regimes:</strong><br>The Impatriati regime offers up to 70% tax exemption on Italian-sourced income for up to 5 years. A flat tax of €100,000 on all foreign income is available for wealthy individuals relocating to Italy.</li><br>
+            <li><strong>Path to Permanent Residency and Citizenship:</strong><br>After 5 years of legal residence, immigrants can apply for permanent residency. Italian citizenship is available after 10 years of legal residence.</li><br>
+        </div>
+    </section>
+
+    <section class="section" style="animation:fadeInUp 1.5s ease-out;">
+        <div class="container">
+            <h2 class="mb-4" style="font-size: 32px; font-weight: bold;
+                background: linear-gradient(135deg, #5f9cad, #8080bc);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Conclusion
+            </h2>
+            <p class="lead">Italy represents a unique immigration destination — blending rich cultural experience with real economic opportunities, attractive tax incentives, and a warm welcoming society. Whether you are a skilled professional, entrepreneur, student, digital nomad, or retiree, Italy has a pathway designed for your journey.</p>
+            <p class="lead">Italy's evolving immigration policies, particularly around skilled workers and digital nomads, signal a growing openness to international talent. With the right guidance and a well-prepared application, your dream of living la dolce vita in Italy can become a reality.</p>
+        </div>
+    </section>
+</div>
+
+<div id="switzerland-content" class="immigration-content hidden">
+    <section class="section mt-2" style="animation:fadeInUp 1.5s ease-out;">
+        <div class="container">
+            <div style="display:flex;justify-content: center;align-items: center;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/500px-Flag_of_Switzerland.svg.png" style="width:70%;border-radius: 10px;margin-bottom: 20px;" alt="Switzerland Flag">
+            </div>
+            <br>
+            <h2 class="mb-4" style="font-size: 32px; font-weight: bold;
+                background: linear-gradient(135deg, #5f9cad, #8080bc);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Immigration to Switzerland: Your Complete Guide
+            </h2>
+            <p class="lead">Switzerland is one of the world's most desirable destinations for immigrants, offering an exceptional quality of life, political neutrality, and a thriving economy. Nestled in the heart of Europe, Switzerland is home to major international organisations, global financial institutions, and leading pharmaceutical and technology companies.</p>
+            <p class="lead">This guide walks you through why Switzerland is an attractive destination, the key immigration pathways available, benefits of living there, and important policy updates you need to know.</p>
+        </div>
+    </section>
+
+    <section class="section" style="animation:fadeInUp 1.5s ease-out;">
+        <div class="container">
+            <h2 class="mb-4" style="font-size: 32px; font-weight: bold;
+                background: linear-gradient(135deg, #5f9cad, #8080bc);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Why Immigrate to Switzerland?
+            </h2>
+            <p class="lead">Switzerland consistently ranks among the top countries in global quality of life, innovation, and economic competitiveness. Here is why so many people choose Switzerland:</p>
+            <li><strong>World-Class Economy:</strong><br>Switzerland hosts global giants in banking, pharmaceuticals, watchmaking, and technology. Cities like Zurich, Geneva, and Basel are major financial and commercial hubs offering excellent career prospects.</li><br>
+            <li><strong>Exceptional Quality of Life:</strong><br>With pristine natural landscapes, clean cities, low crime rates, and outstanding public services, Switzerland offers an unmatched standard of living. Zurich and Geneva regularly top global liveability rankings.</li><br>
+            <li><strong>Political Stability and Safety:</strong><br>Switzerland's long tradition of political neutrality and democratic governance makes it one of the most stable and secure countries in the world.</li><br>
+            <li><strong>Multilingual and Multicultural Environment:</strong><br>With four official languages — German, French, Italian, and Romansh — Switzerland is a truly multicultural society that welcomes people from all backgrounds. Over 25% of its residents are foreign nationals.</li><br>
+        </div>
+    </section>
+
+    <div style="display:flex;justify-content: center;align-items: center;">
+        <img src="https://images.pexels.com/photos/2422461/pexels-photo-2422461.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width:70%;height:80%;border-radius: 10px;margin-bottom: 20px;" alt="Switzerland Alps">
+    </div>
+
+    <section class="section" style="animation:fadeInUp 1.5s ease-out;">
+        <div class="container">
+            <h2 class="mb-4" style="font-size: 32px; font-weight: bold;
+                background: linear-gradient(135deg, #5f9cad, #8080bc);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Key Immigration Pathways to Switzerland
+            </h2>
+            <li><strong>Work Permit (Residence Permit B):</strong><br>The most common pathway for skilled workers. EU/EFTA citizens benefit from freedom of movement, while non-EU nationals need a confirmed job offer from a Swiss employer. Switzerland operates a quota system for non-EU/EFTA workers, prioritising highly qualified professionals.
+                <ul>
+                    <li><strong>Short-term permit (L):</strong> For stays up to one year.</li>
+                    <li><strong>Annual residence permit (B):</strong> Renewable, for longer-term employment.</li>
+                    <li><strong>Settlement permit (C):</strong> For long-term residents after 5 or 10 years.</li>
+                </ul>
+            </li><br>
+            <li><strong>Highly Qualified Non-EU Workers:</strong><br>Switzerland admits a limited number of non-EU/EFTA workers annually through a quota system. Priority is given to managers, specialists, and highly qualified individuals in finance, IT, engineering, and healthcare.</li><br>
+            <li><strong>Family Reunification:</strong><br>Swiss residents and citizens can bring their spouse, registered partner, and dependent children to Switzerland. Family members may also receive a residence permit and have the right to work.</li><br>
+            <li><strong>Student Visa:</strong><br>Switzerland is home to world-renowned universities such as ETH Zurich, EPFL, and the University of Zurich. After graduation, students may apply to stay and work in Switzerland.</li><br>
+            <li><strong>Entrepreneur and Investor Visa:</strong><br>Switzerland welcomes entrepreneurs who can contribute to the Swiss economy. Business owners and investors may apply for a residence permit if they establish a company or invest in existing Swiss businesses.</li><br>
+        </div>
+    </section>
+
+    <div style="display:flex;justify-content: center;align-items: center;">
+        <img src="https://images5.alphacoders.com/676/thumb-1920-676278.jpg" style="width:70%;height:80%;border-radius: 10px;margin-bottom: 20px;" alt="Switzerland Scenic Town">
+    </div>
+
+    <section class="section" style="animation:fadeInUp 1.5s ease-out;">
+        <div class="container">
+            <h2 class="mb-4" style="font-size: 32px; font-weight: bold;
+                background: linear-gradient(135deg, #5f9cad, #8080bc);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Benefits of Living and Working in Switzerland
+            </h2>
+            <li><strong>High Salaries and Low Unemployment:</strong><br>Switzerland boasts some of the highest average salaries in the world with consistently low unemployment rates and strong demand for skilled workers.</li><br>
+            <li><strong>Excellent Healthcare System:</strong><br>Switzerland has one of the best healthcare systems globally, with state-of-the-art facilities and highly trained medical professionals.</li><br>
+            <li><strong>World-Renowned Education:</strong><br>Switzerland is home to top global universities and research institutions. Public schools provide high-quality education for all residents.</li><br>
+            <li><strong>Path to Permanent Residency and Citizenship:</strong><br>After holding a B permit for several years (5 years for EU/EFTA nationals, 10 years for non-EU nationals), residents can apply for the C settlement permit. Swiss citizenship requires a minimum of 10 years of residence.</li><br>
+        </div>
+    </section>
+
+    <section class="section" style="animation:fadeInUp 1.5s ease-out;">
+        <div class="container">
+            <h2 class="mb-4" style="font-size: 32px; font-weight: bold;
+                background: linear-gradient(135deg, #5f9cad, #8080bc);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Conclusion
+            </h2>
+            <p class="lead">Switzerland offers a uniquely compelling immigration destination — combining outstanding economic opportunities, political stability, and an exceptional quality of life in one of Europe's most beautiful countries. Whether you are a skilled professional, entrepreneur, student, or family, Switzerland has tailored pathways to suit your goals.</p>
+            <p class="lead">With the right guidance and a well-prepared application, your Swiss dream can become a reality.</p>
+        </div>
+    </section>
+</div>
+
 
 <!-- Floating Buttons -->
 <div class="floating-buttons">
@@ -1390,7 +1573,7 @@ button:hover::before {
     <a href="tel:+91 8943510107" class="phone" title="Call">
         <i class="fa-solid fa-phone"></i>
     </a>
-    <a href="mailto:info@lifeplanneruniversal.com" class="mail" title="Email">
+    <a href="/cdn-cgi/l/email-protection#93fafdf5fcd3fffaf5f6e3fff2fdfdf6e1e6fdfae5f6e1e0f2ffbdf0fcfe" class="mail" title="Email">
         <i class="fas fa-envelope"></i>
     </a>
 </div>
@@ -1467,7 +1650,7 @@ button:hover::before {
                         
                         <div class="cta-text">
                             <h4>Mail us</h4>
-                            <span>info@lifeplanneruniversal.com</span>
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ef86818980af8386898a9f838e81818a9d9a8186998a9d9c8e83c18c8082">[email&#160;protected]</a></span>
                         </div>
                     </div>
                 </div>
@@ -1690,7 +1873,7 @@ background: linear-gradient(135deg, #5f9cad, #8080bc);
 }
 </style>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   
     
@@ -1706,10 +1889,4 @@ background: linear-gradient(135deg, #5f9cad, #8080bc);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<!-- Bootstrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<script src="https://ajax.googleapis.com/ajax/libs/
