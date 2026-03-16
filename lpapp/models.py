@@ -1,6 +1,25 @@
 from django.utils.text import slugify
 from django.db import models
 
+class ConsultationRequest(models.Model):
+    name       = models.CharField(max_length=200)
+    phone      = models.CharField(max_length=50)
+    email      = models.EmailField()
+    program    = models.CharField(max_length=300, blank=True, default='')
+    message    = models.TextField(blank=True, default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_read    = models.BooleanField(default=False)   # mark as read in admin
+ 
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name        = 'Consultation Request'
+        verbose_name_plural = 'Consultation Requests'
+ 
+    def __str__(self):
+        return f"{self.name} — {self.program or 'No program selected'} ({self.created_at.strftime('%d %b %Y')})"
+ 
+
+
 class Appointment(models.Model):
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)

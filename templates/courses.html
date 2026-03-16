@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Programs | Life Planner</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <style>
+        @font-face { font-family: myfont; src: url(/static/Cabin-Medium.ttf); }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Bricolage Grotesque',myfont,sans-serif; background:#fff; overflow-x:hidden; }
+        :root {
+            --primary:#1664ad; --secondary:#5f9cad; --accent:#8080bc;
+            --grad:linear-gradient(135deg,#5f9cad,#8080bc);
+            --text-dark:#0f172a; --text-mid:#475569; --text-light:#64748b;
+            --shadow-soft:0 10px 40px rgba(22,100,173,0.10);
+            --shadow-hover:0 24px 60px rgba(22,100,173,0.18);
+            --radius:24px;
+        }
+
+        /* ── NAVBAR ── */
+        .navbar{background:transparent;padding:.5rem 1rem;display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;width:100%;z-index:999;transition:background .3s}
+        .navbar .nav-link{color:#fff;font-weight:500;margin:10px;transition:color .2s}
+        .navbar .nav-link:hover{color:#ff4757}
+        .dropdown-menu{background:rgba(0,0,0,.566)!important}
+        .dropdown-item{color:white!important}
+        .dropdown-item:hover{background:rgba(255,255,255,.15)!important}
+
+        /* ── HERO ── */
+        .hero-section{min-height:100vh;background:var(--grad);display:flex;align-items:center;position:relative;overflow:hidden}
+        .hero-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.28) 0%,rgba(255,255,255,.08) 25%,transparent 55%);z-index:1}
+        .hero-shapes{position:absolute;width:100%;height:100%;z-index:1;pointer-events:none}
+        .hero-shape{position:absolute;background:rgba(255,255,255,.08);border-radius:50%;animation:heroFloat 20s ease-in-out infinite}
+        .hero-shape:nth-child(1){width:90px;height:90px;top:15%;left:5%;animation-delay:0s}
+        .hero-shape:nth-child(2){width:60px;height:60px;top:65%;left:82%;animation-delay:-6s}
+        .hero-shape:nth-child(3){width:40px;height:40px;top:80%;left:18%;animation-delay:-12s}
+        .hero-shape:nth-child(4){width:110px;height:110px;top:8%;left:72%;animation-delay:-16s}
+        @keyframes heroFloat{0%,100%{transform:translateY(0) rotate(0deg);opacity:.7}50%{transform:translateY(-22px) rotate(180deg);opacity:1}}
+        .hero-container{max-width:1400px;margin:70px auto 0;padding:0 40px;display:flex;align-items:center;gap:60px;position:relative;z-index:2;width:100%}
+        .hero-content{flex:1;min-width:0;animation:slideInLeft .9s ease-out both}
+        @keyframes slideInLeft{from{opacity:0;transform:translateX(-48px)}to{opacity:1;transform:translateX(0)}}
+        .hero-badge{display:inline-block;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.25);color:white;padding:8px 22px;border-radius:50px;font-size:.82rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:22px}
+        .hero-title{font-size:clamp(2rem,4.5vw,3.8rem);font-weight:800;color:white;line-height:1.12;letter-spacing:-1px;margin-bottom:22px}
+        .hero-desc{font-size:clamp(.95rem,1.4vw,1.18rem);color:rgba(255,255,255,.9);line-height:1.75;margin-bottom:36px;max-width:520px}
+        .hero-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:28px}
+        .hero-btn-primary{padding:16px 38px;font-size:1rem;font-weight:700;color:var(--text-dark);background:rgba(255,255,255,.95);border:none;border-radius:60px;cursor:pointer;transition:all .4s cubic-bezier(.175,.885,.32,1.275);text-decoration:none;display:inline-block;box-shadow:0 6px 20px rgba(0,0,0,.15)}
+        .hero-btn-primary:hover{transform:translateY(-4px) scale(1.05);color:var(--text-dark);text-decoration:none;box-shadow:0 14px 35px rgba(0,0,0,.22),0 0 0 6px rgba(255,255,255,.2)}
+        .hero-btn-secondary{padding:14px 28px;font-size:.95rem;font-weight:600;color:white;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.3);border-radius:60px;cursor:pointer;transition:all .3s ease;text-decoration:none;backdrop-filter:blur(10px);display:inline-flex;align-items:center;gap:8px}
+        .hero-btn-secondary:hover{background:rgba(255,255,255,.25);transform:translateY(-3px);color:white;text-decoration:none}
+        .trust-indicator{display:flex;align-items:center;flex-wrap:wrap;margin-bottom:34px;opacity:0;animation:fadeInUp .7s ease-out 1s both}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+        .trust-item{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.88);font-size:.77rem;font-weight:600;white-space:nowrap}
+        .trust-check{width:17px;height:17px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.55rem;color:white}
+        .trust-sep{width:3px;height:3px;background:rgba(255,255,255,.35);border-radius:50%;margin:0 10px;flex-shrink:0}
+        .hero-stats{display:flex;gap:40px;flex-wrap:wrap}
+        .stat-item-hero{text-align:center}
+        .hero-stat-num{font-size:clamp(1.8rem,2.5vw,2.4rem);font-weight:800;color:white;line-height:1;text-shadow:0 2px 15px rgba(0,0,0,.2)}
+        .hero-stat-label{font-size:.78rem;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:1.5px;margin-top:5px}
+        .hero-visual{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;animation:slideInRight .9s ease-out .25s both}
+        @keyframes slideInRight{from{opacity:0;transform:translateX(48px)}to{opacity:1;transform:translateX(0)}}
+        .hero-cards-preview{position:relative;width:430px;height:460px;flex-shrink:0}
+        .preview-card{position:absolute;background:rgba(255,255,255,.14);backdrop-filter:blur(16px);border:1.5px solid rgba(255,255,255,.3);border-radius:20px;padding:20px;color:white;box-shadow:0 12px 40px rgba(0,0,0,.15)}
+        .preview-card-main{width:260px;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;animation:cardFloat 5s ease-in-out infinite}
+        @keyframes cardFloat{0%,100%{transform:translate(-50%,-50%) translateY(0)}50%{transform:translate(-50%,-50%) translateY(-10px)}}
+        .preview-card-left{width:175px;left:0;top:55%;transform:translateY(-50%) rotate(-8deg);z-index:3;opacity:.75}
+        .preview-card-right{width:175px;right:0;top:40%;transform:translateY(-50%) rotate(6deg);z-index:3;opacity:.75}
+        .preview-card-top{width:200px;left:50%;top:5%;transform:translateX(-50%) rotate(-3deg);z-index:4;opacity:.65}
+        .preview-card-emoji{font-size:2rem;margin-bottom:8px;display:block}
+        .preview-card-label{font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;opacity:.75;margin-bottom:4px}
+        .preview-card-title{font-size:.95rem;font-weight:800;line-height:1.3}
+        .preview-card-tag{display:inline-block;background:rgba(255,255,255,.2);border-radius:20px;font-size:.6rem;font-weight:700;padding:3px 10px;margin-top:8px}
+        .preview-card-main .preview-card-emoji{font-size:2.4rem}
+        .preview-card-main .preview-card-title{font-size:1.15rem}
+        .preview-progress{margin-top:12px;height:4px;background:rgba(255,255,255,.2);border-radius:4px;overflow:hidden}
+        .preview-progress-bar{height:100%;background:white;border-radius:4px;animation:progAnim 3s ease-in-out infinite}
+        @keyframes progAnim{0%{width:30%}50%{width:85%}100%{width:30%}}
+        .hero-wave{position:absolute;bottom:0;left:0;width:100%;overflow:hidden;line-height:0;z-index:3}
+        .hero-wave svg{display:block;width:100%}
+        @media(max-width:960px){
+            .hero-container{flex-direction:column-reverse;text-align:center;gap:30px;padding:80px 30px 60px;margin-top:0}
+            .hero-desc{margin:0 auto 36px}.hero-actions,.trust-indicator,.hero-stats{justify-content:center}
+            .hero-visual{width:100%}.hero-cards-preview{width:340px;height:360px}
+        }
+        @media(max-width:600px){
+            .hero-container{padding:80px 20px 50px;gap:24px}
+            .hero-actions{flex-direction:column;align-items:stretch}
+            .preview-card-left,.preview-card-right,.preview-card-top{display:none}
+            .hero-cards-preview{width:290px;height:310px}
+        }
+
+        /* ── SECTION LABELS ── */
+        .section-label{font-size:.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--secondary);margin-bottom:10px}
+        .section-heading{font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:800;color:var(--text-dark);letter-spacing:-.5px;line-height:1.2}
+        .section-heading span{color:var(--primary)}
+        .underline-bar{width:60px;height:4px;border-radius:4px;background:var(--grad);margin:14px auto 0}
+
+        /* ══════════════════════════════════
+           PROGRAMS SECTION
+        ══════════════════════════════════ */
+        .programs-section{
+            padding:90px 0 80px;
+            background:linear-gradient(160deg,#f0f7fa 0%,#f5f3ff 50%,#f0f7fa 100%);
+            position:relative;overflow:hidden;
+        }
+        .programs-section::before{content:'';position:absolute;top:-180px;right:-180px;width:520px;height:520px;background:radial-gradient(circle,rgba(95,156,173,.10) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+        .programs-section::after{content:'';position:absolute;bottom:-120px;left:-120px;width:400px;height:400px;background:radial-gradient(circle,rgba(128,128,188,.09) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+        .programs-container{max-width:1320px;margin:0 auto;padding:0 40px}
+
+        /* ── FILTER TABS ── */
+        .filter-tabs{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:0 0 44px}
+        .filter-tab{padding:9px 20px;border-radius:50px;font-size:.8rem;font-weight:700;border:2px solid rgba(22,100,173,.15);color:var(--text-mid);background:white;cursor:pointer;transition:all .3s ease;letter-spacing:.3px}
+        .filter-tab:hover{border-color:var(--secondary);color:var(--secondary);transform:translateY(-2px)}
+        .filter-tab.active{background:var(--grad);color:white;border-color:transparent;box-shadow:0 6px 20px rgba(95,156,173,.35);transform:translateY(-2px)}
+
+        /* ══ BENTO ROWS ══ */
+        .bento-row{display:grid;gap:22px;margin-bottom:22px}
+        .bento-row-A{grid-template-columns:1.55fr 1fr}
+        .bento-row-B{grid-template-columns:1fr 1.55fr}
+        .bento-row-C{grid-template-columns:repeat(3,1fr)}
+        .bento-row-D{grid-template-columns:repeat(2,1fr)}
+        .bento-pair{display:flex;flex-direction:column;gap:22px}
+        .bento-pair > .program-card{flex:1}
+
+        /* ── CARD BASE ── */
+        .program-card{
+            background:#fff;border-radius:var(--radius);overflow:hidden;
+            border:1.5px solid rgba(0,0,0,.055);position:relative;
+            transition:box-shadow .42s cubic-bezier(.23,1,.32,1), border-color .3s, transform .3s;
+            box-shadow:0 2px 16px rgba(0,0,0,.045);
+            cursor:pointer;display:flex;flex-direction:column;
+            text-decoration:none;
+        }
+        .program-card:hover{transform:translateY(-6px) scale(1.005);box-shadow:0 24px 48px rgba(95,156,173,.18),0 0 0 2px rgba(95,156,173,.18);border-color:rgba(95,156,173,.3);text-decoration:none;}
+        /* sheen sweep */
+        .program-card::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);transition:left .6s ease;z-index:10;pointer-events:none}
+        .program-card:hover::after{left:150%}
+        .program-card.hidden{display:none!important}
+
+        /* image sizes */
+        .program-card-img{position:relative;width:100%;overflow:hidden;flex-shrink:0;z-index:1}
+        .img-tall{height:360px}
+        .img-mid {height:188px}
+        .img-std {height:215px}
+        .img-sm  {height:160px}
+        .program-card-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s cubic-bezier(.23,1,.32,1);display:block}
+        .program-card:hover .program-card-img img{transform:scale(1.07)}
+        .program-card-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.08) 50%,rgba(15,23,42,.58) 100%)}
+        .program-img-tag{position:absolute;top:14px;left:14px;font-size:.69rem;font-weight:700;color:#fff;background:rgba(255,255,255,.18);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3);padding:5px 14px;border-radius:30px;letter-spacing:.8px;text-transform:uppercase;z-index:4;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+        .program-card-img-cta{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .32s ease;z-index:5;background:rgba(15,23,42,.18)}
+        .program-card:hover .program-card-img-cta{opacity:1}
+        .program-card-img-cta span{background:rgba(255,255,255,.96);color:#1664ad;font-size:.82rem;font-weight:700;padding:11px 26px;border-radius:30px;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+
+        /* card body */
+        .program-card-body{padding:20px 22px 12px;flex:1;position:relative;z-index:1}
+        .prog-featured .program-card-body{padding:26px 28px 14px}
+        .program-name{font-size:1.04rem;font-weight:800;color:var(--text-dark);line-height:1.35;margin-bottom:8px}
+        .prog-featured .program-name{font-size:1.22rem}
+        .program-desc{font-size:.875rem;color:var(--text-light);line-height:1.75;margin-bottom:0}
+
+        /* pills */
+        .prog-pills{display:flex;flex-wrap:wrap;gap:7px;margin:11px 0 8px}
+        .prog-pill{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;font-weight:700;color:var(--primary);background:rgba(22,100,173,.08);border:1px solid rgba(22,100,173,.15);padding:5px 12px;border-radius:20px}
+
+        /* stats mini grid (featured only) */
+        .prog-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 4px}
+        .prog-stat{background:#f8faff;border-radius:12px;padding:10px 8px;text-align:center;border:1px solid rgba(95,156,173,.12)}
+        .prog-stat-num{font-size:1.08rem;font-weight:800;color:var(--primary)}
+        .prog-stat-lbl{font-size:.65rem;color:#94a3b8;margin-top:3px}
+
+        /* card footer */
+        .program-card-footer{display:flex;align-items:center;justify-content:space-between;padding:12px 22px 18px;border-top:1px solid rgba(0,0,0,.05);margin-top:auto;position:relative;z-index:1}
+        .prog-featured .program-card-footer{padding:14px 28px 20px}
+        .program-card-footer-meta{font-size:.76rem;color:#b0bec5;display:flex;align-items:center;gap:6px}
+        .program-card-footer-meta::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#5f9cad,#8080bc);flex-shrink:0}
+        .program-card-footer-arrow{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#5f9cad,#8080bc);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.8rem;transition:transform .3s;flex-shrink:0;box-shadow:0 4px 12px rgba(95,156,173,.3);cursor:pointer;border:none;outline:none}
+        .program-card-footer-arrow:hover{transform:scale(1.12);}
+        .program-card-footer-arrow.open{background:linear-gradient(135deg,#e96b2b,#f59e0b);transform:rotate(90deg)}
+
+        /* accent borders */
+        .acc-teal  {border-left:4px solid #5f9cad}
+        .acc-purple{border-left:4px solid #8080bc}
+        .acc-orange{border-left:4px solid #e96b2b}
+        .acc-green {border-left:4px solid #43b89c}
+        .acc-gold  {border-left:4px solid #f59e0b}
+
+        /* number badge */
+        .prog-num-badge{position:absolute;bottom:12px;right:14px;font-size:3.5rem;font-weight:900;color:rgba(95,156,173,.07);line-height:1;pointer-events:none;z-index:0}
+
+        /* ══ EXPAND PANEL ══ */
+        .prog-expand{
+            max-height:0;overflow:hidden;
+            transition:max-height .45s cubic-bezier(.23,1,.32,1), padding .35s;
+            background:linear-gradient(135deg,rgba(95,156,173,.06),rgba(128,128,188,.06));
+            border-top:0px solid transparent;
+        }
+        .prog-expand.open{
+            max-height:600px;
+            border-top:1.5px solid rgba(95,156,173,.15);
+        }
+        .prog-expand-inner{padding:22px 22px 24px}
+        .prog-featured .prog-expand-inner{padding:22px 28px 26px}
+        .prog-expand-title{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--secondary);margin-bottom:10px}
+        .prog-expand-text{font-size:.88rem;color:var(--text-mid);line-height:1.78;margin-bottom:14px}
+        .prog-expand-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px}
+        .prog-expand-item{background:white;border-radius:12px;padding:12px 14px;border:1px solid rgba(95,156,173,.15)}
+        .prog-expand-item-label{font-size:.65rem;font-weight:700;color:var(--secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+        .prog-expand-item-val{font-size:.85rem;font-weight:700;color:var(--text-dark)}
+        .prog-expand-cta{display:inline-flex;align-items:center;gap:8px;background:var(--grad);color:white;padding:11px 26px;border-radius:40px;font-size:.83rem;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 6px 18px rgba(95,156,173,.3)}
+        .prog-expand-cta:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(95,156,173,.4);color:white;text-decoration:none}
+
+        /* ══ CONSULTATION FORM SECTION ══ */
+        .consult-section{
+            padding:90px 0 80px;
+            background:white;
+            position:relative;overflow:hidden;
+        }
+        .consult-section::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(95,156,173,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+        .consult-section::after{content:'';position:absolute;bottom:-80px;left:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(128,128,188,.07) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+        .consult-container{max-width:1100px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:start}
+        .consult-info{padding-top:10px}
+        .consult-info .section-heading{text-align:left;margin-bottom:18px}
+        .consult-info .underline-bar{margin:0 0 24px}
+        .consult-info-desc{font-size:1rem;color:var(--text-mid);line-height:1.8;margin-bottom:32px}
+        .consult-benefit{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
+        .consult-benefit-icon{width:44px;height:44px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;color:white;font-size:1rem;flex-shrink:0;box-shadow:0 6px 18px rgba(95,156,173,.3)}
+        .consult-benefit-text strong{display:block;font-size:.9rem;font-weight:800;color:var(--text-dark);margin-bottom:3px}
+        .consult-benefit-text span{font-size:.82rem;color:var(--text-light);line-height:1.6}
+
+        /* FORM */
+        .consult-form-wrap{background:white;border-radius:28px;padding:40px 36px;box-shadow:0 16px 56px rgba(22,100,173,.1);border:1.5px solid rgba(95,156,173,.12);position:relative;overflow:hidden}
+        .consult-form-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad)}
+        .consult-form-title{font-size:1.22rem;font-weight:800;color:var(--text-dark);margin-bottom:6px}
+        .consult-form-sub{font-size:.84rem;color:var(--text-light);margin-bottom:28px}
+        .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+        .form-group{margin-bottom:18px}
+        .form-group label{display:block;font-size:.78rem;font-weight:700;color:var(--text-mid);margin-bottom:7px;letter-spacing:.3px}
+        .form-group input,
+        .form-group select,
+        .form-group textarea{
+            width:100%;padding:13px 16px;border:1.5px solid rgba(0,0,0,.1);border-radius:12px;
+            font-size:.9rem;font-family:inherit;color:var(--text-dark);background:#fafbff;
+            transition:border-color .25s,box-shadow .25s;outline:none;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus{border-color:var(--secondary);box-shadow:0 0 0 3px rgba(95,156,173,.12);background:white}
+        .form-group textarea{resize:vertical;min-height:90px}
+        .form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+        .form-submit-btn{width:100%;padding:16px;background:var(--grad);color:white;border:none;border-radius:14px;font-size:1rem;font-weight:700;font-family:inherit;cursor:pointer;transition:all .3s;box-shadow:0 8px 24px rgba(95,156,173,.35);display:flex;align-items:center;justify-content:center;gap:10px}
+        .form-submit-btn:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(95,156,173,.45)}
+        .form-note{text-align:center;font-size:.76rem;color:#b0bec5;margin-top:12px}
+        .form-success{display:none;text-align:center;padding:30px 20px}
+        .form-success-icon{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#43b89c,#5f9cad);display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:white;margin:0 auto 18px;box-shadow:0 8px 24px rgba(67,184,156,.3)}
+        .form-success h3{font-size:1.3rem;font-weight:800;color:var(--text-dark);margin-bottom:8px}
+        .form-success p{font-size:.9rem;color:var(--text-light);line-height:1.7}
+
+        @media(max-width:900px){
+            .consult-container{grid-template-columns:1fr;gap:40px}
+            .consult-info .section-heading{text-align:center}
+            .consult-info .underline-bar{margin:0 auto 24px}
+            .consult-info-desc{text-align:center}
+        }
+        @media(max-width:560px){
+            .consult-form-wrap{padding:28px 22px}
+            .form-row-2{grid-template-columns:1fr}
+            .consult-container{padding:0 20px}
+        }
+
+        /* ── WHY ── */
+        .why-section{padding:90px 0;background:linear-gradient(160deg,#f0f7fa 0%,#f5f3ff 50%,#f0f7fa 100%)}
+        .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;max-width:1100px;margin:54px auto 0;padding:0 32px}
+        .why-card{background:white;border-radius:20px;padding:38px 26px 30px;text-align:center;box-shadow:0 8px 32px rgba(22,100,173,.08);border:1.5px solid rgba(22,100,173,.07);transition:all .4s;position:relative;overflow:hidden}
+        .why-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+        .why-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(22,100,173,.14)}
+        .why-card:hover::after{transform:scaleX(1)}
+        .why-icon{width:70px;height:70px;border-radius:18px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1.7rem;color:white;margin:0 auto 20px;box-shadow:0 8px 24px rgba(95,156,173,.3);transition:transform .4s}
+        .why-card:hover .why-icon{transform:scale(1.1) rotate(-5deg)}
+        .why-title{font-size:1.1rem;font-weight:800;color:var(--text-dark);margin-bottom:10px}
+        .why-desc{font-size:.9rem;color:var(--text-light);line-height:1.7}
+
+        /* ── FOOTER ── */
+        ul{margin:0;padding:0}
+        .footer-section{background:var(--grad);position:relative}
+        .footer-top{border-bottom:1px solid rgba(255,255,255,.2);padding:50px 0 40px}
+        .footer-top-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;max-width:1200px;margin:0 auto;padding:0 40px;align-items:start}
+        .footer-contact-block h4{color:#fff;font-size:18px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+        .footer-contact-block h4 i{font-size:15px;opacity:.85}
+        .footer-contact-block p,.footer-contact-block a{color:rgba(255,255,255,.88);font-size:14.5px;line-height:1.9;display:block;text-decoration:none;margin:0}
+        .footer-contact-block a:hover{color:#fff;text-decoration:underline}
+        .footer-main{padding:50px 0 40px}
+        .footer-main-grid{display:grid;grid-template-columns:1.7fr 1fr 1.1fr;gap:50px;max-width:1200px;margin:0 auto;padding:0 40px;align-items:start}
+        .footer-about p{color:rgba(255,255,255,.88);font-size:14.5px;line-height:1.85;margin-bottom:24px}
+        .footer-follow-label{color:#fff;font-size:15px;font-weight:700;margin-bottom:14px;display:block}
+        .footer-social-icons{display:flex;gap:12px}
+        .footer-social-icons a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;transition:background .3s,transform .3s;border:1px solid rgba(255,255,255,.2);text-decoration:none}
+        .footer-social-icons a:hover{background:rgba(255,255,255,.3);transform:translateY(-3px)}
+        .footer-links-col h4{color:#fff;font-size:18px;font-weight:700;margin-bottom:28px;position:relative;padding-bottom:14px}
+        .footer-links-col h4::after{content:"";position:absolute;left:0;bottom:0;width:40px;height:3px;background:rgba(255,255,255,.5);border-radius:2px}
+        .footer-links-col ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
+        .footer-links-col ul li a{color:rgba(255,255,255,.85);font-size:14.5px;text-decoration:none;transition:color .2s,padding-left .2s;display:block}
+        .footer-links-col ul li a:hover{color:#fff;padding-left:5px}
+        .footer-logo-col{display:flex;flex-direction:column;align-items:center;justify-content:center}
+        .footer-logo-col img{width:240px;max-width:100%}
+        .footer-copyright{border-top:1px solid rgba(255,255,255,.15);padding:22px 40px;text-align:center}
+        .footer-copyright p{color:rgba(255,255,255,.82);font-size:13.5px;margin:0}
+        @media(max-width:992px){.footer-top-grid{grid-template-columns:1fr 1fr}.footer-top-grid .footer-contact-block:last-child{grid-column:1/-1}.footer-main-grid{grid-template-columns:1fr 1fr}.footer-logo-col{grid-column:1/-1}}
+        @media(max-width:640px){.footer-top-grid,.footer-main-grid{grid-template-columns:1fr;padding:0 24px}}
+
+        /* ── RESPONSIVE BENTO ── */
+        @media(max-width:1024px){
+            .bento-row-A,.bento-row-B{grid-template-columns:1fr}
+            .bento-row-C{grid-template-columns:repeat(2,1fr)}
+        }
+        @media(max-width:640px){
+            .bento-row-A,.bento-row-B,.bento-row-C,.bento-row-D{grid-template-columns:1fr;gap:18px}
+            .programs-container{padding:0 20px}
+        }
+        @media(max-width:768px){.programs-section{padding:70px 0 50px}}
+
+        .floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:10px;z-index:1000}
+        .floating-buttons a{display:flex;align-items:center;justify-content:center;width:50px;height:50px;background-color:rgb(22,100,173);color:white;border-radius:50%;box-shadow:0 4px 6px rgba(22,100,173,.4);font-size:22px;text-decoration:none;transition:background-color .3s}
+        .floating-buttons a:hover{opacity:.9;background-color:rgb(18,85,150)}
+
+        .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
+    <img src="/static/LPsymbol.png" style="height:40px;width:90px;" alt="Life Planner">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item ml-4"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item ml-4"><a class="nav-link" href="/courses/">Courses</a></li>
+            <li class="nav-item ml-4"><a class="nav-link" href="/service/">Services</a></li>
+            <li class="nav-item ml-4"><a class="nav-link" href="/canada/">Immigration</a></li>
+            <li class="nav-item ml-4 dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">University</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item text-white" href="/studycanada/">English-Speaking Countries</a>
+                    <a class="dropdown-item text-white mt-3" href="/studyeurope/">European Countries</a>
+                </div>
+            </li>
+            <li class="nav-item ml-4"><a class="nav-link" href="/blog/">Blog</a></li>
+            <li class="nav-item ml-4"><a class="nav-link" href="/partnering/">Partner With Us</a></li>
+            <li class="nav-item ml-4"><a class="nav-link" href="/contact/">Contact Us</a></li>
+        </ul>
+    </div>
+</nav>
+<script>
+window.addEventListener('scroll',()=>{
+    document.getElementById('mainNav').style.background=
+        window.scrollY>50?'linear-gradient(135deg,#5f9cad,#8080bc)':'transparent';
+});
+</script>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero-section">
+    <div class="hero-shapes">
+        <div class="hero-shape"></div><div class="hero-shape"></div>
+        <div class="hero-shape"></div><div class="hero-shape"></div>
+    </div>
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-badge">Global Career Programs</div>
+            <h1 class="hero-title">Our Programs<br>&amp; Courses</h1>
+            <p class="hero-desc">From Germany's elite Ausbildung to Swiss hospitality mastery and Italian culinary arts — 23 world-class programs across 8 countries, all designed to launch international careers.</p>
+            <div class="hero-actions">
+                <!-- Scrolls to the consultation form on this page -->
+                <a href="#consult" class="hero-btn-primary" id="heroConsultBtn">Book Free Consultation</a>
+                <a href="#programs" class="hero-btn-secondary" id="exploreBtn">Explore Programs <i class="fas fa-circle-arrow-down"></i></a>
+            </div>
+            <div class="trust-indicator">
+                <div class="trust-item"><div class="trust-check"><i class="fas fa-check"></i></div>23 Programs</div>
+                <div class="trust-sep"></div>
+                <div class="trust-item"><div class="trust-check"><i class="fas fa-check"></i></div>12+ Countries</div>
+                <div class="trust-sep"></div>
+                <div class="trust-item"><div class="trust-check"><i class="fas fa-check"></i></div>100% Placement Support</div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item-hero"><div class="hero-stat-num">23+</div><div class="hero-stat-label">Programs</div></div>
+                <div class="stat-item-hero"><div class="hero-stat-num">12+</div><div class="hero-stat-label">Countries</div></div>
+                <div class="stat-item-hero"><div class="hero-stat-num">1000+</div><div class="hero-stat-label">Students Placed</div></div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-cards-preview">
+                <div class="preview-card preview-card-top">
+                    <span class="preview-card-emoji">🍽️</span>
+                    <div class="preview-card-label">Culinary Arts</div>
+                    <div class="preview-card-title">CAST Italian Culinary &amp; Hospitality</div>
+                    <span class="preview-card-tag">Brescia, Italy</span>
+                </div>
+                <div class="preview-card preview-card-left">
+                    <span class="preview-card-emoji">🇨🇭</span>
+                    <div class="preview-card-label">Switzerland</div>
+                    <div class="preview-card-title">Dual Bachelor's Hospitality</div>
+                    <span class="preview-card-tag">3 Years</span>
+                </div>
+                <div class="preview-card preview-card-right">
+                    <span class="preview-card-emoji">🇮🇪</span>
+                    <div class="preview-card-label">Ireland</div>
+                    <div class="preview-card-title">University of Limerick</div>
+                    <span class="preview-card-tag">3–4 Years</span>
+                </div>
+                <div class="preview-card preview-card-main">
+                    <span class="preview-card-emoji">🇩🇪</span>
+                    <div class="preview-card-label">Featured Program</div>
+                    <div class="preview-card-title">Ausbildung — Germany Vocational Training</div>
+                    <span class="preview-card-tag">💶 €700–€1300/mo · 2–3.5 Years</span>
+                    <div class="preview-progress"><div class="preview-progress-bar"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-wave">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f0f7fa"/>
+        </svg>
+    </div>
+</section>
+
+<!-- ═══ PROGRAMS SECTION ═══ -->
+<section class="programs-section" id="programs">
+    <div style="text-align:center;padding:0 24px;margin-bottom:44px;">
+        <p class="section-label reveal">What We Offer</p>
+        <h2 class="section-heading reveal">Choose Your <span>Dream Program</span></h2>
+        <div class="underline-bar reveal"></div>
+        <p style="color:var(--text-mid);margin:16px auto 0;font-size:1rem;max-width:620px;line-height:1.7" class="reveal">
+            23 programs across 8 countries — from paid vocational training to internationally recognized degrees in hospitality, culinary arts, business, and engineering.
+        </p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-tabs reveal">
+        <button class="filter-tab active" data-filter="all">🌍 All Programs</button>
+        <button class="filter-tab" data-filter="vocational">⚙️ Vocational</button>
+        <button class="filter-tab" data-filter="culinary">🍽️ Culinary</button>
+        <button class="filter-tab" data-filter="hospitality">🏨 Hospitality</button>
+        <button class="filter-tab" data-filter="business">💼 Business</button>
+        <button class="filter-tab" data-filter="university">🎓 University</button>
+        <button class="filter-tab" data-filter="short">📋 Short Programs</button>
+    </div>
+
+    <div class="programs-container" id="programsWrapper">
+
+        <!-- ══ ROW 1 ══ -->
+        <div class="bento-row bento-row-A reveal" data-row-cats="vocational business culinary">
+
+            <!-- AUSBILDUNG -->
+            <div class="program-card prog-featured" data-cat="vocational">
+                <div class="program-card-img img-tall">
+                    <img src="/static/ausbildung-course.jpg" alt="Ausbildung Germany">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag">🇩🇪 Germany</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <div class="program-card-body">
+                    <h3 class="program-name">Ausbildung — Dual Vocational Training</h3>
+                    <p class="program-desc">Germany's prestigious dual vocational training lets you study while working in real companies and earning a monthly salary. No tuition fees, direct employment pathway, and a recognised German degree upon completion.</p>
+                    <div class="prog-pills">
+                        <span class="prog-pill">💶 €700–€1300/mo</span>
+                        <span class="prog-pill">🏥 Real Companies</span>
+                        <span class="prog-pill">🎓 German Degree</span>
+                        <span class="prog-pill">🌍 Work Rights</span>
+                    </div>
+                    <div class="prog-stats">
+                        <div class="prog-stat"><div class="prog-stat-num">3 Yrs</div><div class="prog-stat-lbl">Duration</div></div>
+                        <div class="prog-stat"><div class="prog-stat-num">€800+</div><div class="prog-stat-lbl">Monthly Pay</div></div>
+                        <div class="prog-stat"><div class="prog-stat-num">100+</div><div class="prog-stat-lbl">Job Fields</div></div>
+                    </div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">Dual Vocational Training · 2–3.5 Years · Germany</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">The Ausbildung is Germany's world-renowned dual system — you split your time between a vocational school (Berufsschule) and a real employer. This means you gain hands-on industry experience from day one while receiving a monthly training allowance. Over 325 recognised training occupations are available, spanning healthcare, IT, engineering, hospitality, and more. Upon completion you receive an official German vocational qualification with full EU work rights.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">2 – 3.5 Years</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Monthly Salary</div><div class="prog-expand-item-val">€700 – €1,300</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Tuition</div><div class="prog-expand-item-val">None (Paid Training)</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Language</div><div class="prog-expand-item-val">German (B1 min.)</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Qualification</div><div class="prog-expand-item-val">German Federal Degree</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Work Rights</div><div class="prog-expand-item-val">Full EU Work Permit</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('Ausbildung — Dual Vocational Training')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STACKED RIGHT: MBA + Culinary Diploma -->
+            <div class="bento-pair">
+                <div class="program-card acc-purple" data-cat="business">
+                    <div class="program-card-img img-mid">
+                        <img src="/static/mba-course.jpg" alt="MBA Switzerland">
+                        <div class="program-card-img-overlay"></div>
+                        <span class="program-img-tag" style="background:linear-gradient(135deg,#764ba2,#8080bc);">💼 MBA</span>
+                        <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                    </div>
+                    <div class="program-card-body">
+                        <h3 class="program-name">Master of Business Administration</h3>
+                        <p class="program-desc">Globally recognised MBA with internship opportunities and a CHF 3,500 scholarship available. Accelerate your career with a prestigious Swiss qualification.</p>
+                    </div>
+                    <div class="program-card-footer">
+                        <span class="program-card-footer-meta">Master's · 1–2 Years · Switzerland</span>
+                        <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                    <div class="prog-expand">
+                        <div class="prog-expand-inner">
+                            <p class="prog-expand-title">Program Highlights</p>
+                            <p class="prog-expand-text">This globally recognised MBA is delivered through a leading Swiss institution, combining advanced business strategy, leadership, and management theory with a compulsory internship placement. Scholarships of up to CHF 3,500 are available for eligible candidates, making this one of the most accessible and high-value postgraduate options for international students.</p>
+                            <div class="prog-expand-grid">
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">1 – 2 Years</div></div>
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Scholarship</div><div class="prog-expand-item-val">Up to CHF 3,500</div></div>
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Internship</div><div class="prog-expand-item-val">Included</div></div>
+                            </div>
+                            <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('MBA — Switzerland')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-card acc-teal" data-cat="culinary">
+                    <div class="program-card-img img-mid">
+                        <img src="/static/culinary-diploma.jpg" alt="Culinary Arts Switzerland" style="object-position:center 20%">
+                        <div class="program-card-img-overlay"></div>
+                        <span class="program-img-tag" style="background:linear-gradient(135deg,#43b89c,#5f9cad);">🍽️ Culinary</span>
+                        <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                    </div>
+                    <div class="program-card-body">
+                        <h3 class="program-name">Diploma in Culinary Arts &amp; International Cuisine</h3>
+                        <p class="program-desc">Professional culinary diploma combining 6 months of kitchen training with a 6-month paid internship. Scholarships up to CHF 3,500 are available for this Swiss-based program.</p>
+                    </div>
+                    <div class="program-card-footer">
+                        <span class="program-card-footer-meta">Diploma · 2 Years · Switzerland</span>
+                        <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                    <div class="prog-expand">
+                        <div class="prog-expand-inner">
+                            <p class="prog-expand-title">Program Highlights</p>
+                            <p class="prog-expand-text">The Diploma in Culinary Arts is a structured two-year program: six months of intensive kitchen and classroom training followed by six months of paid internship in a professional Swiss establishment. Students learn international cuisine techniques, kitchen management, and food safety standards. Scholarship support of up to CHF 3,500 is available.</p>
+                            <div class="prog-expand-grid">
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">2 Years</div></div>
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Internship</div><div class="prog-expand-item-val">6 Months Paid</div></div>
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Scholarship</div><div class="prog-expand-item-val">Up to CHF 3,500</div></div>
+                            </div>
+                            <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('Diploma in Culinary Arts — Switzerland')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ ROW 2 ══ -->
+        <div class="bento-row bento-row-C reveal" data-row-cats="hospitality culinary">
+            <div class="program-card" data-cat="hospitality">
+                <div class="program-card-img img-std">
+                    <img src="/static/hospitality-bachelor.jpg" alt="Dual Bachelor Switzerland">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag" style="background:linear-gradient(135deg,#8080bc,#a87fc1);">🇨🇭 Switzerland</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <span class="prog-num-badge">03</span>
+                <div class="program-card-body">
+                    <h3 class="program-name">Dual Bachelor's — Hospitality Management</h3>
+                    <p class="program-desc">Earn two prestigious degrees simultaneously — SEC Switzerland and the University of Gloucestershire. Includes an annual paid internship and scholarships up to CHF 3,500.</p>
+                    <div class="prog-pills"><span class="prog-pill">2 Degrees</span><span class="prog-pill">Paid Internship</span><span class="prog-pill">Scholarship</span></div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">Bachelor's · 3 Years · Switzerland</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">This unique dual-award program grants students two internationally recognised bachelor's degrees at once: one from SEC Switzerland and one from the University of Gloucestershire (UK). Every academic year includes a structured paid internship, giving students real-world hospitality industry experience. Scholarship support of up to CHF 3,500 makes this an outstanding value proposition for international students.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">3 Years</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Awards</div><div class="prog-expand-item-val">2 Degrees</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Scholarship</div><div class="prog-expand-item-val">Up to CHF 3,500</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('Dual Bachelor\'s in Hospitality Management — Switzerland')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-card" data-cat="hospitality">
+                <div class="program-card-img img-std">
+                    <img src="/static/hospitality-masters.jpg" alt="Masters Hospitality" style="object-position:center 30%">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag" style="background:linear-gradient(135deg,#5f9cad,#3e8fa3);">Postgraduate</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <span class="prog-num-badge">04</span>
+                <div class="program-card-body">
+                    <h3 class="program-name">Master's in Hospitality Management</h3>
+                    <p class="program-desc">A postgraduate degree designed for leadership roles in global hospitality. Combines rigorous academic study with a paid internship and a CHF 3,500 scholarship opportunity.</p>
+                    <div class="prog-pills"><span class="prog-pill">Leadership</span><span class="prog-pill">Paid Internship</span><span class="prog-pill">Scholarship</span></div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">Master's · 1–2 Years · Switzerland</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">Designed for ambitious professionals who want to move into senior management within the global hospitality industry, this Master's program covers advanced hospitality strategy, revenue management, event operations, and international leadership. The program includes a structured paid internship and CHF 3,500 scholarship support.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">1 – 2 Years</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Internship</div><div class="prog-expand-item-val">Paid</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Scholarship</div><div class="prog-expand-item-val">CHF 3,500</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('Master\'s in Hospitality Management — Switzerland')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-card acc-orange" data-cat="culinary hospitality">
+                <div class="program-card-img img-std">
+                    <img src="/static/cast-italy.jpg" alt="CAST Italy" style="object-position:center 25%">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag" style="background:linear-gradient(135deg,#e96b2b,#e8a043);">🇮🇹 Italy</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <span class="prog-num-badge">05</span>
+                <div class="program-card-body">
+                    <h3 class="program-name">CAST — Bachelor's Culinary Arts &amp; Hospitality</h3>
+                    <p class="program-desc">A UK degree awarded by Teesside University, studied at the prestigious CAST campus in Brescia. The final year includes a full paid internship, and part-time work of 20 hrs/week is permitted.</p>
+                    <div class="prog-pills"><span class="prog-pill">UK Degree</span><span class="prog-pill">Paid Internship</span><span class="prog-pill">Scholarships</span></div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">3–4 Years · Brescia, Italy</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">CAST Alimenti in Brescia is Italy's most celebrated culinary and hospitality training institute. Through a partnership with Teesside University (UK), students earn a full British bachelor's degree while studying in Italy. The program allows 20 hours of part-time work per week, and the final year features a fully paid internship at a top-rated establishment.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">3 – 4 Years</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Degree</div><div class="prog-expand-item-val">UK Bachelor's</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Part-Time Work</div><div class="prog-expand-item-val">20 hrs/week</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('CAST Bachelor\'s Culinary Arts & Hospitality — Italy')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ ROW 3 ══ -->
+        <div class="bento-row bento-row-B reveal" data-row-cats="university">
+            <div class="bento-pair">
+                <div class="program-card acc-teal" data-cat="university">
+                    <div class="program-card-img img-mid">
+                        <img src="/static/ul-ireland.jpg" alt="University of Limerick Ireland">
+                        <div class="program-card-img-overlay"></div>
+                        <span class="program-img-tag">🇮🇪 Ireland</span>
+                        <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                    </div>
+                    <div class="program-card-body">
+                        <h3 class="program-name">UL — University of Limerick Programs</h3>
+                        <p class="program-desc">Degree programs at one of Ireland's most globally recognised universities, featuring strong academic foundations and structured professional industry placements throughout your studies.</p>
+                    </div>
+                    <div class="program-card-footer">
+                        <span class="program-card-footer-meta">3–4 Years · Limerick, Ireland</span>
+                        <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                    <div class="prog-expand">
+                        <div class="prog-expand-inner">
+                            <p class="prog-expand-title">Program Highlights</p>
+                            <p class="prog-expand-text">The University of Limerick is consistently ranked among Ireland's leading universities for graduate employability. Programs span business, engineering, science, and the arts, all featuring a co-operative education model that integrates paid work placements into the degree structure. This gives students a significant competitive advantage in the job market upon graduation.</p>
+                            <div class="prog-expand-grid">
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">3 – 4 Years</div></div>
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Location</div><div class="prog-expand-item-val">Limerick, Ireland</div></div>
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Placement</div><div class="prog-expand-item-val">Co-op Included</div></div>
+                            </div>
+                            <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('UL — University of Limerick, Ireland')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-card acc-purple" data-cat="university">
+                    <div class="program-card-img img-mid">
+                        <img src="/static/tul.jpg" alt="Technical University Liberec">
+                        <div class="program-card-img-overlay"></div>
+                        <span class="program-img-tag">🇨🇿 Czech Republic</span>
+                        <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                    </div>
+                    <div class="program-card-body">
+                        <h3 class="program-name">TUL — Technical University of Liberec</h3>
+                        <p class="program-desc">Engineering and technical degree programs at a modern European university, with a strong focus on innovation, applied research, and hands-on technical training in the heart of Central Europe.</p>
+                    </div>
+                    <div class="program-card-footer">
+                        <span class="program-card-footer-meta">3–4 Years · Liberec, Czech Republic</span>
+                        <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                    <div class="prog-expand">
+                        <div class="prog-expand-inner">
+                            <p class="prog-expand-title">Program Highlights</p>
+                            <p class="prog-expand-text">TUL is a leading Central European technical university offering bachelor's and master's programs in engineering, mechatronics, textile technologies, economics, and art & architecture. Programs are taught in English, fees are very affordable, and the Czech Republic offers a high quality of life with low living costs for international students.</p>
+                            <div class="prog-expand-grid">
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">3 – 4 Years</div></div>
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Language</div><div class="prog-expand-item-val">English</div></div>
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Focus</div><div class="prog-expand-item-val">Engineering & Tech</div></div>
+                            </div>
+                            <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('TUL — Technical University of Liberec, Czech Republic')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VUM BULGARIA -->
+            <div class="program-card prog-featured acc-gold" data-cat="university">
+                <div class="program-card-img img-tall">
+                    <img src="/static/vum-bulgaria.jpg" alt="Varna University Bulgaria">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag" style="background:linear-gradient(135deg,#2d8a4e,#43b89c);">🇧🇬 Bulgaria</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <div class="program-card-body">
+                    <h3 class="program-name">VUM — Varna University of Management</h3>
+                    <p class="program-desc">International business and hospitality degree programs based in the stunning coastal city of Varna, Bulgaria. Students benefit from paid internship placements across Europe, a globally connected campus community, and an exceptional quality of life at very affordable tuition rates.</p>
+                    <div class="prog-pills">
+                        <span class="prog-pill">🌍 European Internships</span>
+                        <span class="prog-pill">🏨 Hospitality</span>
+                        <span class="prog-pill">💼 Business</span>
+                        <span class="prog-pill">🌊 Coastal Campus</span>
+                    </div>
+                    <div class="prog-stats">
+                        <div class="prog-stat"><div class="prog-stat-num">4 Yrs</div><div class="prog-stat-lbl">Duration</div></div>
+                        <div class="prog-stat"><div class="prog-stat-num">EU</div><div class="prog-stat-lbl">Internships</div></div>
+                        <div class="prog-stat"><div class="prog-stat-num">Top 3</div><div class="prog-stat-lbl">BG Uni</div></div>
+                    </div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">Hospitality &amp; Business · 3–4 Years · Varna, Bulgaria</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">VUM is consistently ranked among Bulgaria's top three universities and is renowned for its hospitality and business management programs. Located on the Black Sea coast, the campus offers a vibrant international atmosphere with students from over 70 countries. All programs include mandatory European internship placements, and the low cost of living in Bulgaria makes it one of the most affordable EU study destinations.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">3 – 4 Years</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Internships</div><div class="prog-expand-item-val">EU-Wide, Paid</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Ranking</div><div class="prog-expand-item-val">Top 3 in Bulgaria</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Language</div><div class="prog-expand-item-val">English</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('VUM — Varna University of Management, Bulgaria')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ ROW 4 ══ -->
+        <div class="bento-row bento-row-C reveal" data-row-cats="university short hospitality">
+            <div class="program-card" data-cat="university">
+                <div class="program-card-img img-std">
+                    <img src="/static/cmncu-philippines.jpg" alt="CMNCU Philippines">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag" style="background:linear-gradient(135deg,#0e6fbb,#1a9fd4);">🇵🇭 Philippines</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <span class="prog-num-badge">09</span>
+                <div class="program-card-body">
+                    <h3 class="program-name">CMNCU — Cebu Mary Notre College University</h3>
+                    <p class="program-desc">Affordable international undergraduate programs with practical hands-on training and fully English-medium education at a globally connected campus in Cebu City, Philippines.</p>
+                    <div class="prog-pills"><span class="prog-pill">Affordable</span><span class="prog-pill">English Medium</span><span class="prog-pill">Philippines</span></div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">3–4 Years · Cebu, Philippines</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">CMNCU offers internationally aligned undergraduate programs in business, hospitality, nursing, and education — all in English. The Philippines is one of the most cost-effective study destinations, and Cebu is a thriving international hub. Students gain practical skills, global exposure, and a recognised qualification at a fraction of the cost of Western institutions.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">3 – 4 Years</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Language</div><div class="prog-expand-item-val">English</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Cost</div><div class="prog-expand-item-val">Very Affordable</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('CMNCU — Philippines')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="program-card acc-purple" data-cat="university">
+                <div class="program-card-img img-std">
+                    <img src="/static/mul-malta.jpg" alt="Malta University London">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag" style="background:linear-gradient(135deg,#8b0000,#c0392b);">🇲🇹 Malta / UK</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <span class="prog-num-badge">10</span>
+                <div class="program-card-body">
+                    <h3 class="program-name">MUL — Malta University London Programs</h3>
+                    <p class="program-desc">International degree programs combining Malta and UK academic partnerships, offering strong career pathways across Europe with a globally recognised qualification.</p>
+                    <div class="prog-pills"><span class="prog-pill">International Degree</span><span class="prog-pill">Malta & UK</span><span class="prog-pill">EU Pathway</span></div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">3–4 Years · Malta / UK</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">MUL delivers accredited degree programs through a dual Malta–UK institutional partnership. Students benefit from an EU campus environment with English as the medium of instruction and access to career pathways across both Malta and the wider European Union. The qualification is internationally recognised and well-regarded by employers across Europe.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">3 – 4 Years</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Partnership</div><div class="prog-expand-item-val">Malta + UK</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Language</div><div class="prog-expand-item-val">English</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('MUL — Malta University London Programs')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="program-card acc-orange" data-cat="hospitality short">
+                <div class="program-card-img img-std">
+                    <img src="/static/ecotur-spain.jpg" alt="Ecotur Tourism Spain">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag" style="background:linear-gradient(135deg,#e96b2b,#e8a043);">🇪🇸 Spain</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <span class="prog-num-badge">11</span>
+                <div class="program-card-body">
+                    <h3 class="program-name">Ecotur — Tourism &amp; Hospitality Training</h3>
+                    <p class="program-desc">Tourism and hospitality training on Spain's Mediterranean coast, combining hands-on internship experience with professional certification in one of Europe's most vibrant destinations.</p>
+                    <div class="prog-pills"><span class="prog-pill">Tourism Training</span><span class="prog-pill">Internship</span><span class="prog-pill">Spain</span></div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">1–2 Years · Spain</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">Ecotur's tourism and hospitality program is set on Spain's stunning Mediterranean coastline, offering students an immersive industry-training experience. The curriculum combines classroom learning with a structured internship at local hotels, resorts, and tourism organisations. Graduates receive a professional certification recognised within the European tourism sector.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">1 – 2 Years</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Internship</div><div class="prog-expand-item-val">Included</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Certification</div><div class="prog-expand-item-val">EU Recognised</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('Ecotur Tourism & Hospitality — Spain')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ ROW 5 ══ -->
+        <div class="bento-row bento-row-A reveal" data-row-cats="culinary">
+            <div class="program-card prog-featured" data-cat="culinary">
+                <div class="program-card-img img-tall">
+                    <img src="/static/italian-culinary.jpg" alt="Italian Culinary Arts CAST">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag" style="background:linear-gradient(135deg,#e96b2b,#e8a043);">🇮🇹 Italy · CAST</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <div class="program-card-body">
+                    <h3 class="program-name">Advanced Program — Italian Culinary Arts</h3>
+                    <p class="program-desc">Master authentic Italian cooking techniques at the prestigious CAST Brescia. The program runs in two phases: 4–6 months of intensive academic study (with 20 hrs/week part-time work allowed) followed by a 6–8 month fully paid internship at top Italian restaurants and hotels. This cycle repeats annually, building both your skills and your international network.</p>
+                    <div class="prog-pills">
+                        <span class="prog-pill">🍝 Authentic Italian</span>
+                        <span class="prog-pill">Paid Internship</span>
+                        <span class="prog-pill">Part-Time Work</span>
+                        <span class="prog-pill">CAST Brescia</span>
+                    </div>
+                    <div class="prog-stats">
+                        <div class="prog-stat"><div class="prog-stat-num">4–6 Mo</div><div class="prog-stat-lbl">Classes</div></div>
+                        <div class="prog-stat"><div class="prog-stat-num">6–8 Mo</div><div class="prog-stat-lbl">Internship</div></div>
+                        <div class="prog-stat"><div class="prog-stat-num">20 Hrs</div><div class="prog-stat-lbl">Part-Time</div></div>
+                    </div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">Advanced Professional · Brescia, Italy</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">CAST Alimenti is recognised as one of Italy's premier culinary academies and the Advanced Italian Culinary Arts program is its flagship professional training offering. Students learn from master chefs in fully equipped commercial kitchens, covering Italian regional cuisine, pasta, risotto, antipasti, and modern Italian gastronomy. The alternating study-internship cycle means every graduate finishes with both a CAST certificate and substantial paid professional experience at internationally acclaimed establishments.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Study Phase</div><div class="prog-expand-item-val">4 – 6 Months</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Internship</div><div class="prog-expand-item-val">6 – 8 Months (Paid)</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Part-Time Work</div><div class="prog-expand-item-val">20 hrs/week allowed</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Institution</div><div class="prog-expand-item-val">CAST Brescia, Italy</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('Advanced Program — Italian Culinary Arts, CAST Brescia')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-pair">
+                <div class="program-card acc-orange" data-cat="culinary">
+                    <div class="program-card-img img-mid">
+                        <img src="/static/pastry-arts.jpg" alt="Pastry Arts Italy">
+                        <div class="program-card-img-overlay"></div>
+                        <span class="program-img-tag" style="background:linear-gradient(135deg,#e96b2b,#e8a043);">🎂 Pastry Arts</span>
+                        <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                    </div>
+                    <div class="program-card-body">
+                        <h3 class="program-name">Advanced Program — Pastry Arts</h3>
+                        <p class="program-desc">Develop professional pastry and baking skills with modern dessert techniques at CAST Brescia. The program concludes with paid internship opportunities at Italy's finest patisseries and hotel pastry kitchens.</p>
+                    </div>
+                    <div class="program-card-footer">
+                        <span class="program-card-footer-meta">4–6 Months + Internship · Italy</span>
+                        <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                    <div class="prog-expand">
+                        <div class="prog-expand-inner">
+                            <p class="prog-expand-title">Program Highlights</p>
+                            <p class="prog-expand-text">The Advanced Pastry Arts program covers the full spectrum of professional patisserie: classical French techniques, modern Italian desserts, sugar and chocolate work, bread baking, and contemporary plated desserts. Taught in CAST's dedicated pastry kitchens by master pastry chefs, the program leads directly into paid internship placements at acclaimed establishments across Italy.</p>
+                            <div class="prog-expand-grid">
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Study</div><div class="prog-expand-item-val">4 – 6 Months</div></div>
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Internship</div><div class="prog-expand-item-val">Paid</div></div>
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Location</div><div class="prog-expand-item-val">Brescia, Italy</div></div>
+                            </div>
+                            <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('Advanced Pastry Arts — CAST Brescia, Italy')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-card acc-teal" data-cat="culinary">
+                    <div class="program-card-img img-mid">
+                        <img src="/static/gastronomy.jpg" alt="Gastronomy Italy">
+                        <div class="program-card-img-overlay"></div>
+                        <span class="program-img-tag" style="background:linear-gradient(135deg,#43b89c,#5f9cad);">🍷 Gastronomy</span>
+                        <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                    </div>
+                    <div class="program-card-body">
+                        <h3 class="program-name">Advanced Program — Gastronomy</h3>
+                        <p class="program-desc">Explore the culture, science, and artistry behind international gastronomy at CAST Brescia. Includes restaurant internship opportunities in Italy's most celebrated dining establishments.</p>
+                    </div>
+                    <div class="program-card-footer">
+                        <span class="program-card-footer-meta">4–6 Months + Internship · Italy</span>
+                        <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                    <div class="prog-expand">
+                        <div class="prog-expand-inner">
+                            <p class="prog-expand-title">Program Highlights</p>
+                            <p class="prog-expand-text">This program takes a broad, intellectual approach to food culture — covering food history, wine pairing, sensory analysis, the science of ingredients, and the business of fine dining. Students graduate as well-rounded gastronomy professionals equipped for roles in restaurants, food media, hospitality management, and culinary consultancy.</p>
+                            <div class="prog-expand-grid">
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Study</div><div class="prog-expand-item-val">4 – 6 Months</div></div>
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Internship</div><div class="prog-expand-item-val">Paid</div></div>
+                                <div class="prog-expand-item"><div class="prog-expand-item-label">Location</div><div class="prog-expand-item-val">Brescia, Italy</div></div>
+                            </div>
+                            <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('Advanced Gastronomy Program — CAST Brescia, Italy')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ ROW 6 ══ -->
+        <div class="bento-row bento-row-C reveal" data-row-cats="culinary hospitality business">
+            <div class="program-card acc-teal" data-cat="culinary">
+                <div class="program-card-img img-std">
+                    <img src="/static/mediterranean-gastronomy.jpg" alt="Mediterranean Gastronomy">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag" style="background:linear-gradient(135deg,#43b89c,#5f9cad);">🌊 Mediterranean</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <span class="prog-num-badge">15</span>
+                <div class="program-card-body">
+                    <h3 class="program-name">Advanced Program — Mediterranean Gastronomy</h3>
+                    <p class="program-desc">Discover the rich culinary traditions and regional techniques of Mediterranean cuisine through hands-on learning at CAST, followed by paid internship placements across Italy.</p>
+                    <div class="prog-pills"><span class="prog-pill">Mediterranean Cuisine</span><span class="prog-pill">Paid Internship</span></div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">4–6 Months + Internship · Italy</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">Mediterranean Gastronomy dives deep into the culinary identity of the Mediterranean basin — olive oil culture, seafood traditions, vegetable-forward cooking, regional breads, and wine culture from Italy, Greece, Spain, and beyond. The program blends culinary skill with cultural knowledge, preparing graduates for roles in fine dining, food tourism, and hospitality across the region.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Study</div><div class="prog-expand-item-val">4 – 6 Months</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Internship</div><div class="prog-expand-item-val">Paid</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Focus</div><div class="prog-expand-item-val">Med Cuisine</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('Advanced Mediterranean Gastronomy — CAST Italy')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="program-card" data-cat="hospitality">
+                <div class="program-card-img img-std">
+                    <img src="/static/msc-tourism.jpg" alt="MSc Tourism Hospitality">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag">🇨🇭 Switzerland</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <span class="prog-num-badge">16</span>
+                <div class="program-card-body">
+                    <h3 class="program-name">MSc — International Tourism &amp; Hospitality Management</h3>
+                    <p class="program-desc">A specialised postgraduate program in sustainable tourism development and hospitality management. Includes global internship placements and a CHF 3,500 scholarship for eligible students.</p>
+                    <div class="prog-pills"><span class="prog-pill">Tourism & Hospitality</span><span class="prog-pill">Global Internship</span></div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">1–2 Years · Switzerland</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">This MSc specialises in the management of international tourism and hospitality businesses. Core modules cover destination management, sustainable tourism policy, hotel operations, revenue management, and strategic leadership. The program includes a globally placed internship and CHF 3,500 scholarship support for qualifying students.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">1 – 2 Years</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Internship</div><div class="prog-expand-item-val">Global, Paid</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Scholarship</div><div class="prog-expand-item-val">CHF 3,500</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('MSc International Tourism & Hospitality Management — Switzerland')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="program-card acc-green" data-cat="business">
+                <div class="program-card-img img-std">
+                    <img src="/static/msc-health.jpg" alt="MSc Health Social Care">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag">🇨🇭 Switzerland</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <span class="prog-num-badge">17</span>
+                <div class="program-card-body">
+                    <h3 class="program-name">MSc — Health &amp; Social Care Management</h3>
+                    <p class="program-desc">Prepares graduates for senior management roles in healthcare organisations, combining leadership training, an internship placement, and a scholarship of up to CHF 3,500.</p>
+                    <div class="prog-pills"><span class="prog-pill">Healthcare Admin</span><span class="prog-pill">Leadership</span></div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">1–2 Years · Switzerland</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">This MSc equips graduates to manage hospitals, care homes, NGOs, and public health organisations. The curriculum covers health policy, financial management of healthcare services, human resources in care settings, and quality assurance frameworks. A structured internship and scholarship support make this a strong choice for aspiring healthcare leaders.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">1 – 2 Years</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Internship</div><div class="prog-expand-item-val">Included</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Scholarship</div><div class="prog-expand-item-val">Up to CHF 3,500</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('MSc Health & Social Care Management — Switzerland')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ ROW 7 ══ -->
+        <div class="bento-row bento-row-D reveal" data-row-cats="business">
+            <div class="program-card" data-cat="business">
+                <div class="program-card-img img-std">
+                    <img src="/static/msc-accounting.jpg" alt="MSc Accounting Finance">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag">🇨🇭 Switzerland</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <div class="program-card-body">
+                    <h3 class="program-name">MSc in Accounting &amp; Finance</h3>
+                    <p class="program-desc">An advanced master's in corporate finance and accounting management, delivered by a leading Swiss institution with internship opportunities and a CHF 3,500 scholarship available for eligible candidates.</p>
+                    <div class="prog-pills"><span class="prog-pill">Finance</span><span class="prog-pill">Accounting</span><span class="prog-pill">Internship</span><span class="prog-pill">CHF 3,500 Scholarship</span></div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">Master's · 1–2 Years · Switzerland</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">This MSc covers advanced financial accounting, corporate finance, investment analysis, auditing, and financial reporting standards. Switzerland's position as a global financial hub makes it an ideal location for this specialisation, with strong industry connections and internship placement support included in the program. A CHF 3,500 scholarship is available.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">1 – 2 Years</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Internship</div><div class="prog-expand-item-val">Included</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Scholarship</div><div class="prog-expand-item-val">CHF 3,500</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('MSc Accounting & Finance — Switzerland')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="program-card acc-purple" data-cat="business">
+                <div class="program-card-img img-std">
+                    <img src="/static/msc-hr.jpg" alt="MSc Human Resources">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag">🇨🇭 Switzerland</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <div class="program-card-body">
+                    <h3 class="program-name">MSc in Human Resources Management</h3>
+                    <p class="program-desc">A postgraduate program for aspiring HR leaders, covering organisational behaviour, talent acquisition, compensation strategy, and workforce development — with paid internship placement and scholarship up to CHF 3,500.</p>
+                    <div class="prog-pills"><span class="prog-pill">HR Leadership</span><span class="prog-pill">Org Management</span><span class="prog-pill">Internship</span><span class="prog-pill">Scholarship</span></div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">Master's · 1–2 Years · Switzerland</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">The MSc in HRM is ideal for professionals looking to advance into strategic HR leadership roles. Modules cover international HR management, talent analytics, employment law, change management, diversity and inclusion, and leadership coaching. A paid internship and CHF 3,500 scholarship are included for eligible students.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">1 – 2 Years</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Internship</div><div class="prog-expand-item-val">Paid</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Scholarship</div><div class="prog-expand-item-val">Up to CHF 3,500</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('MSc Human Resources Management — Switzerland')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ ROW 8 ══ -->
+        <div class="bento-row bento-row-C reveal" data-row-cats="vocational short">
+            <div class="program-card acc-teal" data-cat="vocational short">
+                <div class="program-card-img img-std">
+                    <img src="/static/pvp-vocational.jpg" alt="PVP Professional Vocational">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag">🇪🇺 Europe</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <span class="prog-num-badge">21</span>
+                <div class="program-card-body">
+                    <h3 class="program-name">PVP — Professional Vocational Program</h3>
+                    <p class="program-desc">A structured vocational training program designed to build specific industry skills and professional competencies across key European employment sectors.</p>
+                    <div class="prog-pills"><span class="prog-pill">Industry Training</span><span class="prog-pill">Skill Dev</span><span class="prog-pill">Europe</span></div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">1–2 Years · Europe</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">The PVP is a flexible vocational pathway that develops practical, job-ready skills in specific European industries such as healthcare support, hospitality operations, logistics, and retail management. The program combines structured classroom learning with supervised workplace training, and graduates receive a European vocational certificate recognised across EU member states.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">1 – 2 Years</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Location</div><div class="prog-expand-item-val">Europe</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Certification</div><div class="prog-expand-item-val">EU Recognised</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('PVP — Professional Vocational Program, Europe')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="program-card" data-cat="short">
+                <div class="program-card-img img-std">
+                    <img src="/static/gcc.jpg" alt="GCC Global Career Certificate">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag">🌐 International</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <span class="prog-num-badge">22</span>
+                <div class="program-card-body">
+                    <h3 class="program-name">GCC — Global Career Certificate</h3>
+                    <p class="program-desc">A fast-track professional certification program focused on developing the global career skills needed to advance in competitive international industries.</p>
+                    <div class="prog-pills"><span class="prog-pill">Certification</span><span class="prog-pill">Global Skills</span><span class="prog-pill">Fast Track</span></div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">6–12 Months · International</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">The GCC is a short, intensive certification program designed for professionals who want to fast-track their careers internationally. It covers cross-cultural communication, international workplace standards, professional skills development, and career planning for global employment. The certificate is recognised by international employers and can complement existing qualifications.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">6 – 12 Months</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Format</div><div class="prog-expand-item-val">Fast-Track</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Recognition</div><div class="prog-expand-item-val">International</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('GCC — Global Career Certificate')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="program-card acc-green" data-cat="vocational short">
+                <div class="program-card-img img-std">
+                    <img src="/static/estep-europe.jpg" alt="ESTEP European Skill Training">
+                    <div class="program-card-img-overlay"></div>
+                    <span class="program-img-tag">🇪🇺 Europe</span>
+                    <div class="program-card-img-cta"><span>View Details ↓</span></div>
+                </div>
+                <span class="prog-num-badge">23</span>
+                <div class="program-card-body">
+                    <h3 class="program-name">ESTEP — European Skill Training &amp; Education Program</h3>
+                    <p class="program-desc">A work-integrated training program that combines professional skills development with European certification and hands-on practical industry experience.</p>
+                    <div class="prog-pills"><span class="prog-pill">EU Certification</span><span class="prog-pill">Work Integrated</span><span class="prog-pill">Europe</span></div>
+                </div>
+                <div class="program-card-footer">
+                    <span class="program-card-footer-meta">1–2 Years · Europe</span>
+                    <button class="program-card-footer-arrow" onclick="toggleExpand(this)" aria-label="Show details"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="prog-expand">
+                    <div class="prog-expand-inner">
+                        <p class="prog-expand-title">Program Highlights</p>
+                        <p class="prog-expand-text">ESTEP is a work-integrated training pathway that combines practical on-the-job experience with structured educational modules, all leading to a European vocational certification. The program is designed for students who want to earn while they learn in a European country, building both professional skills and international work experience simultaneously.</p>
+                        <div class="prog-expand-grid">
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Duration</div><div class="prog-expand-item-val">1 – 2 Years</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Model</div><div class="prog-expand-item-val">Work + Study</div></div>
+                            <div class="prog-expand-item"><div class="prog-expand-item-label">Certification</div><div class="prog-expand-item-val">EU Recognised</div></div>
+                        </div>
+                        <a href="#consult" class="prog-expand-cta" onclick="prefillProgram('ESTEP — European Skill Training & Education Program')">Get Free Advice <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /programs-container -->
+</section>
+
+<!-- ═══ CONSULTATION FORM SECTION ═══ -->
+<section class="consult-section" id="consult">
+    <div class="consult-container">
+        <div class="consult-info reveal">
+            <p class="section-label">Free Consultation</p>
+            <h2 class="section-heading">Let's Find Your<br><span>Perfect Program</span></h2>
+            <div class="underline-bar"></div>
+            <p class="consult-info-desc">Our expert advisors have helped 1,000+ students find the right program and country for their goals. Book a free, no-obligation consultation and get personalised guidance.</p>
+            <div class="consult-benefit">
+                <div class="consult-benefit-icon"><i class="fas fa-comments"></i></div>
+                <div class="consult-benefit-text">
+                    <strong>Personalised Program Matching</strong>
+                    <span>We assess your background, goals and budget to recommend the best-fit program for you.</span>
+                </div>
+            </div>
+            <div class="consult-benefit">
+                <div class="consult-benefit-icon"><i class="fas fa-file-alt"></i></div>
+                <div class="consult-benefit-text">
+                    <strong>Full Application Support</strong>
+                    <span>From document preparation to submission, we guide you through every step of the process.</span>
+                </div>
+            </div>
+            <div class="consult-benefit">
+                <div class="consult-benefit-icon"><i class="fas fa-passport"></i></div>
+                <div class="consult-benefit-text">
+                    <strong>Visa &amp; Immigration Guidance</strong>
+                    <span>Expert help with student visas and post-study work permits for all our destination countries.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="consult-form-wrap reveal">
+            <div id="consultFormInner">
+                <h3 class="consult-form-title">Book Your Free Consultation</h3>
+                <p class="consult-form-sub">Fill in your details and our team will contact you within 24 hours.</p>
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="cf-name">Full Name *</label>
+                        <input type="text" id="cf-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cf-phone">Phone *</label>
+                        <input type="tel" id="cf-phone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cf-email">Email Address *</label>
+                    <input type="email" id="cf-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="cf-program">Program of Interest</label>
+                    <select id="cf-program">
+                        <option value="">— Select a program —</option>
+                        <option>Ausbildung — Dual Vocational Training</option>
+                        <option>MBA — Switzerland</option>
+                        <option>Diploma in Culinary Arts — Switzerland</option>
+                        <option>Dual Bachelor's in Hospitality Management — Switzerland</option>
+                        <option>Master's in Hospitality Management — Switzerland</option>
+                        <option>CAST Bachelor's Culinary Arts & Hospitality — Italy</option>
+                        <option>UL — University of Limerick, Ireland</option>
+                        <option>TUL — Technical University of Liberec, Czech Republic</option>
+                        <option>VUM — Varna University of Management, Bulgaria</option>
+                        <option>CMNCU — Philippines</option>
+                        <option>MUL — Malta University London Programs</option>
+                        <option>Ecotur Tourism & Hospitality — Spain</option>
+                        <option>Advanced Italian Culinary Arts — CAST Brescia</option>
+                        <option>Advanced Pastry Arts — CAST Brescia</option>
+                        <option>Advanced Gastronomy — CAST Brescia</option>
+                        <option>Advanced Mediterranean Gastronomy — CAST Brescia</option>
+                        <option>MSc International Tourism & Hospitality — Switzerland</option>
+                        <option>MSc Health & Social Care Management — Switzerland</option>
+                        <option>MSc Accounting & Finance — Switzerland</option>
+                        <option>MSc Human Resources Management — Switzerland</option>
+                        <option>PVP — Professional Vocational Program</option>
+                        <option>GCC — Global Career Certificate</option>
+                        <option>ESTEP — European Skill Training Program</option>
+                        <option>Not sure yet — need advice</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cf-message">Tell us about yourself (optional)</label>
+                    <textarea id="cf-message" ></textarea>
+                </div>
+                <button class="form-submit-btn" onclick="submitConsultForm()">
+                    <i class="fas fa-paper-plane"></i> Send My Request
+                </button>
+                <p class="form-note">🔒 Your information is private and only used to contact you about our programs.</p>
+            </div>
+            <div class="form-success" id="consultSuccess">
+                <div class="form-success-icon">✓</div>
+                <h3>Request Received!</h3>
+                <p>Thank you! One of our advisors will reach out to you within 24 hours to discuss your options and answer any questions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer-section">
+    <div class="footer-top">
+        <div class="footer-top-grid">
+            <div class="footer-contact-block">
+                <h4><i class="fas fa-map-marker-alt"></i> Find us</h4>
+                <p><strong style="color:#fff">Head Office — Kottayam</strong><br>Near Railway Station, Railway Station Road,<br>Nagampadom, Kottayam — 686001</p>
+                <p style="margin-top:14px"><strong style="color:#fff">Corporate Office — Kochi</strong><br>2nd Floor, Kummenchery Building,<br>Metro Pillar No.344, NH 47,<br>Pathadipalam, Kalamassery — 682033</p>
+            </div>
+            <div class="footer-contact-block">
+                <h4><i class="fas fa-phone-alt"></i> Call us</h4>
+                <a href="tel:+919072222911">+91 907 2222 911</a>
+                <a href="tel:+919072222933">+91 907 2222 933</a>
+            </div>
+            <div class="footer-contact-block">
+                <h4><i class="fas fa-envelope"></i> Mail us</h4>
+                <a href="mailto:info@lifeplanneruniversal.com">info@lifeplanneruniversal.com</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-main">
+        <div class="footer-main-grid">
+            <div class="footer-about">
+                <p>Life Planner Studies and Opportunities Pvt Ltd is a leading overseas education consultant, with headquarters in Kottayam and Corporate office in Kochi.</p>
+                <span class="footer-follow-label">Follow us</span>
+                <div class="footer-social-icons">
+                    <a href="https://www.facebook.com/lifeplannerstudies"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/lifeplannerktm"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/lifeplannerstudies/?hl=en"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-col">
+                <h4>Top Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li><li><a href="/studycanada/">Countries</a></li>
+                    <li><a href="/service/">Services</a></li><li><a href="/careers/">Careers</a></li>
+                    <li><a href="/contact/">Contact Us</a></li><li><a href="/about/">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-logo-col"><img src="/static/LPRlogo.png" alt="Life Planner"></div>
+        </div>
+    </div>
+    <div class="footer-copyright"><p>Copyright &copy; 2024, All Rights Reserved — Lifeplanner Studies and Opportunities</p></div>
+</footer>
+
+<div class="floating-buttons">
+    <a href="https://wa.me/+918943510107" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="tel:+918943510107"><i class="fa-solid fa-phone"></i></a>
+    <a href="mailto:info@lifeplanneruniversal.com"><i class="fas fa-envelope"></i></a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ── Scroll reveal ── */
+const revObs = new IntersectionObserver((entries) => {
+    entries.forEach((en, i) => {
+        if (en.isIntersecting) {
+            setTimeout(() => en.target.classList.add('visible'), i * 55);
+            revObs.unobserve(en.target);
+        }
+    });
+}, { threshold:.06 });
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+/* ── Navbar scroll ── */
+window.addEventListener('scroll',()=>{
+    document.getElementById('mainNav').style.background=
+        window.scrollY>50?'linear-gradient(135deg,#5f9cad,#8080bc)':'transparent';
+});
+
+/* ── Smooth scroll hero buttons ── */
+document.getElementById('exploreBtn').addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('programs').scrollIntoView({ behavior:'smooth', block:'start' });
+});
+document.getElementById('heroConsultBtn').addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('consult').scrollIntoView({ behavior:'smooth', block:'start' });
+});
+
+/* ── Filter tabs ── */
+const tabs  = document.querySelectorAll('.filter-tab');
+const rows  = document.querySelectorAll('.bento-row');
+const cards = document.querySelectorAll('.program-card');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const f = tab.dataset.filter;
+
+        if (f === 'all') {
+            rows.forEach(r => r.style.display = '');
+            cards.forEach(c => { c.style.display = ''; c.style.opacity = '1'; });
+        } else {
+            cards.forEach(c => {
+                const cats = (c.dataset.cat || '').split(' ');
+                if (cats.includes(f)) {
+                    c.style.display = '';
+                    c.style.opacity = '1';
+                } else {
+                    c.style.display = 'none';
+                }
+            });
+            rows.forEach(row => {
+                const visible = row.querySelectorAll('.program-card:not([style*="display: none"])');
+                row.style.display = visible.length ? '' : 'none';
+            });
+        }
+    });
+});
+
+/* ── Expand / collapse card details ── */
+function toggleExpand(btn) {
+    const card = btn.closest('.program-card');
+    const panel = card.querySelector('.prog-expand');
+    const isOpen = panel.classList.contains('open');
+
+    // Close all others
+    document.querySelectorAll('.prog-expand.open').forEach(p => {
+        p.classList.remove('open');
+        p.closest('.program-card').querySelector('.program-card-footer-arrow').classList.remove('open');
+    });
+
+    if (!isOpen) {
+        panel.classList.add('open');
+        btn.classList.add('open');
+        // Smooth scroll to card
+        setTimeout(() => {
+            card.scrollIntoView({ behavior:'smooth', block:'nearest' });
+        }, 120);
+    }
+}
+
+/* ── Prefill consultation form from card CTA ── */
+function prefillProgram(name) {
+    const sel = document.getElementById('cf-program');
+    if (sel) {
+        for (let o of sel.options) {
+            if (o.value === name || o.text === name) {
+                sel.value = o.value;
+                break;
+            }
+        }
+    }
+    document.getElementById('consult').scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+/* ── Form submit ── */
+function submitConsultForm() {
+    const name    = document.getElementById('cf-name').value.trim();
+    const phone   = document.getElementById('cf-phone').value.trim();
+    const email   = document.getElementById('cf-email').value.trim();
+
+    if (!name || !phone || !email) {
+        alert('Please fill in your name, phone and email to continue.');
+        return;
+    }
+
+    // Here you would normally send to your backend / CRM
+    document.getElementById('consultFormInner').style.display = 'none';
+    document.getElementById('consultSuccess').style.display = 'block';
+}
+
+/* ── 3D card tilt ── */
+cards.forEach(c => {
+    c.addEventListener('mousemove', e => {
+        if (c.querySelector('.prog-expand.open')) return; // skip tilt if expanded
+        const r = c.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width  - .5;
+        const y = (e.clientY - r.top)  / r.height - .5;
+        c.style.transform = `translateY(-6px) scale(1.005) rotateX(${-y*3}deg) rotateY(${x*3}deg)`;
+    });
+    c.addEventListener('mouseleave', () => c.style.transform = '');
+});
+</script>
+</body>
+</html>

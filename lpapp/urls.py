@@ -4,6 +4,8 @@ app_name='lpapp'
 
 urlpatterns = [
    path('',views.home,name='home'),
+   path('countries/',views.countries,name='countries'),
+   path('courses/',views.courses,name='courses'),
    path('kochi/',views.kochi,name='kochi'),
    path('service/',views.service,name='service'),
    path('blog/',views.blog,name='blog'),
@@ -33,6 +35,7 @@ urlpatterns = [
    path('uploadjob/',views.uploadjob,name='uploadjob'),
    path('applications/',views.job_applications,name='applications'),
    path("delete-application/<int:app_id>/",views.delete_application, name="delete_application"),
+   path('consultation/submit/', views.consultation_submit, name='consultation_submit'),
 
  
 ]

@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from .forms import AppointmentForm, FranchisePartnerForm,WebinarForm  
-from .models import Team,Appointment,Immigration,JobApplication,AdmissionPartner,FranchisePartner
+from .models import Team,Appointment,Immigration,JobApplication,AdmissionPartner,FranchisePartner,ConsultationRequest
 from .forms import TeamForm,ReviewForm,AdmissionPartnerForm
 from .models import Team, Review
 from django.contrib import messages
@@ -44,6 +44,12 @@ def home(request):
         'enrollment_form': enrollment_form,
         
     })
+
+def courses(request):
+    return render(request,"courses.html")
+
+def countries(request):
+    return render(request,"countries.html")
 
 def kochi(request):
     return render(request,"kochi.html")
@@ -343,3 +349,35 @@ def delete_application(request, app_id):
             return JsonResponse({"success": False, "error": str(e)})
     
     return JsonResponse({"success": False, "error": "Invalid request"}, status=400)
+
+from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_protect
+
+@csrf_protect
+@require_POST
+def consultation_submit(request):
+    try:
+        data = json.loads(request.body)
+
+        name    = data.get('name', '').strip()
+        phone   = data.get('phone', '').strip()
+        email   = data.get('email', '').strip()
+        program = data.get('program', '').strip()
+        message = data.get('message', '').strip()
+
+        if not name or not phone or not email:
+            return JsonResponse(
+                {'status': 'error', 'error': 'Name, phone and email are required.'},
+                status=400
+            )
+
+        ConsultationRequest.objects.create(
+            name=name, phone=phone, email=email,
+            program=program, message=message,
+        )
+        return JsonResponse({'status': 'ok'})
+
+    except json.JSONDecodeError:
+        return JsonResponse({'status': 'error', 'error': 'Invalid request data.'}, status=400)
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'error': 'Server error. Please try again.'}, status=500)
