@@ -25,7 +25,7 @@
             --shadow-hover: 0 24px 60px rgba(22,100,173,0.18);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Cabin', sans-serif; background: #fff; color: var(--text-dark); overflow-x: hidden; }
+        body { font-family: 'Bricolage Grotesque', 'Cabin', sans-serif; background: #fff; color: var(--text-dark); overflow-x: hidden; }
 
         /* ── SVG ANIMATIONS ── */
         .service-card:hover .svg-pulse-ring { animation: svg-pulse-grow 1.2s ease-out infinite; }
@@ -47,15 +47,13 @@
         .service-card:hover .svg-arrows { animation: svg-arrows-bounce .75s ease-in-out infinite alternate; }
         @keyframes svg-arrows-bounce { from { transform: translateX(0); } to { transform: translateX(3px); } }
 
-        /* ── NAVBAR (identical to courses page) ── */
-        .navbar{background:transparent;padding:.5rem 1rem;display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;width:100%;z-index:999;transition:background .3s}
-        .navbar-collapse{display:flex!important;justify-content:flex-end;align-items:center}
-        .navbar-nav{flex-direction:row;align-items:center;margin-left:auto}
-        .navbar .nav-link{color:#fff;font-weight:500;margin:10px;transition:color .2s;padding:.5rem 0}
-        .navbar .nav-link:hover{color:#ff4757}
-        .dropdown-menu{background:rgba(0,0,0,.566)!important;flex-direction:column}
-        .dropdown-item{color:white!important}
-        .dropdown-item:hover{background:rgba(255,255,255,.15)!important}
+        /* ── NAVBAR — exact match to home & courses pages ── */
+        .navbar { background: transparent; padding: .5rem 1rem; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; width: 100%; z-index: 999; transition: background .3s; }
+        .navbar .nav-link { color: #fff; font-weight: 500; margin: 10px; transition: color .2s; }
+        .navbar .nav-link:hover { color: #ff4757; }
+        .dropdown-menu { background: rgba(0,0,0,.566) !important; }
+        .dropdown-item { color: white !important; }
+        .dropdown-item:hover { background: rgba(255,255,255,.15) !important; }
 
         /* ── HERO ── */
         .services-hero { min-height: 65vh; background: var(--grad); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 110px 20px 80px; }
@@ -201,7 +199,7 @@
         @media(max-width:992px) { .footer-top-grid { grid-template-columns: 1fr 1fr; } .footer-top-grid .footer-contact-block:last-child { grid-column: 1/-1; } .footer-main-grid { grid-template-columns: 1fr 1fr; } .footer-logo-col { grid-column: 1/-1; } }
         @media(max-width:640px) { .footer-top-grid,.footer-main-grid { grid-template-columns: 1fr; padding: 0 24px; } }
 
-        /* ── FLOATING BUTTONS + CHAT ── */
+        /* ── FLOATING BUTTONS + CHAT — exact match to home & courses pages ── */
         .floating-buttons { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
         .floating-buttons a,.floating-buttons button { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: rgb(22,100,173); color: white; border-radius: 50%; box-shadow: 0 4px 6px rgba(22,100,173,.4); font-size: 22px; border: none; cursor: pointer; transition: background-color .3s; text-decoration: none; }
         .floating-buttons a:hover,.floating-buttons button:hover { opacity: .9; background-color: rgb(18,85,150); }
@@ -219,7 +217,7 @@
         @keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-8px)} }
         #chatInputArea { border-top: 1px solid #ddd; display: flex; padding: 8px; }
         #chatInput { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #ddd; }
-        #chatInputArea button { margin-left: 5px; background: var(--grad); color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; }
+        #chatInputArea button { margin-left: 5px; background: var(--grad); color: white; border: none; padding: 8px 12px; border-radius: 8px; height: 42px; margin-top: 10px; cursor: pointer; }
 
         .reveal { opacity: 0; transform: translateY(32px); transition: opacity .6s,transform .6s; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -229,16 +227,17 @@
 </head>
 <body>
 
-<!-- ═══ NAVBAR (identical to courses page) ═══ -->
+<!-- ═══ NAVBAR — exact match to home & courses pages ═══ -->
 <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
     <img src="/static/LPsymbol.png" style="height:40px;width:90px;" alt="Life Planner">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item ml-4"><a class="nav-link" href="/">Home</a></li>
             <li class="nav-item ml-4"><a class="nav-link" href="/courses/">Courses</a></li>
             <li class="nav-item ml-4"><a class="nav-link" href="/service/">Services</a></li>
-            <li class="nav-item ml-4"><a class="nav-link" href="/canada/">Immigration</a></li>
             <li class="nav-item ml-4 dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">University</a>
                 <div class="dropdown-menu">
@@ -254,8 +253,8 @@
 </nav>
 <script>
 window.addEventListener('scroll',()=>{
-    document.getElementById('mainNav').style.background=
-        window.scrollY>50?'linear-gradient(135deg,#5f9cad,#8080bc)':'transparent';
+    document.getElementById('mainNav').style.background =
+        window.scrollY > 50 ? 'linear-gradient(135deg,#5f9cad,#8080bc)' : 'transparent';
 });
 </script>
 
@@ -536,9 +535,12 @@ window.addEventListener('scroll',()=>{
     </div>
 </section>
 
-<!-- CHAT -->
+<!-- ═══ CHAT WIDGET ═══ -->
 <div id="chatWindow">
-    <div id="chatHeader"><span>Life Planner Chatbot</span><button onclick="toggleChat()">&#10006;</button></div>
+    <div id="chatHeader">
+        <span>Life Planner Chatbot</span>
+        <button onclick="toggleChat()">✖</button>
+    </div>
     <div id="chatMessages"></div>
     <div id="chatInputArea">
         <input id="chatInput" type="text" placeholder="Type a message..." onkeypress="if(event.key==='Enter'){sendMessage()}">
@@ -546,11 +548,12 @@ window.addEventListener('scroll',()=>{
     </div>
 </div>
 
+<!-- ═══ FLOATING BUTTONS — exact match to home & courses pages ═══ -->
 <div class="floating-buttons">
     <button onclick="toggleChat()" title="AI Chatbot"><i class="fa-solid fa-robot"></i></button>
     <a href="https://wa.me/+918943510107" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
     <a href="tel:+918943510107"><i class="fa-solid fa-phone"></i></a>
-    <a href="/cdn-cgi/l/email-protection#92fbfcf4fdd2fefbf4f7e2fef3fcfcf7e0e7fcfbe4f7e0e1f3febcf1fdff"><i class="fas fa-envelope"></i></a>
+    <a href="mailto:info@lifeplanneruniversal.com"><i class="fas fa-envelope"></i></a>
 </div>
 
 <!-- ═══ FOOTER ═══ -->
@@ -569,7 +572,7 @@ window.addEventListener('scroll',()=>{
             </div>
             <div class="footer-contact-block">
                 <h4><i class="fas fa-envelope"></i> Mail us</h4>
-                <a href="/cdn-cgi/l/email-protection#41282f272e012d282724312d202f2f2433342f2837243332202d6f222e2c"><span class="__cf_email__" data-cfemail="4821262e270824212e2d38242926262d3a3d26213e2d3a3b2924662b2725">[email&#160;protected]</span></a>
+                <a href="mailto:info@lifeplanneruniversal.com">info@lifeplanneruniversal.com</a>
             </div>
         </div>
     </div>
@@ -587,7 +590,7 @@ window.addEventListener('scroll',()=>{
             <div class="footer-links-col">
                 <h4>Top Links</h4>
                 <ul>
-                    <li><a href="/">Home</a></li><li><a href="/studycanada/">Countries</a></li>
+                    <li><a href="/">Home</a></li><li><a href="/countries/">Countries</a></li>
                     <li><a href="/service/">Services</a></li><li><a href="/careers/">Careers</a></li>
                     <li><a href="/contact/">Contact Us</a></li><li><a href="/about/">About Us</a></li>
                 </ul>
@@ -598,15 +601,14 @@ window.addEventListener('scroll',()=>{
     <div class="footer-copyright"><p>Copyright &copy; 2024, All Rights Reserved — Lifeplanner Studies and Opportunities</p></div>
 </footer>
 
-<!-- Only Bootstrap 4 — removed Bootstrap 5 to prevent conflicts -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
 <script>
 /* Navbar scroll */
 window.addEventListener('scroll',()=>{
-    document.getElementById('mainNav').style.background=
-        window.scrollY>50?'linear-gradient(135deg,#5f9cad,#8080bc)':'transparent';
+    document.getElementById('mainNav').style.background =
+        window.scrollY > 50 ? 'linear-gradient(135deg,#5f9cad,#8080bc)' : 'transparent';
 });
 
 /* Scroll reveal */
@@ -617,46 +619,58 @@ document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 
 /* Service card toggles */
 function toggleCard(id){
-    const desc=document.getElementById('desc-'+id);
-    const tags=document.getElementById('tags-'+id);
-    const btn=desc.closest('.service-card').querySelector('.card-toggle');
-    const label=btn.querySelector('.btn-label');
-    const isOpen=desc.classList.contains('visible');
-    if(isOpen){ desc.classList.remove('visible'); tags.classList.remove('visible'); btn.classList.remove('open'); label.textContent='Learn More'; }
-    else { desc.classList.add('visible'); tags.classList.add('visible'); btn.classList.add('open'); label.textContent='Show Less'; }
+    const desc = document.getElementById('desc-'+id);
+    const tags = document.getElementById('tags-'+id);
+    const btn = desc.closest('.service-card').querySelector('.card-toggle');
+    const label = btn.querySelector('.btn-label');
+    const isOpen = desc.classList.contains('visible');
+    if(isOpen){
+        desc.classList.remove('visible');
+        tags.classList.remove('visible');
+        btn.classList.remove('open');
+        label.textContent = 'Learn More';
+    } else {
+        desc.classList.add('visible');
+        tags.classList.add('visible');
+        btn.classList.add('open');
+        label.textContent = 'Show Less';
+    }
 }
 
 /* Consultation form */
 function submitConsultForm(){
-    const name=document.getElementById('cf-name').value.trim();
-    const phone=document.getElementById('cf-phone').value.trim();
-    const email=document.getElementById('cf-email').value.trim();
+    const name  = document.getElementById('cf-name').value.trim();
+    const phone = document.getElementById('cf-phone').value.trim();
+    const email = document.getElementById('cf-email').value.trim();
     if(!name||!phone||!email){ alert('Please fill in your name, phone and email to continue.'); return; }
-    document.getElementById('consultFormInner').style.display='none';
-    document.getElementById('consultSuccess').style.display='block';
+    document.getElementById('consultFormInner').style.display = 'none';
+    document.getElementById('consultSuccess').style.display = 'block';
 }
 
 /* Chat */
 function toggleChat(){
-    const cw=document.getElementById("chatWindow");
-    cw.style.display=cw.style.display==="none"||cw.style.display===""?"flex":"none";
+    const cw = document.getElementById("chatWindow");
+    cw.style.display = cw.style.display === "none" || cw.style.display === "" ? "flex" : "none";
 }
 async function sendMessage(){
-    const input=document.getElementById("chatInput");
-    const message=input.value.trim();
+    const input = document.getElementById("chatInput");
+    const message = input.value.trim();
     if(!message) return;
-    const div=document.getElementById("chatMessages");
-    div.innerHTML+=`<div class="user-message"><span>${message}</span></div>`;
-    input.value=""; div.scrollTop=div.scrollHeight;
-    const t=document.createElement("div"); t.className="bot-message typing";
-    t.innerHTML='<span><div></div><div></div><div></div></span>';
-    div.appendChild(t); div.scrollTop=div.scrollHeight;
+    const div = document.getElementById("chatMessages");
+    div.innerHTML += `<div class="user-message"><span>${message}</span></div>`;
+    input.value = ""; div.scrollTop = div.scrollHeight;
+    const t = document.createElement("div"); t.className = "bot-message typing";
+    t.innerHTML = '<span><div></div><div></div><div></div></span>';
+    div.appendChild(t); div.scrollTop = div.scrollHeight;
     try{
-        const res=await fetch("/chat/",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message})});
-        const data=await res.json(); div.removeChild(t);
-        div.innerHTML+=`<div class="bot-message"><span>${data.reply}</span></div>`;
-        div.scrollTop=div.scrollHeight;
-    }catch{ div.removeChild(t); div.innerHTML+=`<div class="bot-message"><span>⚠️ Error connecting to server</span></div>`; }
+        const res = await fetch("/chat/",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message})});
+        const data = await res.json(); div.removeChild(t);
+        div.innerHTML += `<div class="bot-message"><span>${data.reply}</span></div>`;
+        div.scrollTop = div.scrollHeight;
+    } catch {
+        div.removeChild(t);
+        div.innerHTML += `<div class="bot-message"><span>⚠️ Error connecting to server</span></div>`;
+    }
 }
 </script>
 </body>
