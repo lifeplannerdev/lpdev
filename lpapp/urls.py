@@ -13,7 +13,6 @@ urlpatterns = [
    path('partnering/', views.partnering, name='partnering'),
    path('profile/<int:pk>/', views.profile, name='profile'),
    path('albums/',views.albums,name='albums'),
-   path('contact/',views.contact,name='contact'),
    path('canada/',views.canada,name='canada'),
    path('germany/',views.germany,name='germany'),
    path('studycanada/',views.studycanada,name='studycanada'),

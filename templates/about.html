@@ -1,1019 +1,646 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Lifeplanner Universal</title>
-    <!-- Bootstrap CSS -->
+    <title>About Us | Life Planner Universal</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">    <style>
-        @font-face {
-            font-family: myfont;
-            src: url(/static/Cabin-Medium.ttf);
-        }
-
-        body {
-            font-family: myfont;
-            background: linear-gradient(to bottom, #f4f7fc, #e9f1f9);
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background:linear-gradient(135deg, #5f9cad, #8080bc);
-            color: white;
-            padding: 3rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            
-        }
-
-        header h2 {
-            font-size: 3.5rem;
-            margin: 0;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 50px;
-        }
-
-        .content {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            padding: 2.5rem;
-            margin: 2rem auto;
-            max-width: 900px;
-        }
-
-        h2 {
-            font-weight: 700;
-            letter-spacing: 1px;
-            
-            color: #ffffff;
-            
-        }
-
-        h3 {
-            font-weight: 700;
-            color: #00509e;
-            margin-top: 1.5rem;
-            
-        }
-
-        ul {
-            list-style-type: disc;
-            padding-left: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        p {
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        footer {
-            background: #002b5c;
-            color: white;
-            text-align: center;
-            padding: 2.5rem 1rem;
-            margin-top: 2rem;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        footer a {
-            color: #ffcc00;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .highlight {
-            background: linear-gradient(90deg, #ffcc00, #ffe680);
-            font-weight: 700;
-            padding: 0.2rem 0.5rem;
-            border-radius: 5px;
-        }
-    </style>
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '711088271650980');
-      fbq('track', 'PageView');
-      </script>
-
-      <!-- Facebook Pixel -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '711088271650980');
-      fbq('track', 'PageView');
-    </script>
-
-    <!-- Google Analytics (gtag.js) -->
+    <!-- Tracking -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KGQNVX98');</script>
+    <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','711088271650980');fbq('track','PageView');</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T9QKNF948L"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T9QKNF948L');</script>
 
-      gtag('config', 'G-T9QKNF948L');
-    </script>
-     
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T9QKNF948L"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
 
-  gtag('config', 'G-T9QKNF948L');
-</script>
-<body>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=711088271650980&ev=PageView&noscript=1"
-    /></noscript>
     <style>
-        .navbar {
-    background: transparent;
-    
-    padding: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-    transition: background 0.3s ease; /* Smooth transition for background color */
-}
+        @font-face { font-family: myfont; src: url(/static/Cabin-Medium.ttf); }
 
-
-        .navbar .nav-link {
-            color: #ffffff;
-            font-weight: 500;
-            margin:10px;
-            
+        :root {
+            --primary: #1664ad;
+            --secondary: #5f9cad;
+            --accent: #8080bc;
+            --grad: linear-gradient(135deg, #5f9cad, #8080bc);
+            --text-dark: #0f172a;
+            --text-mid: #475569;
+            --text-light: #64748b;
         }
 
-        .navbar .nav-link:hover {
-            color: #ff4757;
+        * { box-sizing: border-box; }
+        body { font-family: 'Bricolage Grotesque', myfont, sans-serif; background: #f8fafc; color: #333; margin: 0; padding: 0; overflow-x: hidden; }
+
+        /* ── NAVBAR ── */
+        .navbar { background: transparent; padding: .5rem 1rem; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; width: 100%; z-index: 999; transition: background .3s; }
+        .navbar .nav-link { color: #fff; font-weight: 500; margin: 10px; transition: color .2s; }
+        .navbar .nav-link:hover { color: #ff4757; }
+        .dropdown-menu { background: rgba(0,0,0,.566) !important; }
+        .dropdown-item { color: white !important; }
+        .dropdown-item:hover { background: rgba(255,255,255,.15) !important; }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            background: var(--grad);
+            padding: 120px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,.15) 0%, transparent 60%);
+        }
+        .page-hero h1 { font-size: clamp(2rem,5vw,3.5rem); font-weight: 800; color: #fff; margin: 0 0 10px; letter-spacing: 1px; position: relative; }
+        .page-hero p { color: rgba(255,255,255,.85); font-size: 1.1rem; margin: 0; position: relative; }
+        .breadcrumb-bar { background: transparent; display: flex; justify-content: center; padding: 8px 0 0; }
+        .breadcrumb-bar a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .9rem; }
+        .breadcrumb-bar a:hover { color: #fff; }
+        .breadcrumb-bar span { color: rgba(255,255,255,.5); margin: 0 8px; font-size: .9rem; }
+
+        /* ── SECTION COMMONS ── */
+        .section { padding: 80px 0; }
+        .section-alt { background: #fff; }
+        .container-main { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .section-label { font-size: .78rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--secondary); margin-bottom: 8px; }
+        .section-title { font-size: clamp(1.8rem,3vw,2.6rem); font-weight: 800; color: var(--text-dark); line-height: 1.2; margin-bottom: 6px; }
+        .section-title span { color: var(--primary); }
+        .underline-bar { width: 55px; height: 4px; border-radius: 4px; background: var(--grad); margin: 12px 0 28px; }
+        @media(max-width:768px){ .container-main { padding: 0 20px; } .section { padding: 60px 0; } }
+
+        /* ── ABOUT SECTION ── */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: start; }
+        .about-text p { font-size: 1rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 18px; }
+        .highlight-chip { display: inline-block; background: linear-gradient(90deg,#ffcc00,#ffe680); font-weight: 700; padding: 2px 10px; border-radius: 5px; color: #333; }
+        .benefits-card { background: #fff; border-radius: 20px; padding: 32px 36px; box-shadow: 0 8px 40px rgba(22,100,173,.1); border: 1.5px solid rgba(95,156,173,.12); position: sticky; top: 100px; }
+        .benefits-card h3 { font-size: 1.15rem; font-weight: 800; color: var(--text-dark); margin-bottom: 22px; padding-bottom: 12px; border-bottom: 2px solid rgba(95,156,173,.2); }
+        .benefit-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+        .benefit-icon { width: 28px; height: 28px; border-radius: 8px; background: var(--grad); display: flex; align-items: center; justify-content: center; color: #fff; font-size: .75rem; flex-shrink: 0; margin-top: 1px; }
+        .benefit-text { font-size: .9rem; color: var(--text-mid); line-height: 1.5; }
+        @media(max-width:992px){ .about-grid { grid-template-columns: 1fr; gap: 40px; } .benefits-card { position: static; } }
+
+        /* ── FLAG SECTION ── */
+        .flag-section { background: linear-gradient(135deg,rgba(95,156,173,.08),rgba(128,128,188,.06)); border-radius: 24px; padding: 40px 44px; margin-top: 50px; border: 1.5px solid rgba(95,156,173,.15); }
+        .flag-section h3 { font-size: 1.3rem; font-weight: 800; color: var(--primary); margin-bottom: 12px; }
+        .flag-section p { font-size: .97rem; color: var(--text-mid); line-height: 1.8; margin: 0; }
+        @media(max-width:600px){ .flag-section { padding: 28px 22px; } }
+
+        /* ── CHAIRMAN SECTION ── */
+        .chairman-section { text-align: center; max-width: 800px; margin: 60px auto 0; }
+        .chairman-photo { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; box-shadow: 0 8px 30px rgba(22,100,173,.2); margin-bottom: 24px; border: 4px solid rgba(95,156,173,.3); }
+        .chairman-name { font-size: 1.2rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+        .chairman-title { font-size: .85rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
+        .chairman-quote { background: #fff; border-left: 4px solid var(--secondary); border-radius: 0 16px 16px 0; padding: 24px 28px; box-shadow: 0 4px 20px rgba(0,0,0,.06); text-align: left; font-size: .97rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 18px; }
+
+        /* ── TEAM SECTION ── */
+        .team-scroll { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; padding: 10px 0 20px; }
+        .profile-card { background: #fff; border-radius: 20px; box-shadow: 0 4px 24px rgba(22,100,173,.1); padding: 28px 20px 20px; text-align: center; width: 180px; transition: transform .3s,box-shadow .3s; }
+        .profile-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(22,100,173,.18); }
+        .profile-pic { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; margin-bottom: 14px; box-shadow: 0 4px 14px rgba(0,0,0,.1); border: 3px solid rgba(95,156,173,.25); }
+        .profile-name { font-size: .95rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+        .profile-role { font-size: .8rem; color: var(--text-light); margin-bottom: 16px; }
+        .contact-btn { display: inline-block; padding: 7px 18px; border: 1.5px solid var(--primary); border-radius: 30px; font-size: .8rem; color: var(--primary); text-decoration: none; font-weight: 600; transition: all .25s; }
+        .contact-btn:hover { background: var(--primary); color: #fff; text-decoration: none; }
+        @media(max-width:600px){ .team-scroll { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 14px; } .profile-card { flex-shrink: 0; } }
+
+        /* ── CONTACT SECTION ── */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: start; }
+        .contact-info-block { background: #fff; border-radius: 20px; padding: 36px; box-shadow: 0 8px 40px rgba(22,100,173,.09); border: 1.5px solid rgba(95,156,173,.12); }
+        .contact-office { margin-bottom: 32px; padding-bottom: 28px; border-bottom: 1px solid rgba(0,0,0,.07); }
+        .contact-office:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .office-label { display: flex; align-items: center; gap: 10px; font-size: .82rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--secondary); margin-bottom: 10px; }
+        .office-label i { font-size: 1rem; }
+        .office-detail { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; font-size: .9rem; color: var(--text-mid); line-height: 1.6; }
+        .office-detail i { color: var(--primary); margin-top: 3px; flex-shrink: 0; width: 16px; }
+        .office-detail a { color: var(--text-mid); text-decoration: none; }
+        .office-detail a:hover { color: var(--primary); }
+
+        .contact-form-wrap { background: #fff; border-radius: 20px; padding: 40px 36px; box-shadow: 0 8px 40px rgba(22,100,173,.1); border: 1.5px solid rgba(95,156,173,.12); position: relative; overflow: hidden; }
+        .contact-form-wrap::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--grad); }
+        .contact-form-wrap h3 { font-size: 1.2rem; font-weight: 800; color: var(--text-dark); margin-bottom: 4px; }
+        .contact-form-wrap p { font-size: .85rem; color: var(--text-light); margin-bottom: 26px; }
+        .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 13px 16px; border: 1.5px solid rgba(0,0,0,.1); border-radius: 12px;
+            font-size: .9rem; font-family: inherit; color: var(--text-dark); background: #fafbff;
+            transition: border-color .25s,box-shadow .25s; outline: none;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--secondary); box-shadow: 0 0 0 3px rgba(95,156,173,.12); background: #fff; }
+        .form-group textarea { resize: vertical; min-height: 110px; }
+        .form-submit-btn { width: 100%; padding: 15px; background: var(--grad); color: #fff; border: none; border-radius: 12px; font-size: 1rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: all .3s; box-shadow: 0 8px 24px rgba(95,156,173,.3); }
+        .form-submit-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(95,156,173,.4); }
+        .social-bar { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 24px; padding: 18px 24px; border-radius: 16px; background: var(--grad); }
+        .social-bar a { color: #fff; font-size: 1.6rem; transition: transform .2s; }
+        .social-bar a:hover { transform: scale(1.2); }
+        @media(max-width:992px){ .contact-grid { grid-template-columns: 1fr; gap: 36px; } }
+        @media(max-width:560px){ .contact-form-wrap,.contact-info-block { padding: 28px 22px; } .form-row-2 { grid-template-columns: 1fr; } }
+
+        /* ── PHOTO CAROUSEL ── */
+        .office-carousel { margin: 0 0 60px; }
+        .carousel-cell { width: 35%; height: 360px; margin-right: 14px; border-radius: 18px; background-size: cover; background-position: center; }
+        @media(max-width:768px){ .carousel-cell { width: 80%; height: 240px; } }
+
+        /* ── MAPS ── */
+        .maps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .map-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 6px 30px rgba(22,100,173,.09); }
+        .map-card h4 { font-size: 1rem; font-weight: 700; color: var(--primary); padding: 18px 22px 14px; margin: 0; border-bottom: 1px solid rgba(0,0,0,.06); }
+        .map-card iframe { width: 100%; height: 280px; border: none; display: block; }
+        .map-card.full-width { grid-column: 1 / -1; }
+        @media(max-width:768px){ .maps-grid { grid-template-columns: 1fr; } .map-card.full-width { grid-column: auto; } }
+
+        /* ── CAREERS CTA ── */
+        .careers-cta { text-align: center; padding: 50px 20px; }
+        .careers-btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 44px; background: var(--grad); color: #fff; border-radius: 50px; font-size: 1.05rem; font-weight: 700; text-decoration: none; box-shadow: 0 8px 28px rgba(95,156,173,.35); transition: all .3s; border: none; }
+        .careers-btn:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(95,156,173,.45); color: #fff; text-decoration: none; }
+
+        /* ── FOOTER ── */
+        ul { margin: 0; padding: 0; }
+        .footer-section { background: var(--grad); position: relative; margin-top: 0; }
+        .footer-top { border-bottom: 1px solid rgba(255,255,255,.2); padding: 50px 0 40px; }
+        .footer-top-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; max-width: 1200px; margin: 0 auto; padding: 0 40px; align-items: start; }
+        .footer-contact-block h4 { color: #fff; font-size: 18px; font-weight: 700; margin-bottom: 14px; }
+        .footer-contact-block p,.footer-contact-block a { color: rgba(255,255,255,.88); font-size: 14px; line-height: 1.9; display: block; text-decoration: none; margin: 0; }
+        .footer-contact-block a:hover { color: #fff; }
+        .footer-main { padding: 50px 0 40px; }
+        .footer-main-grid { display: grid; grid-template-columns: 1.7fr 1fr 1.1fr; gap: 50px; max-width: 1200px; margin: 0 auto; padding: 0 40px; align-items: start; }
+        .footer-about p { color: rgba(255,255,255,.88); font-size: 14px; line-height: 1.85; margin-bottom: 24px; }
+        .footer-follow-label { color: #fff; font-size: 15px; font-weight: 700; margin-bottom: 14px; display: block; }
+        .footer-social-icons { display: flex; gap: 12px; }
+        .footer-social-icons a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 16px; transition: background .3s,transform .3s; border: 1px solid rgba(255,255,255,.2); text-decoration: none; }
+        .footer-social-icons a:hover { background: rgba(255,255,255,.3); transform: translateY(-3px); }
+        .footer-links-col h4 { color: #fff; font-size: 18px; font-weight: 700; margin-bottom: 28px; position: relative; padding-bottom: 14px; }
+        .footer-links-col h4::after { content: ""; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: rgba(255,255,255,.5); border-radius: 2px; }
+        .footer-links-col ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+        .footer-links-col ul li a { color: rgba(255,255,255,.85); font-size: 14px; text-decoration: none; transition: color .2s,padding-left .2s; display: block; }
+        .footer-links-col ul li a:hover { color: #fff; padding-left: 5px; }
+        .footer-logo-col { display: flex; align-items: center; justify-content: center; }
+        .footer-logo-col img { width: 220px; max-width: 100%; }
+        .footer-copyright { border-top: 1px solid rgba(255,255,255,.15); padding: 22px 40px; text-align: center; }
+        .footer-copyright p { color: rgba(255,255,255,.82); font-size: 13px; margin: 0; }
+        @media(max-width:992px){ .footer-top-grid { grid-template-columns: 1fr 1fr; } .footer-main-grid { grid-template-columns: 1fr 1fr; } .footer-logo-col { grid-column: 1/-1; } }
+        @media(max-width:640px){ .footer-top-grid,.footer-main-grid { grid-template-columns: 1fr; padding: 0 24px; } }
+
+        /* ── FLOATING BUTTONS ── */
+        .floating-buttons { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+        .floating-buttons a,.floating-buttons button { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: var(--primary); color: white; border-radius: 50%; box-shadow: 0 4px 6px rgba(22,100,173,.4); font-size: 22px; border: none; cursor: pointer; transition: background-color .3s; text-decoration: none; }
+        .floating-buttons a:hover,.floating-buttons button:hover { opacity: .9; background-color: rgb(18,85,150); }
+        #chatWindow { display: none; position: fixed; bottom: 90px; right: 20px; width: 320px; height: 450px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,.3); overflow: hidden; z-index: 10000; flex-direction: column; }
+        #chatHeader { background: var(--grad); color: white; padding: 10px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        #chatHeader button { background: transparent; border: none; color: white; font-size: 16px; cursor: pointer; }
+        #chatMessages { flex: 1; overflow-y: auto; padding: 10px; }
+        .user-message { text-align: right; margin: 5px 0; }
+        .user-message span { background: #007bff; color: white; padding: 8px 12px; border-radius: 12px; display: inline-block; }
+        .bot-message { text-align: left; margin: 5px 0; }
+        .bot-message span { background: #f1f1f1; color: #333; padding: 8px 12px; border-radius: 12px; display: inline-block; }
+        .typing span { display: inline-flex; gap: 3px; }
+        .typing span div { width: 6px; height: 6px; background: #555; border-radius: 50%; animation: bounce 1s infinite; }
+        .typing span div:nth-child(2){animation-delay:.2s} .typing span div:nth-child(3){animation-delay:.4s}
+        @keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-8px)} }
+        #chatInputArea { border-top: 1px solid #ddd; display: flex; padding: 8px; }
+        #chatInput { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #ddd; font-family: inherit; }
+        #chatInputArea button { margin-left: 5px; background: var(--grad); color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; }
+
+        /* ── OFFICE IMAGES ── */
+        @media(max-width:768px) {
+            .office-images-row1 { grid-template-columns: 1fr 1fr !important; }
+            .office-images-row2 { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media(max-width:480px) {
+            .office-images-row1 { grid-template-columns: 1fr !important; }
+            .office-images-row2 { grid-template-columns: 1fr !important; }
         }
 
-        .navbar-toggler {
-            border-color: rgba(255, 255, 255, 0.1);
-            
-            
-        
-    
-        }
-
-        .navbar-brand {
-            font-weight: 500;
-            color: #ffffff;
-            
-        }
-        
-
-.icon-menu {
-  --gap: 5px;
-  --height-bar: 2.5px;
-  --pos-y-bar-one: 0;
-  --pos-y-bar-three: 0;
-  --scale-bar: 1;
-  --rotate-bar-one: 0;
-  --rotate-bar-three: 0;
-  width: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap);
-  cursor: pointer;
-  position: relative;
-  margin-top:5px;
-  margin-right: 10px;
-  display:none;
-}
-@media (max-width: 767px) {
-            .icon-menu {
-                display: flex; 
-            }
-        }
-       
-.bar {
-  position: relative;
-  height: 3.2px;
-  width: 100%;
-  border-radius: .5rem;
-  background-color: #d6d6d6;
-}
-
-.bar--1 {
-  top: var(--pos-y-bar-one);
-  transform: rotate(var(--rotate-bar-one));
-  transition: top 200ms 100ms, transform 100ms;
-}
-
-.bar--2 {
-  transform: scaleX(var(--scale-bar));
-  transition: transform 150ms 100ms;
-}
-
-.bar--3 {
-  bottom: var(--pos-y-bar-three);
-  transform: rotate(var(--rotate-bar-three));
-  transition: bottom 200ms 100ms, transform 100ms;
-}
-
-.check-icon:checked + .icon-menu > .bar--1 {
-  transition: top 200ms, transform 200ms 100ms;
-}
-
-.check-icon:checked + .icon-menu > .bar--3 {
-  transition: bottom 200ms, transform 200ms 100ms;
-}
-
-.check-icon:checked + .icon-menu {
-  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
-  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
-  --scale-bar: 0;
-  --rotate-bar-one: 45deg;
-  --rotate-bar-three: -45deg;
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-    .icon-menu{
-        display: block;
-        
-    }
-    .bar {
-  position: relative;
-  height: 5px;
-  width: 100%;
-  border-radius: .5rem;
-  background-color: #d6d6d6;
-  margin:2px;
-}
-
-.bar--1 {
-  top: var(--pos-y-bar-one);
-  transform: rotate(var(--rotate-bar-one));
-  transition: top 200ms 100ms, transform 100ms;
-}
-
-.bar--2 {
-  transform: scaleX(var(--scale-bar));
-  transition: transform 150ms 100ms;
-}
-
-.bar--3 {
-  bottom: var(--pos-y-bar-three);
-  transform: rotate(var(--rotate-bar-three));
-  transition: bottom 200ms 100ms, transform 100ms;
-}
-
-.check-icon:checked + .icon-menu > .bar--1 {
-  transition: top 200ms, transform 200ms 100ms;
-}
-
-.check-icon:checked + .icon-menu > .bar--3 {
-  transition: bottom 200ms, transform 200ms 100ms;
-}
-
-.check-icon:checked + .icon-menu {
-  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
-  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
-  --scale-bar: 0;
-  --rotate-bar-one: 45deg;
-  --rotate-bar-three: -45deg;
-}
-    
-    }
-
-    @keyframes slideFadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
+        /* reveal animation */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s, transform .6s; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
     </style>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <img src="/static/LPsymbol.png" style="height:40px;width:90px;">
-        <input hidden class="check-icon" id="check-icon" name="check-icon" type="checkbox" >
-        <label class="icon-menu" for="check-icon" data-toggle="collapse" data-target="#navbarNav">
-            <div class="bar bar--1"></div>
-            <div class="bar bar--2"></div>
-            <div class="bar bar--3"></div>
-        </label>
+</head>
+<body>
 
-        <div class="collapse navbar-collapse" id="navbarNav" >
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:home' %}">Home</a></li>
-                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:service' %}">Services</a></li>
-                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:canada' %}">Immigration</a></li>
-                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:partnering' %}">Partner With Us</a></li>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGQNVX98" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- University Dropdown -->
-<li class="nav-item ml-4 dropdown">
-  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      University
-  </a>
-  <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background: rgba(0, 0, 0, 0.566);">
-      <a class="dropdown-item text-white" href="{% url 'lpapp:studycanada' %}">English-Speaking Countries</a>
-      <a class="dropdown-item text-white mt-3" href="{% url 'lpapp:studyeurope' %}">European Countries</a>
-      
-      
-  </div>
-</li>                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:blog' %}">Blog</a></li>
-                <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:contact' %}">Contact Us</a></li>
-                
-
-            </ul>
-        </div>
-    </nav>
-    <script>
-        // Navbar background color change on scroll or menu toggle
-  function updateNavbarBackground() {
-      const navbar = document.querySelector(".navbar");
-      const menuCheckbox = document.querySelector("#check-icon");
-  
-      if (menuCheckbox.checked || window.scrollY > 50) {
-          navbar.style.background = "linear-gradient(135deg, #5f9cad, #8080bc)";
-      } else {
-          navbar.style.background = "transparent";
-      }
-  }
-  
-  // Attach scroll event listener
-  window.addEventListener("scroll", updateNavbarBackground);
-  
-  // Attach toggle menu listener
-  document.querySelector("#check-icon").addEventListener("change", updateNavbarBackground);
-  
-      </script>
-    <header>
-        <h2>ABOUT US</h2>
-    </header>
-    <div style="display:flex;justify-content: center;align-items: center;margin-top: 40px;">
-      <div class="breadcrumb"><a href="{% url 'lpapp:home' %}">Home</a> \ About Us</div></div>
-
-    <style>
-      /* Define the fade-in-up animation */
-      @keyframes fadeInUp {
-          from {
-              opacity: 0; /* Start fully transparent */
-              transform: translateY(50px); /* Start slightly below */
-          }
-          to {
-              opacity: 1; /* End fully visible */
-              transform: translateY(0); /* End at the original position */
-          }
-      }
-      
-      /* Add a fallback for reusable classes */
-      .overlay {
-          animation: fadeInUp 1.5s ease-out; /* Duration and timing */
-      }
-      </style>
-    <div class="container content" style="animation: fadeInUp 1.5s ease-out;">
-        <p><span class="highlight">Life Planner</span> Established in 2012, Life Planner has grown from a modest start-up to become a trusted and well-respected educational facilitator among study abroad consultants in Kottayam.
- 
-Recognised with ISO certification, we have earned a reputation for providing trustworthy and personalised services.
-</p>
-<p>
-  At Life Planner, we provide individualized counseling based on each student's distinct talents, interests, and study skills, ensuring a smooth transition through the admission and visa processes. Our experienced team provides admission support for medical, engineering, paramedical, nursing, IT, technical, management, and various other academic streams across globally renowned universities and institutions. Students can explore undergraduate, postgraduate, diploma, and certificate programs in almost all countries.
-
-</p>
-<p>
-  To ensure students achieve excellent IELTS or German language scores, we provide expert training at our dedicated academy. International students also benefit from our assistance in finding employment after graduation, supported by our alumni network and Immigration Consultant Office. Our commitment does not end once students reach their destination; we continue to provide guidance and support, reinforcing our standing as one of the leading overseas education consultants in Kottayam.
-
-</p>
-<p>
-  Life Planner Studies and Opportunities Pvt Ltd operates from its headquarters in Kottayam and its corporate office in Cochin. We ensure our students settle comfortably upon arrival, offering airport pickup and accommodation assistance. This is achieved through close coordination with university or college officials and our former students who are now successfully settled abroad. The wholehearted participation of our alumni is a testament to the exceptional service they received during their journey with us. This enduring trust has positioned Life Planner as the top study abroad consultant in Kottayam, Kerala.
-
-</p>
-
-        <h2 class="border-bottom pb-2">Benefits for Life Planner student</h2>
-        <ul>
-          <li>
-            Expert advice to match your interests with the best programs
-          </li>
-          <li>
-            Careful attention at every stage of the admission process
-          </li>
-          <li>
-            Frequent spot admission and seminar sessions at our offices
-
-          </li>
-          <li>
-            Scholarship and fee discounts from selected institutions (based on eligibility)
-          </li>
-          <li>
-            Free airport pickup and accommodation support
-          </li>
-          <li>
-            Free visa guidance
-          </li>
-          <li>
-            Assistance with education loans
-          </li>
-          <li>
-            Competitive forex and air ticketing services
-          </li>
-          <li>
-            Access to references from our successful students abroad
-          </li>
-          <li>
-            100% transparent and reliable services
-          </li>
-          
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
+    <img src="/static/LPsymbol.png" style="height:40px;width:90px;" alt="Life Planner">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:home' %}">Home</a></li>
+            <li class="nav-item ml-4"><a class="nav-link" href="/courses/">Courses</a></li>
+            <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:service' %}">Services</a></li>
+            <li class="nav-item ml-4 dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">University</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item text-white" href="{% url 'lpapp:studycanada' %}">English-Speaking Countries</a>
+                    <a class="dropdown-item text-white mt-3" href="{% url 'lpapp:studyeurope' %}">European Countries</a>
+                </div>
+            </li>
+            <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:blog' %}">Blog</a></li>
+            <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:partnering' %}">Partner With Us</a></li>
+            <li class="nav-item ml-4"><a class="nav-link" href="{% url 'lpapp:about' %}">About Us</a></li>
         </ul>
-        
-
-        <h3>Foreign Languages Academy Gurukulam (F.L.A.G.),</h3>
-       <p>
-        the language wing of Life Planner Studies & Opportunities Pvt. Ltd., was established in 2018 as a premier language institute in Kerala. With over six years of expertise, F.L.A.G. has become a leader in German language training. As the only authorised German Skill Development Centre in Kerala, we collaborate with German companies to deliver industry-specific training, equipping students with the language proficiency needed for international opportunities.
-
-       </p>
-      
-     <div class="chairman-section">
-      <!-- Profile Photo -->
-      
-      <!-- Chairman's Message -->
-      <div class="chairman-message">
-        
-          <div style="display:flex;justify-content:center;">
-          <h3>Chairman’s Message</h3>
-        </div>
-        <div style="display:flex;justify-content:center;margin-bottom: 40px;">
-          <img src="/static/sujin1.jpg" alt="Chairman's Photo" class="chairman-photo" style="border-radius: 15%;margin-top:20px;margin-bottom: 20px;">
-        </div>
-
-          <p>
-              Overseas education can seem overwhelming for students and their parents, not because of its complexity, but because it offers an abundance of opportunities and choices. Selecting the right program, university, and destination is often a challenging decision for aspiring students, with the risk of being misled.
-          </p>
-          <p>
-              Think about it—we choose clothes based on our size and preferred colour, food according to our taste, and even our perspective on a subject is shaped by personal experiences and interests. In short, every decision we make is uniquely ours, tailored to fit who we are. So why, when it comes to education, do so many feel pressured to follow trends? Why do we rush to join the crowd, pursuing programs, universities, or countries that may not truly align with our dreams and abilities?
-          </p>
-          <p>
-              Every student has their own vision, passion, skills, and talents. Education should serve as a bridge to enhance this vision and bring those dreams to life. At Life Planner, we understand this better than anyone. We are well-connected with a network of world-class universities, colleges, and B-schools across the globe, enabling us to offer personalised solutions for each student.
-          </p>
-          <p>
-              Our strategy is simple yet effective: we provide tailor-made guidance based on your preferences, strengths, and aspirations. This process is carried out through our highly trained and experienced counsellors, who not only guide you towards the right academic options but also suggest clear and legal pathways for immigration.
-          </p>
-          <p>
-              We are committed to ensuring that every student receives an uncompromised quality of education and unbiased counselling, so they can make well-informed decisions. To maintain this promise, I, as the Chairman of Life Planner, personally visit many of the universities and institutions we recommend. I do this to verify their facilities, educational standards, and post-study opportunities, ensuring they meet the expectations we set for our students.
-          </p>
-          <p>
-              Life Planner was founded with a true vision—to transform the way students experience overseas education. From the moment you join hands with us, your journey is carefully planned, step by step, so that you can focus on achieving your goals without any uncertainty.
-          </p>
-          <p>
-              With Life Planner, you are not just choosing a consultancy; you are choosing a partner who is dedicated to helping you turn your dreams into reality.
-          </p>
-      </div>
-  </div>
-
     </div>
-    <div style="display:flex;justify-content: center;margin-top: 40px;"><a href="{% url 'lpapp:careers' %}">
-      <button style="width:120px;height:40px;border-radius: 30px;background: linear-gradient(135deg, #5f9cad, #8080bc);color:white;
-      border:none;font-weight: bold;font-size: 1em;"> Careers <i class="fa-solid fa-arrow-up-right-from-square ml-2" style="font-size: 0.9em;"></i>
-  
-      </button>
-  </a>
-  </div>
-    <!-- Chat Window -->
+</nav>
+<script>
+window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').style.background =
+        window.scrollY > 50 ? 'linear-gradient(135deg,#5f9cad,#8080bc)' : 'transparent';
+});
+</script>
+
+<!-- ═══ PAGE HERO ═══ -->
+<div class="page-hero">
+    <h1>About Us</h1>
+    <p>Your trusted partner for overseas education since 2012</p>
+</div>
+
+<!-- ═══ OFFICE IMAGES CAROUSEL ═══ -->
+<section class="section" style="padding: 60px 0 30px;">
+    <div class="container-main">
+        <div style="text-align:center;" class="reveal">
+            <div class="section-label">Our Space</div>
+            <div class="section-title">A Glimpse of Our <span>Offices</span></div>
+            <div class="underline-bar" style="margin:12px auto 36px;"></div>
+        </div>
+    </div>
+    <div class="office-carousel reveal">
+        <div class="carousel" data-flickity='{"autoPlay":true,"prevNextButtons":false,"wrapAround":true}'>
+            <div class="carousel-cell" style="background-image:url(/static/wall.jpg);"></div>
+            <div class="carousel-cell" style="background-image:url(/static/hall2.jpg);"></div>
+            <div class="carousel-cell" style="background-image:url(/static/hall.jpg);"></div>
+            <div class="carousel-cell" style="background-image:url(/static/hall3.jpg);"></div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══ ABOUT SECTION ═══ -->
+<section class="section section-alt">
+    <div class="container-main">
+        <div class="reveal">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">Life Planner <span>Universal</span></div>
+            <div class="underline-bar"></div>
+        </div>
+        <div class="about-grid">
+            <div class="about-text reveal">
+                <p><span class="highlight-chip">Life Planner</span> — Established in 2012, Life Planner has grown from a modest start-up to become a trusted and well-respected educational facilitator among study abroad consultants in Kottayam. Recognised with ISO certification, we have earned a reputation for providing trustworthy and personalised services.</p>
+                <p>At Life Planner, we provide individualized counseling based on each student's distinct talents, interests, and study skills, ensuring a smooth transition through the admission and visa processes. Our experienced team provides admission support for medical, engineering, paramedical, nursing, IT, technical, management, and various other academic streams across globally renowned universities and institutions.</p>
+                <p>To ensure students achieve excellent IELTS or German language scores, we provide expert training at our dedicated academy. International students also benefit from our assistance in finding employment after graduation, supported by our alumni network and Immigration Consultant Office.</p>
+                <p>Life Planner operates from its headquarters in Kottayam and its corporate office in Cochin. We ensure our students settle comfortably upon arrival, offering airport pickup and accommodation assistance through close coordination with university officials and our alumni network.</p>
+
+                <div class="flag-section">
+                    <h3><i class="fas fa-globe-europe" style="margin-right:10px;"></i>Foreign Languages Academy Gurukulam (F.L.A.G.)</h3>
+                    <p>The language wing of Life Planner Studies & Opportunities Pvt. Ltd., established in 2018 as a premier language institute in Kerala. With over six years of expertise, F.L.A.G. has become a leader in German language training — the only authorised German Skill Development Centre in Kerala, collaborating with German companies to deliver industry-specific training.</p>
+                </div>
+            </div>
+
+            <div class="benefits-card reveal">
+                <h3><i class="fas fa-star" style="color:#5f9cad;margin-right:10px;"></i>Benefits for Life Planner Students</h3>
+                <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-lightbulb"></i></div><div class="benefit-text">Expert advice to match your interests with the best programs</div></div>
+                <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-hands-helping"></i></div><div class="benefit-text">Careful attention at every stage of the admission process</div></div>
+                <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-calendar-check"></i></div><div class="benefit-text">Frequent spot admission and seminar sessions at our offices</div></div>
+                <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-medal"></i></div><div class="benefit-text">Scholarship and fee discounts from selected institutions</div></div>
+                <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-plane"></i></div><div class="benefit-text">Free airport pickup and accommodation support</div></div>
+                <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-passport"></i></div><div class="benefit-text">Free visa guidance and documentation assistance</div></div>
+                <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-university"></i></div><div class="benefit-text">Assistance with education loans</div></div>
+                <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-exchange-alt"></i></div><div class="benefit-text">Competitive forex and air ticketing services</div></div>
+                <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-users"></i></div><div class="benefit-text">Access to references from our successful students abroad</div></div>
+                <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-shield-alt"></i></div><div class="benefit-text">100% transparent and reliable services</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ CHAIRMAN SECTION ═══ -->
+<section class="section">
+    <div class="container-main">
+        <div style="text-align:center;" class="reveal">
+            <div class="section-label">Leadership</div>
+            <div class="section-title">Chairman's <span>Message</span></div>
+            <div class="underline-bar" style="margin:12px auto 28px;"></div>
+        </div>
+        <div class="chairman-section reveal">
+            <img src="/static/sujin1.jpg" alt="Chairman" class="chairman-photo">
+            <div class="chairman-name">Sujin C Cherian</div>
+            <div class="chairman-title">Chairman & Founder — Life Planner</div>
+            <div class="chairman-quote">Overseas education can seem overwhelming for students and their parents, not because of its complexity, but because it offers an abundance of opportunities and choices. Selecting the right program, university, and destination is often a challenging decision for aspiring students, with the risk of being misled.</div>
+            <div class="chairman-quote">Every student has their own vision, passion, skills, and talents. Education should serve as a bridge to enhance this vision and bring those dreams to life. At Life Planner, we understand this better than anyone. We are well-connected with a network of world-class universities, colleges, and B-schools across the globe, enabling us to offer personalised solutions for each student.</div>
+            <div class="chairman-quote">Life Planner was founded with a true vision — to transform the way students experience overseas education. From the moment you join hands with us, your journey is carefully planned, step by step, so that you can focus on achieving your goals without any uncertainty. <strong>With Life Planner, you are not just choosing a consultancy; you are choosing a partner who is dedicated to helping you turn your dreams into reality.</strong></div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ TEAM SECTION ═══ -->
+<section class="section section-alt">
+    <div class="container-main">
+        <div style="text-align:center;" class="reveal">
+            <div class="section-label">The People Behind</div>
+            <div class="section-title">Our <span>Executives</span></div>
+            <div class="underline-bar" style="margin:12px auto 36px;"></div>
+        </div>
+        <div class="team-scroll reveal">
+            <!-- MD -->
+            <div class="profile-card">
+                <img src="/static/sujin.png" alt="Sujin C Cherian" class="profile-pic">
+                <div class="profile-name">Sujin C Cherian</div>
+                <div class="profile-role">Managing Director</div>
+                <a href="mailto:info@lifeplanneruniversal.com" class="contact-btn"><i class="fa-solid fa-envelope" style="margin-right:6px;"></i>Contact</a>
+            </div>
+            <!-- CEO -->
+            <div class="profile-card">
+                <img src="/static/jose.jpg" alt="Jose Savio Kuruvila" class="profile-pic">
+                <div class="profile-name">Jose Savio Kuruvila</div>
+                <div class="profile-role">CEO</div>
+                <a href="mailto:info@lifeplanneruniversal.com" class="contact-btn"><i class="fa-solid fa-envelope" style="margin-right:6px;"></i>Contact</a>
+            </div>
+            <!-- Manager Admissions & Visa -->
+            <div class="profile-card">
+                <img src="/static/Navya.jpg" alt="Navya" class="profile-pic">
+                <div class="profile-name">Navya</div>
+                <div class="profile-role">Manager — Admissions &amp; Visa</div>
+                <a href="mailto:info@lifeplanneruniversal.com" class="contact-btn"><i class="fa-solid fa-envelope" style="margin-right:6px;"></i>Contact</a>
+            </div>
+            <!-- Tony -->
+            <div class="profile-card">
+                <img src="/static/tony.jpg" alt="Tony" class="profile-pic">
+                <div class="profile-name">Tony</div>
+                <div class="profile-role">Admission Manager</div>
+                <a href="mailto:info@lifeplanneruniversal.com" class="contact-btn"><i class="fa-solid fa-envelope" style="margin-right:6px;"></i>Contact</a>
+            </div>
+            <!-- Daffrin -->
+            <div class="profile-card">
+                <img src="/static/daffrin.jpg" alt="Daffrin" class="profile-pic">
+                <div class="profile-name">Daffrin</div>
+                <div class="profile-role">Admission Manager</div>
+                <a href="mailto:info@lifeplanneruniversal.com" class="contact-btn"><i class="fa-solid fa-envelope" style="margin-right:6px;"></i>Contact</a>
+            </div>
+            <!-- Shahidha -->
+            <div class="profile-card">
+                <img src="/static/shahidha.jpg" alt="Shahidha" class="profile-pic">
+                <div class="profile-name">Shahidha</div>
+                <div class="profile-role">Admission Manager</div>
+                <a href="mailto:info@lifeplanneruniversal.com" class="contact-btn"><i class="fa-solid fa-envelope" style="margin-right:6px;"></i>Contact</a>
+            </div>
+            <!-- Manjula -->
+            <div class="profile-card">
+                <img src="/static/manjula.jpg" alt="Manjula" class="profile-pic">
+                <div class="profile-name">Manjula</div>
+                <div class="profile-role">Admission Manager</div>
+                <a href="mailto:info@lifeplanneruniversal.com" class="contact-btn"><i class="fa-solid fa-envelope" style="margin-right:6px;"></i>Contact</a>
+            </div>
+            <!-- Sreethu -->
+            <div class="profile-card">
+                <img src="/static/sreethu.jpg" alt="Sreethu" class="profile-pic">
+                <div class="profile-name">Sreethu</div>
+                <div class="profile-role">Admission Manager</div>
+                <a href="mailto:info@lifeplanneruniversal.com" class="contact-btn"><i class="fa-solid fa-envelope" style="margin-right:6px;"></i>Contact</a>
+            </div>
+        </div>
+        <div class="careers-cta reveal">
+            <a href="{% url 'lpapp:careers' %}" class="careers-btn">
+                <i class="fas fa-user-plus"></i> Join Our Team
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ CONTACT SECTION ═══ -->
+<section class="section">
+    <div class="container-main">
+        <div class="reveal">
+            <div class="section-label">Get In Touch</div>
+            <div class="section-title">Contact <span>Us</span></div>
+            <div class="underline-bar"></div>
+        </div>
+
+        <div class="contact-grid">
+            <!-- Contact Info -->
+            <div class="contact-info-block reveal">
+                <div class="section-label" style="margin-bottom:20px;">Our Offices</div>
+
+                <div class="contact-office">
+                    <div class="office-label"><i class="fas fa-building"></i> Head Office — Kottayam</div>
+                    <div class="office-detail"><i class="fas fa-location-dot"></i><span>2nd Floor, Thevarolil Building, Lal Bahadur Shastri Rd, Kottayam, Kerala, India — 686001</span></div>
+                    <div class="office-detail"><i class="fas fa-phone"></i><a href="tel:+919072222911">+91 907 2222 911</a></div>
+                    <div class="office-detail"><i class="fas fa-envelope"></i><a href="mailto:info@lifeplanneruniversal.com">info@lifeplanneruniversal.com</a></div>
+                </div>
+
+                <div class="contact-office">
+                    <div class="office-label"><i class="fas fa-building"></i> Life Planner Group of Companies</div>
+                    <div class="office-detail"><i class="fas fa-location-dot"></i><span>Pallathettu Building, Railway Rd, Nagampadam, Kottayam, Kerala, India — 686001</span></div>
+                </div>
+
+                <div class="contact-office">
+                    <div class="office-label"><i class="fas fa-building"></i> Corporate Office — Kochi</div>
+                    <div class="office-detail"><i class="fas fa-location-dot"></i><span>2nd Floor, Metro Pillar No.344, Kummenchery Building, NH544, Pathadipalam, Kochi, Kerala — 682033</span></div>
+                    <div class="office-detail"><i class="fas fa-phone"></i><a href="tel:+919072222933">+91 907 2222 933</a></div>
+                    <div class="office-detail"><i class="fas fa-envelope"></i><a href="mailto:info@lifeplanneruniversal.com">info@lifeplanneruniversal.com</a></div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-wrap reveal">
+                <h3>Send Us a Message</h3>
+                <p>Get in touch with us today — we'll respond within 24 hours.</p>
+                <form action="{% url 'lpapp:about' %}" method="POST" id="contactForm">
+                    {% csrf_token %}
+                    <div class="form-row-2">
+                        <div class="form-group"><input type="text" name="firstname" placeholder="First name" required></div>
+                        <div class="form-group"><input type="text" name="lastname" placeholder="Last name" required></div>
+                    </div>
+                    <div class="form-group"><input type="email" name="email" placeholder="Email address" required></div>
+                    <div class="form-group"><input type="text" name="phone_number" placeholder="Phone number" required></div>
+                    <div class="form-group"><textarea name="message" rows="4" placeholder="Your message (optional)"></textarea></div>
+                    <button type="submit" class="form-submit-btn" id="submitBtn">Send Message &nbsp;<i class="fas fa-paper-plane"></i></button>
+                </form>
+                <div class="social-bar">
+                    <a href="https://x.com/lifeplannerktm" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/lifeplannerstudies" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/lifeplannerstudies" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/company/life-planner-studies-opportunities/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ MAPS ═══ -->
+<section class="section section-alt">
+    <div class="container-main">
+        <div style="text-align:center;" class="reveal">
+            <div class="section-label">Find Us</div>
+            <div class="section-title">Our <span>Locations</span></div>
+            <div class="underline-bar" style="margin:12px auto 36px;"></div>
+        </div>
+        <div class="maps-grid reveal">
+            <div class="map-card">
+                <h4><i class="fas fa-map-marker-alt" style="margin-right:8px;color:#5f9cad;"></i>Kottayam — Head Office</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.829412842771!2d76.523034!3d9.591567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0629fd9f07b621%3A0xb44e03e56a1dcbeb!2sSastri%20Rd%2C%20Kottayam%2C%20Kerala!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="map-card">
+                <h4><i class="fas fa-map-marker-alt" style="margin-right:8px;color:#5f9cad;"></i>Kochi — Corporate Office</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3932.85318522709!2d76.312156!3d9.994045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080c7c648e8b01%3A0x7f8c2b196fa13a71!2sKalamassery%2C%20Kochi%2C%20Kerala!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="map-card full-width">
+                <h4><i class="fas fa-map-marker-alt" style="margin-right:8px;color:#5f9cad;"></i>Life Planner Group of Companies</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.822187606647!2d76.52768367388692!3d9.59483439138961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b062b88f815e91b%3A0x193b1ee54f344e2b!2sLife%20planner%20Group%20of%20companies!5e0!3m2!1sen!2sin!4v1695484322644!5m2!1sen!2sin" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="height:360px;"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer-section">
+    <div class="footer-top">
+        <div class="footer-top-grid">
+            <div class="footer-contact-block">
+                <h4><i class="fas fa-map-marker-alt" style="margin-right:8px;"></i>Find Us</h4>
+                <p>(H.O) 2nd Floor, Thevarolil Building, Lal Bahadur Shastri Rd, Kottayam, Kerala — 686001</p><br>
+                <p>(C.O) 2nd Floor, Kummenchery Building, NH544, Pathadipalam, Kochi — 682033</p>
+            </div>
+            <div class="footer-contact-block">
+                <h4><i class="fas fa-phone" style="margin-right:8px;"></i>Call Us</h4>
+                <a href="tel:+919072222911">+91 907 2222 911</a>
+                <a href="tel:+919072222933">+91 907 2222 933</a>
+            </div>
+            <div class="footer-contact-block">
+                <h4><i class="fas fa-envelope" style="margin-right:8px;"></i>Mail Us</h4>
+                <a href="mailto:info@lifeplanneruniversal.com">info@lifeplanneruniversal.com</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-main">
+        <div class="footer-main-grid">
+            <div class="footer-about">
+                <p>Life Planner Studies and Opportunities Pvt Ltd is a leading overseas education consultant, with headquarters in Kottayam and Corporate office in Kochi.</p>
+                <span class="footer-follow-label">Follow Us</span>
+                <div class="footer-social-icons">
+                    <a href="https://www.facebook.com/lifeplannerstudies"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/lifeplannerktm"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/lifeplannerstudies/?hl=en"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-col">
+                <h4>Top Links</h4>
+                <ul>
+                    <li><a href="{% url 'lpapp:home' %}">Home</a></li>
+                    <li><a href="{% url 'lpapp:studycanada' %}">Countries</a></li>
+                    <li><a href="{% url 'lpapp:service' %}">Services</a></li>
+                    <li><a href="{% url 'lpapp:careers' %}">Careers</a></li>
+                    <li><a href="{% url 'lpapp:about' %}">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-logo-col"><img src="/static/LPRlogo.png" alt="Life Planner"></div>
+        </div>
+    </div>
+    <div class="footer-copyright"><p>Copyright &copy; 2026, All Rights Reserved — Lifeplanner Studies and Opportunities</p></div>
+</footer>
+
+<!-- ═══ CHAT + FLOATING BUTTONS ═══ -->
 <div id="chatWindow">
     <div id="chatHeader">
         <span>Life Planner Chatbot</span>
         <button onclick="toggleChat()">✖</button>
     </div>
-
     <div id="chatMessages"></div>
-
     <div id="chatInputArea">
-        <input id="chatInput" type="text" placeholder="Type a message..." 
-               onkeypress="if(event.key==='Enter'){sendMessage()}">
+        <input id="chatInput" type="text" placeholder="Type a message..." onkeypress="if(event.key==='Enter'){sendMessage()}">
         <button onclick="sendMessage()">Send</button>
     </div>
 </div>
 
-<!-- Floating Buttons -->
 <div class="floating-buttons">
-    <!-- AI Chatbot Button -->
-    <button onclick="toggleChat()" title="AI Chatbot">
-        <i class="fa-solid fa-robot"></i>
-    </button>
-    <a href="https://wa.me/+918943510107" target="_blank" title="WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-    <a href="tel:+91 8943510107" class="phone" title="Call">
-        <i class="fa-solid fa-phone"></i>
-    </a>
-    <a href="mailto:info@lifeplanneruniversal.com" class="mail" title="Email">
-        <i class="fas fa-envelope"></i>
-    </a>
+    <button onclick="toggleChat()" title="AI Chatbot"><i class="fa-solid fa-robot"></i></button>
+    <a href="https://wa.me/+918943510107" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="tel:+918943510107" title="Call"><i class="fa-solid fa-phone"></i></a>
+    <a href="mailto:info@lifeplanneruniversal.com" title="Email"><i class="fas fa-envelope"></i></a>
 </div>
 
-<!-- Styles -->
-<style>
-/* Floating Buttons */
-.floating-buttons {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 1000;
-}
+<!-- ═══ SCRIPTS ═══ -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-.floating-buttons a, 
-.floating-buttons button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    background-color: rgb(22, 100, 173);
-    color: white;
-    border-radius: 50%;
-    box-shadow: 0 4px 6px rgb(22, 100, 173);
-    font-size: 22px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.floating-buttons a:hover, 
-.floating-buttons button:hover {
-    opacity: 0.9;
-    background-color: rgb(18, 85, 150);
-}
-
-/* Chat Window */
-#chatWindow {
-    display: none;
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: 320px;
-    height: 450px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    overflow: hidden;
-    z-index: 10000;
-    flex-direction: column;
-}
-
-/* Header */
-#chatHeader {
-    background: linear-gradient(135deg, #5f9cad, #8080bc);
-    color: white;
-    padding: 10px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#chatHeader button {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-/* Messages */
-#chatMessages {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    font-size: 14px;
-}
-
-.user-message {
-    text-align: right;
-    margin: 5px 0;
-}
-.user-message span {
-    background: #007bff;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 12px;
-    display: inline-block;
-}
-
-.bot-message {
-    text-align: left;
-    margin: 5px 0;
-}
-.bot-message span {
-    background: #f1f1f1;
-    color: #333;
-    padding: 8px 12px;
-    border-radius: 12px;
-    display: inline-block;
-}
-
-/* Typing animation */
-.typing span {
-    display: inline-flex;
-    gap: 3px;
-}
-.typing span div {
-    width: 6px;
-    height: 6px;
-    background-color: #555;
-    border-radius: 50%;
-    animation: bounce 1s infinite;
-}
-.typing span div:nth-child(2) { animation-delay: 0.2s; }
-.typing span div:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes bounce {
-    0%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-8px); }
-}
-
-/* Input Area */
-#chatInputArea {
-    border-top: 1px solid #ddd;
-    display: flex;
-    padding: 8px;
-}
-#chatInput {
-    flex: 1;
-    padding: 8px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-}
-#chatInputArea button8 {
-    margin-left: 5px;
-    background: linear-gradient(135deg, #5f9cad, #8080bc);
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-</style>
-
-<!-- Script -->
 <script>
-function toggleChat() {
-    const chatWindow = document.getElementById("chatWindow");
-    chatWindow.style.display = chatWindow.style.display === "none" || chatWindow.style.display === "" 
-        ? "flex" : "none";
-}
+// Contact form
+const contactForm = document.getElementById('contactForm');
+const submitBtn   = document.getElementById('submitBtn');
+const required    = contactForm.querySelectorAll('input[required]');
 
+function checkForm() {
+    const allFilled = [...required].every(f => f.value.trim());
+    submitBtn.disabled = !allFilled;
+    submitBtn.style.opacity = allFilled ? '1' : '.6';
+}
+required.forEach(f => f.addEventListener('input', checkForm));
+checkForm();
+
+contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (submitBtn.disabled) return;
+    submitBtn.disabled = true;
+    const formData = new FormData(contactForm);
+    fetch("{% url 'lpapp:about' %}", {
+        method: 'POST', body: formData,
+        headers: { 'X-CSRFToken': '{{ csrf_token }}' }
+    })
+    .then(r => r.json())
+    .then(data => {
+        const Toast = Swal.mixin({ toast:true, position:'top', showConfirmButton:false, timer:3000, timerProgressBar:true });
+        if (data.success) {
+            Toast.fire({ icon:'success', title:'Message sent successfully!' });
+            contactForm.reset(); checkForm();
+        } else {
+            Toast.fire({ icon:'error', title: data.error || 'Submission failed' });
+        }
+    })
+    .catch(() => Swal.mixin({ toast:true, position:'top', showConfirmButton:false, timer:3000 }).fire({ icon:'error', title:'Something went wrong' }))
+    .finally(() => { submitBtn.disabled = false; });
+});
+
+// Chat
+function toggleChat() {
+    const cw = document.getElementById('chatWindow');
+    cw.style.display = cw.style.display === 'flex' ? 'none' : 'flex';
+}
 async function sendMessage() {
-    const input = document.getElementById("chatInput");
+    const input = document.getElementById('chatInput');
     const message = input.value.trim();
     if (!message) return;
-
-    const messagesDiv = document.getElementById("chatMessages");
-
-    // Show user's message
-    messagesDiv.innerHTML += `<div class="user-message"><span>${message}</span></div>`;
-    input.value = "";
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
-    // Add typing indicator with 3 bouncing dots
-    const typingIndicator = document.createElement("div");
-    typingIndicator.className = "bot-message typing";
-    typingIndicator.innerHTML = `<span><div></div><div></div><div></div></span>`;
-    messagesDiv.appendChild(typingIndicator);
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
+    const div = document.getElementById('chatMessages');
+    div.innerHTML += `<div class="user-message"><span>${message}</span></div>`;
+    input.value = ''; div.scrollTop = div.scrollHeight;
+    const t = document.createElement('div');
+    t.className = 'bot-message typing';
+    t.innerHTML = '<span><div></div><div></div><div></div></span>';
+    div.appendChild(t); div.scrollTop = div.scrollHeight;
     try {
-        const response = await fetch("/chat/", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({message})
-        });
-        const data = await response.json();
-
-        // Remove typing indicator
-        messagesDiv.removeChild(typingIndicator);
-
-        // Show AI response
-        messagesDiv.innerHTML += `<div class="bot-message"><span>${data.reply}</span></div>`;
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
-    } catch (error) {
-        messagesDiv.removeChild(typingIndicator);
-        messagesDiv.innerHTML += `<div class="bot-message"><span>⚠️ Error connecting to server</span></div>`;
+        const res = await fetch('/chat/', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({message}) });
+        const data = await res.json();
+        div.removeChild(t);
+        div.innerHTML += `<div class="bot-message"><span>${data.reply}</span></div>`;
+        div.scrollTop = div.scrollHeight;
+    } catch {
+        div.removeChild(t);
+        div.innerHTML += `<div class="bot-message"><span>⚠️ Error connecting to server</span></div>`;
     }
 }
+
+// Scroll reveal
+const revObs = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('visible'); revObs.unobserve(en.target); } });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 </script>
-
-<footer class="footer-section">
-  <div class="container">
-      <div class="footer-cta pt-5 pb-5">
-          <div class="row">
-              <div class="col-xl-4 col-md-4 mb-3">
-                  <div class="single-cta">
-                      
-                      <div class="cta-text">
-                            
-                            <h4 class="mb-2">Find us</h4>
-                            <span>(H.O) 2nd Floor, Thevarolil Building, Lal Bahadur Shastri Rd, Kottayam, Kerala ,India <br>Pincode : 68 60 01</span><br><br>
-                            <span>Life Planner Group of companies Pallathettu Building, Railway Rd, Nagampadam, Kottayam, Kerala ,India <br>Pincode : 68 60 01</span><br><br>
-                            <span>(C.O) 2nd Floor, Metro pillar No.344, Kummenchery Building, 2nd floor, NH544, Pathadipalam, Kochi, Kerala ,India <br>Pincode : 68 20 33</span>
-                        </div>
-                  </div>
-              </div>
-              
-              <div class="col-xl-4 col-md-4 mb-3">
-                  <div class="single-cta">
-                     
-                      <div class="cta-text">
-                          <h4>Call us</h4>
-                          <span>+91 907 2222 911 ,</span>
-                          <span>+91 907 2222 933</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-xl-4 col-md-4 mb-30">
-                  <div class="single-cta">
-                      
-                      <div class="cta-text">
-                          <h4>Mail us</h4>
-                          <span>info@lifeplanneruniversal.com</span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="footer-content pt-5 pb-5">
-          <div class="row">
-              <div class="col-xl-4 col-lg-4 mb-50">
-                  <div class="footer-widget">
-              
-                      <div class="footer-text">
-                          <p>Life Planner Studies and Opportunities Pvt Ltd is a leading overseas education consultant, with headquarters in Kottayam and Corporate office in Kochi. </p>
-                      </div>
-                      <div class="footer-social-icon mb-4">
-                          <span>Follow us</span>
-                          <a href="https://www.facebook.com/lifeplannerstudies"><i class="fab fa-facebook-f bg-light text-dark"></i></a>
-                          <a href="https://x.com/i/flow/login?redirect_after_login=%2Flifeplannerktm"><i class="fab fa-twitter bg-light text-dark"></i></a>
-                          <a href="https://www.instagram.com/lifeplannerstudies/?hl=en"><i class="fab fa-instagram bg-light text-dark"></i></a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-xl-4 col-lg-4 col-md-6 mb-30" style="display:flex;justify-content: center;align-items: center;">
-                  <div class="footer-widget" >
-                      <div class="footer-widget-heading">
-                          <h4>Top Links</h4>
-                      </div>
-                      <ul>
-                          <li><a href="{% url 'lpapp:home' %}">Home</a></li>
-                          <li><a href="{% url 'lpapp:studycanada' %}">Countries</a></li>
-                          <li><a href="{% url 'lpapp:service' %}">services</a></li>
-                          <li><a href="{% url 'lpapp:careers' %}">careers</a></li>
-                          <li><a href="{% url 'lpapp:contact' %}">Contact Us</a></li>
-                          <li><a href="{% url 'lpapp:about' %}">About us</a></li>
-                          
-                      </ul>
-                  </div>
-              </div>
-              <div class="col-xl-4 col-lg-4 col-md-6 mb-50" style="display:flex;justify-content: center;align-items: center;">
-                  <img src="/static/LPRlogo.png" style="width:280px;">
-              </div>
-          </div>
-      </div>
-      <div class="copyright-area">
-          <div class="container">
-              <div class="row"  style="display:flex;justify-content: center;align-items: center;">
-                  <div class="col-xl-6 col-lg-6 text-center ">
-                      <div class="copyright-text">
-                          <p>Copyright &copy; 2024, All Right Reserved Lifeplanner Studies and Oppertunities</p>
-                      </div>
-                  </div>
-                  
-              </div>
-          </div>
-      </div>
-  </div>
-  
-</footer>
-<style>
-  ul {
-  margin: 0px;
-  padding: 0px;
-  
-}
-.footer-section {
-background: linear-gradient(135deg, #5f9cad, #8080bc);
-position: relative;
-margin-top: 60px;
-}
-.footer-cta {
-border-bottom: 1px solid #373636;
-}
-.single-cta i {
-color: white;
-font-size: 30px;
-float: left;
-margin-top: 8px;
-}
-.cta-text {
-padding-left: 15px;
-display: inline-block;
-}
-.cta-text h4 {
-color: #ffffff;
-font-size: 20px;
-font-weight: 600;
-margin-bottom: 2px;
-}
-.cta-text span {
-color: #ffffff;
-font-size: 15px;
-}
-.footer-content {
-position: relative;
-z-index: 2;
-}
-.footer-pattern img {
-position: absolute;
-top: 0;
-left: 0;
-height: 330px;
-background-size: cover;
-background-position: 100% 100%;
-}
-.footer-logo {
-margin-bottom: 30px;
-}
-.footer-logo img {
-  max-width: 200px;
-}
-.footer-text p {
-margin-bottom: 14px;
-font-size: 14px;
-    color: white;
-line-height: 28px;
-}
-.footer-social-icon span {
-color: #ffffff;
-display: block;
-font-size: 20px;
-font-weight: 700;
-font-family: 'Poppins', sans-serif;
-margin-bottom: 20px;
-}
-.footer-social-icon a {
-color: #fff;
-font-size: 16px;
-margin-right: 15px;
-}
-.footer-social-icon i {
-height: 40px;
-width: 40px;
-text-align: center;
-line-height: 38px;
-border-radius: 50%;
-}
-.facebook-bg{
-background: #3B5998;
-}
-.twitter-bg{
-background: #55ACEE;
-}
-.google-bg{
-background: #DD4B39;
-}
-.footer-widget-heading h4 {
-color: #fff;
-font-size: 20px;
-font-weight: 600;
-margin-bottom: 40px;
-position: relative;
-}
-.footer-widget-heading h4::before {
-content: "";
-position: absolute;
-left: 0;
-bottom: -15px;
-height: 2px;
-width: 50px;
-background: #ff5e14;
-}
-.footer-widget ul li {
-display: inline-block;
-float: left;
-width: 50%;
-margin-bottom: 12px;
-}
-.footer-widget ul li a:hover{
-color: #ffffff;
-}
-.footer-widget ul li a {
-color: #ffffff;
-text-transform: capitalize;
-}
-.subscribe-form {
-position: relative;
-overflow: hidden;
-}
-.subscribe-form input {
-width: 100%;
-padding: 14px 28px;
-background: #2E2E2E;
-border: 1px solid #2E2E2E;
-color: #fff;
-}
-.subscribe-form button {
-  position: absolute;
-  right: 0;
-  background: #ff5e14;
-  padding: 13px 20px;
-  border: 1px solid #ff5e14;
-  top: 0;
-}
-.subscribe-form button i {
-color: #fff;
-font-size: 22px;
-transform: rotate(-6deg);
-}
-.copyright-area{
-  
-padding: 25px 0;
-}
-.copyright-text p {
-margin: 0;
-font-size: 14px;
-color: #ffffff;
-}
-.copyright-text p a{
-color: #ffffff;
-}
-.footer-menu li {
-display: inline-block;
-margin-left: 20px;
-}
-.footer-menu li:hover a{
-color: #ffffff;
-}
-.footer-menu li a {
-font-size: 14px;
-color: #878787;
-}
-</style>
-<!-- Include Font Awesome for Social Media Icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  
-    
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<!-- Include Swiper.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
-
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<!-- Bootstrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
 </body>
 </html>

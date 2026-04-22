@@ -135,7 +135,7 @@ def profile(request, pk):
 def albums(request):
     return render(request,"albums.html")
 
-def contact(request):
+def about(request):
     if request.method == 'POST':
         # Retrieve data from the form
         firstname = request.POST.get('firstname')
@@ -157,7 +157,7 @@ def contact(request):
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)})
     
-    return render(request, "contact.html")
+    return render(request, "about.html")
 
 def canada(request):
     if request.method == 'POST':
@@ -193,8 +193,6 @@ def studycanada(request):
 def studyeurope(request, country=None):
     return render(request, "studyeurope.html") 
 
-def about(request):
-    return render(request,"about.html")
 
 def blog1(request):
     return render(request,"blog1.html")
